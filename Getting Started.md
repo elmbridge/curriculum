@@ -148,12 +148,16 @@ Then any function we want to use is namespaced under `String`:
 
 Now let's define and use our own functions.
 
-When Elm shows the type of a functions, it uses arrows `->`.  The rightmost type is the return value, and the other types are the parameters to the function.  For example, `Int -> String -> Float` is the type of a function that takes two parameters: the first is an Int, the second is a String, and the function returns a Float.
+When Elm shows the type of a functions, it uses arrows `->` and colons `:`.
+
+We've seen the colons already, when Elm told us the types of values (e.g., `14 : Int`).
+
+The arrows point to the return value.  Generally, the rightmost type is the return value, and the other types are the parameters to the function.  For example, `Int -> String -> Float` is the type of a function that takes two parameters: the first is an Int, the second is a String, and the function returns a Float.
 
 ```
-> f x = x * 3
+> multiplyByThree x = x * 3
 <function> : number -> number
-> f 10
+> multiplyByThree 10
 30 : number
 > f
 <function> : number -> number
