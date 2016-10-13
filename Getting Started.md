@@ -11,7 +11,7 @@
 
 ### <input type="checkbox"> Step 1
 
-Start the Elm REPL from your terminal:
+Start the Elm REPL ([What is a REPL?](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) from your terminal:
 
 ```bash
 elm-repl
