@@ -173,7 +173,7 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 
 ### Step 9
 
-Exit the Elm REPL by typing `:exit`, or `CTRL-C` (`CMD-D` on Mac).
+Exit the Elm REPL by typing `:exit`, or `CTRL-C`.
 
 ----
 
