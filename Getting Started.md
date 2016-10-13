@@ -109,10 +109,15 @@ To call a function in Elm,
 Here are some of the functions that are always available in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  You can find more about these and other functions in the [`Basics` module documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics)
 
 ```
-> (toString 10) ++ "!"
+> toString 10 ++ "!"
 "10!" : String
 > min 9 1
 1 : number
+```
+
+To disambiguate order of operations, use parentheses.
+
+```
 > round (96 / 7)
 14 : Int
 ```
