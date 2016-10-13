@@ -159,8 +159,6 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 <function> : number -> number
 > multiplyByThree 10
 30 : number
-> f
-<function> : number -> number
 > add a b = a + b
 <function> : number -> number -> number
 > add 10 4
