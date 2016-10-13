@@ -8,3 +8,4 @@
 
 * [The Elm Architecture]()
 * [Making It Dynamic](Making It Dynamic.md)
+* [Emojification!!!](Emojification.md)
