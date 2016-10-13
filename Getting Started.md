@@ -106,7 +106,7 @@ problem may actually be in how the left and right arguments interact.
 
 To call a function in Elm,
 
-Here are some of the functions that are always available in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  You can find more about these and other functions in the [`Basics` module documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics)
+Here are some of the functions that are available by default (i.e., you don't need to import any additional modules to use them, since the `Basics` module is always imported) in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  You can find more about these and other functions in the [`Basics` module documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
 ```
 > toString 10 ++ "!"
@@ -124,11 +124,18 @@ To disambiguate order of operations, use parentheses.
 
 ### <input type="checkbox"> Step 7
 
-Let's use some functions from the String module:
+Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String).
+
+First, we need to import the module.
 
 
 ```
 > import String
+```
+
+Then any function we want to use is namespaced under `String`:
+
+```
 > String.toUpper "Carey"
 "CAREY" : String
 > String.split "," "Apple,Apricot,Avocado,Banana,Blackbery"
