@@ -28,12 +28,10 @@ You should see the following message:
 
 ### <input type="checkbox"> Step 2
 
-Now that you are in the REPL, type the lines starting with `>`
+Now that you are in the REPL, you can write your first Elm code! Code you should try out in the REPL is written on lines starting with `>`.
 
 You can enter values, and Elm will tell you the type of the values.  Try typing
 strings, numbers, and simple mathematical expressions:
-
-(type the lines that begin with `>`)
 
 ```
 > "Hello"
@@ -52,8 +50,6 @@ strings, numbers, and simple mathematical expressions:
 
 You can define and refer to variables:
 
-(type the lines that begin with `>`)
-
 ```
 > x = 5
 5 : number
@@ -67,7 +63,6 @@ You can define and refer to variables:
 
 You can concatenate strings using the `++` operator:
 
-(type the lines that begin with `>`)
 
 ```
 > "Hello" ++ ", World"
