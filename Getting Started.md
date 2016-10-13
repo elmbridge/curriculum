@@ -175,27 +175,23 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 
 Exit the Elm REPL by typing `:exit`, or `CTRL-C` (`CMD-D` on Mac).
 
-> add
-<function> : number -> number -> number
-> add 10
-<function> : number -> number
-> addTen = add 10
-<function> : number -> number
-> addTen 5
-15 : number
-> addTen 24
-34 : number
+----
 
+#### Practical Goals
+Students should be able to load the repl and do basic transformations.
 
-Practical Goals: Students should be able to load the repl and do basic transformations.
-Learning Goals: Students should start mapping elm to languages they know.
-Structure of in-person lesson: Teacher should walk through the lessons alongside students, live coding in the repl.
-Structure of written lesson:
-How to use the repl (with explicit instructions on how to close it)
-Section on strings (with explanation of repl output)
-Defining literal strings
-String concatenation with ++
-Calling functions, like String.toUpper, String.split
-Section on numbers with addition as an example
-Section basic functions (perhaps an add2 function)
-end with defining sayHello name = "Hello, " ++ name (this is the same as the first example in the next part of the curriculum)
+#### Learning Goals
+Students should start mapping elm to languages they know.
+
+#### Structure of in-person lesson
+Teacher should walk through the lessons alongside students, live coding in the repl.
+
+#### Structure of written lesson
+ - How to use the repl (with explicit instructions on how to close it)
+ - Section on strings (with explanation of repl output)
+ - Defining literal strings
+ - String concatenation with ++
+ - Calling functions, like String.toUpper, String.split
+ - Section on numbers with addition as an example
+ - Section basic functions (perhaps an add2 function)
+ - end with defining sayHello name = "Hello, " ++ name (this is the same as the first example in the next part of the curriculum)
