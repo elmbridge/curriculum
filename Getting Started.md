@@ -11,7 +11,7 @@
 
 ### <input type="checkbox"> Step 1
 
-Start the Elm REPL from your terminal:
+Start the Elm REPL ([What is a REPL?](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) from your terminal:
 
 ```bash
 elm-repl
@@ -28,12 +28,10 @@ You should see the following message:
 
 ### <input type="checkbox"> Step 2
 
-Now that you are in the REPL, type the lines starting with `>`
+Now that you are in the REPL, you can write your first Elm code! Code you should try out in the REPL is written on lines starting with `>`.
 
 You can enter values, and Elm will tell you the type of the values.  Try typing
 strings, numbers, and simple mathematical expressions:
-
-(type the lines that begin with `>`)
 
 ```
 > "Hello"
@@ -52,8 +50,6 @@ strings, numbers, and simple mathematical expressions:
 
 You can define and refer to variables:
 
-(type the lines that begin with `>`)
-
 ```
 > x = 5
 5 : number
@@ -67,7 +63,6 @@ You can define and refer to variables:
 
 You can concatenate strings using the `++` operator:
 
-(type the lines that begin with `>`)
 
 ```
 > "Hello" ++ ", World"
@@ -111,24 +106,36 @@ problem may actually be in how the left and right arguments interact.
 
 To call a function in Elm,
 
-Here are some of the functions that are always available in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  You can find more about these and other functions in the [`Basics` module documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics)
+Here are some of the functions that are available by default (i.e., you don't need to import any additional modules to use them, since the `Basics` module is always imported) in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  You can find more about these and other functions in the [`Basics` module documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
 ```
-> (toString 10) ++ "!"
+> toString 10 ++ "!"
 "10!" : String
 > min 9 1
 1 : number
+```
+
+To disambiguate order of operations, use parentheses.
+
+```
 > round (96 / 7)
 14 : Int
 ```
 
 ### <input type="checkbox"> Step 7
 
-Let's use some functions from the String module:
+Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String).
+
+First, we need to import the module.
 
 
 ```
 > import String
+```
+
+Then any function we want to use is namespaced under `String`:
+
+```
 > String.toUpper "Carey"
 "CAREY" : String
 > String.split "," "Apple,Apricot,Avocado,Banana,Blackbery"
@@ -141,12 +148,16 @@ Let's use some functions from the String module:
 
 Now let's define and use our own functions.
 
-When Elm shows the type of a functions, it uses arrows `->`.  The rightmost type is the return value, and the other types are the parameters to the function.  For example, `Int -> String -> Float` is the type of a function that takes two parameters: the first is an Int, the second is a String, and the function returns a Float.
+When Elm shows the type of a functions, it uses arrows `->` and colons `:`.
+
+We've seen the colons already, when Elm told us the types of values (e.g., `14 : Int`).
+
+The arrows point to the return value.  Generally, the rightmost type is the return value, and the other types are the parameters to the function.  For example, `Int -> String -> Float` is the type of a function that takes two parameters: the first is an Int, the second is a String, and the function returns a Float.
 
 ```
-> f x = x * 3
+> multiplyByThree x = x * 3
 <function> : number -> number
-> f 10
+> multiplyByThree 10
 30 : number
 > f
 <function> : number -> number
@@ -160,31 +171,27 @@ When Elm shows the type of a functions, it uses arrows `->`.  The rightmost type
 "Hello, Janice" : String
 ```
 
-### Step ...
+### Step 9
 
-Exit the Elm REPL by typing `:exit`, or `CTRL-C` (`CMD-C` on Mac).
+Exit the Elm REPL by typing `:exit`, or `CTRL-C`.
 
-> add
-<function> : number -> number -> number
-> add 10
-<function> : number -> number
-> addTen = add 10
-<function> : number -> number
-> addTen 5
-15 : number
-> addTen 24
-34 : number
+----
 
+#### Practical Goals
+Students should be able to load the repl and do basic transformations.
 
-Practical Goals: Students should be able to load the repl and do basic transformations.
-Learning Goals: Students should start mapping elm to languages they know.
-Structure of in-person lesson: Teacher should walk through the lessons alongside students, live coding in the repl.
-Structure of written lesson:
-How to use the repl (with explicit instructions on how to close it)
-Section on strings (with explanation of repl output)
-Defining literal strings
-String concatenation with ++
-Calling functions, like String.toUpper, String.split
-Section on numbers with addition as an example
-Section basic functions (perhaps an add2 function)
-end with defining sayHello name = "Hello, " ++ name (this is the same as the first example in the next part of the curriculum)
+#### Learning Goals
+Students should start mapping elm to languages they know.
+
+#### Structure of in-person lesson
+Teacher should walk through the lessons alongside students, live coding in the repl.
+
+#### Structure of written lesson
+ - How to use the repl (with explicit instructions on how to close it)
+ - Section on strings (with explanation of repl output)
+ - Defining literal strings
+ - String concatenation with ++
+ - Calling functions, like String.toUpper, String.split
+ - Section on numbers with addition as an example
+ - Section basic functions (perhaps an add2 function)
+ - end with defining sayHello name = "Hello, " ++ name (this is the same as the first example in the next part of the curriculum)
