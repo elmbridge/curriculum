@@ -110,7 +110,7 @@ The child div has two attributes (another `class` attribute and an `onClick` han
 
 What does `model.text` means in the context of our `view` function? This function is responsible for rendering the application's current state as HTML — and that state is stored in the `model` variable. Every time the application's state changes, this function will be called with a new `model` value — if `model.text` is different than the last time this function was called, the UI will update with new text!
 
-You may wonder how this function can be performant — every time the `model` changes, even slightly, `View.view` has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, How does elm not collapse under the load?
+You may wonder how this function can be performant — every time the `model` changes, even slightly, our `view` function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, How does elm not collapse under the load?
 
 Good news: Elm is optimized to be performant under pressure. It uses a library called [virtual-dom](https://github.com/elm-lang/virtual-dom) to ensure that the entire page doesn't have to re-render every time the application's state changes. React and Ember use similar strategies, although Elm has more tricks up it's sleeve because of it's functional nature. The exact details are out of scope for this tutorial, however — just know that you generally don't have to worry about performance when writing elm.
 
