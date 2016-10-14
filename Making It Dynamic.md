@@ -36,7 +36,7 @@ Our goal is to make the text that the user enters display back to them, like thi
 
 ![Release 1 in GIF form](images/release-1.gif)
 
-As we learned in [the last lesson](The Elm Architecture.md), every Elm app is built upon the `Model`, `View`, and `Update` triad. This app is no different – in order to implement this feature, we may need to change all three.
+As we learned in [the last lesson](The Elm Architecture.md), every Elm app is built upon the `model`, `view`, and `update` triad. This app is no different – in order to implement this feature, we may need to change all three.
 
 First, Let's take a look at the model in `Model.elm`:
 
@@ -46,9 +46,9 @@ type alias Model =
     { currentText : String }
 ```
 
-This model represents the state of the application. All changes on the page should be reflections of a change in this model. This model is a **record**, which is a key-value map with predefined keys. In our case, the model contains a `currentText` attribute that must be a string. That's perfect for our feature — as a user inputs text into the application, we'll update the `currentText` attribute, and reflect it's new value to the UI.
+For this application, the model is a record that contains a `currentText` attribute that must be a string. That's perfect for our feature — as a user inputs text into the application, we'll update the `currentText` attribute, and reflect it's new value to the UI.
 
-Let's verify that user text input is being captured, and triggering an update to the model. First, let's look in `View.elm`, which is much bigger than it was in the last release! Specifically, let's take a look at the code for input field.
+Let's verify that user text input is being captured is mapped to a `message`. First, let's look in `View.elm`, which is much bigger than it was in the last release! Specifically, let's take a look at the code for input field.
 
 ```elm
 Html.input
@@ -60,7 +60,7 @@ Html.input
   []
 ```
 
-It's worth taking a moment to discuss the API for the `HTML` module. almost all functions in this module have the same structure -- they consume a list of html attributes (like `class`, `id`, `display`, etc.) as well as a list of child elements that are nested inside them.
+It's worth taking a moment to discuss the API for the `HTML` module. almost all functions in this module have the same structure — they consume a list of html attributes (like `class`, `id`, `display`, etc.) as well as a list of child elements that are nested inside them.
 
 While the API is somewhat verbose, much of its contents are probably familiar to you. In this case, the code is generating an `input` element with a type of `text` and a class of `center` and some placeholder text. The resulting HTML looks like this:
 
@@ -68,9 +68,9 @@ While the API is somewhat verbose, much of its contents are probably familiar to
   <input type="text" class="center" placeholder="Let's Translate!">
 ```
 
-The final attribute comes from the HTML.Events library, which describes which `Update` message is sent when the element hears an `input` event. In this case, a message called `SetCurrentText` is sent, along with the element's current text. (SetCurrentText is actually a parameterized value -- don't worry, we'll cover that in a future lesson!)
+The final attribute comes from the `HTML.Events` library, which describes which `Update` message is sent when the element hears an `input` event. In this case, a `message` called `SetCurrentText` is sent, along with the element's current text. (`SetCurrentText String` is actually a parameterized value -- don't worry, we'll cover that in a future lesson!)
 
-This is great! When this message is sent, we can update our model with the new value. To do that, let's check out `Update.elm`:
+This is great! When this `message` is sent, we can update our model with the new value. To do that, let's check out `Update.elm`:
 
 ```elm
 update msg model =
@@ -118,7 +118,7 @@ Html.p
     [ Html.text "It's happening!" ]
 ```
 
-Note: `HTML.text` is a special kind of `HTML` function, that produces a plain-text node. In this case, we've built a paragraph HTML element with a nested child element that is simply plain text.
+Note: `Html.text` is a special kind of `Html` function, that produces a plain-text node. In this case, we've built a paragraph element with a nested child element that is simply plain text.
 
 Insert the above code into the `View.view` function, as a list element after the `HTML.input` element. Once you think you have it, recompile your code to see if it worked.
 
