@@ -10,3 +10,4 @@
 * [Making It Dynamic](Making It Dynamic.md)
 * [Emojification!!!](Emojification.md)
 * [Our First Full Feature](Our First Full Feature.md)
+* [Choose Your Own Emoji](Choose Your Own Emoji.md)
