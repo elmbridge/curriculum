@@ -6,7 +6,7 @@
 
 ## Making an Emoji Translator
 
-* [The Elm Architecture]()
+* [The Elm Architecture](The Elm Architecture.md)
 * [Making It Dynamic](Making It Dynamic.md)
 * [Emojification!!!](Emojification.md)
 * [Our First Full Feature](Our First Full Feature.md)
