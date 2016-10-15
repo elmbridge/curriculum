@@ -6,6 +6,7 @@
 * [Why Elm?](Why Elm.md)
 * [Getting Started](Getting Started.md)
 * [The Basic Building Blocks of Elm](The Basic Building Blocks of Elm.md)
+* [Building User Interfaces](Building User Interfaces.md)
 
 ## Making an Emoji Translator
 
