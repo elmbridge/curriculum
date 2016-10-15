@@ -1,4 +1,4 @@
-# Getting Started
+# The Basic Building Blocks of Elm
 
 ## Goals
 

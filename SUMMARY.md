@@ -1,8 +1,10 @@
 # Summary
 
+## Learning the Basics
+
 * [Introduction](Introduction.md)
 * [Getting Started](Getting Started.md)
-* [Fundamentals](Fundamentals.md)
+* [The Basic Building Blocks of Elm](The Basic Building Blocks of Elm.md)
 
 ## Making an Emoji Translator
 
