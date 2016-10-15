@@ -3,6 +3,7 @@
 ## Learning the Basics
 
 * [Introduction](Introduction.md)
+* [Why Elm?](Why Elm.md)
 * [Getting Started](Getting Started.md)
 * [The Basic Building Blocks of Elm](The Basic Building Blocks of Elm.md)
 
