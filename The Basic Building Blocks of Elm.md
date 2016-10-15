@@ -84,7 +84,7 @@ Unlike strings and lists, records are a special data type that have a special sy
 ```elm
 aNewRecordAppears =
   { key = "value", anotherKey = 1111 }
-``
+```
 
 To get the value out of a record, you can use `.` syntax:
 
