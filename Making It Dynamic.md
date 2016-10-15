@@ -24,7 +24,7 @@ $ elm-make Main.elm --output dist/main.js
 $ open index.html
 ```
 
-You should now have a fully functional elm application running in your browser! It should look like this:
+You should now have a fully functional Elm application running in your browser! It should look like this:
 
 ![Release 0](images/release-0.png)
 
@@ -110,7 +110,7 @@ Thankfully, the skeleton already includes some styling for us. All we need to do
   <p class="center output-text emoji-size">It's happening!!!</p>
 ```
 
-In elm, the code to generate that HTML would look like this
+In Elm, the code to generate that HTML would look like this
 
 ```elm
 Html.p

@@ -39,9 +39,9 @@ As we did with our last release, let's start first by updating `View.elm` with o
 </section>
 ```
 
-Take a crack at converting this to elm. Some of this is straightforward — we already know how to render static elements with attributes and children using the `Html` module. We also already have a list of all supported emojis in `EmojiConverter.supportedEmojis`. But how will we render all those emojis without a lot of copying and pasting?
+Take a crack at converting this to Elm. Some of this is straightforward — we already know how to render static elements with attributes and children using the `Html` module. We also already have a list of all supported emojis in `EmojiConverter.supportedEmojis`. But how will we render all those emojis without a lot of copying and pasting?
 
-Elm shines in situations like this. Since `View.view` is simply elm code, and `Html.Html` is just another type in elm, we can use normal transformations to produce HTML. We can use `EmojiConverter.supportedEmojis` in combination with the `List` module to convert that list of emojis into a list of HTML elements!
+Elm shines in situations like this. Since `View.view` is simply Elm code, and `Html.Html` is just another type in Elm, we can use normal transformations to produce HTML. We can use `EmojiConverter.supportedEmojis` in combination with the `List` module to convert that list of emojis into a list of HTML elements!
 
 The code in `View.view` can use a helper method to render all emoji keys, like this:
 
@@ -63,9 +63,9 @@ renderKeys =
         (List.map (\emoji -> renderKey emoji) EmojiConverter.supportedEmojis)
 ```
 
-It's worth taking a moment to explain what `List.map` is doing. Much like `Array.prototype.map` in JavaScript, `List.map` takes a function and list, calling the function on each element on the list and returning a list of the produced values. The `(\... -> ...)` syntax is how you define an **anonymous function** in elm.
+It's worth taking a moment to explain what `List.map` is doing. Much like `Array.prototype.map` in JavaScript, `List.map` takes a function and list, calling the function on each element on the list and returning a list of the produced values. The `(\... -> ...)` syntax is how you define an **anonymous function** in Elm.
 
-If you want to learn more, the `List` module is thoroughly documented on [package.elmlang.org](http://package.elm-lang.org/packages/elm-lang/core/latest/List). The site is a great resource if you want to learn more about the public API for available elm packages and core modules.
+If you want to learn more, the `List` module is thoroughly documented on [package.elmlang.org](http://package.elm-lang.org/packages/elm-lang/core/latest/List). The site is a great resource if you want to learn more about the public API for available Elm packages and core modules.
 
 Now, it's your turn! Add the new markup to `View.view`, with the `renderKeys` and `renderKey` helper methods. If you get stuck, you can see [a completed version of this step here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-4-part-1).
 
@@ -134,6 +134,6 @@ And now, for the final step — we need to change our translation key based on t
 
 ![Release 4 part 3](images/release-4-part-3.gif)
 
-You definitely know enough elm to figure this out for yourself. However, if you get stuck, check out [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-4-part-3).
+You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-4-part-3).
 
-And with that, you've completed your first elm application!
+And with that, you've completed your first Elm application!
