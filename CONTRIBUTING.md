@@ -1,6 +1,6 @@
 # Thanks!
 
-Thanks for taking the time to contribute to Elmbridge. We sincerely appreciate it.
+Thanks for taking the time to contribute to ElmBridge. We sincerely appreciate it.
 
 Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
 

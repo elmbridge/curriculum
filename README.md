@@ -1,6 +1,6 @@
-# Elmbridge Curriculum
+# ElmBridge Curriculum
 
-Curriculum for the Elmbridge workshop. Hosted here: https://www.gitbook.com/book/raorao/elmbridge-curriculum/details
+Curriculum for the ElmBridge workshop. Hosted here: https://www.gitbook.com/book/raorao/elmbridge-curriculum/details
 
 ## Development Setup
 

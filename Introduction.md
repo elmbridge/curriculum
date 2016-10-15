@@ -1,4 +1,4 @@
-# Welcome to Elmbridge!
+# Welcome to ElmBridge!
 
 Today, you're going to be learning elm! So exciting!
 
