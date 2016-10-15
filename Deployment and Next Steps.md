@@ -1,0 +1,42 @@
+# Deployment and Next Steps
+
+Since elm code compiles to JavaScript, it can be very simple to host and deploy! There are lots of tools out there for hosting static websites composed of HTML, CSS, and JavaScript. For this tutorial, we'll use [Forge](https://getforge.com/), which is free for your first site!
+
+## Goals
+
+  - Deploy your elm application for the world to see!
+  - Learn about what's *not* covered in this tutorial, and how you can learn it
+
+## Steps
+
+### Deployment
+
+Deploying a static site on Forge is relatively simple. Just follow these steps:
+
+1. **Create an account at https://getforge.com/.** This should be absolutely free! Once you have an account, follow instructions to create a new, blank site.
+
+2. **Compile your elm application one last time.** This is important! Since Forge only understands compiled JavaScript, any changes you've made to you app after your last compile will not be reflected.
+
+3. **Compress your project's folder into a .zip file.** The exact directions are dependent on your operating system, but it should be relatively straightforward on all platforms.
+
+4. **Upload your new .zip file to Forge**. In a few seconds, your website should be ready.
+
+And voila, you've deployed your Elm application!
+
+### Next Steps
+
+Thank you for taking the journey with us! Hopefully, you know have an understanding of what it's like to be an elm developer, and what it feels like to work with a functional, compiled language.
+
+Before we finish, we should at least mention the things that this tutorial *didn't* cover, which will come up as you work more in elm. Here's a non-exhuastive list:
+
+- **Types and Type Signatures.** Elm allows developers to constrain and document their code using these tools. They are highly encouraged — a well-factored type system makes code more descriptive and more fault tolerant. Once you've learned more about types, some of the more esoteric Elm compiler messages will begin to make more sense as well.
+- **Currying and Piping**. Elm, like many functional languages, allows for functions to partially applied. For example, if a function takes three arguments, you can give it one argument instead — and it will return a new function that takes two arguments! Elm developers use currying to reuse logic accross their applications, and make their code more readable. In combination with the `|>` symbol (a.k.a. the pipe operator), currying can be a powerful tool.
+- **Decoders, Commands, and Subscriptions**. Sometimes, it is necessary for an Elm application to talk to the outside world. You may need to parse JSON sent from your server, make an HTTP request to an API, use a third-party JavaScript library, or manipulate a part of the UI not rendered by your `view` function. In those cases, you will often have to tell elm how to parse data it is receiving by using the `Json.Decode` module. You may also need to listen for changes to the outside world with `Subscriptions` or to trigger events outside of elm using `Commands`.
+
+There's so much to learn! Here are some resources to get you started:
+
+  - [The official elm guide](https://guide.elm-lang.org/) is a great resource, and gives a great rundown of some of the more complicated parts of the language.
+  - [The elm-tutorial project](https://www.gitbook.com/book/sporto/elm-tutorial/details) is an incredibly in-depth tutorial on building a single page app using elm.
+  - [The elm slack group](http://elmlang.herokuapp.com/) and [the elm-discuss mailing list](https://groups.google.com/forum/?fromgroups#!forum/elm-discuss) are a great way to get in touch with other developers learning and using elm. You can also out http://elm-lang.org/community for more ways to get involved in the elm community!
+
+But more than anything, the best way to learn elm is write more elm! You now know more than enough to write complex and rich front end applications in the language, and you'll pick nuances of the language as you go. Good luck!
