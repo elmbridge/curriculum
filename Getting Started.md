@@ -11,22 +11,11 @@
 
 ### <input type="checkbox"> Step 1
 
-Start the Elm REPL ([What is a REPL?](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) from your terminal:
+Launch the elm REPL again by running the following command:
 
-```bash
-elm-repl
+```sh
+$ elm-repl
 ```
-
-You should see the following message:
-
-```
----- elm-repl 0.17.1 -----------------------------------------------------------
- :help for help, :exit to exit, more at <https://github.com/elm-lang/elm-repl>
---------------------------------------------------------------------------------
->
-```
-
-### <input type="checkbox"> Step 2
 
 Now that you are in the REPL, you can write your first Elm code! Code you should try out in the REPL is written on lines starting with `>`.
 
@@ -46,7 +35,7 @@ strings, numbers, and simple mathematical expressions:
 16 : number
 ```
 
-### <input type="checkbox"> Step 3
+### <input type="checkbox"> Step 2
 
 You can define and refer to variables:
 
@@ -59,7 +48,7 @@ You can define and refer to variables:
 8 : number
 ```
 
-### <input type="checkbox"> Step 4
+### <input type="checkbox"> Step 3
 
 You can concatenate strings using the `++` operator:
 
@@ -73,7 +62,7 @@ You can concatenate strings using the `++` operator:
 "Hello, Anna!" : String
 ```
 
-### <input type="checkbox"> Step 5
+### <input type="checkbox"> Step 4
 
 If you try to perform operations that don't make sense, Elm will try to tell you
 what's wrong:
@@ -102,7 +91,7 @@ acceptable on its own, I assume it is "correct" in subsequent checks. So the
 problem may actually be in how the left and right arguments interact.
 ```
 
-### <input type="checkbox"> Step 6
+### <input type="checkbox"> Step 5
 
 To call a function in Elm,
 
@@ -122,7 +111,7 @@ To disambiguate order of operations, use parentheses.
 14 : Int
 ```
 
-### <input type="checkbox"> Step 7
+### <input type="checkbox"> Step 6
 
 Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String).
 
@@ -144,7 +133,7 @@ Then any function we want to use is namespaced under `String`:
 "Apple -- Apricot -- Avocado" : String
 ```
 
-### <input type="checkbox"> Step 8
+### <input type="checkbox"> Step 7
 
 Now let's define and use our own functions.
 
@@ -169,7 +158,7 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 "Hello, Janice" : String
 ```
 
-### Step 9
+### Step 8
 
 Exit the Elm REPL by typing `:exit`, or `CTRL-C`.
 
