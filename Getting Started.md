@@ -11,7 +11,7 @@
 
 ### <input type="checkbox"> Step 1
 
-Launch the elm REPL again by running the following command:
+Launch the Elm REPL again by running the following command:
 
 ```sh
 $ elm-repl
@@ -168,7 +168,7 @@ Exit the Elm REPL by typing `:exit`, or `CTRL-C`.
 Students should be able to load the repl and do basic transformations.
 
 #### Learning Goals
-Students should start mapping elm to languages they know.
+Students should start mapping Elm to languages they know.
 
 #### Structure of in-person lesson
 Teacher should walk through the lessons alongside students, live coding in the repl.

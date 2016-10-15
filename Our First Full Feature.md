@@ -11,7 +11,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
 ## Goals
 
-  - Write elm view code using HTML as a template.
+  - Write Elm view code using HTML as a template.
   - Add a new message for your application to consume.
   - Extend a type alias and fix subsequent compiler errors.
   - Use union types to store information in more literate ways.
@@ -40,7 +40,7 @@ In our case, we want to build a switch that will allow users to toggle between "
 Take a shot at translating the above HTML to Elm! Some tips if you get stuck:
   - Most `Html` methods take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules) followed by a list of child elements. In this case, our `div` has one child (the `label` element), which itself has four children!
   - To render plain text elements, use `Html.text`. It simply takes a string as it's argument.
-  - Compile early and often! The elm compiler will nudge you in the right direction if your syntax is off.
+  - Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.
 
 If you get stuck, flag down an instructor to help you through it! Alternatively, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
 
@@ -75,7 +75,7 @@ You need to account for the following values:
 Add a branch to cover this pattern!
 ```
 
-Helpfully, the elm compiler enforces **case exhaustiveness** – since our `Update.update` function doesn't handle our new `ToggleDirection` value, the compiler realizes that triggering that `Msg` will break our program. Let's fix it by adding another clause to our case statement, this time matching on the pattern `ToggleDirection`.
+Helpfully, the Elm compiler enforces **case exhaustiveness** – since our `Update.update` function doesn't handle our new `ToggleDirection` value, the compiler realizes that triggering that `Msg` will break our program. Let's fix it by adding another clause to our case statement, this time matching on the pattern `ToggleDirection`.
 
 ```elm
 ToggleDirection ->
@@ -119,7 +119,7 @@ In this case, the `Model` type is simply an alias for "a record with a single ke
 
 But wait, what *is* direction? In other languages, we might describe the current direction as a string, with possible values "emoji-to-text" and "text-to-emoji". We could also model it as a boolean value, perhaps renaming it `translatingTextToEmoji?`.
 
-In elm, we have a more powerful tool at our disposal: union types! We can simply create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant. In `Model.elm`, let's create a custom `Direction` type with two possible values:
+In Elm, we have a more powerful tool at our disposal: union types! We can simply create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant. In `Model.elm`, let's create a custom `Direction` type with two possible values:
 
 ```elm
 type Direction
@@ -177,4 +177,4 @@ Here's what we know:
 
 That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see [a completed version of this feature here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2).
 
-Congratulations, you've completed your first full feature in elm!
+Congratulations, you've completed your first full feature in Elm!

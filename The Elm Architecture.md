@@ -6,8 +6,8 @@ In this lesson, we'll run a simple Elm application, and learn how it all fits to
 
 ## Goals
 
-  - Run your first elm application.
-  - Learn how every part of an elm application works.
+  - Run your first Elm application.
+  - Learn how every part of an Elm application works.
 
 ## Steps
 
@@ -19,7 +19,7 @@ Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/
 $ elm-make Main.elm --output dist/main.js
 ```
 
-`elm-make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application — it compiles that file, along with any files it references, and dumps the output into a file called `main.js`. This file is loaded in `index.html`, which then kicks off your elm application using JavaScript.
+`elm-make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application — it compiles that file, along with any files it references, and dumps the output into a file called `main.js`. This file is loaded in `index.html`, which then kicks off your Elm application using JavaScript.
 
 Whenever you make a change to your code, you will have to recompile before those changes are reflected in your browser. If your code is broken in someway, `elm-make` will fail, and give you helpful error messages on what you need to fix.
 
@@ -29,7 +29,7 @@ Now run the following command to open the application in your browser:
 $ open index.html
 ```
 
-You should now have a fully functional elm application, that looks like this:
+You should now have a fully functional Elm application, that looks like this:
 
 ![Hello World](images/hello-world.gif)
 
@@ -50,7 +50,7 @@ main =
 The `main` function describes the initialization logic for your Elm application. Every entry point file requires `main` function. It consumes a record with three basic pieces of every Elm application:
 
 - **The initial `model`**, which describes the state of our application. The value of `model` will change as the user interacts with our application.
-- **The `view` function**, which is responsible for converting a `model` into HTML for elm to render to the UI. It also maps all possible user actions to the appropriate `messages`.
+- **The `view` function**, which is responsible for converting a `model` into HTML for Elm to render to the UI. It also maps all possible user actions to the appropriate `messages`.
 - **The `update` function**, which is responsible for updating the application's state based on triggered `messages`. It consumes the current application state (the `model`) a single `message`, and returns a new `model` that describes the application's new state.
 
 ![The Elm Architecture](images/elm-architecture-4.jpeg)
@@ -75,11 +75,11 @@ type alias Model =
     { text : String }
 ```
 
-We'll learn more about type aliases later in this tutorial, but for now, it's worth noting that it is simply used for convenience. It's an easy way for other elm developers to tell exactly what information is stored in your `model`.
+We'll learn more about type aliases later in this tutorial, but for now, it's worth noting that it is simply used for convenience. It's an easy way for other Elm developers to tell exactly what information is stored in your `model`.
 
 ### <input type="checkbox"> Step 4
 
-Now, let's take a look at our `view` function in `View.elm`, which is responsible for converting our `model` into HTML. Any changes between the produced HTML and the last rendered HTML will be rendered to the UI by elm.
+Now, let's take a look at our `view` function in `View.elm`, which is responsible for converting our `model` into HTML. Any changes between the produced HTML and the last rendered HTML will be rendered to the UI by Elm.
 
 ```elm
 view model =
@@ -110,9 +110,9 @@ The child div has two attributes (another `class` attribute and an `onClick` han
 
 What does `model.text` means in the context of our `view` function? This function is responsible for rendering the application's current state as HTML — and that state is stored in the `model` variable. Every time the application's state changes, this function will be called with a new `model` value — if `model.text` is different than the last time this function was called, the UI will update with new text!
 
-You may wonder how this function can be performant — every time the `model` changes, even slightly, our `view` function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, How does elm not collapse under the load?
+You may wonder how this function can be performant — every time the `model` changes, even slightly, our `view` function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, How does Elm not collapse under the load?
 
-Good news: Elm is optimized to be performant under pressure. It uses a library called [virtual-dom](https://github.com/elm-lang/virtual-dom) to ensure that the entire page doesn't have to re-render every time the application's state changes. React and Ember use similar strategies, although Elm has more tricks up it's sleeve because of it's functional nature. The exact details are out of scope for this tutorial, however — just know that you generally don't have to worry about performance when writing elm.
+Good news: Elm is optimized to be performant under pressure. It uses a library called [virtual-dom](https://github.com/elm-lang/virtual-dom) to ensure that the entire page doesn't have to re-render every time the application's state changes. React and Ember use similar strategies, although Elm has more tricks up it's sleeve because of it's functional nature. The exact details are out of scope for this tutorial, however — just know that you generally don't have to worry about performance when writing Elm.
 
 Before we move on, let's take another look at that `onClick` handler:
 
@@ -146,7 +146,7 @@ We just saw that the `ChangeText` message can be triggered in the UI when the us
 
 Either way, the new `model` will be converted to HTML, and any changed will be rendered to the UI by our `view` function.
 
-Wait, there's only one possible action tracked in our UI — why have a case statement at all?  This is convention in elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case statement will get longer and longer to accomodate the new messages.
+Wait, there's only one possible action tracked in our UI — why have a case statement at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case statement will get longer and longer to accomodate the new messages.
 
 It's worth taking a look at `Msg` type:
 
@@ -155,8 +155,8 @@ type Msg
     = ChangeText
 ```
 
-This is a **union type** declaration in elm. We'll go further into the details in a future lesson, but for right now, you can think of this as way to model `messages` in our application. The above code declares that there is exactly one acceptable value for a `message`: a value called `ChangeText`. If we wanted to add another `message`, we would have to change this declaration to include a new value for `Msg`.
+This is a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as way to model `messages` in our application. The above code declares that there is exactly one acceptable value for a `message`: a value called `ChangeText`. If we wanted to add another `message`, we would have to change this declaration to include a new value for `Msg`.
 
-Elm doesn't enforce that we use a union type called `Msg` for `messages` — we could just as easily model `messages` as strings, or numbers, or records. It is convention, however, to model data using union types whenever appropriate. Don't worry if you are somewhat lost — union types are one of the more difficult concepts to learn as a beginner to elm, and it's fine for now if they are simply magic words you know you can recite.
+Elm doesn't enforce that we use a union type called `Msg` for `messages` — we could just as easily model `messages` as strings, or numbers, or records. It is convention, however, to model data using union types whenever appropriate. Don't worry if you are somewhat lost — union types are one of the more difficult concepts to learn as a beginner to Elm, and it's fine for now if they are simply magic words you know you can recite.
 
-Now that we're done touring the basics of the elm triad, let's get building!
+Now that we're done touring the basics of the Elm triad, let's get building!
