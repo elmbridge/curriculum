@@ -11,3 +11,4 @@
 * [Emojification!!!](Emojification.md)
 * [Our First Full Feature](Our First Full Feature.md)
 * [Choose Your Own Emoji](Choose Your Own Emoji.md)
+* [Deployment and Next Steps](Deployment and Next Steps.md)
