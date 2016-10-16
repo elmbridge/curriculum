@@ -12,7 +12,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 ## Goals
 
   - Use transformation functions to render dynamic HTML.
-  - Use complex `Html` methods to render conditional classes.
+  - Use complex `Html` functions to render conditional classes.
   - Model a domain using parameterized values.
   - Implement a full feature from start to finish.
 
@@ -43,7 +43,7 @@ Take a crack at converting this to Elm. Some of this is straightforward — we a
 
 Elm shines in situations like this. Since `View.view` is simply Elm code, and `Html.Html` is just another type in Elm, we can use normal transformations to produce HTML. We can use `EmojiConverter.supportedEmojis` in combination with the `List` module to convert that list of emojis into a list of HTML elements!
 
-The code in `View.view` can use a helper method to render all emoji keys, like this:
+The code in `View.view` can use a helper function to render all emoji keys, like this:
 
 ```elm
   -- ...
@@ -67,12 +67,12 @@ It's worth taking a moment to explain what `List.map` is doing. Much like `Array
 
 If you want to learn more, the `List` module is thoroughly documented on [package.elmlang.org](http://package.elm-lang.org/packages/elm-lang/core/latest/List). The site is a great resource if you want to learn more about the public API for available Elm packages and core modules.
 
-Now, it's your turn! Add the new markup to `View.view`, with the `renderKeys` and `renderKey` helper methods. If you get stuck, you can see [a completed version of this step here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-4-part-1).
+Now, it's your turn! Add the new markup to `View.view`, with the `renderKeys` and `renderKey` helper functions. If you get stuck, you can see [a completed version of this step here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-4-part-1).
 
 ### <input type="checkbox"> Step 2
 
 There's one more part of the UI that we have to render — we have to display the currently selected key as selected. If we give the specified emoji `.key-selector` a class of `.is-selected`, it will display with a blue background. For now, we'll
-hardcode the selected key to `Model.defaultKey`.
+hard code the selected key to `Model.defaultKey`.
 
 When you have to conditionally attach classes to an HTML element in Elm, the `Html.Attributes.classList` function is helpful in simplifying the code. The function consumes a list of tuples, with each tuple containing a string (representing a class) and a boolean (describing whether the class should be attached to the element). The code for rendering the `.key-selector` element might look something like this:
 
@@ -86,11 +86,11 @@ Html.div
     [ Html.text emoji ]
 ```
 
-Once you've added that code to your `renderKey` method, you should have a working, if static, UI!
+Once you've added that code to your `renderKey` function, you should have a working, if static, UI!
 
 ### <input type="checkbox"> Step 3
 
-Now that we've updated the UI, we have to map our new user action to a message for our application to consume. Add the following line of code to your `renderKey` method, as an attribute to the element with a class of `.key-selector`:
+Now that we've updated the UI, we have to map our new user action to a message for our application to consume. Add the following line of code to your `renderKey` function, as an attribute to the element with a class of `.key-selector`:
 
 ```elm
 Html.Events.onClick (Update.SetSelectedKey emoji)
@@ -116,7 +116,7 @@ That's a lot! Work slowly, and lean on your compiler for help. If you get stuck,
 
 ### <input type="checkbox"> Step 4
 
-Now that `Update.update` consumes our new message, we need to reflect changes to the model onto the UI. First off, we need to use our new `model.selectedKey` attribute to display to the user which key is currently selected. As of now, our `renderKeys` method does not consume `model`, so it has no idea about the current state of the application. Let's change that! `renderKeys` should look like this:
+Now that `Update.update` consumes our new message, we need to reflect changes to the model onto the UI. First off, we need to use our new `model.selectedKey` attribute to display to the user which key is currently selected. As of now, our `renderKeys` function does not consume `model`, so it has no idea about the current state of the application. Let's change that! `renderKeys` should look like this:
 
 
 ```elm
@@ -126,7 +126,7 @@ renderKeys model =
         (List.map (\emoji -> renderKey model emoji) EmojiConverter.supportedEmojis)
 ```
 
-You will have to change the callsite of `renderKeys` in `View.view` to match the new signature of the method, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whther a key is selected. The UI should know show you which keys are selected, as you click on them!
+You will have to change the call site of `renderKeys` in `View.view` to match the new signature of the function, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whther a key is selected. The UI should know show you which keys are selected, as you click on them!
 
 ### <input type="checkbox"> Step 5
 

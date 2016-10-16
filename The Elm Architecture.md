@@ -55,7 +55,7 @@ The `main` function describes the initialization logic for your Elm application.
 
 ![The Elm Architecture](images/elm-architecture-4.jpeg)
 
-The initial `model`, `view` function, and `update` function together form a **triad** that is required in every Elm application. For more complicated programs, a few other peices are required — however, for this session, we'll focus on the core triad.
+The initial `model`, `view` function, and `update` function together form a **triad** that is required in every Elm application. For more complicated programs, a few other pieces are required — however, for this session, we'll focus on the core triad.
 
 ### <input type="checkbox"> Step 3
 
@@ -146,7 +146,7 @@ We just saw that the `ChangeText` message can be triggered in the UI when the us
 
 Either way, the new `model` will be converted to HTML, and any changed will be rendered to the UI by our `view` function.
 
-Wait, there's only one possible action tracked in our UI — why have a case statement at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case statement will get longer and longer to accomodate the new messages.
+Wait, there's only one possible action tracked in our UI — why have a case statement at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case statement will get longer and longer to accommodate the new messages.
 
 It's worth taking a look at `Msg` type:
 

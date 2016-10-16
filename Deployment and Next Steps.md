@@ -21,16 +21,16 @@ Deploying a static site on Forge is relatively simple. Just follow these steps:
 
 4. **Upload your new .zip file to Forge**. In a few seconds, your website should be ready.
 
-And voila, you've deployed your Elm application!
+You've just deployed your Elm application!
 
 ### Next Steps
 
 Thank you for taking the journey with us! Hopefully, you know have an understanding of what it's like to be an Elm developer, and what it feels like to work with a functional, compiled language.
 
-Before we finish, we should at least mention the things that this tutorial *didn't* cover, which will come up as you work more in Elm. Here's a non-exhuastive list:
+Before we finish, we should at least mention the things that this tutorial *didn't* cover, which will come up as you work more in Elm. Here's a non-exhaustive list:
 
 - **Types and Type Signatures.** Elm allows developers to constrain and document their code using these tools. They are highly encouraged — a well-factored type system makes code more descriptive and more fault tolerant. Once you've learned more about types, some of the more esoteric Elm compiler messages will begin to make more sense as well.
-- **Currying and Piping**. Elm, like many functional languages, allows for functions to partially applied. For example, if a function takes three arguments, you can give it one argument instead — and it will return a new function that takes two arguments! Elm developers use currying to reuse logic accross their applications, and make their code more readable. In combination with the `|>` symbol (a.k.a. the pipe operator), currying can be a powerful tool.
+- **Currying and Piping**. Elm, like many functional languages, allows for functions to partially applied. For example, if a function takes three arguments, you can give it one argument instead — and it will return a new function that takes two arguments! Elm developers use currying to reuse logic across their applications, and make their code more readable. In combination with the `|>` symbol (a.k.a. the pipe operator), currying can be a powerful tool.
 - **Decoders, Commands, and Subscriptions**. Sometimes, it is necessary for an Elm application to talk to the outside world. You may need to parse JSON sent from your server, make an HTTP request to an API, use a third-party JavaScript library, or manipulate a part of the UI not rendered by your `view` function. In those cases, you will often have to tell Elm how to parse data it is receiving by using the `Json.Decode` module. You may also need to listen for changes to the outside world with `Subscriptions` or to trigger events outside of Elm using `Commands`.
 
 There's so much to learn! Here are some resources to get you started:
