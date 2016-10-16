@@ -1,6 +1,6 @@
 # Making it Dynamic
 
-In this release, we'll start making our emoji translator app! Eventually, the app will be able to "encrypt" messages using an emoji key, so that users can pass secret messages to each other. The final product will look something like this:
+In this release, we'll start making our emoji translator application! Eventually, the user will be able to "encrypt" messages using an emoji key, so that users can pass secret messages to each other. The final product will look something like this:
 
 
 ![Final Release](images/final-release.png)
@@ -36,7 +36,7 @@ Our goal is to make the text that the user enters display back to them, like thi
 
 ![Release 1 in GIF form](images/release-1.gif)
 
-As we learned in [the last lesson](The Elm Architecture.md), every Elm app is built upon the `model`, `view`, and `update` triad. This app is no different – in order to implement this feature, we may need to change all three.
+As we learned in [the last lesson](The Elm Architecture.md), every Elm application is built upon the `model`, `view`, and `update` triad. This app is no different – in order to implement this feature, we may need to change all three.
 
 First, Let's take a look at the model in `Model.elm`:
 
@@ -60,7 +60,7 @@ Html.input
   []
 ```
 
-It's worth taking a moment to discuss the API for the `HTML` module. almost all functions in this module have the same structure — they consume a list of html attributes (like `class`, `id`, `display`, etc.) as well as a list of child elements that are nested inside them.
+It's worth taking a moment to discuss the API for the `HTML` module. almost all functions in this module have the same structure — they consume a list of HTML attributes (like `class`, `id`, `display`, etc.) as well as a list of child elements that are nested inside them.
 
 While the API is somewhat verbose, much of its contents are probably familiar to you. In this case, the code is generating an `input` element with a type of `text` and a class of `center` and some placeholder text. The resulting HTML looks like this:
 

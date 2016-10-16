@@ -127,8 +127,8 @@ Then any function we want to use is namespaced under `String`:
 ```
 > String.toUpper "Carey"
 "CAREY" : String
-> String.split "," "Apple,Apricot,Avocado,Banana,Blackbery"
-["Apple","Apricot","Avocado","Banana","Blackbery"] : List String
+> String.split "," "Apple,Apricot,Avocado,Banana,Blackberry"
+["Apple","Apricot","Avocado","Banana","Blackberry"] : List String
 > String.join " -- " (String.split "," "Apple,Apricot,Avocado")
 "Apple -- Apricot -- Avocado" : String
 ```

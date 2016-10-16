@@ -72,7 +72,7 @@ Now, it's your turn! Add the new markup to `View.view`, with the `renderKeys` an
 ### <input type="checkbox"> Step 2
 
 There's one more part of the UI that we have to render — we have to display the currently selected key as selected. If we give the specified emoji `.key-selector` a class of `.is-selected`, it will display with a blue background. For now, we'll
-hardcode the selected key to `Model.defaultKey`.
+hard code the selected key to `Model.defaultKey`.
 
 When you have to conditionally attach classes to an HTML element in Elm, the `Html.Attributes.classList` function is helpful in simplifying the code. The function consumes a list of tuples, with each tuple containing a string (representing a class) and a boolean (describing whether the class should be attached to the element). The code for rendering the `.key-selector` element might look something like this:
 
@@ -126,7 +126,7 @@ renderKeys model =
         (List.map (\emoji -> renderKey model emoji) EmojiConverter.supportedEmojis)
 ```
 
-You will have to change the callsite of `renderKeys` in `View.view` to match the new signature of the method, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whther a key is selected. The UI should know show you which keys are selected, as you click on them!
+You will have to change the call site of `renderKeys` in `View.view` to match the new signature of the method, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whther a key is selected. The UI should know show you which keys are selected, as you click on them!
 
 ### <input type="checkbox"> Step 5
 
