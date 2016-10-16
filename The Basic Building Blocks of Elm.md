@@ -56,8 +56,32 @@ String.right 1 someStringVariable
 
 If you get stuck, flag down an instructor! They are here to help.
 
-
 ### <input type="checkbox"> Step 3
+
+Elm has all the traditional structures for conditional logic, including `if`, `else`, `case`, and the `==`, `<`, and `>` operators. For instance:
+
+```elm
+numberToWords num =
+  if num == 0 then
+    "zero"
+  else if num == 1 then
+    "one"
+  else
+    "a number larger than one"
+
+--here's the same function, implemented with a case statement
+numberToWords num =
+  case num of
+    0 -> "zero"
+    1 -> "one"
+    _ -> "a number larger than one"
+```
+
+Elm enforces that all branches of an `if` or `case` expression must return the same type of value — so all `if` expressions must include a corresponding `else` clause, and all possible values must be accounted for in a `case` statement. You can learn more about conditionals in the [official syntax guide](http://elm-lang.org/docs/syntax).
+
+Take a shot at completing the assertions for if expressions!
+
+### <input type="checkbox"> Step 4
 
 In Elm, you can use a **List** to store a collection of elements. Unlike dynamic languages, though, Elm lists are **typed** — every element in a list must the same kind of thing. You can't have a list that stores both strings and numbers, for example.
 
@@ -75,7 +99,7 @@ Note: the value after the `\` is the input to the function, while whatever is af
 
 Good luck!
 
-### <input type="checkbox"> Step 4
+### <input type="checkbox"> Step 5
 
 Just like Ruby has hashes and JavaScript has objects, Elm has **records** to store key-value pairs. Unlike those other languages, though, Elm does not allow you to change the number of keys of a record after creation. A record with three keys always has three keys, no matter what.
 
