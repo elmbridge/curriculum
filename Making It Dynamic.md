@@ -20,8 +20,8 @@ We need to walk before we run, though! First, we'll make an application that sim
 Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Run the following commands to open the app in your browser:
 
 ```sh
-$ elm-make Main.elm --output dist/main.js
-$ open index.html
+elm-make Main.elm --output dist/main.js
+open index.html
 ```
 
 You should now have a fully functional Elm application running in your browser! It should look like this:
@@ -94,7 +94,7 @@ update msg model =
 once you've made the change, recompile your code by running the following:
 
 ```sh
-$ elm-make Main.elm --output dist/main.js
+elm-make Main.elm --output dist/main.js
 ```
 
 The compiler will tell you about any errors you made, or let you know that everything is working!

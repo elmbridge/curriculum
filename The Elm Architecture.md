@@ -16,7 +16,7 @@ In this lesson, we'll run a simple Elm application, and learn how it all fits to
 Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world](https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world) and navigate to the downloaded folder. Run the following command:
 
 ```sh
-$ elm-make Main.elm --output dist/main.js
+elm-make Main.elm --output dist/main.js
 ```
 
 `elm-make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application — it compiles that file, along with any files it references, and dumps the output into a file called `main.js`. This file is loaded in `index.html`, which then kicks off your Elm application using JavaScript.
@@ -26,7 +26,7 @@ Whenever you make a change to your code, you will have to recompile before those
 Now run the following command to open the application in your browser:
 
 ```sh
-$ open index.html
+open index.html
 ```
 
 You should now have a fully functional Elm application, that looks like this:
