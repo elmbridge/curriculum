@@ -137,7 +137,7 @@ Then any function we want to use is namespaced under `String`:
 
 Now let's define and use our own functions.
 
-When Elm shows the type of a functions, it uses arrows `->` and colons `:`.
+When Elm shows the type of a function, it uses arrows `->` and colons `:`.
 
 We've seen the colons already, when Elm told us the types of values (e.g., `14 : Int`).
 

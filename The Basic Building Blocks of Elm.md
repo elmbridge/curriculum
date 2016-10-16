@@ -1,6 +1,6 @@
 # The Basic Building Blocks of Elm
 
-In this release, you'll learn how to work the the basic data structures of Elm. You'll be working with a [custom application that we've written](https://github.com/elmbridge/intro-to-elm-part-1) where you'll be asked to implement some basic transformations.
+In this release, you'll learn how to work with the basic data structures of Elm. You'll be working with a [custom application that we've written](https://github.com/elmbridge/intro-to-elm-part-1) where you'll be asked to implement some basic transformations.
 
 ## Goals
 
@@ -79,11 +79,11 @@ numberToWords num =
 
 Elm enforces that all branches of an `if` or `case` expression must return the same type of value — so all `if` expressions must include a corresponding `else` clause, and all possible values must be accounted for in a `case` statement. You can learn more about the default functions of the language in the documentation for [the `Basics` module](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
-Take a shot at completing the assertions for if expressions!
+Take a shot at completing the assertions for `if` expressions!
 
 ### <input type="checkbox"> Step 4
 
-In Elm, you can use a **List** to store a collection of elements. Unlike dynamic languages, though, Elm lists are **typed** — every element in a list must the same kind of thing. You can't have a list that stores both strings and numbers, for example.
+In Elm, you can use a **List** to store a collection of elements. Unlike dynamic languages, though, Elm lists are **typed** — every element in a list must be the same kind of thing. You can't have a list that stores both strings and numbers, for example.
 
 For this step, you should complete all the `List` assertions. Some tips:
 
