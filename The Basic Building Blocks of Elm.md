@@ -77,7 +77,7 @@ numberToWords num =
     _ -> "a number larger than one"
 ```
 
-Elm enforces that all branches of an `if` or `case` expression must return the same type of value — so all `if` expressions must include a corresponding `else` clause, and all possible values must be accounted for in a `case` statement. You can learn more about conditionals in the [official syntax guide](http://elm-lang.org/docs/syntax).
+Elm enforces that all branches of an `if` or `case` expression must return the same type of value — so all `if` expressions must include a corresponding `else` clause, and all possible values must be accounted for in a `case` statement. You can learn more about the default functions of the language in the documentation for [the `Basics` module](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
 Take a shot at completing the assertions for if expressions!
 
