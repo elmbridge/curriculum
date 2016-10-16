@@ -158,27 +158,6 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 "Hello, Janice" : String
 ```
 
-### Step 8
+### <input type="checkbox"> Step 8
 
 Exit the Elm REPL by typing `:exit`, or `CTRL-C`.
-
-----
-
-#### Practical Goals
-Students should be able to load the repl and do basic transformations.
-
-#### Learning Goals
-Students should start mapping Elm to languages they know.
-
-#### Structure of in-person lesson
-Teacher should walk through the lessons alongside students, live coding in the repl.
-
-#### Structure of written lesson
- - How to use the repl (with explicit instructions on how to close it)
- - Section on strings (with explanation of repl output)
- - Defining literal strings
- - String concatenation with ++
- - Calling functions, like String.toUpper, String.split
- - Section on numbers with addition as an example
- - Section basic functions (perhaps an add2 function)
- - end with defining sayHello name = "Hello, " ++ name (this is the same as the first example in the next part of the curriculum)
