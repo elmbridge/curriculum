@@ -58,7 +58,7 @@ If you get stuck, flag down an instructor! They are here to help.
 
 ### <input type="checkbox"> Step 3
 
-Elm has all the traditional structures for conditional logic, including `if`, `else`, `case`, and the `==`, `<`, and `>` operators. For instance:
+Elm has all the traditional structures for conditional logic, including `if`, `else`, `case`, and the `==`, `<`, `>`, `&&`, and `||` operators. (Note: the "not equal" operator is a non-standard `/=`.) Here's what that looks like in practice:
 
 ```elm
 numberToWords num =
