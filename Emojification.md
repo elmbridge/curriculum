@@ -30,7 +30,7 @@ module EmojiConverter exposing (textToEmoji, emojiToText, supportedEmojis)
 
 Like all Elm files, `EmojiConverter.elm` starts off by telling us what module it defines. In other files, we'll be able to call it's functions by using the `EmojiConverter` namespace, in the same way we use the `Html` or `List` namespaces.
 
-This line also tells us the public API for the `EmojiConverter` module — regardless of what else is defined in this file, other files can, at most, access the three functions defined above. We can make some guesses as to purpose and method signature for these methods, based on their names. In this case, the `textToEmoji` function seems like exactly what we are looking for.
+This line also tells us the public API for the `EmojiConverter` module — regardless of what else is defined in this file, other files can, at most, access the three functions defined above. We can make some guesses as to purpose and signature for these functions, based on their names. In this case, the `textToEmoji` function seems like exactly what we are looking for.
 
 Let's import just the module into our `View.elm` file, by adding this to the list of imports:
 
@@ -60,7 +60,7 @@ But it is:
 
 This error might seem like gibberish at first, but stay strong — Elm error messages are very good at telling you exactly what you need to know. In this case, it seems that, instead of passing `HTML.text` a string to render, we are passing it a function that takes a string and returns a string. In Elm-land, that often means that you passed too few arguments into a function — if a function takes two arguments, and you only provided it one, it will return a **partially-applied function** that still needs one more argument!
 
-As you may have guessed, it seems like we've gotten the method signature for `EmojiConverter.textToEmoji` wrong. Let's take a look at it's definition in `EmojiConverter.elm`:
+As you may have guessed, it seems like we've gotten the signature for `EmojiConverter.textToEmoji` wrong. Let's take a look at it's definition in `EmojiConverter.elm`:
 
 ```elm
 type alias Key =
@@ -91,7 +91,7 @@ Recompile the code, refresh your browser, and you should be in business!
 
 While this solution works, I'd argue that the code has become harder to follow. Let's refactor!
 
-First off, let's extract a helper method for translating text. in `View.elm`, we can add a method that consumes a model and returns emojis:
+First off, let's extract a helper function for translating text. in `View.elm`, we can add a function that consumes a model and returns emojis:
 
 ```elm
 translateText model =
@@ -100,7 +100,7 @@ translateText model =
 
 Note: Type signatures are always optional in Elm, but they are highly encouraged — type signatures can be a good form of documentation, and they help the compiler make educated guessed about what went wrong when your code fails to recompile. Feel free to add your own to `translateText`!
 
-We can now use this method in our `View.view` function. Since it's defined in the same file as it's being used, we don't even have to use the `View` namespace. We can simply invoke it as such:
+We can now use this function in our `View.view` function. Since it's defined in the same file as it's being used, we don't even have to use the `View` namespace. We can simply invoke it as such:
 
 ```elm
 Html.text (translateText model)

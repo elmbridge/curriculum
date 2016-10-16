@@ -38,7 +38,7 @@ In our case, we want to build a switch that will allow users to toggle between "
 ```
 
 Take a shot at translating the above HTML to Elm! Some tips if you get stuck:
-  - Most `Html` methods take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules) followed by a list of child elements. In this case, our `div` has one child (the `label` element), which itself has four children!
+  - Most `Html` functions take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules) followed by a list of child elements. In this case, our `div` has one child (the `label` element), which itself has four children!
   - To render plain text elements, use `Html.text`. It simply takes a string as it's argument.
   - Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.
 
