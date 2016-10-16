@@ -29,6 +29,6 @@ Developing with Elm often feels like an ongoing conversation with the compiler, 
 
 You may be asking yourself why you should choose to learn a language that's so different from other tools in the ecosystem. **We'd argue that the experience of working in an alien environment can make you more productive in your home environment, even if the experience is just for a little while.**  You are probably not used to dealing with the constraints of purity, immutability, and static typing, which together make up the basic tenets of **functional programming**. These constraints will push you to solve problems in creative ways, and hopefully you will learn strategies that you can employ in other languages.
 
-We make no claim that functional programming is *better* than other types of programming, but it definitely is *different*. We strongly believe that learning a new way to think about programming will make you a better developer, in the same way that learning a second language makes you appreciate the architecture and beauty of the languages you already know.
+We make no claim that functional programming is *better* than other types of programming, but it definitely is *different*. We strongly believe that learning a new way to think about programming will make you a better developer, in the same way that learning a foreign language makes you appreciate the architecture and beauty of the languages you already know.
 
 So let's get started!
