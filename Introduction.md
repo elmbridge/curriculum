@@ -33,7 +33,7 @@ If you haven't done so already, follow [the official Elm guide](https://guide.el
 You can verify everything is working by launching the Elm REPL ([What is a REPL?](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) from your terminal by running the following command:
 
 ```sh
-$ elm-repl
+elm-repl
 ```
 
 If you see the following message, you are ready to go!

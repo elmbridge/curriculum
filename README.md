@@ -7,8 +7,8 @@ Curriculum for the ElmBridge workshop. Hosted here: https://www.gitbook.com/book
 This curriculum is written using [GitBook](https://github.com/GitbookIO/gitbook). To run locally, run:
 
 ```sh
-$ npm install gitbook-cli -g
-$ gitbook serve
+npm install gitbook-cli -g
+gitbook serve
 ```
 
 ## Contributing
