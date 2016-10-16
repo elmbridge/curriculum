@@ -116,7 +116,7 @@ To get the value out of a record, you can use `.` syntax:
 aNewRecordAppears.key
 ```
 
-And to update a specific attribute, you use `|` operator
+And to update a specific attribute, you use `|` syntax:
 
 ```elm
 { aNewRecordAppears | key = "a new value for the specified key" }
