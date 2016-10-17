@@ -2,7 +2,7 @@
 
 In this section, we'll talk about the advantages — and disadvantages! — of using Elm to make front-end applications.
 
-First, the basics: **Elm is a language for building complex web interfaces.** It is a language that compiles to JavaScript — much like CoffeeScript or ES6 build tools, the Elm Platform takes your Elm code and turns it into JavaScript that any web browser can understand. In many ways, it operates similarly to front-end JavaScript frameworks like React, Angular, and Ember.
+First, the basics: **Elm is a language for building complex web interfaces.** Much like CoffeeScript or JSX, Elm compiles to JavaScript; the Elm Platform takes your Elm code and turns it into JavaScript that any web browser can understand. In many ways, it operates similarly to front-end JavaScript frameworks like React, Angular, and Ember.
 
 So why do developers go to the trouble of using a whole new language instead of using a JavaScript framework? Indeed, Elm shares many of its opinions about architecture and code quality with those tools. However, **Elm is different in one important way — because it is a distinct programming language and not simply a framework, Elm can strictly enforce its opinions.**
 
