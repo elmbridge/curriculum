@@ -10,7 +10,7 @@ And the language has lots of rules! They are meant to push developers toward wri
 
 - **If a function in Elm is given an input, it always returns the same output.** There is no notion of instance variables or `this` in Elm — the only thing a function can do is read the values of its arguments and call out to other functions. This quality of the language is called **purity** — no matter what context, a function will do the same thing every time.
 
-- **Variables, once defined, can never change.** It's not possible, for instance, for a function to accidentally change its inputs, or for something to become `undefined`. If you need to add an element to a list, there is no way to do so destructively — instead, you have to create a new list with all the elements you specify. Values like these are called **immutable**.
+- **Once a value is declared in an Elm application, it can never change.** It's not possible, for instance, for a function to accidentally change its inputs, or for something to become `undefined`. If you need to add an element to a list, there is no way to do so destructively — instead, you have to create a new list with all the elements you specify. Values like these are called **immutable**.
 
 - **Everything in Elm has a *type*. Nothing can ever break that contract.** For instance, if you make a `length` function that takes a string and returns an integer, it is not possible for that function to return a float, another string, or a null value (in fact, there are no null values in the entire language). Those same constraints operate on everything in the language, including variables, functions, and complex data structures. That is why Elm is called a **statically typed** language.
 
