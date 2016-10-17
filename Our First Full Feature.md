@@ -110,7 +110,7 @@ The code above declares that `Model` is a **type alias** for a specific shape of
 
 Type aliases are helpful for making type signatures simple and readable. For example, you can see that `Model` is used in the type signature for `init`:
 
-```
+```elm
 init : Model
 init =
     { currentText = "" }
@@ -118,7 +118,7 @@ init =
 
 Without this type alias, we would've had to write:
 
-```
+```elm
 init : { currentText : String }
 init =
     { currentText = "" }
