@@ -38,7 +38,7 @@ Our goal is to make the text that the user enters display back to them, like thi
 
 As we learned in [the last lesson](The Elm Architecture.md), every Elm application is built upon the `model`, `view`, and `update` triad. This app is no different – in order to implement this feature, we may need to change all three.
 
-First, Let's take a look at the model in `Model.elm`:
+First, let's take a look at the model in `Model.elm`:
 
 
 ```elm
