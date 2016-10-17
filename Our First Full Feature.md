@@ -67,7 +67,7 @@ We'll make sure our lever triggers the new `ToggleDirection` `Msg` whenever the 
 
 If you try to compile now, you'll notice that the compiler realizes something is wrong:
 
-```elm
+```
 ==== error in Update.elm:13:5: ====
 This `case` does not have branches for all possibilities.
 You need to account for the following values:
