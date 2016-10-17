@@ -112,7 +112,7 @@ What does `model.text` means in the context of our `view` function? This functio
 
 You may wonder how this function can be performant — every time the `model` changes, even slightly, our `view` function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, how does Elm not collapse under the load?
 
-Good news: Elm is optimized to be performant under pressure. It uses a library called [virtual-dom](https://github.com/elm-lang/virtual-dom) to ensure that the entire page doesn't have to re-render every time the application's state changes. React and Ember use similar strategies, although Elm has more tricks up its sleeve because of its functional nature. The exact details are out of scope for this tutorial, however — just know that you generally don't have to worry about performance when writing Elm.
+Good news: Elm is optimized to be performant under pressure. It uses a library called [virtual-dom](https://github.com/elm-lang/virtual-dom) to ensure that the entire page doesn't have to re-render every time the application's state changes. React and Ember use similar strategies, although Elm has more tricks up its sleeve because of its functional nature. The exact details are out of scope for this tutorial, however — just know that you generally don't have to worry about HTML rendering performance when writing Elm.
 
 Before we move on, let's take another look at that `onClick` handler:
 
