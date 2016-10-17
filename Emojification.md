@@ -12,7 +12,7 @@ Your code should currently [look like this](https://github.com/elmbridge/elmoji-
 
   - Access and utilize code in other modules
   - Be able to write helper functions
-  - Understand where to locate domain-specific code
+  - Understand where to place domain-specific code
 
 ## Steps
 
