@@ -106,7 +106,7 @@ First thing's first — we need to find a way to describe the current direction 
     { currentText : String }
 ```
 
-The code above declares that `Model` is a **type alias** for a specific shape of a record. A type alias works a lot like a union type declaration — it also produces a new type that we can use in our program. In this case, the `Model` type is just another name for "a record with a single key called `currentText`."
+The code above declares that `Model` is a **type alias** for a specific record structure. A type alias works a lot like a union type declaration — it also produces a new type that we can use in our program. In this case, the `Model` type is just another name for "a record with a single key called `currentText`."
 
 Type aliases are helpful for making type signatures simple and readable. For example, you can see that `Model` is used in the type signature for `init`:
 
