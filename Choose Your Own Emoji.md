@@ -13,7 +13,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
   - Use transformation functions to render dynamic HTML.
   - Use complex `Html` functions to render conditional classes.
-  - Model a domain using parameterized values.
+  - Model a domain using tagged values.
   - Implement a full feature from start to finish.
 
 ## Steps
@@ -100,7 +100,7 @@ When this element is clicked, a `Msg` of `Update.SetSelectedKey String` will be 
 
 This is a good time to talk about the strange value of the `Msg` union type that seems to have the type `String` attached to the end of it. We've seen this pattern once before — in the `SetCurrentText String` value of `Update.Msg`.
 
-`SetCurrentText String` and `SetSelectedKey String` are **parameterized values**. In effect, we are saying that a `SetCurrentText` must always be accompanied by a string (which will become the model's new `currentText`), and that `SetSelectedKey` must always be accompanied by an emoji.
+`SetCurrentText String` and `SetSelectedKey String` are **tagged values**. In effect, we are saying that a `SetCurrentText` must always be accompanied by a string (which will become the model's new `currentText`), and that `SetSelectedKey` must always be accompanied by an emoji.
 
 By themselves, `SetCurrentText` and `SetSelectedKey` are not valid values for `Msg` — they require a parameter to function.
 
