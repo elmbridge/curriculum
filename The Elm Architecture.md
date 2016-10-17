@@ -155,7 +155,7 @@ type Msg
     = ChangeText
 ```
 
-This is a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as way to model `messages` in our application. The above code declares that there is exactly one acceptable value for a `message`: a value called `ChangeText`. If we wanted to add another `message`, we would have to change this declaration to include a new possible value for `Msg`.
+This is a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares that there is exactly one acceptable value for a `message`: a value called `ChangeText`. If we wanted to add another `message`, we would have to change this declaration to include a new possible value for `Msg`.
 
 Elm doesn't force us to use a union type called `Msg` for `messages` — we could just as easily model `messages` as strings, numbers, or records. It is convention, however, to model data using union types whenever appropriate. Don't worry if you are somewhat lost — union types are one of the more difficult concepts to learn as a beginner to Elm, and it's fine for now if they are simply magic words you know you can recite.
 

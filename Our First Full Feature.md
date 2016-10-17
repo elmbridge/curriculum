@@ -164,10 +164,10 @@ When working with custom types, case expressions are helpful in writing conditio
 ToggleDirection ->
   case model.direction of
       Model.TextToEmoji ->
-          — return a model with a direction value of `Model.EmojiToText`
+          -- return a model with a direction value of `Model.EmojiToText`
 
       Model.EmojiToText ->
-          — return a model with a direction value of `Model.TextToEmoji`
+          -- return a model with a direction value of `Model.TextToEmoji`
 ```
 
 Implement the above code in `Update.update`, and make sure it compiles!
