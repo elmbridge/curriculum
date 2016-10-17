@@ -98,13 +98,32 @@ Html.Events.onClick (Update.SetSelectedKey emoji)
 
 When this element is clicked, a `Msg` of `Update.SetSelectedKey String` will be triggered, which will eventually be consumed by our application.
 
-This is a good time to talk about the strange value of the `Msg` union type that seems to have the type `String` attached to the end of it. We've seen this pattern once before — in the `SetCurrentText String` value of `Update.Msg`.
+Like `SetCurrentText String`, `SetSelectedKey String` is a **tagged value**. In effect, we are saying that a `SetCurrentText` and `SetSelectedKey` are only valid values of `Msg` union type if they are accompanies by a string.
 
-`SetCurrentText String` and `SetSelectedKey String` are **tagged values**. In effect, we are saying that a `SetCurrentText` must always be accompanied by a string (which will become the model's new `currentText`), and that `SetSelectedKey` must always be accompanied by an emoji.
+Tagged values are helpful for modeling systems with uneven information requirements. For instance, if we were modeling a coffee shop, we might structure our data like this:
 
-By themselves, `SetCurrentText` and `SetSelectedKey` are not valid values for `Msg` — they require a parameter to function.
 
-So let's wire up this new `Msg` value to `Update.update`! In order:
+```elm
+type BrewingStrategy = PourOver | FrenchPress
+
+type Milk = Cow | Soy | Almond
+
+type alias NumberOfEspressoShots = Integer
+
+type DrinkOrder
+  = BlackCoffee BrewingStrategy
+  | Latte NumberOfEspressoShots Milk
+  | HotChocolate Milk
+  | ColdBrew
+```
+
+Apparently, there's a lot of complexity bundled up in our drink orders! In some cases, we need to know what type of milk the customer wants, in other cases, we need to know information specific to only one type of drink. The above data model accounts for that complexity by using tagged values — a `HotChocolate` is only a valid `DrinkOrder` if it is accompanied by a `Milk` selection, and a `BlackCoffee` relies on another union type to determine the customer's preferred brewing strategy.
+
+We could have also modeled this problem with a record, but the data would have likely been harder to follow. What would the `.milk` key on that record mean, if the customer wanted black coffee? Why would we need a `.numberOfEspressoShots` in order to make a hot chocolate?
+
+Tagged values are also helpful in preventing bad data from propagating through our system. For instance, a drink order of "single shot latte" isn't enough in the real world — if we tried to make it, we wouldn't know how what type of milk our customer wanted. Tagged values protect us here — if we tried to use `Latte 1` in a function that was expecting something of the type `DrinkOrder`, our code would fail to compile.
+
+So let's wire up our new tagged value to `Update.update`! In order:
 
 - Add the aforementioned `onClick` attribute to the `.key-selector` element.
 - Add the new `SetSelectedKey String` value to `Update.Msg`, and ensure that `Update.update` handles the new case.
