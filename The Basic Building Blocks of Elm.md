@@ -34,7 +34,7 @@ This application contains a series of unimplemented functions designed to teach 
 
 ### <input type="checkbox"> Step 2
 
-Like many languages, Elm has a **String** data type to store text. In this step, you should complete all the assertions for the string section of the application. Once you're ready to get started, navigate to the `sayHello` function.
+Like many languages, Elm has a **String** data type to store text. In this step, you should complete all the unimplemented functions for the string section of the application. Once you're ready to get started, navigate to the `sayHello` function.
 
 ```elm
 sayHello friendsName =
