@@ -76,7 +76,7 @@ Apparently, `textToEmoji` takes two arguments — a `Key` and a `String`, and re
 
 Of course! Like any good decoder ring, the `EmojiConverter` library uses a key to determine how to encode and decode messages. In this case, the key can be one of the emojis supported by the library. In order to turn text into emojis, we need to give it a key, as well as the text we hope to translate.
 
-Let's go back to `View.elm`, and hard-code a translation key.
+Let's go back to `View.elm`, and hard-code an emoji as the translation key.
 
 
 ```elm
