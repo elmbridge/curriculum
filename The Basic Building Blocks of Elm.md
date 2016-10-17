@@ -101,7 +101,7 @@ Good luck!
 
 ### <input type="checkbox"> Step 5
 
-Just like Ruby has hashes and JavaScript has objects, Elm has **records** to store key-value pairs. Unlike those other languages, though, Elm does not allow you to change the number of keys of a record after creation. A record with three keys always has three keys, no matter what.
+Just like Ruby has hashes and JavaScript has objects, Elm has **records** to store key-value pairs. Unlike those other languages, though, Elm treats the keys of records as immutable. Once a record has been defined, you cannot add, edit, or remove its keys.
 
 Unlike strings and lists, records are a special data type that have a special syntax for getting and setting values. You can create a record like this:
 
