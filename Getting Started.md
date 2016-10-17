@@ -95,7 +95,7 @@ problem may actually be in how the left and right arguments interact.
 
 To call a function in Elm,
 
-Here are some of the functions that are available by default (i.e., you don't need to import any additional modules to use them, since the `Basics` module is always imported) in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  You can find more about these and other functions in the [`Basics` module documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
+Here are some of the functions that are available by default (i.e., you don't need to import any additional modules to use them) in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
 ```
 > toString 10 ++ "!"

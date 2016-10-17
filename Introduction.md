@@ -11,7 +11,7 @@ By the end of this tutorial, you can expect to:
 - Know what Elm is, and why people use it.
 - Be familiar with the core data structures of the language.
 - Understand the architecture of Elm applications.
-- Be able to build rich front-end applications in Elm.
+- Be able to build interactive front-end applications in Elm.
 
 Thanks for coming! Let's get started.
 
