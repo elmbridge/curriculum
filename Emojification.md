@@ -32,7 +32,7 @@ module EmojiConverter exposing (textToEmoji, emojiToText, supportedEmojis)
 
 Like all Elm files, `EmojiConverter.elm` starts off by telling us what module it defines. In other files, we'll be able to call its functions by using the `EmojiConverter` namespace, in the same way we use the `Html` or `List` namespaces.
 
-This line also tells us the public API for the `EmojiConverter` module — regardless of what else is defined in this file, other files can, at most, access the three functions defined above. We can make some guesses as to purpose and signature for these functions, based on their names. In this case, the `textToEmoji` function seems like exactly what we are looking for.
+This line also tells us the public API for the `EmojiConverter` module — regardless of what else is defined in this file, other files can, at most, access the three functions defined above. Of the three publicly accessible functions, the `textToEmoji` function seems like exactly what we are looking for.
 
 Let's import just the module into our `View.elm` file, by adding this to the list of imports:
 
