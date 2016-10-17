@@ -93,7 +93,7 @@ problem may actually be in how the left and right arguments interact.
 
 ### <input type="checkbox"> Step 5
 
-To call a function in Elm,
+To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.
 
 Here are some of the functions that are available by default in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
