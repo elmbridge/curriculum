@@ -51,7 +51,7 @@ Html.p
 
 Let's try to compile this, and...uh oh! You should be getting the following error:
 
-```sh
+```
 ==== error in View.elm:40:19: ====
 The argument to function `text` is causing a mismatch.
 Function `text` is expecting the argument to be:
