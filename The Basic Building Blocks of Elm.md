@@ -120,6 +120,6 @@ And to update a specific attribute, you use `|` syntax:
 { aNewRecordAppears | key = "a new value for the specified key" }
 ```
 
-There is no `Record` module — all record functions are implemented through special syntax. You can learn more about the type in [the official Elm guide on records.](http://elm-lang.org/docs/records).
+There is no `Record` module — all record functions are implemented through special syntax. You can learn more about the type in [the official Elm guide on records](http://elm-lang.org/docs/records).
 
 Once you've finished this step, feel free to complete some of the bonus assertions, or look at some of the implementation code in the `main` function. Next up, we'll talk about how to build applications in Elm.

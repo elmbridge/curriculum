@@ -6,7 +6,7 @@ While emojis are great, a one-way translator from text to emojis is not particul
 
 This is complex feature — to implement it, we'll have to change every part of our application. Let's get started!
 
-Note: Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-2). You can either carry your code over from the last release, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-2)
+Note: Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-2). You can either carry your code over from the last lesson, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-2)
 
 
 ## Goals
@@ -89,7 +89,7 @@ Finally, let's make our view actually trigger our new `Msg` value. Add the follo
 Html.Events.onClick Update.ToggleDirection
 ```
 
-Compile, and make sure everything works! If you want, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
+Compile, and make sure nothing is broken! If you want, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
 
 ### <input type="checkbox"> Step 3
 

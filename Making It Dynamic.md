@@ -120,7 +120,7 @@ Html.p
 
 Note: `Html.text` is a special kind of `Html` function, that produces a plain-text node. In this case, we've built a paragraph element with a nested child element that is simply plain text.
 
-Insert the above code into the `View.view` function, as a list element after the `HTML.input` element. Once you think you have it, recompile your code to see if it worked.
+Insert the above code into the `View.view` function, as a list element after the div with a class of `.input-field`. Once you think you have it, recompile your code to see if it worked.
 
 ### <input type="checkbox"> Step 4
 
