@@ -8,7 +8,7 @@ So why do developers go to the trouble of using a whole new language instead of 
 
 And the language has lots of rules! They are meant to push developers toward writing code that is easier to maintain and harder to break. For instance:
 
-- **If a function in Elm is given an input, it always returns the same output.** There is no notion of instance variables or `this` in Elm — the only thing a function can do is read the values of its arguments and call out to other functions. This quality of the language is called **purity** — no matter what context, a function will do the same thing every time.
+- **In Elm, a function always returns the same value for a given input.** There is no notion of instance variables or `this` in Elm — the only thing a function can do is read the values of its arguments and call out to other functions. This quality of the language is called **purity** — no matter what context, a function will do the same thing every time.
 
 - **Once a value is declared in an Elm application, it can never change.** It's not possible, for instance, for a function to accidentally change its inputs, or for something to become `undefined`. If you need to add an element to a list, there is no way to do so destructively — instead, you have to create a new list with all the elements you specify. Values like these are called **immutable**.
 
