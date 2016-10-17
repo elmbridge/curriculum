@@ -17,7 +17,7 @@ Deploying a static site on Forge is relatively simple. Just follow these steps:
 
 2. **Compile your Elm application one last time.** This is important! Since Forge only understands compiled JavaScript, any changes you've made to your app after your last compilation will not be reflected.
 
-3. **Compress your project's folder into a .zip file.** The exact directions are dependent on your operating system, but it should be relatively straightforward on all platforms.
+3. **Compress your project's folder into a .zip file.** The exact directions depend on your operating system, but it should be relatively straightforward on all platforms.
 
 4. **Upload your new .zip file to Forge**. In a few seconds, your website should be ready.
 

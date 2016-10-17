@@ -68,7 +68,7 @@ While the API is somewhat verbose, much of its contents are probably familiar to
   <input type="text" class="center" placeholder="Let's Translate!">
 ```
 
-The final attribute comes from the `HTML.Events` library, which describes which `Update` message is sent when the element hears an `input` event. In this case, a `message` called `SetCurrentText` is sent, along with the element's current text. (`SetCurrentText String` is actually a parameterized value -- don't worry, we'll cover that in a future lesson!)
+The final attribute comes from the `HTML.Events` module, which describes which `Update` message is sent when the element hears an `input` event. In this case, a `message` called `SetCurrentText` is sent, along with the element's current text. (`SetCurrentText String` is actually a parameterized value — don't worry, we'll cover that in a future lesson!)
 
 This is great! When this `message` is sent, we can update our model with the new value. To do that, let's check out `Update.elm`:
 

@@ -126,7 +126,7 @@ renderKeys model =
         (List.map (\emoji -> renderKey model emoji) EmojiConverter.supportedEmojis)
 ```
 
-You will have to change the call site of `renderKeys` in `View.view` to match the new signature of the function, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whether a key is selected. The UI should now show you which keys are selected, as you click on them!
+You will have to change the call site of `renderKeys` in `View.view` to match the new signature of the function, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whether a key is selected. The UI should now show you which key is selected, as you click on them!
 
 ### <input type="checkbox"> Step 5
 

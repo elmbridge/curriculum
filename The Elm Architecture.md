@@ -122,7 +122,7 @@ Html.Events.onClick Update.ChangeText
 
 This line of code is key to our application — it maps a potential user action to a `message` that can cause our application to change. In this case, clicking on our div causes the `Update.ChangeText` message to be sent.
 
-There are lots of potential user actions defined in the [`Html.Events`](http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events) library — as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don't map these user actions to a `message`, however, they will be ignored by your application.
+There are lots of potential user actions defined in the [`Html.Events`](http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events) module — as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don't map these user actions to a `message`, however, they will be ignored by your application.
 
 
 ### <input type="checkbox"> Step 5
@@ -146,7 +146,7 @@ We just saw that the `ChangeText` message can be triggered in the UI when the us
 
 Either way, the new `model` will be converted to HTML, and any changes will be rendered to the UI by our `view` function.
 
-Wait, there's only one possible action tracked in our UI — why have a case statement at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case statement will get longer and longer to accommodate the new messages.
+Wait, there's only one possible action tracked in our UI — why have a case expression at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case expression will get longer and longer to accommodate the new messages.
 
 It's worth taking a look at the `Msg` type:
 

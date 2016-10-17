@@ -12,13 +12,15 @@ Your code should currently [look like this](https://github.com/elmbridge/elmoji-
 
   - Access and utilize code in other modules
   - Be able to write helper functions
-  - Understand where to locate domain-specific code
+  - Understand where to place domain-specific code
 
 ## Steps
 
 ### <input type="checkbox"> Step 1
 
-Spoiler alert: Emojis are complicated! And creating a decoder-ring-style translator between plain text and emojis is no small feat. Thankfully, one of your teammates has already written an emoji converter library for you to use, so you don't have to deal with that complexity! The code is already in your skeleton, in `EmojiConverter.elm`.
+Spoiler alert: Emojis are complicated! And creating a [decoder-ring-style][decoder-ring] translator between plain text and emojis is no small feat. Thankfully, one of your teammates has already written an emoji converter library for you to use, so you don't have to deal with that complexity! The code is already in your skeleton, in `EmojiConverter.elm`.
+
+  [decoder-ring]: https://www.google.com/search?tbm=isch&as_q=decoder%20ring
 
 We'll need to use that code to convert the display text from plain text to emojis. But how do we pull that code in to our `View.elm` file?
 
@@ -76,7 +78,7 @@ Apparently, `textToEmoji` takes two arguments — a `Key` and a `String`, and re
 
 Of course! Like any good decoder ring, the `EmojiConverter` library uses a key to determine how to encode and decode messages. In this case, the key can be one of the emojis supported by the library. In order to turn text into emojis, we need to give it a key, as well as the text we hope to translate.
 
-Let's go back to `View.elm`, and hard-code a translation key.
+Let's go back to `View.elm`, and hard-code an emoji as the translation key.
 
 
 ```elm

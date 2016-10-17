@@ -24,7 +24,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
 ![Elm Architecture](images/elm-architecture-2.jpeg)
 
-In our case, we want to build a switch that will allow users to toggle between "Translate Text" and "Translate Emoji." We can use the [materialize.css](http://materializecss.com/) lever component to do the job. Between the text input and paragraph tag in our `View.view` function, you should insert the following markup:
+In our case, we want to build a switch that will allow users to toggle between "Translate Text" and "Translate Emoji." We can use the [materialize.css](http://materializecss.com/) lever component to do the job. Between the text input and paragraph tag that our `View.view` function produces, we want the following markup to appear:
 
 ```html
 <div class="switch center">
@@ -37,7 +37,7 @@ In our case, we want to build a switch that will allow users to toggle between "
 </div>
 ```
 
-Take a shot at translating the above HTML to Elm! Some tips if you get stuck:
+Take a shot at translating the above HTML to Elm and update the `View.view` function! Some tips if you get stuck:
   - Most `Html` functions take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules) followed by a list of child elements. In this case, our `div` has one child (the `label` element), which itself has four children!
   - To render plain text elements, use `Html.text`. It simply takes a string as its argument.
   - Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.
@@ -75,7 +75,7 @@ You need to account for the following values:
 Add a branch to cover this pattern!
 ```
 
-Helpfully, the Elm compiler enforces **case exhaustiveness** – since our `Update.update` function doesn't handle our new `ToggleDirection` value, the compiler realizes that triggering that `Msg` will break our program. Let's fix it by adding another clause to our case statement, this time matching on the pattern `ToggleDirection`.
+Helpfully, the Elm compiler enforces **case exhaustiveness** – since our `Update.update` function doesn't handle our new `ToggleDirection` value, the compiler realizes that triggering that `Msg` will break our program. Let's fix it by adding another clause to our case expression, this time matching on the pattern `ToggleDirection`.
 
 ```elm
 ToggleDirection ->
@@ -142,7 +142,7 @@ Now that `Model` can describe the current translation direction, we need to chan
 
 Inside `Update.update`, we know two things – the current `Msg` we received, as well as the current state of the `model`, which includes its current `direction`. That's all the information we need – if the current `model.direction` is `EmojiToText`, `Update.update` should return a `model` with a `direction` value of `TextToEmoji`, and vice versa.
 
-When working with custom types, case statements are a helpful in writing conditional logic. In our case, the code would look something like this:
+When working with custom types, case expressions are helpful in writing conditional logic. In our case, the code would look something like this:
 
 ```elm
 ToggleDirection ->
@@ -173,7 +173,7 @@ Here's what we know:
 
 - The `EmojiConverter` exposes a `emojiToText` function that we can use if the current direction is `Model.EmojiToText`.
 - The `translateText` function also has access to the current `model`, which stores the current `Direction`.
-- In a similar manner to `Update.update` function, we can use a case statement to choose which `EmojiConverter` function to use.
+- In a similar manner to `Update.update` function, we can use a case expression to choose which `EmojiConverter` function to use.
 
 That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see [a completed version of this feature here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2).
 
