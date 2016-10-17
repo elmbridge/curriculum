@@ -89,7 +89,7 @@ Finally, let's make our view actually trigger our new `Msg` value. Add the follo
 Html.Events.onClick Update.ToggleDirection
 ```
 
-Compile, and make sure everything works! If you want, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
+Compile, and make sure nothing is broken! If you want, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
 
 ### <input type="checkbox"> Step 3
 
