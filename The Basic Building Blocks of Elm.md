@@ -30,9 +30,7 @@ You should see something like this:
 
 ![Intro to Elm initial](images/intro-to-elm-initial.png)
 
-This application contains a series of failing assertions. Your job will be to make them pass!
-
-All the code for this application lives in `Main.elm`, and everything is customizable! Poke around, and change whatever you want!
+This application contains a series of unimplemented functions designed to teach you about the basic data structures of Elm. All the code for this application lives in `Main.elm`, and everything is customizable! Poke around, and change whatever you want!
 
 ### <input type="checkbox"> Step 2
 
