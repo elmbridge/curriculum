@@ -24,7 +24,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
 ![Elm Architecture](images/elm-architecture-2.jpeg)
 
-In our case, we want to build a switch that will allow users to toggle between "Translate Text" and "Translate Emoji." We can use the [materialize.css](http://materializecss.com/) lever component to do the job. Between the text input and paragraph tag in our `View.view` function, you should insert the following markup:
+In our case, we want to build a switch that will allow users to toggle between "Translate Text" and "Translate Emoji." We can use the [materialize.css](http://materializecss.com/) lever component to do the job. Between the text input and paragraph tag that our `View.view` function produces, we want the following markup to appear:
 
 ```html
 <div class="switch center">
@@ -37,7 +37,7 @@ In our case, we want to build a switch that will allow users to toggle between "
 </div>
 ```
 
-Take a shot at translating the above HTML to Elm! Some tips if you get stuck:
+Take a shot at translating the above HTML to Elm and update the `View.view` function! Some tips if you get stuck:
   - Most `Html` functions take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules) followed by a list of child elements. In this case, our `div` has one child (the `label` element), which itself has four children!
   - To render plain text elements, use `Html.text`. It simply takes a string as its argument.
   - Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.
