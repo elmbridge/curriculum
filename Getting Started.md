@@ -160,4 +160,4 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 
 ### <input type="checkbox"> Step 8
 
-Exit the Elm REPL by typing `:exit`, or `CTRL-C`.
+Exit the Elm REPL by typing `:exit`, or `CTRL-D`.
