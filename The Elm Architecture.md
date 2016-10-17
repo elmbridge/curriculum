@@ -146,7 +146,7 @@ We just saw that the `ChangeText` message can be triggered in the UI when the us
 
 Either way, the new `model` will be converted to HTML, and any changes will be rendered to the UI by our `view` function.
 
-Wait, there's only one possible action tracked in our UI — why have a case statement at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case statement will get longer and longer to accommodate the new messages.
+Wait, there's only one possible action tracked in our UI — why have a case expression at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case expression will get longer and longer to accommodate the new messages.
 
 It's worth taking a look at the `Msg` type:
 
