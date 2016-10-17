@@ -108,7 +108,7 @@ The `view` function uses the `Html` module to render HTML nodes. `Html.div` is a
 
 The child div has two attributes (another `class` attribute and an `onClick` handler). This div has one child: a plain-text HTML node, rendered using the `Html.text` function.
 
-What does `model.text` means in the context of our `view` function? This function is responsible for rendering the application's current state as HTML — and that state is stored in the `model` variable. Every time the application's state changes, this function will be called with a new `model` value — if `model.text` is different than the last time this function was called, the UI will update with new text!
+What does `model.text` mean in the context of our `view` function? This function is responsible for rendering the application's current state as HTML — and that state is stored in the `model` variable. Every time the application's state changes, this function will be called with a new `model` value — if `model.text` is different than the last time this function was called, the UI will update with new text!
 
 You may wonder how this function can be performant — every time the `model` changes, even slightly, our `view` function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, how does Elm not collapse under the load?
 

@@ -95,7 +95,7 @@ problem may actually be in how the left and right arguments interact.
 
 To call a function in Elm,
 
-Here are some of the functions that are available by default (i.e., you don't need to import any additional modules to use them) in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
+Here are some of the functions that are available by default in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
 ```
 > toString 10 ++ "!"
@@ -137,9 +137,9 @@ Then any function we want to use is namespaced under `String`:
 
 Now let's define and use our own functions.
 
-When Elm shows the type of a function, it uses arrows `->` and colons `:`.
+We saw types before when we entered numbers and Strings into the console; functions have types too!
 
-We've seen the colons already, when Elm told us the types of values (e.g., `14 : Int`).
+When Elm shows the type of a function, it uses arrows `->` and colons `:`. We've seen the colons already, when Elm told us the types of values (e.g., `14 : Int`).
 
 The arrows point to the return value.  Generally, the rightmost type is the return value, and the other types are the parameters to the function.  For example, `Int -> String -> Float` is the type of a function that takes two parameters: the first is an Int, the second is a String, and the function returns a Float.
 
@@ -160,4 +160,4 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 
 ### <input type="checkbox"> Step 8
 
-Exit the Elm REPL by typing `:exit`, or `CTRL-C`.
+Exit the Elm REPL by typing `:exit`, or `CTRL-D`.
