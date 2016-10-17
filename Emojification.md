@@ -1,11 +1,11 @@
 # Emojification
 
-Up until now, this project has had a severe lack of emojis. In this release, we'll learn how to use an external module to translate text into emojis. Once we're done, it should look something like this:
+Up until now, this project has had a severe lack of emojis. In this lesson, we'll learn how to use an external module to translate text into emojis. Once we're done, it should look something like this:
 
 ![Release 2](images/release-2.png)
 
 
-Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-1). You can either carry your code over from the last release, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-1)
+Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-1). You can either carry your code over from the last lesson, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-1)
 
 
 ## Goals
@@ -116,4 +116,4 @@ Let's create a `defaultKey` function in `Model.elm` that simply returns the "ðŸ˜
 
 Finally, let's use our `defaultKey` function. In `View.elm`, switch out the reference to the "ðŸ˜…" emoji key with references to the new `defaultKey` function.
 
-Once you think you've got it, recompile to make sure it worked. If you get stuck, check out [the completed release](https://github.com/elmbridge/elmoji-translator/tree/release-2) on GitHub to see how we've implemented it.
+Once you think you've got it, recompile to make sure it worked. If you get stuck, check out [the completed step](https://github.com/elmbridge/elmoji-translator/tree/release-2) on GitHub to see how we've implemented it.

@@ -1,12 +1,12 @@
 # Choose Your Own Emoji
 
-For this release, we'll allow our users to choose which emoji to use when encoding their messages. That way, they can send secret messages to each other that can only be decoded if they have the right key! It will eventually look like this:
+For this lesson, we'll allow our users to choose which emoji to use when encoding their messages. That way, they can send secret messages to each other that can only be decoded if they have the right key! It will eventually look like this:
 
 ![Final Release](images/final-release.png)
 
 There's a lot to do! Let's do this!
 
-Note: Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-2). You can either carry your code over from the last release, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2)
+Note: Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-2). You can either carry your code over from the last lesson, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2)
 
 
 ## Goals
@@ -20,7 +20,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
 ### <input type="checkbox"> Step 1
 
-As we did with our last release, let's start first by updating `View.elm` with our new UI elements. The eventual markup should look like this:
+As we did with our last lesson, let's start first by updating `View.elm` with our new UI elements. The eventual markup should look like this:
 
 ```html
 <!-- code for text input and lever -->
