@@ -2,11 +2,11 @@
 
 In this section, we'll talk about the advantages — and disadvantages! — of using Elm to make front-end applications.
 
-First, the basics: **Elm is a language for building complex web interfaces.** It is a language that compiles to JavaScript — much like CoffeeScript or ES6 build tools, the Elm platform takes your Elm code and turns it into JavaScript that any web browser can understand. In many ways, it operates similarly to front-end JavaScript frameworks like React, Angular, and Ember.
+First, the basics: **Elm is a language for building complex web interfaces.** It is a language that compiles to JavaScript — much like CoffeeScript or ES6 build tools, the Elm Platform takes your Elm code and turns it into JavaScript that any web browser can understand. In many ways, it operates similarly to front-end JavaScript frameworks like React, Angular, and Ember.
 
-So why do developers go to the trouble of using a whole new language instead using a JavaScript framework? Indeed, Elm shares many of its opinions about architecture and code quality with those tools. However, **Elm is different in one important way — because it is a distinct programming language and not simply a framework, Elm can strictly enforce it's opinions.**
+So why do developers go to the trouble of using a whole new language instead of using a JavaScript framework? Indeed, Elm shares many of its opinions about architecture and code quality with those tools. However, **Elm is different in one important way — because it is a distinct programming language and not simply a framework, Elm can strictly enforce its opinions.**
 
-And the language has lots of rules! They are meant to push developers toward writing code that is that easier to maintain and harder to break. For instance:
+And the language has lots of rules! They are meant to push developers toward writing code that is easier to maintain and harder to break. For instance:
 
 - **If a function in Elm is given an input, it always returns the same output.** There is no notion of instance variables or `this` in Elm — the only thing a function can do is read the values of its arguments and call out to other functions. This quality of the language is called **purity** — no matter what context, a function will do the same thing every time.
 
@@ -19,11 +19,11 @@ Because of these rules, **entire categories of bugs are impossible in Elm**, lik
   - "Sometimes when I call this function it fails, even though I gave it the exact same input."
   - "Something is changing the value of my variable, and I'm not sure where it's happening."
 
-These errors cannot happen in Elm because of the language's strictness. Indeed, the rules mean that **Elm applications can never accidentally crash.** There are no runtime exceptions — no `undefined is not function` or `undefined method for nil:NilClass`. Consequently, Elm developers spend much less time in the Developer Tools console than JavaScript developers, and less time in the browser in general.
+These errors cannot happen in Elm because of the language's strictness. Indeed, the rules mean that **Elm applications can never accidentally crash.** There are no runtime exceptions — no `undefined is not a function` or `undefined method for nil:NilClass`. Consequently, Elm developers spend much less time in the Developer Tools console than JavaScript developers, and less time in the browser in general.
 
 That strictness can come with real downsides, though. If you are coming from an object-oriented, dynamically typed language like Ruby or JavaScript, Elm can feel like a straightjacket at first. There are no `each` or `for` loops in Elm — instead, you have to use higher-order functions like `map`, `filter`, and `fold`. The `+=` operator has no place in the language either, since it would mutate the variable on its left-hand side. If you need to change a value deep inside a nested data structure, you can't simply read the value and mutate it, as you could in other languages.
 
-You may wonder how Elm developers can survive with all these restrictions. The strictness of the language opens up other doors, however. Because Elm requires all programs to follow it's rules, **the Elm compiler will tell you exactly what's wrong with your program if you make a mistake**. It will tell you if you made an `if/else` statement return two different kinds of values, if you are calling a function with too many arguments, or if you are referencing a variable that does not exist.
+You may wonder how Elm developers can survive with all these restrictions. The strictness of the language opens up other doors, however. Because Elm requires all programs to follow its rules, **the Elm compiler will tell you exactly what's wrong with your program if you make a mistake**. It will tell you if you made an `if/else` statement return two different kinds of values, if you are calling a function with too many arguments, or if you are referencing a variable that does not exist.
 
 Developing with Elm often feels like an ongoing conversation with the compiler, gently pushing you toward writing better code. Often, you don't even need to look at your application in the browser while implementing a feature — you can trust the compiler to tell you if you are going in the right direction.
 
