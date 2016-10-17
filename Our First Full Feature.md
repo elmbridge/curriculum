@@ -1,6 +1,6 @@
 # Our First Full Feature
 
-While emojis are great, a one way translator from text to emojis is not particularly useful. We need to be able translate in both directions, like this:
+While emojis are great, a one-way translator from text to emojis is not particularly useful. We need to be able translate in both directions, like this:
 
 ![Release 3 part 2](images/release-3-part-2.gif)
 
@@ -20,7 +20,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
 ### <input type="checkbox"> Step 1
 
- First, let's start in `View.elm`, where we'll give map user actions in the UI to messages for our application to consume.
+ First, let's start in `View.elm`, where we'll map user actions in the UI to messages for our application to consume.
 
 ![Elm Architecture](images/elm-architecture-2.jpeg)
 
@@ -39,7 +39,7 @@ In our case, we want to build a switch that will allow users to toggle between "
 
 Take a shot at translating the above HTML to Elm! Some tips if you get stuck:
   - Most `Html` functions take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules) followed by a list of child elements. In this case, our `div` has one child (the `label` element), which itself has four children!
-  - To render plain text elements, use `Html.text`. It simply takes a string as it's argument.
+  - To render plain text elements, use `Html.text`. It simply takes a string as its argument.
   - Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.
 
 If you get stuck, flag down an instructor to help you through it! Alternatively, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
@@ -53,7 +53,7 @@ type Msg
     = SetCurrentText String
 ```
 
-The above code declares a **union type** — it defines a new type that we can use in our program, along with all it's possible **values**. In this case, we have a custom type `Msg` that describes the various kinds of messages our application can consume. Currently, there is exactly one possible value: `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
+The above code declares a **union type** — it defines a new type that we can use in our program, along with all its possible **values**. In this case, we have a custom type `Msg` that describes the various kinds of messages our application can consume. Currently, there is exactly one possible value: `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
 
 But that's not good enough for us! Our `Update.update` function also has to handle the user toggling between translation modes. Let's add another possible value to our union type declaration:
 
@@ -79,7 +79,7 @@ Helpfully, the Elm compiler enforces **case exhaustiveness** – since our `Upda
 
 ```elm
 ToggleDirection ->
-  — currently, this does nothing!
+  -- currently, this does nothing!
   model
 ```
 
@@ -113,11 +113,11 @@ In this case, the `Model` type is simply an alias for "a record with a single ke
 ```elm
  type alias Model =
     { currentText : String
-    , direction: —- ????
+    , direction: -- ????
     }
 ```
 
-But wait, what *is* direction? In other languages, we might describe the current direction as a string, with possible values "emoji-to-text" and "text-to-emoji". We could also model it as a boolean value, perhaps renaming it `translatingTextToEmoji?`.
+But wait, what *is* direction? In other languages, we might describe the current direction as a string, with possible values "emoji-to-text" and "text-to-emoji". We could also model it as a boolean value, perhaps renaming it `translatingTextToEmoji`.
 
 In Elm, we have a more powerful tool at our disposal: union types! We can simply create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant. In `Model.elm`, let's create a custom `Direction` type with two possible values:
 
@@ -127,20 +127,20 @@ type Direction
     | EmojiToText
 ```
 
-now, we can use that new type in our `Model` type alias:
+Now, we can use that new type in our `Model` type alias:
 
 ```elm
  type alias Model =
     { currentText : String
-    , direction: Direction
+    , direction : Direction
     }
 ```
 
-If you try to compile right now, you should get some errors: Our code wasn't written to handle a `Model` with `direction` attribute! See if you can figure out what's wrong and fix it.
+If you try to compile right now, you should get some errors: Our code wasn't written to handle a `Model` with a `direction` attribute! See if you can figure out what's wrong and fix it.
 
 Now that `Model` can describe the current translation direction, we need to change `Update.update` to correctly set the `direction` attribute when it consumes the `ToggleDirection` message.
 
-Inside `Update.update`, we know two things – the current `Msg` we received, as well as the current state of the `model`, which includes it's current `direction`. That's all the information we need – if the current `model.direction` is `EmojiToText`, `Update.update` should return a `model` with a `direction` value of `TextToEmoji`, and vice versa.
+Inside `Update.update`, we know two things – the current `Msg` we received, as well as the current state of the `model`, which includes its current `direction`. That's all the information we need – if the current `model.direction` is `EmojiToText`, `Update.update` should return a `model` with a `direction` value of `TextToEmoji`, and vice versa.
 
 When working with custom types, case statements are a helpful in writing conditional logic. In our case, the code would look something like this:
 
@@ -154,7 +154,7 @@ ToggleDirection ->
           — return a model with a direction value of `Model.TextToEmoji`
 ```
 
-Implement the follow code in `Update.update`, and make sure it compiles!
+Implement the above code in `Update.update`, and make sure it compiles!
 
 ### <input type="checkbox"> Step 4
 

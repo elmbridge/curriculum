@@ -66,7 +66,7 @@ init =
     { text = "hello world!" }
 ```
 
-As you can see, `Model.init` takes no arguments and returns a **record**, which is a key-value map with predefined keys. This particular record has a single key called `text`, with a value of `"hello world!"`. This record represents the state of our application — it is the only thing in our entire application that can change over time. As the `model` changes, the UI should change to reflect it's new value.
+As you can see, `Model.init` takes no arguments and returns a **record**, which is a key-value map with predefined keys. This particular record has a single key called `text`, with a value of `"hello world!"`. This record represents the state of our application — it is the only thing in our entire application that can change over time. As the `model` changes, the UI should change to reflect its new value.
 
 It is convention to write a **type alias** to describe your application's state, and call it `Model`, like this:
 
@@ -106,7 +106,7 @@ If you have worked with Angular, React, Ember, or another front-end framework, t
 
 The `view` function uses the `Html` module to render HTML nodes. `Html.div` is a function that consumes two lists — a list of attributes, and a list of children. Our first div has one attribute (a `class` attribute that provides a class for styling) and it has another div as its child.
 
-The child div has two attributes (another `class` attribute and an `onClick` handler). This div has one child: a plain text html node, rendered using the `Html.text` function.
+The child div has two attributes (another `class` attribute and an `onClick` handler). This div has one child: a plain-text HTML node, rendered using the `Html.text` function.
 
 What does `model.text` means in the context of our `view` function? This function is responsible for rendering the application's current state as HTML — and that state is stored in the `model` variable. Every time the application's state changes, this function will be called with a new `model` value — if `model.text` is different than the last time this function was called, the UI will update with new text!
 
@@ -120,9 +120,9 @@ Before we move on, let's take another look at that `onClick` handler:
 Html.Events.onClick Update.ChangeText
 ```
 
-This line of code is key to our application — it maps a potential user action to a `message` that can cause our application to change. In this case, clicking on our div causes the the `Update.ChangeText` message to be sent.
+This line of code is key to our application — it maps a potential user action to a `message` that can cause our application to change. In this case, clicking on our div causes the `Update.ChangeText` message to be sent.
 
-There are lots of potential user actions defined in the [`Html.Events`](http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events) library — as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don't map these user actions to a `message`, however, they will ignored by your application.
+There are lots of potential user actions defined in the [`Html.Events`](http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events) library — as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don't map these user actions to a `message`, however, they will be ignored by your application.
 
 
 ### <input type="checkbox"> Step 5
@@ -141,7 +141,7 @@ update msg model =
 
 We just saw that the `ChangeText` message can be triggered in the UI when the user clicks our button. When a message is sent, this function applies some conditional logic:
 
-- If the current application's state (stored in the `model` variable) has a `.text` value of `"hello world!"`, the function return a new `model` with a value of `"goodbye world!"`.
+- If the current application's state (stored in the `model` variable) has a `.text` value of `"hello world!"`, the function returns a new `model` with a value of `"goodbye world!"`.
 - If `model.text` is *already* equal to `"goodbye world!"`, the function returns a `model` with a `text` value  of `"hello world!"`.
 
 Either way, the new `model` will be converted to HTML, and any changes will be rendered to the UI by our `view` function.
