@@ -63,9 +63,9 @@ renderKeys =
         (List.map (\emoji -> renderKey emoji) EmojiConverter.supportedEmojis)
 ```
 
-It's worth taking a moment to explain what `List.map` is doing. Much like `Array.prototype.map` in JavaScript, `List.map` takes a function and list, calling the function on each element on the list and returning a list of the produced values. The `(\... -> ...)` syntax is how you define an **anonymous function** in Elm.
+It's worth taking a moment to explain what `List.map` is doing. Much like `Array.prototype.map` in JavaScript, `List.map` takes a function and a list, calling the function on each element on the list and returning a list of the produced values. The `(\... -> ...)` syntax is how you define an **anonymous function** in Elm.
 
-If you want to learn more, the `List` module is thoroughly documented on [package.elmlang.org](http://package.elm-lang.org/packages/elm-lang/core/latest/List). The site is a great resource if you want to learn more about the public API for available Elm packages and core modules.
+If you want to learn more, the `List` module is thoroughly documented on [package.elm-lang.org](http://package.elm-lang.org/packages/elm-lang/core/latest/List). The site is a great resource if you want to learn more about the public API for available Elm packages and core modules.
 
 Now, it's your turn! Add the new markup to `View.view`, with the `renderKeys` and `renderKey` helper functions. If you get stuck, you can see [a completed version of this step here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-4-part-1).
 
@@ -126,7 +126,7 @@ renderKeys model =
         (List.map (\emoji -> renderKey model emoji) EmojiConverter.supportedEmojis)
 ```
 
-You will have to change the call site of `renderKeys` in `View.view` to match the new signature of the function, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whther a key is selected. The UI should know show you which keys are selected, as you click on them!
+You will have to change the call site of `renderKeys` in `View.view` to match the new signature of the function, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whether a key is selected. The UI should now show you which keys are selected, as you click on them!
 
 ### <input type="checkbox"> Step 5
 

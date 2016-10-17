@@ -46,9 +46,9 @@ type alias Model =
     { currentText : String }
 ```
 
-For this application, the model is a record that contains a `currentText` attribute that must be a string. That's perfect for our feature — as a user inputs text into the application, we'll update the `currentText` attribute, and reflect it's new value to the UI.
+For this application, the model is a record that contains a `currentText` attribute that must be a string. That's perfect for our feature — as a user inputs text into the application, we'll update the `currentText` attribute, and reflect its new value to the UI.
 
-Let's verify that user text input is being captured is mapped to a `message`. First, let's look in `View.elm`, which is much bigger than it was in the last release! Specifically, let's take a look at the code for input field.
+Let's verify that user text input is mapped to a `message`. First, let's look in `View.elm`, which is much bigger than it was in the last release! Specifically, let's take a look at the code for input field.
 
 ```elm
 Html.input
@@ -60,7 +60,7 @@ Html.input
   []
 ```
 
-It's worth taking a moment to discuss the API for the `HTML` module. almost all functions in this module have the same structure — they consume a list of HTML attributes (like `class`, `id`, `display`, etc.) as well as a list of child elements that are nested inside them.
+It's worth taking a moment to discuss the API for the `Html` module. Almost all functions in this module have the same structure — they consume a list of HTML attributes (like `class`, `id`, `display`, etc.) as well as a list of child elements that are nested inside them.
 
 While the API is somewhat verbose, much of its contents are probably familiar to you. In this case, the code is generating an `input` element with a type of `text` and a class of `center` and some placeholder text. The resulting HTML looks like this:
 
@@ -91,7 +91,7 @@ update msg model =
           { model | currentText = newText }
 ```
 
-once you've made the change, recompile your code by running the following:
+Once you've made the change, recompile your code by running the following:
 
 ```sh
 elm-make Main.elm --output dist/main.js
@@ -101,16 +101,16 @@ The compiler will tell you about any errors you made, or let you know that every
 
 ### <input type="checkbox"> Step 3
 
-Great, so we're now updating the model every time the user inputs text into our application. However, that's only half the battle — we still need to display the applications `currentText` back to the user!
+Great, so we're now updating the model every time the user inputs text into our application. However, that's only half the battle — we still need to display the application's `currentText` back to the user!
 
-Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our `View.view` function to display a paragraph tag right after our input tag, with the model's `currentText` as it's value. The resulting HTML should look like this:
+Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our `View.view` function to display a paragraph tag right after our input tag, with the model's `currentText` as its value. The resulting HTML should look like this:
 
 
 ```HTML
   <p class="center output-text emoji-size">It's happening!!!</p>
 ```
 
-In Elm, the code to generate that HTML would look like this
+In Elm, the code to generate that HTML would look like this:
 
 ```elm
 Html.p
