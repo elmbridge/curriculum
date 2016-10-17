@@ -53,9 +53,24 @@ type Msg
     = SetCurrentText String
 ```
 
-The above code declares a **union type** — it defines a new type that we can use in our program, along with all its possible **values**. In this case, we have a custom type `Msg` that describes the various kinds of messages our application can consume. Currently, there is exactly one possible value: `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
+The above code declares a **union type** — it defines a new type that we can use in our program, along with all its possible **values**. Union types are useful when you want to declare that there is a finite set of acceptable values for a particular type — in this case, we want to enumerate the possible `messages` in our application. Currently, there is exactly one possible value for `Msg`: `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
 
-But that's not good enough for us! Our `Update.update` function also has to handle the user toggling between translation modes. Let's add another possible value to our union type declaration:
+Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like `String` or `List`. We can use union types in type signatures, but we cannot use them in the implementation code for our functions — `Msg` cannot be on the right-hand side of variable declaration or a value stored in your `model`.
+
+Values, on the other hand, are are available to use at runtime. Unlike `Msg`, `SetCurrentText` can be a parameter to a function — and indeed, that's is how it is being used in `View.view`.
+
+You may be wondering what the `String` means after `SetCurrentText`. This is the syntax for declaring a **tagged value**, which we will learn more about in a future lesson. For now, know that a use of `SetCurrentText` must also include a string to be considered a valid message:
+
+```elm
+-- valid value for `Msg`
+SetCurrentText "some awesome text"
+
+-- invalid values for `Msg`
+SetCurrentText 12345
+SetCurrentText "string one" "string two"
+```
+
+In order to implement this feature, we need a `Msg` that can handle the user toggling between translation modes. Let's add another possible value to our union type declaration:
 
 ```elm
 type Msg
