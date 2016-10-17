@@ -2,3 +2,7 @@
   padding: 20px;
   background-color: #f7f7f7;
 }
+
+.hljs-title {
+  color: #4271ae !important;
+}
