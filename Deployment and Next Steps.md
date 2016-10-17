@@ -37,6 +37,6 @@ There's so much to learn! Here are some resources to get you started:
 
   - [The official Elm guide](https://guide.elm-lang.org/) is a great resource, and gives a great rundown of some of the more complicated parts of the language.
   - [The elm-tutorial project](https://www.gitbook.com/book/sporto/elm-tutorial/details) is an incredibly in-depth tutorial on building a single-page app using Elm.
-  - [The Elm Slack group](http://elmlang.herokuapp.com/) and [the elm-discuss mailing list](https://groups.google.com/forum/?fromgroups#!forum/elm-discuss) are a great way to get in touch with other developers learning and using Elm. You can also check out http://elm-lang.org/community for more ways to get involved in the Elm community!
+  - [The Elm Slack group](http://elmlang.herokuapp.com/) is a great way to get in touch with other developers learning and using Elm. We even have our own #elmbridge channel for you to connect with volunteers and fellow students. You can also check out http://elm-lang.org/community for more ways to get involved in the Elm community!
 
 But more than anything, the best way to learn Elm is to write more Elm! You now know more than enough to write complex and rich front-end applications in the language, and you'll pick up nuances of the language as you go. Good luck!
