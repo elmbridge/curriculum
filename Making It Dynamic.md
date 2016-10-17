@@ -1,6 +1,6 @@
 # Making it Dynamic
 
-In this release, we'll start making our emoji translator application! Eventually, the user will be able to "encrypt" messages using an emoji key, so that users can pass secret messages to each other. The final product will look something like this:
+In this lesson, we'll start making our emoji translator application! Eventually, the user will be able to "encrypt" messages using an emoji key, so that users can pass secret messages to each other. The final product will look something like this:
 
 
 ![Final Release](images/final-release.png)
@@ -48,7 +48,7 @@ type alias Model =
 
 For this application, the model is a record that contains a `currentText` attribute that must be a string. That's perfect for our feature — as a user inputs text into the application, we'll update the `currentText` attribute, and reflect its new value to the UI.
 
-Let's verify that user text input is mapped to a `message`. First, let's look in `View.elm`, which is much bigger than it was in the last release! Specifically, let's take a look at the code for input field.
+Let's verify that user text input is mapped to a `message`. First, let's look in `View.elm`, which is much bigger than it was in the last lesson! Specifically, let's take a look at the code for input field.
 
 ```elm
 Html.input

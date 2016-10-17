@@ -1,6 +1,6 @@
 # The Basic Building Blocks of Elm
 
-In this release, you'll learn how to work with the basic data structures of Elm. You'll be working with a [custom application that we've written](https://github.com/elmbridge/intro-to-elm-part-1) where you'll be asked to implement some basic transformations.
+In this lesson, you'll learn how to work with the basic data structures of Elm. You'll be working with a [custom application that we've written](https://github.com/elmbridge/intro-to-elm-part-1) where you'll be asked to implement some basic transformations.
 
 ## Goals
 
@@ -30,9 +30,7 @@ You should see something like this:
 
 ![Intro to Elm initial](images/intro-to-elm-initial.png)
 
-This application contains a series of failing assertions. Your job will be to make them pass!
-
-All the code for this application lives in `Main.elm`, and everything is customizable! Poke around, and change whatever you want!
+This application contains a series of unimplemented functions designed to teach you about the basic data structures of Elm. All the code for this application lives in `Main.elm`, and everything is customizable! Poke around, and change whatever you want!
 
 ### <input type="checkbox"> Step 2
 
@@ -101,7 +99,7 @@ Good luck!
 
 ### <input type="checkbox"> Step 5
 
-Just like Ruby has hashes and JavaScript has objects, Elm has **records** to store key-value pairs. Unlike those other languages, though, Elm does not allow you to change the number of keys of a record after creation. A record with three keys always has three keys, no matter what.
+Just like Ruby has hashes and JavaScript has objects, Elm has **records** to store key-value pairs. Unlike those other languages, though, Elm treats the keys of records as immutable. Once a record has been defined, you cannot add, edit, or remove its keys.
 
 Unlike strings and lists, records are a special data type that have a special syntax for getting and setting values. You can create a record like this:
 
@@ -123,3 +121,5 @@ And to update a specific attribute, you use `|` syntax:
 ```
 
 There is no `Record` module — all record functions are implemented through special syntax. You can learn more about the type in [the official Elm guide on records.](http://elm-lang.org/docs/records).
+
+Once you've finished this step, feel free to complete some of the bonus assertions, or look at some of the implementation code in the `main` function. Next up, we'll talk about how to build applications in Elm.
