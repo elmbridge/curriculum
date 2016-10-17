@@ -30,7 +30,7 @@ You should see something like this:
 
 ![Intro to Elm initial](images/intro-to-elm-initial.png)
 
-This application contains a series of unimplemented functions designed to teach you about the basic data structures of Elm. All the code for this application lives in `Main.elm`, and everything is customizable! Poke around, and change whatever you want!
+This application contains a series of unimplemented functions designed to teach you about the basic data structures of Elm. All the code for this application lives in `Main.elm`. You can customize how the page renders--by default, you'll see some work-in-progress emojis, and when you successfully implement a function, you'll see a heart. Poke around, and change whatever you want!
 
 ### <input type="checkbox"> Step 2
 
