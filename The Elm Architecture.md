@@ -142,7 +142,7 @@ update msg model =
 We just saw that the `ChangeText` message can be triggered in the UI when the user clicks our button. When a message is sent, this function applies some conditional logic:
 
 - If the current application's state (stored in the `model` variable) has a `.text` value of `"hello world!"`, the function returns a new `model` with a value of `"goodbye world!"`.
-- If `model.text` is *already* equal to `"goodbye world!"`, the function returns a `model` with a `text` value  of `"hello world!"`.
+- If not, then `model.text` must be *already* equal to `"goodbye world!"`, so the function returns a `model` with a `text` value  of `"hello world!"`.
 
 Either way, the new `model` will be converted to HTML, and any changes will be rendered to the UI by our `view` function.
 
