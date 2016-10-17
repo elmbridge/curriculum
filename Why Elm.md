@@ -12,7 +12,7 @@ And the language has lots of rules! They are meant to push developers toward wri
 
 - **Once a value is declared in an Elm application, it can never change.** It's not possible, for instance, for a function to accidentally change its inputs, or for something to become `undefined`. If you need to add an element to a list, there is no way to do so destructively — instead, you have to create a new list with all the elements you specify. Values like these are called **immutable**.
 
-- **Everything in Elm has a *type*. Nothing can ever break that contract.** For instance, if you make a `length` function that takes a string and returns an integer, it is not possible for that function to return a float, another string, or a null value (in fact, there are no null values in the entire language). Those same constraints operate on everything in the language, including variables, functions, and complex data structures. That is why Elm is called a **statically typed** language.
+- **Everything in Elm has a *type*. Nothing can ever break that contract.** For instance, it is not possible for a function to return a string in some cases and a number in other cases — the type contract of a function can never be violated. Those same constraints operate on everything in the language, including variables and complex data structures. That is why Elm is called a **statically typed** language.
 
 Because of these rules, **entire categories of bugs are impossible in Elm**, like:
   - "I expected this function to return a number, but it returned nil instead."
