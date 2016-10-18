@@ -1,6 +1,6 @@
 # The Basic Building Blocks of Elm
 
-In this lesson, you'll learn how to work with the basic data structures of Elm. You'll be working with a [custom application that we've written](https://github.com/elmbridge/intro-to-elm-part-1) where you'll be asked to implement some basic transformations.
+In this lesson, you'll learn how to work with the basic data structures of Elm. You'll be working with a [custom application that we've written](https://github.com/elmbridge/elm-basics) where you'll be asked to implement some basic transformations.
 
 ## Goals
 
@@ -11,11 +11,11 @@ In this lesson, you'll learn how to work with the basic data structures of Elm. 
 
 ### <input type="checkbox"> Step 1
 
-Get a copy of the [intro-to-elm-part-1](https://github.com/elmbridge/intro-to-elm-part-1) code:
+Get a copy of the [elm-basics](https://github.com/elmbridge/elm-basics) code:
 
 ```bash
-git clone https://github.com/elmbridge/intro-to-elm-part-1.git
-cd intro-to-elm-part-1
+git clone https://github.com/elmbridge/elm-basics.git
+cd elm-basics
 ```
 
 Start Elm Reactor to build the project:
