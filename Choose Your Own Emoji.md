@@ -98,7 +98,7 @@ Html.Events.onClick (Update.SetSelectedKey emoji)
 
 When this element is clicked, a `Msg` of `Update.SetSelectedKey String` will be triggered, which will eventually be consumed by our application.
 
-Like `SetCurrentText String`, `SetSelectedKey String` is a **tagged value**. In effect, we are saying that a `SetCurrentText` and `SetSelectedKey` are only valid values of `Msg` union type if they are accompanies by a string.
+Like `SetCurrentText String`, `SetSelectedKey String` is a **tagged value**. In effect, we are saying that `SetCurrentText` and `SetSelectedKey` are only valid values of the `Msg` union type if they are accompanied by a string.
 
 Tagged values are helpful for modeling systems with uneven information requirements. For instance, if we were modeling a coffee shop, we might structure our data like this:
 
