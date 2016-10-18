@@ -53,6 +53,8 @@ The `main` function describes the initialization logic for your Elm application.
 - **The `view` function**, which is responsible for converting a `model` into HTML for Elm to render to the UI. It also maps all possible user actions to the appropriate `messages`.
 - **The `update` function**, which is responsible for updating the application's state based on triggered `messages`. It consumes the current application state (the `model`) and a single `message`, and returns a new `model` that describes the application's new state.
 
+But wait, didn't we say that a value can never change in Elm? What's exactly changing here? Good question — let's come back to it when we finish looking at the rest of the pieces.
+
 ![The Elm Architecture](images/elm-architecture-4.jpeg)
 
 The initial `model`, `view` function, and `update` function together form a **triad** that is required in every Elm application. For more complicated programs, a few other pieces are required — however, for this session, we'll focus on the core triad.
@@ -127,7 +129,15 @@ There are lots of potential user actions defined in the [`Html.Events`](http://p
 
 ### <input type="checkbox"> Step 5
 
-Now on to the final piece of our application — the `update` function. This function is responsible for consuming `messages` triggered by the user. It takes the current `model` and the triggered `message`, and returns a new `model` for the `view` function to render.
+Let's return to the question of change we saved for later when we were looking at `init`: What does it mean when we say `model` changes? Let's take another look at our diagram:
+
+![The Elm Architecture](images/elm-architecture-4.jpeg)
+
+Even though we said `model`, `view`, and `update` together form a triad, you can see that `model` is not a first-class circle in this diagram. In fact, `model` is just passed around as an argument to `view` and `update` functions.
+
+This `model` argument may be different each time those functions are called. So you see, changing the `model` doesn't mean modifying its value, but pointing the `model` argument at a different value.
+
+The `update` function in `Update.elm` is responsible for this transformation. When a `message` is triggered by the UI, `update` consumes the specified `message` and the current `model`, and returns a new `model` for the `view` function to render.
 
 ```elm
 update msg model =
@@ -139,7 +149,7 @@ update msg model =
                 { model | text = "hello world!" }
 ```
 
-We just saw that the `ChangeText` message can be triggered in the UI when the user clicks our button. When a message is sent, this function applies some conditional logic:
+We just saw that the `ChangeText` message can be triggered when the user clicks our button. When a message is sent, this function applies some conditional logic:
 
 - If the current application's state (stored in the `model` variable) has a `.text` value of `"hello world!"`, the function returns a new `model` with a value of `"goodbye world!"`.
 - If not, then `model.text` must be *already* equal to `"goodbye world!"`, so the function returns a `model` with a `text` value  of `"hello world!"`.
