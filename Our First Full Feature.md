@@ -53,11 +53,27 @@ type Msg
     = SetCurrentText String
 ```
 
-The above code declares a **union type** — it defines a new type that we can use in our program, along with all its possible **values**. Union types are useful when you want to declare that there is a finite set of acceptable values for a particular type — in this case, we want to enumerate the possible `messages` in our application. Currently, there is exactly one possible value for `Msg`: `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
+The above code declares a **union type**. It defines a new type that we can use in our program, along with all its possible **values**. `SetCurrentText String` is the only possible value for the type `Msg` — it is triggered whenever the user inputs text into the translation box.
 
-Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like `String` or `List`. We can use union types in type signatures, but we cannot use them in the implementation code for our functions — `Msg` cannot be on the right-hand side of variable declaration or a value stored in your `model`.
+Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like `String` or `List`, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:
 
-Values, on the other hand, are are available to use at runtime. Unlike `Msg`, `SetCurrentText` can be a parameter to a function — and indeed, that's is how it is being used in `View.view`.
+
+```elm
+type Pet = Cat | Dog | Rabbit | Turtle
+-- this defines the union type `Pet` with four possible values
+
+makeSound : Pet -> String
+--Union types, like `Pet`, can only be used in type signatures.
+makeSound pet =
+--values like `Cat` and `Dog` can't be used in type signatures,
+--but they can be used inside functions.
+  if pet == Cat
+    "meow"
+  else if pet == Dog
+    "woof"
+  else
+    "..silence.."
+```
 
 You may be wondering what the `String` means after `SetCurrentText`. This is the syntax for declaring a **tagged value**, which we will learn more about in a future lesson. For now, know that a use of `SetCurrentText` must also include a string to be considered a valid message:
 
