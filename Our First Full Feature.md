@@ -53,7 +53,7 @@ type Msg
     = SetCurrentText String
 ```
 
-The above code declares a **union type**. It defines a new type that we can use in our program, along with all its possible **values**. `SetCurrentText String` is the only possible value for the type `Msg` — it is triggered whenever the user inputs text into the translation box.
+This is a **union type declaration**. It defines a new type that we can use in our program, along with all its possible **values**. Specifically, the above code defines the `Msg` type, and declares that is has exactly one possible value – `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
 
 Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like `String` or `List`, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:
 
