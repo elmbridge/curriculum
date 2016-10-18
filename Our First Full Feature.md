@@ -70,7 +70,7 @@ SetCurrentText 12345
 SetCurrentText "string one" "string two"
 ```
 
-In order to implement this feature, we need a `Msg` that can handle the user toggling between translation modes. Let's add another possible value to our union type declaration:
+Back to the task at hand. In order to the user to toggle between translation modes, we need a new `message` to our system. Let's add another possible value to our `Msg` union type declaration:
 
 ```elm
 type Msg
