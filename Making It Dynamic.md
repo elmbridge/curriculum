@@ -90,13 +90,9 @@ update msg model =
           { model | currentText = newText }
 ```
 
-Once you've made the change, recompile your code by running the following:
+Once you've made the change, go back to your web browser (to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm)), refresh the page, and `elm-reactor` will recompile your application.
 
-```sh
-elm-make Main.elm --output dist/main.js
-```
-
-The compiler will tell you about any errors you made, or let you know that everything is working!
+If there are any errors from the compiler, `elm-reactor` will show them to you.  If there aren't any errors, you will see the updated application!
 
 ### <input type="checkbox"> Step 3
 
@@ -133,4 +129,4 @@ Html.p
     [ Html.text model.currentText ]
 ```
 
-Recompile your code, refresh your browser, and you should have a fully functional, dynamic application!
+Recompile your code, and you should have a fully functional, dynamic application!
