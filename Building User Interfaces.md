@@ -6,6 +6,6 @@ As we discussed earlier, Elm is distinctive in its enforcement of **purity**, **
 
 As we will see, Elm has a series of abstractions built into the language that are helpful in modeling user interfaces. Together, these abstractions form **The Elm Architecture**, which is a detailed template for constructing an application in Elm. Similar to how the strictness of the language pushes you to write code in a particular way, The Elm Architecture pushes you to structure applications in a way that prioritizes maintainability.
 
-The rest of this tutorial is meant to teach you what this means in practice. Piece by piece, you'll be building and extending an interactive user interface in Elm. By the end of the day, you should have a better sense of what it feels like to develop in Elm, and what it's like to work with a functional programming language.
+The rest of this tutorial is meant to teach you what this means in practice. Piece by piece, you'll be building and extending an interactive user interface in Elm. By the end of the day, you should have a better sense of what it feels like to develop in Elm and what it's like to work with a functional programming language.
 
 Off we go!
