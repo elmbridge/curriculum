@@ -17,14 +17,13 @@ We need to walk before we run, though! First, we'll make an application that sim
 
 ### <input type="checkbox"> Step 1
 
-Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Run the following commands to open the app in your browser:
+Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Start `elm-reactor`:
 
 ```sh
-elm-make Main.elm --output dist/main.js
-open index.html
+elm-reactor
 ```
 
-You should now have a fully functional Elm application running in your browser! It should look like this:
+And then go to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm) in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:
 
 ![Release 0](images/release-0.png)
 
