@@ -158,14 +158,23 @@ Either way, the new `model` will be converted to HTML, and any changes will be r
 
 Wait, there's only one possible action tracked in our UI — why have a case expression at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case expression will get longer and longer to accommodate the new messages.
 
-It's worth taking a look at the `Msg` type:
+It's worth taking a look at the `Msg` type in `Update.elm`:
 
 ```elm
 type Msg
     = ChangeText
 ```
 
-This is a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares that there is exactly one acceptable value for a `message`: a value called `ChangeText`. If we wanted to add another `message`, we would have to change this declaration to include a new possible value for `Msg`.
+and later on:
+
+```elm
+update : Msg -> Model.Model -> Model.Model
+```
+
+This is an example of a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares two things (reading from that function definition first):
+
+* the `update` function takes two arguments, the first being of a `Msg` type
+* any value that is of `Msg` type is exactly one of the types specified in the `type` definition (in this case, that list ony has one acceptable value which is `ChangeText`.) If we wanted to add another type of `message`, we would have to change this declaration to include a new possible value for the union type `Msg`.
 
 Elm doesn't force us to use a union type called `Msg` for `messages` — we could just as easily model `messages` as strings, numbers, or records. It is convention, however, to model data using union types whenever appropriate. Don't worry if you are somewhat lost — union types are one of the more difficult concepts to learn as a beginner to Elm, and it's fine for now if they are simply magic words you know you can recite.
 
