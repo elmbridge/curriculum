@@ -82,7 +82,7 @@ update msg model =
 
 Whenever an update message is sent, the `Update.update` function consumes the sent message, the current model, and returns a new model to render. Currently, the `SetCurrentText` message is handled by this function, but the function simply returns the old model.
 
-Let's change that. Instead, we should have the update function to update the model's `currentText` value whenever the message `SetCurrentText` is sent. Let's use record update syntax to do so:
+Let's change that. Instead, we should have the update function update the model's `currentText` value whenever the message `SetCurrentText` is sent. Let's use record update syntax to do so:
 
 ```elm
 update msg model =
