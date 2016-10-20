@@ -99,7 +99,7 @@ Good luck!
 
 ### <input type="checkbox"> Step 5
 
-Just like Ruby has hashes and JavaScript has objects, Elm has **records** to store name-value pairs. Unlike those other languages, though, Elm treats the fields of records as immutable. Once a record has been defined, you cannot add or remove its fields, or change the type of a field.
+Just like JavaScript has objects to store name-value pairs, Elm has **records**. Unlike JavaScript's objects, though, Elm treats the structure of a record as immutable. Once a record has been defined, you cannot add or remove a field, or change the type of a field.
 
 Unlike strings and lists, records are a special data type that have a special syntax for getting and setting values. You can create a record like this:
 
