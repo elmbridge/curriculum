@@ -53,7 +53,7 @@ type Msg
     = SetCurrentText String
 ```
 
-This is a **union type declaration**. It defines a new type that we can use in our program, along with all its possible **values**. Specifically, the above code defines the `Msg` type, and declares that is has exactly one possible value – `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
+This is a **union type declaration**. It defines a new type that we can use in our program, along with all its possible **values**. Specifically, the above code defines the `Msg` type, and declares that it has exactly one possible value – `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
 
 Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like `String` or `List`, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:
 
@@ -86,7 +86,7 @@ SetCurrentText 12345
 SetCurrentText "string one" "string two"
 ```
 
-Back to the task at hand. In order to the user to toggle between translation modes, we need a new `message` to our system. Let's add another possible value to our `Msg` union type declaration:
+Back to the task at hand. In order for the user to toggle between translation modes, we need a new `message` to our system. Let's add another possible value to our `Msg` union type declaration:
 
 ```elm
 type Msg
