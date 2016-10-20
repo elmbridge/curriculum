@@ -36,7 +36,7 @@ Our goal is to make the text that the user enters display back to them, like thi
 
 ![Release 1 in GIF form](images/release-1.gif)
 
-As we learned in [the last lesson](The Elm Architecture.md), every Elm application is built upon the `model`, `view`, and `update` triad. This app is no different – in order to implement this feature, we may need to change all three.
+As we learned in [the last lesson](The Elm Architecture.html), every Elm application is built upon the `model`, `view`, and `update` triad. This app is no different – in order to implement this feature, we may need to change all three.
 
 First, let's take a look at the model in `Model.elm`:
 
