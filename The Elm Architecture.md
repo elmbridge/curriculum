@@ -68,7 +68,7 @@ init =
     { text = "hello world!" }
 ```
 
-As you can see, `Model.init` takes no arguments and returns a **record**, which is a key-value map with predefined keys. This particular record has a single key called `text`, with a value of `"hello world!"`. This record represents the state of our application — it is the only thing in our entire application that can change over time. As the `model` changes, the UI should change to reflect its new value.
+As you can see, `Model.init` takes no arguments and returns a **record**, which is a name-value map with predefined structure. This particular record has a single field called `text`, with a value of `"hello world!"`. This record represents the state of our application — it is the only thing in our entire application that can change over time. As the `model` changes, the UI should change to reflect its new value.
 
 It is convention to write a **type alias** to describe your application's state, and call it `Model`, like this:
 

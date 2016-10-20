@@ -137,7 +137,7 @@ First thing's first — we need to find a way to describe the current direction 
     { currentText : String }
 ```
 
-The code above declares that `Model` is a **type alias** for a specific record structure. A type alias works a lot like a union type declaration — it also produces a new type that we can use in our program. In this case, the `Model` type is just another name for "a record with a single key called `currentText`."
+The code above declares that `Model` is a **type alias** for a specific record structure. A type alias works a lot like a union type declaration — it also produces a new type that we can use in our program. In this case, the `Model` type is just another name for "a record with a single field called `currentText`."
 
 Type aliases are helpful for making type signatures simple and readable. For example, you can see that `Model` is used in the type signature for `init`:
 
@@ -155,7 +155,7 @@ init =
     { currentText = "" }
 ```
 
-Now back to business: we'll need to extend this type alias declaration, by adding another key to the record:
+Now back to business: we'll need to extend this type alias declaration, by adding another field to the record:
 
 ```elm
  type alias Model =
@@ -183,9 +183,9 @@ Now, we can use that new type in our `Model` type alias:
     }
 ```
 
-If you try to compile right now, you should get some errors: Our code wasn't written to handle a `Model` with a `direction` attribute! See if you can figure out what's wrong and fix it.
+If you try to compile right now, you should get some errors: Our code wasn't written to handle a `Model` with a `direction` field! See if you can figure out what's wrong and fix it.
 
-Now that `Model` can describe the current translation direction, we need to change `Update.update` to correctly set the `direction` attribute when it consumes the `ToggleDirection` message.
+Now that `Model` can describe the current translation direction, we need to change `Update.update` to correctly set the `direction` field when it consumes the `ToggleDirection` message.
 
 Inside `Update.update`, we know two things – the current `Msg` we received, as well as the current state of the `model`, which includes its current `direction`. That's all the information we need – if the current `model.direction` is `EmojiToText`, `Update.update` should return a `model` with a `direction` value of `TextToEmoji`, and vice versa.
 
