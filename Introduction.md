@@ -3,8 +3,8 @@
 Today, you're going to be learning Elm! So exciting!
 
 This tutorial is meant to be completed over the course of 5 hours, broken up into two chunks:
- - 1.5 hours on learning the basics of the language.
- - 3.5 hours building an Elm application from scratch — specifically, an emoji translator!
+ - 2.5 hours on learning the basics of the language.
+ - 3 hours building an Elm application from scratch — specifically, an emoji translator!
 
 By the end of this tutorial, you can expect to:
 
