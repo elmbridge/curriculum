@@ -38,11 +38,11 @@ In our case, we want to build a switch that will allow users to toggle between "
 ```
 
 Take a shot at translating the above HTML to Elm and update the `View.view` function! Some tips if you get stuck:
-  - Most `Html` functions take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules) followed by a list of child elements. In this case, our `div` has one child (the `label` element), which itself has four children!
+  - Most `Html` functions take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules), followed by a list of child elements. In this case, our `div` has one child (the `label` element), and the `label` element has four children!
   - To render plain text elements, use `Html.text`. It simply takes a string as its argument.
   - Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.
 
-If you get stuck, flag down an instructor to help you through it! Alternatively, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
+If you get stuck, flag down a TA or instructor to help you through it! Alternatively, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
 
 ### <input type="checkbox"> Step 2
 
@@ -63,16 +63,16 @@ type Pet = Cat | Dog | Rabbit | Turtle
 -- this defines the union type `Pet` with four possible values
 
 makeSound : Pet -> String
---Union types, like `Pet`, can only be used in type signatures.
+-- union types, like `Pet`, can only be used in type signatures.
 makeSound pet =
---values like `Cat` and `Dog` can't be used in type signatures,
---but they can be used inside functions.
-  if pet == Cat
-    "meow"
-  else if pet == Dog
-    "woof"
-  else
-    "..silence.."
+    -- values like `Cat` and `Dog` can't be used in type signatures,
+    -- but they can be used inside functions.
+    if pet == Cat
+        "meow"
+    else if pet == Dog
+        "woof"
+    else
+        "..silence.."
 ```
 
 You may be wondering what the `String` means after `SetCurrentText`. This is the syntax for declaring a **tagged value**, which we will learn more about in a future lesson. For now, know that a use of `SetCurrentText` must also include a string to be considered a valid message:
@@ -86,7 +86,7 @@ SetCurrentText 12345
 SetCurrentText "string one" "string two"
 ```
 
-Back to the task at hand. In order for the user to toggle between translation modes, we need a new `message` to our system. Let's add another possible value to our `Msg` union type declaration:
+Back to the task at hand: in order for the user to toggle between translation modes, we need a new message to our system. Let's add another possible value to our `Msg` union type declaration:
 
 ```elm
 type Msg
@@ -118,8 +118,8 @@ Helpfully, the Elm compiler enforces **case exhaustiveness** – since our `Upda
 
 ```elm
 ToggleDirection ->
-  -- currently, this does nothing!
-  model
+    -- currently, this does nothing!
+    model
 ```
 
 Finally, let's make our view actually trigger our new `Msg` value. Add the following attribute to the lever's HTML in `View.view`:
@@ -138,10 +138,10 @@ When our `Update.update` function receives a `ToggleDirection` message and the c
 
 Eventually, our `View.view` function will reflect those changes to the user.
 
-First thing's first — we need to find a way to describe the current direction in our `Model`. Let's take a look at `Model.elm`:
+First things first — we need to find a way to describe the current direction in our `Model`. Let's take a look at `Model.elm`:
 
 ```elm
- type alias Model =
+type alias Model =
     { currentText : String }
 ```
 
@@ -166,7 +166,7 @@ init =
 Now back to business: we'll need to extend this type alias declaration, by adding another field to the record:
 
 ```elm
- type alias Model =
+type alias Model =
     { currentText : String
     , direction: -- ????
     }
@@ -185,7 +185,7 @@ type Direction
 Now, we can use that new type in our `Model` type alias:
 
 ```elm
- type alias Model =
+type alias Model =
     { currentText : String
     , direction : Direction
     }
@@ -201,19 +201,19 @@ When working with custom types, case expressions are helpful in writing conditio
 
 ```elm
 ToggleDirection ->
-  case model.direction of
-      Model.TextToEmoji ->
-          -- return a model with a direction value of `Model.EmojiToText`
+    case model.direction of
+        Model.TextToEmoji ->
+            -- return a model with a direction value of `Model.EmojiToText`
 
-      Model.EmojiToText ->
-          -- return a model with a direction value of `Model.TextToEmoji`
+        Model.EmojiToText ->
+            -- return a model with a direction value of `Model.TextToEmoji`
 ```
 
 Implement the above code in `Update.update`, and make sure it compiles!
 
 ### <input type="checkbox"> Step 4
 
-Now to the final part of the feature: We need to reflect changes of the model to the UI!
+Now to the final part of the feature: We need to reflect changes to the model in the UI!
 
 ![Elm Architecture](images/elm-architecture-4.jpeg)
 
@@ -230,6 +230,6 @@ Here's what we know:
 - The `translateText` function also has access to the current `model`, which stores the current `Direction`.
 - In a similar manner to `Update.update` function, we can use a case expression to choose which `EmojiConverter` function to use.
 
-That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see [a completed version of this feature here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2).
+That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see [a completed version of this feature here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2), or flag down a TA or instructor.
 
 Congratulations, you've completed your first full feature in Elm!
