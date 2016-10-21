@@ -63,16 +63,16 @@ type Pet = Cat | Dog | Rabbit | Turtle
 -- this defines the union type `Pet` with four possible values
 
 makeSound : Pet -> String
---Union types, like `Pet`, can only be used in type signatures.
+-- union types, like `Pet`, can only be used in type signatures.
 makeSound pet =
---values like `Cat` and `Dog` can't be used in type signatures,
---but they can be used inside functions.
-  if pet == Cat
-    "meow"
-  else if pet == Dog
-    "woof"
-  else
-    "..silence.."
+    -- values like `Cat` and `Dog` can't be used in type signatures,
+    -- but they can be used inside functions.
+    if pet == Cat
+        "meow"
+    else if pet == Dog
+        "woof"
+    else
+        "..silence.."
 ```
 
 You may be wondering what the `String` means after `SetCurrentText`. This is the syntax for declaring a **tagged value**, which we will learn more about in a future lesson. For now, know that a use of `SetCurrentText` must also include a string to be considered a valid message:
@@ -110,8 +110,8 @@ Helpfully, the Elm compiler enforces **case exhaustiveness** – since our `Upda
 
 ```elm
 ToggleDirection ->
-  -- currently, this does nothing!
-  model
+    -- currently, this does nothing!
+    model
 ```
 
 Finally, let's make our view actually trigger our new `Msg` value. Add the following attribute to the lever's HTML in `View.view`:
@@ -133,7 +133,7 @@ Eventually, our `View.view` function will reflect those changes to the user.
 First thing's first — we need to find a way to describe the current direction in our `Model`. Let's take a look at `Model.elm`:
 
 ```elm
- type alias Model =
+type alias Model =
     { currentText : String }
 ```
 
@@ -158,7 +158,7 @@ init =
 Now back to business: we'll need to extend this type alias declaration, by adding another field to the record:
 
 ```elm
- type alias Model =
+type alias Model =
     { currentText : String
     , direction: -- ????
     }
@@ -177,7 +177,7 @@ type Direction
 Now, we can use that new type in our `Model` type alias:
 
 ```elm
- type alias Model =
+type alias Model =
     { currentText : String
     , direction : Direction
     }
@@ -193,12 +193,12 @@ When working with custom types, case expressions are helpful in writing conditio
 
 ```elm
 ToggleDirection ->
-  case model.direction of
-      Model.TextToEmoji ->
-          -- return a model with a direction value of `Model.EmojiToText`
+    case model.direction of
+        Model.TextToEmoji ->
+            -- return a model with a direction value of `Model.EmojiToText`
 
-      Model.EmojiToText ->
-          -- return a model with a direction value of `Model.TextToEmoji`
+        Model.EmojiToText ->
+            -- return a model with a direction value of `Model.TextToEmoji`
 ```
 
 Implement the above code in `Update.update`, and make sure it compiles!
