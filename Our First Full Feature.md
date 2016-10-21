@@ -57,6 +57,8 @@ This is a **union type declaration**. It defines a new type that we can use in o
 
 Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like `String` or `List`, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:
 
+We can use the `case pet of` syntax to **Pattern Match** to branch our code based on which **value** of the **type** we receive.
+
 
 ```elm
 type Pet = Cat | Dog | Rabbit | Turtle
@@ -197,7 +199,7 @@ Now that `Model` can describe the current translation direction, we need to chan
 
 Inside `Update.update`, we know two things – the current `Msg` we received, as well as the current state of the `model`, which includes its current `direction`. That's all the information we need – if the current `model.direction` is `EmojiToText`, `Update.update` should return a `model` with a `direction` value of `TextToEmoji`, and vice versa.
 
-When working with custom types, case expressions are helpful in writing conditional logic. In our case, the code would look something like this:
+Once again, we can use our friend `case ___ of` to handle the different conditions. In our case, the code would look something like this:
 
 ```elm
 ToggleDirection ->
