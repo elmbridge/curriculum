@@ -1,0 +1,449 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>The Basic Building Blocks of Elm · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Building User Interfaces.html" />
+    
+    
+    <link rel="prev" href="Getting Started.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Learning the Basics</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Why Elm.html">
+            
+                <a href="Why Elm.html">
+            
+                    
+                    Intermission: Why Elm?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Getting Started.html">
+            
+                <a href="Getting Started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4" data-path="The Basic Building Blocks of Elm.html">
+            
+                <a href="The Basic Building Blocks of Elm.html">
+            
+                    
+                    The Basic Building Blocks of Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Building User Interfaces.html">
+            
+                <a href="Building User Interfaces.html">
+            
+                    
+                    Intermission: Building User Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Making an Emoji Translator</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="The Elm Architecture.html">
+            
+                <a href="The Elm Architecture.html">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Making It Dynamic.html">
+            
+                <a href="Making It Dynamic.html">
+            
+                    
+                    Making It Dynamic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Emojification.html">
+            
+                <a href="Emojification.html">
+            
+                    
+                    Emojification!!!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Our First Full Feature.html">
+            
+                <a href="Our First Full Feature.html">
+            
+                    
+                    Our First Full Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="Choose Your Own Emoji.html">
+            
+                <a href="Choose Your Own Emoji.html">
+            
+                    
+                    Choose Your Own Emoji
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="Deployment and Next Steps.html">
+            
+                <a href="Deployment and Next Steps.html">
+            
+                    
+                    Deployment and Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >The Basic Building Blocks of Elm</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="the-basic-building-blocks-of-elm">The Basic Building Blocks of Elm</h1>
+<p>In this lesson, you&apos;ll learn how to work with the basic data structures of Elm. You&apos;ll be working with a <a href="https://github.com/elmbridge/elm-basics" target="_blank">custom application that we&apos;ve written</a> where you&apos;ll be asked to implement some basic transformations.</p>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Practice defining and using functions in Elm</li>
+<li>Learn how to use strings, lists, and records.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1"><input type="checkbox"> Step 1</h3>
+<p>Get a copy of the <a href="https://github.com/elmbridge/elm-basics" target="_blank">elm-basics</a> code:</p>
+<pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/elmbridge/elm-basics.git
+<span class="hljs-built_in">cd</span> elm-basics
+</code></pre>
+<p>Start Elm Reactor to build the project:</p>
+<pre><code class="lang-bash">elm-reactor
+</code></pre>
+<p>Now open <a href="http://localhost:8000/" target="_blank">http://localhost:8000/</a> in your web browser, and go to <code>Main.elm</code>.</p>
+<p>You should see something like this:</p>
+<p><img src="images/intro-to-elm-initial.png" alt="Intro to Elm initial"></p>
+<p>This application contains a series of unimplemented functions designed to teach you about the basic data structures of Elm. All the functions that you need to implement live in <code>Main.elm</code>. By default, you&apos;ll see some work-in-progress emojis, and when you successfully implement a function, you&apos;ll see a heart.  But if you&apos;d like to customize the emojis or the colors, you can do so in <code>Style.elm</code>.  When you&apos;re done poking around, go back to <code>Main.elm</code> to start the exercises.</p>
+<h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<p>Like many languages, Elm has a <strong>String</strong> data type to store text. In this step, you should complete all the unimplemented functions for the string section of the application. Once you&apos;re ready to get started, navigate to the <code>sayHello</code> function.</p>
+<pre><code class="lang-elm"><span class="hljs-title">sayHello</span> friendsName =
+    <span class="hljs-string">&quot;&quot;</span>
+</code></pre>
+<p>You&apos;ll notice that this assertion is currently failing in your browser. Your job is to make it pass! Once you have a guess, change and save the code in <code>Main.elm</code> &#x2014; refresh your browser and you&apos;ll learn if you implemented it correctly. If you&apos;ve made a syntax error, the page will display an error message that will tell you what to fix.</p>
+<p>You should have enough to get started! A few tips:</p>
+<ul>
+<li>Remember, the <code>++</code> operator is used to add strings together.</li>
+<li>If you want to transform a string in some way, you should use <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/String" target="_blank">the <code>String</code> module</a> to do so. For instance, if you wanted to get the last letter of a string, you might use the <code>String.right</code> function like this:</li>
+</ul>
+<pre><code class="lang-elm"><span class="hljs-type">String</span>.right <span class="hljs-number">1</span> someStringVariable
+</code></pre>
+<p>If you get stuck, flag down an instructor! They are here to help.</p>
+<h3 id="step-3"><input type="checkbox"> Step 3</h3>
+<p>Elm has all the traditional structures for conditional logic, including <code>if</code>, <code>else</code>, <code>case</code>, and the <code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&amp;&amp;</code>, and <code>||</code> operators. (Note: the &quot;not equal&quot; operator is a non-standard <code>/=</code>.) Here&apos;s what that looks like in practice:</p>
+<pre><code class="lang-elm"><span class="hljs-title">numberToWords</span> num =
+  <span class="hljs-keyword">if</span> num == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-string">&quot;zero&quot;</span>
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> num == <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+    <span class="hljs-string">&quot;one&quot;</span>
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-string">&quot;a number larger than one&quot;</span>
+
+<span class="hljs-comment">--here&apos;s the same function, implemented with a case expression</span>
+<span class="hljs-title">numberToWords</span> num =
+  <span class="hljs-keyword">case</span> num <span class="hljs-keyword">of</span>
+    <span class="hljs-number">0</span> -&gt; <span class="hljs-string">&quot;zero&quot;</span>
+    <span class="hljs-number">1</span> -&gt; <span class="hljs-string">&quot;one&quot;</span>
+    _ -&gt; <span class="hljs-string">&quot;a number larger than one&quot;</span>
+</code></pre>
+<p>Elm enforces that all branches of an <code>if</code> or <code>case</code> expression must return the same type of value &#x2014; so all <code>if</code> expressions must include a corresponding <code>else</code> clause, and all possible values must be accounted for in a <code>case</code> expression.</p>
+<p>Take a shot at completing the assertions for <code>if</code> expressions!</p>
+<h3 id="step-4"><input type="checkbox"> Step 4</h3>
+<p>In Elm, you can use a <strong>List</strong> to store a collection of elements. Unlike dynamic languages, though, Elm lists are <strong>typed</strong> &#x2014; every element in a list must be the same kind of thing. You can&apos;t have a list that stores both strings and numbers, for example.</p>
+<p>For this step, you should complete all the <code>List</code> assertions. Some tips:</p>
+<ul>
+<li>In another language, you might solve these assertions by creating an empty list, and incrementally adding things to it as you iterate over the passed-in list. That&apos;s not possible in Elm &#x2014; once you&apos;ve declared a variable in Elm, you can never change it. You will have to use more complicated <code>List</code> functions, like <code>List.map</code>.</li>
+<li>Most common functions that operate on lists live in <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/List" target="_blank">the <code>List</code> module</a>. The order of arguments to these functions may be disorienting &#x2014; in functional programming languages, the convention is to have the data you are operating on be the <em>last</em> argument to a function, not the first.</li>
+<li>Many of these functions consume a function. To use them, you can use an anonymous function, like this:</li>
+</ul>
+<pre><code class="lang-elm">  <span class="hljs-type">List</span>.map (\list_element -&gt; list_element * <span class="hljs-number">2</span>) [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+</code></pre>
+<p>Note: the value after the <code>\</code> is the input to the function, while whatever is after the <code>-&gt;</code> sign is the output.</p>
+<p>Good luck!</p>
+<h3 id="step-5"><input type="checkbox"> Step 5</h3>
+<p>Just like JavaScript has objects to store name-value pairs, Elm has <strong>records</strong>. Unlike JavaScript&apos;s objects, though, Elm treats the structure of a record as immutable. Once a record has been defined, you cannot add or remove a field, or change the type of a field.</p>
+<p>Unlike strings and lists, records are a special data type that has a special syntax for getting and setting values. You can create a record like this:</p>
+<pre><code class="lang-elm"><span class="hljs-title">aNewRecordAppears</span> =
+  { fieldOne = <span class="hljs-string">&quot;value&quot;</span>, anotherField = <span class="hljs-number">1111</span> }
+</code></pre>
+<p>To get the value out of a record, you can use <code>.</code> syntax:</p>
+<pre><code class="lang-elm"><span class="hljs-title">aNewRecordAppears</span>.fieldOne
+</code></pre>
+<p>And to update a specific field, you use <code>|</code> syntax:</p>
+<pre><code class="lang-elm">{ aNewRecordAppears | fieldOne = <span class="hljs-string">&quot;a new value for the specified field&quot;</span> }
+</code></pre>
+<p>There is no <code>Record</code> module &#x2014; all record functions are implemented through special syntax. You can learn more about the type in <a href="http://elm-lang.org/docs/records" target="_blank">the official Elm guide on records</a>.</p>
+<p>Once you&apos;ve finished this step, feel free to complete some of the bonus assertions, or look at some of the implementation code in the <code>main</code> function. Next up, we&apos;ll talk about how to build applications in Elm.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Getting Started.html" class="navigation navigation-prev " aria-label="Previous page: Getting Started">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Building User Interfaces.html" class="navigation navigation-next " aria-label="Next page: Intermission: Building User Interfaces">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"next":{"title":"Intermission: Building User Interfaces","level":"1.5","depth":1,"path":"Building User Interfaces.md","ref":"Building User Interfaces.md","articles":[]},"previous":{"title":"Getting Started","level":"1.3","depth":1,"path":"Getting Started.md","ref":"Getting Started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Basic Building Blocks of Elm.md","mtime":"2016-10-21T06:41:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T06:41:59.673Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

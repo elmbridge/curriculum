@@ -1,0 +1,476 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Choose Your Own Emoji · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Deployment and Next Steps.html" />
+    
+    
+    <link rel="prev" href="Our First Full Feature.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Learning the Basics</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Why Elm.html">
+            
+                <a href="Why Elm.html">
+            
+                    
+                    Intermission: Why Elm?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Getting Started.html">
+            
+                <a href="Getting Started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="The Basic Building Blocks of Elm.html">
+            
+                <a href="The Basic Building Blocks of Elm.html">
+            
+                    
+                    The Basic Building Blocks of Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Building User Interfaces.html">
+            
+                <a href="Building User Interfaces.html">
+            
+                    
+                    Intermission: Building User Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Making an Emoji Translator</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="The Elm Architecture.html">
+            
+                <a href="The Elm Architecture.html">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Making It Dynamic.html">
+            
+                <a href="Making It Dynamic.html">
+            
+                    
+                    Making It Dynamic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Emojification.html">
+            
+                <a href="Emojification.html">
+            
+                    
+                    Emojification!!!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Our First Full Feature.html">
+            
+                <a href="Our First Full Feature.html">
+            
+                    
+                    Our First Full Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.5" data-path="Choose Your Own Emoji.html">
+            
+                <a href="Choose Your Own Emoji.html">
+            
+                    
+                    Choose Your Own Emoji
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="Deployment and Next Steps.html">
+            
+                <a href="Deployment and Next Steps.html">
+            
+                    
+                    Deployment and Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Choose Your Own Emoji</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="choose-your-own-emoji">Choose Your Own Emoji</h1>
+<p>For this lesson, we&apos;ll allow our users to choose which emoji to use when encoding their messages. That way, they can send secret messages to each other that can only be decoded if they have the right key! It will eventually look like this:</p>
+<p><img src="images/final-release.png" alt="Final Release"></p>
+<p>There&apos;s a lot to do! Let&apos;s do this!</p>
+<p>Note: Your code should currently <a href="https://github.com/elmbridge/elmoji-translator/tree/release-3-part-2" target="_blank">look like this</a>. You can either carry your code over from the last lesson, or download and recompile <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2" target="_blank">the code from GitHub.</a></p>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Use transformation functions to render dynamic HTML.</li>
+<li>Use complex <code>Html</code> functions to render conditional classes.</li>
+<li>Model a domain using tagged values.</li>
+<li>Implement a full feature from start to finish.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1"><input type="checkbox"> Step 1</h3>
+<p>As we did with our last lesson, let&apos;s start first by updating <code>View.elm</code> with our new UI elements. The eventual markup should look like this:</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- code for text input and lever --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;divider&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h4</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span>&gt;</span>Select Your Key<span class="hljs-tag">&lt;/<span class="hljs-name">h4</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;row&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col s2 m1 emoji-size&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;key-selector&quot;</span>&gt;</span>&#x1F601;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;col s2 m1 emoji-size&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;key-selector&quot;</span>&gt;</span>&#x1F605;<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- ... --&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+</code></pre>
+<p>Take a crack at converting this to Elm. Some of this is straightforward &#x2014; we already know how to render static elements with attributes and children using the <code>Html</code> module. We also already have a list of all supported emojis in <code>EmojiConverter.supportedEmojis</code>. But how will we render all those emojis without a lot of copying and pasting?</p>
+<p>Elm shines in situations like this. Since <code>View.view</code> is simply Elm code, and <code>Html.Html</code> is just another type in Elm, we can use normal transformations to produce HTML. We can use <code>EmojiConverter.supportedEmojis</code> in combination with the <code>List</code> module to convert that list of emojis into a list of HTML elements!</p>
+<p>The code in <code>View.view</code> can use a helper function to render all emoji keys, like this:</p>
+<pre><code class="lang-elm">  <span class="hljs-comment">-- ...</span>
+  [ <span class="hljs-type">Html</span>.h4
+    [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center&quot;</span> ]
+    [ <span class="hljs-type">Html</span>.text <span class="hljs-string">&quot;Select Your Key&quot;</span> ]
+  , renderKeys
+  ]
+</code></pre>
+<p>And we can write <code>renderKeys</code> to iterate over the list of supported emojis and call another helper function, <code>renderKey</code>.</p>
+<pre><code class="lang-elm"><span class="hljs-title">renderKeys</span> =
+    <span class="hljs-type">Html</span>.div
+        [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;row&quot;</span> ]
+        (<span class="hljs-type">List</span>.map (\emoji -&gt; renderKey emoji) <span class="hljs-type">EmojiConverter</span>.supportedEmojis)
+</code></pre>
+<p>It&apos;s worth taking a moment to explain what <code>List.map</code> is doing. Much like <code>Array.prototype.map</code> in JavaScript, <code>List.map</code> takes a function and a list, calling the function on each element on the list and returning a list of the produced values. The <code>(\... -&gt; ...)</code> syntax is how you define an <strong>anonymous function</strong> in Elm.</p>
+<p>If you want to learn more, the <code>List</code> module is thoroughly documented on <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/List" target="_blank">package.elm-lang.org</a>. The site is a great resource if you want to learn more about the public API for available Elm packages and core modules.</p>
+<p>Now, it&apos;s your turn! Add the new markup to <code>View.view</code>, with the <code>renderKeys</code> and <code>renderKey</code> helper functions. If you get stuck, you can see <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-4-part-1" target="_blank">a completed version of this step here</a>.</p>
+<h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<p>There&apos;s one more part of the UI that we have to render &#x2014; we have to display the currently selected key as selected. If we give the specified emoji <code>.key-selector</code> a class of <code>.is-selected</code>, it will display with a blue background. For now, we&apos;ll
+hard code the selected key to <code>Model.defaultKey</code>.</p>
+<p>When you have to conditionally attach classes to an HTML element in Elm, the <code>Html.Attributes.classList</code> function is helpful in simplifying the code. The function consumes a list of tuples, with each tuple containing a string (representing a class) and a boolean (describing whether the class should be attached to the element). The code for rendering the <code>.key-selector</code> element might look something like this:</p>
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.div
+    [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.classList
+        [ ( <span class="hljs-string">&quot;key-selector&quot;</span>, <span class="hljs-type">True</span> )
+        , ( <span class="hljs-string">&quot;is-selected&quot;</span>, emoji == <span class="hljs-type">Model</span>.defaultKey )
+        ]
+    ]
+    [ <span class="hljs-type">Html</span>.text emoji ]
+</code></pre>
+<p>Once you&apos;ve added that code to your <code>renderKey</code> function, you should have a working, if static, UI!</p>
+<h3 id="step-3"><input type="checkbox"> Step 3</h3>
+<p>Now that we&apos;ve updated the UI, we have to map our new user action to a message for our application to consume. Add the following line of code to your <code>renderKey</code> function, as an attribute to the element with a class of <code>.key-selector</code>:</p>
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick (<span class="hljs-type">Update</span>.<span class="hljs-type">SetSelectedKey</span> emoji)
+</code></pre>
+<p>When this element is clicked, a <code>Msg</code> of <code>Update.SetSelectedKey String</code> will be triggered, which will eventually be consumed by our application.</p>
+<p>Like <code>SetCurrentText String</code>, <code>SetSelectedKey String</code> is a <strong>tagged value</strong>. In effect, we are saying that <code>SetCurrentText</code> and <code>SetSelectedKey</code> are only valid values of the <code>Msg</code> union type if they are accompanied by a string.</p>
+<p>Tagged values are helpful for modeling systems with uneven information requirements. For instance, if we were modeling a coffee shop, we might structure our data like this:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">BrewingStrategy</span> = <span class="hljs-type">PourOver</span> | <span class="hljs-type">FrenchPress</span>
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">Milk</span> = <span class="hljs-type">Cow</span> | <span class="hljs-type">Soy</span> | <span class="hljs-type">Almond</span>
+
+<span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">NumberOfEspressoShots</span> = <span class="hljs-type">Integer</span>
+
+<span class="hljs-keyword">type</span> <span class="hljs-type">DrinkOrder</span>
+  = <span class="hljs-type">BlackCoffee</span> <span class="hljs-type">BrewingStrategy</span>
+  | <span class="hljs-type">Latte</span> <span class="hljs-type">NumberOfEspressoShots</span> <span class="hljs-type">Milk</span>
+  | <span class="hljs-type">HotChocolate</span> <span class="hljs-type">Milk</span>
+  | <span class="hljs-type">ColdBrew</span>
+</code></pre>
+<p>Apparently, there&apos;s a lot of complexity bundled up in our drink orders! In some cases, we need to know what kind of milk the customer wants. In other cases, we need to know information specific to only one kind of drink. The above data model accounts for that complexity by using tagged values &#x2014; a <code>HotChocolate</code> is only a valid <code>DrinkOrder</code> if it is accompanied by a <code>Milk</code> selection, and a <code>BlackCoffee</code> relies on another union type to determine the customer&apos;s preferred brewing strategy.</p>
+<p>We could have also modeled this problem with a record, but the data would have likely been harder to follow. What would the <code>.milk</code> field on that record mean, if the customer wanted black coffee? Why would we need a <code>.numberOfEspressoShots</code> in order to make a hot chocolate?</p>
+<p>Tagged values are also helpful in preventing bad data from propagating through our system. For instance, a drink order of &quot;single shot latte&quot; isn&apos;t enough in the real world &#x2014; if we tried to make it, we wouldn&apos;t know what kind of milk our customer wanted. Tagged values protect us here &#x2014; if we tried to use <code>Latte 1</code> in a function that was expecting something of the type <code>DrinkOrder</code>, our code would fail to compile.</p>
+<p>So let&apos;s wire up our new tagged value to <code>Update.update</code>! In order:</p>
+<ul>
+<li>Add the aforementioned <code>onClick</code> attribute to the <code>.key-selector</code> element.</li>
+<li>Add the new <code>SetSelectedKey String</code> value to <code>Update.Msg</code>, and ensure that <code>Update.update</code> handles the new case.</li>
+<li>Find a way to store the key information on the model, perhaps in a new field called <code>selectedKey</code>.</li>
+<li>Ensure that you the model initialization logic still works. We should start off the application with a <code>model.selectedKey</code> value of <code>Model.defaultKey</code>.</li>
+<li>Implement the <code>SetSelectedKey String</code> case of <code>Update.update</code>, so that it updates the model with the correct <code>selectedKey</code>.</li>
+</ul>
+<p>That&apos;s a lot! Work slowly, and lean on your compiler for help. If you get stuck, you can see <a href="https://github.com/elmbridge/elmoji-translator/tree/release-4-part-2" target="_blank">a completed version of this step here</a>.</p>
+<h3 id="step-4"><input type="checkbox"> Step 4</h3>
+<p>Now that <code>Update.update</code> consumes our new message, we need to reflect changes to the model onto the UI. First off, we need to use our new <code>model.selectedKey</code> field to display to the user which key is currently selected. As of now, our <code>renderKeys</code> function does not consume <code>model</code>, so it has no idea about the current state of the application. Let&apos;s change that! <code>renderKeys</code> should look like this:</p>
+<pre><code class="lang-elm"><span class="hljs-title">renderKeys</span> model =
+    <span class="hljs-type">Html</span>.div
+        [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;row&quot;</span> ]
+        (<span class="hljs-type">List</span>.map (\emoji -&gt; renderKey model emoji) <span class="hljs-type">EmojiConverter</span>.supportedEmojis)
+</code></pre>
+<p>You will have to change the call site of <code>renderKeys</code> in <code>View.view</code> to match the new signature of the function, and you will have to change <code>renderKey</code> to consume a model. Once that&apos;s done, you can use <code>model.selectedKey</code> in place of <code>Model.defaultKey</code> when checking whether a key is selected. The UI should now show you which key is selected, as you click on them!</p>
+<h3 id="step-5"><input type="checkbox"> Step 5</h3>
+<p>And now, for the final step &#x2014; we need to change our translation key based on the value of <code>model.selectedKey</code>! When you&apos;re done, your application should work like this:</p>
+<p><img src="images/release-4-part-3.gif" alt="Release 4 part 3"></p>
+<p>You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out <a href="https://github.com/elmbridge/elmoji-translator/tree/release-4-part-3" target="_blank">a working solution here</a>.</p>
+<p>And with that, you&apos;ve completed your first Elm application!</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Our First Full Feature.html" class="navigation navigation-prev " aria-label="Previous page: Our First Full Feature">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Deployment and Next Steps.html" class="navigation navigation-next " aria-label="Next page: Deployment and Next Steps">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"next":{"title":"Deployment and Next Steps","level":"2.6","depth":1,"path":"Deployment and Next Steps.md","ref":"Deployment and Next Steps.md","articles":[]},"previous":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Choose Your Own Emoji.md","mtime":"2016-10-21T06:41:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T06:41:59.673Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

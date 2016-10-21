@@ -1,0 +1,449 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Making It Dynamic · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Emojification.html" />
+    
+    
+    <link rel="prev" href="The Elm Architecture.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Learning the Basics</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Why Elm.html">
+            
+                <a href="Why Elm.html">
+            
+                    
+                    Intermission: Why Elm?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Getting Started.html">
+            
+                <a href="Getting Started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="The Basic Building Blocks of Elm.html">
+            
+                <a href="The Basic Building Blocks of Elm.html">
+            
+                    
+                    The Basic Building Blocks of Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Building User Interfaces.html">
+            
+                <a href="Building User Interfaces.html">
+            
+                    
+                    Intermission: Building User Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Making an Emoji Translator</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="The Elm Architecture.html">
+            
+                <a href="The Elm Architecture.html">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="Making It Dynamic.html">
+            
+                <a href="Making It Dynamic.html">
+            
+                    
+                    Making It Dynamic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Emojification.html">
+            
+                <a href="Emojification.html">
+            
+                    
+                    Emojification!!!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Our First Full Feature.html">
+            
+                <a href="Our First Full Feature.html">
+            
+                    
+                    Our First Full Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="Choose Your Own Emoji.html">
+            
+                <a href="Choose Your Own Emoji.html">
+            
+                    
+                    Choose Your Own Emoji
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="Deployment and Next Steps.html">
+            
+                <a href="Deployment and Next Steps.html">
+            
+                    
+                    Deployment and Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Making It Dynamic</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="making-it-dynamic">Making it Dynamic</h1>
+<p>In this lesson, we&apos;ll start making our emoji translator application! Eventually, the user will be able to &quot;encrypt&quot; messages using an emoji key, so that users can pass secret messages to each other. The final product will look something like this:</p>
+<p><img src="images/final-release.png" alt="Final Release"></p>
+<p>We need to walk before we run, though! First, we&apos;ll make an application that simply consumes text input provided by the user and displays it back to the page.</p>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Download and run the Skeleton Elmoji app.</li>
+<li>Understand how to use Elm to make things change on the page.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1"><input type="checkbox"> Step 1</h3>
+<p>Download the Skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-0" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-0</a> and navigate to the downloaded folder. Run the following commands to open the app in your browser:</p>
+<pre><code class="lang-sh">elm-make Main.elm --output dist/main.js
+open index.html
+</code></pre>
+<p>You should now have a fully functional Elm application running in your browser! It should look like this:</p>
+<p><img src="images/release-0.png" alt="Release 0"></p>
+<h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<p>As you may have already noticed, however, this Elm application doesn&apos;t <em>do</em> anything. While you can enter text on the page, the application seems to ignore it.</p>
+<p>Our goal is to make the text that the user enters display back to them, like this:</p>
+<p><img src="images/release-1.gif" alt="Release 1 in GIF form"></p>
+<p>As we learned in <a href="The%20Elm%20Architecture.html">the last lesson</a>, every Elm application is built upon the <code>model</code>, <code>view</code>, and <code>update</code> triad. This app is no different &#x2013; in order to implement this feature, we may need to change all three.</p>
+<p>First, let&apos;s take a look at the model in <code>Model.elm</code>:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
+    { currentText : <span class="hljs-type">String</span> }
+</code></pre>
+<p>For this application, the model is a record that contains a <code>currentText</code> field that must be a string. That&apos;s perfect for our feature &#x2014; as a user inputs text into the application, we&apos;ll update the <code>currentText</code> field, and reflect its new value to the UI.</p>
+<p>Let&apos;s verify that user text input is mapped to a <code>message</code>. First, let&apos;s look in <code>View.elm</code>, which is much bigger than it was in the last lesson! Specifically, let&apos;s take a look at the code for input field.</p>
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.input
+  [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.<span class="hljs-keyword">type</span>&apos; &quot;text&quot;
+  , <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center&quot;</span>
+  , <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.placeholder <span class="hljs-string">&quot;Let&apos;s Translate!&quot;</span>
+  , <span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onInput <span class="hljs-type">Update</span>.<span class="hljs-type">SetCurrentText</span>
+  ]
+  []
+</code></pre>
+<p>It&apos;s worth taking a moment to discuss the API for the <code>Html</code> module. Almost all functions in this module have the same structure &#x2014; they consume a list of HTML attributes (like <code>class</code>, <code>id</code>, <code>display</code>, etc.) as well as a list of child elements that are nested inside them.</p>
+<p>While the API is somewhat verbose, much of its contents are probably familiar to you. In this case, the code is generating an <code>input</code> element with a type of <code>text</code> and a class of <code>center</code> and some placeholder text. The resulting HTML looks like this:</p>
+<pre><code class="lang-HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Let&apos;s Translate!&quot;</span>&gt;</span>
+</code></pre>
+<p>The final attribute comes from the <code>Html.Events</code> module, which describes which <code>Update</code> message is sent when the element hears an <code>input</code> event. In this case, a <code>message</code> called <code>SetCurrentText</code> is sent, along with the element&apos;s current text. (<code>SetCurrentText String</code> is actually a tagged value &#x2014; don&apos;t worry, we&apos;ll cover that in a future lesson!)</p>
+<p>This is great! When this <code>message</code> is sent, we can update our model with the new value. To do that, let&apos;s check out <code>Update.elm</code>:</p>
+<pre><code class="lang-elm"><span class="hljs-title">update</span> msg model =
+    <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+        <span class="hljs-type">SetCurrentText</span> newText -&gt;
+            <span class="hljs-comment">-- currently, this does nothing!</span>
+            model
+</code></pre>
+<p>Whenever an update message is sent, the <code>Update.update</code> function consumes the sent message, the current model, and returns a new model to render. Currently, the <code>SetCurrentText</code> message is handled by this function, but the function simply returns the old model.</p>
+<p>Let&apos;s change that. Instead, we should have the update function update the model&apos;s <code>currentText</code> value whenever the message <code>SetCurrentText</code> is sent. Let&apos;s use record update syntax to do so:</p>
+<pre><code class="lang-elm"><span class="hljs-title">update</span> msg model =
+    <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
+        <span class="hljs-type">SetCurrentText</span> newText -&gt;
+          { model | currentText = newText }
+</code></pre>
+<p>Once you&apos;ve made the change, recompile your code by running the following:</p>
+<pre><code class="lang-sh">elm-make Main.elm --output dist/main.js
+</code></pre>
+<p>The compiler will tell you about any errors you made, or let you know that everything is working!</p>
+<h3 id="step-3"><input type="checkbox"> Step 3</h3>
+<p>Great, so we&apos;re now updating the model every time the user inputs text into our application. However, that&apos;s only half the battle &#x2014; we still need to display the application&apos;s <code>currentText</code> back to the user!</p>
+<p>Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our <code>View.view</code> function to display a paragraph tag right after our input tag, with the model&apos;s <code>currentText</code> as its value. The resulting HTML should look like this:</p>
+<pre><code class="lang-HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center output-text emoji-size&quot;</span>&gt;</span>It&apos;s happening!!!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+</code></pre>
+<p>In Elm, the code to generate that HTML would look like this:</p>
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.p
+    [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center output-text emoji-size&quot;</span> ]
+    [ <span class="hljs-type">Html</span>.text <span class="hljs-string">&quot;It&apos;s happening!&quot;</span> ]
+</code></pre>
+<p>Note: <code>Html.text</code> is a special kind of <code>Html</code> function, that produces a plain-text node. In this case, we&apos;ve built a paragraph element with a nested child element that is simply plain text.</p>
+<p>Insert the above code into the <code>View.view</code> function, as a list element after the div with a class of <code>.input-field</code>. Once you think you have it, recompile your code to see if it worked.</p>
+<h3 id="step-4"><input type="checkbox"> Step 4</h3>
+<p>We don&apos;t want the text to always be <code>It&apos;s happening!</code>, though. Instead, the text of the paragraph node should reflect the <code>currentText</code> of the current model. As the model changes, this paragraph node should change as well.</p>
+<p>You&apos;ll notice that the <code>View.view</code> function consumes a model. This model represents the current state of the application! So if we use record getter syntax, we can pull the <code>currentText</code> value out of the model and use it, like this:</p>
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.p
+    [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center output-text emoji-size&quot;</span> ]
+    [ <span class="hljs-type">Html</span>.text model.currentText ]
+</code></pre>
+<p>Recompile your code, refresh your browser, and you should have a fully functional, dynamic application!</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="The Elm Architecture.html" class="navigation navigation-prev " aria-label="Previous page: The Elm Architecture">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Emojification.html" class="navigation navigation-next " aria-label="Next page: Emojification!!!">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2016-10-21T06:41:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T06:41:59.673Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

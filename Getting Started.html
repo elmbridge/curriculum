@@ -1,0 +1,476 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Getting Started · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="The Basic Building Blocks of Elm.html" />
+    
+    
+    <link rel="prev" href="Why Elm.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Learning the Basics</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Why Elm.html">
+            
+                <a href="Why Elm.html">
+            
+                    
+                    Intermission: Why Elm?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3" data-path="Getting Started.html">
+            
+                <a href="Getting Started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="The Basic Building Blocks of Elm.html">
+            
+                <a href="The Basic Building Blocks of Elm.html">
+            
+                    
+                    The Basic Building Blocks of Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Building User Interfaces.html">
+            
+                <a href="Building User Interfaces.html">
+            
+                    
+                    Intermission: Building User Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Making an Emoji Translator</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="The Elm Architecture.html">
+            
+                <a href="The Elm Architecture.html">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Making It Dynamic.html">
+            
+                <a href="Making It Dynamic.html">
+            
+                    
+                    Making It Dynamic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Emojification.html">
+            
+                <a href="Emojification.html">
+            
+                    
+                    Emojification!!!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="Our First Full Feature.html">
+            
+                <a href="Our First Full Feature.html">
+            
+                    
+                    Our First Full Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="Choose Your Own Emoji.html">
+            
+                <a href="Choose Your Own Emoji.html">
+            
+                    
+                    Choose Your Own Emoji
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="Deployment and Next Steps.html">
+            
+                <a href="Deployment and Next Steps.html">
+            
+                    
+                    Deployment and Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Getting Started</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="getting-started">Getting Started</h1>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Learn how to use the Elm REPL</li>
+<li>Learn how to manipulate strings and numbers in Elm</li>
+<li>Learn how to call functions</li>
+<li>Learn where to find documentation about the Elm core library</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1"><input type="checkbox"> Step 1</h3>
+<p>Launch the Elm REPL again by running the following command:</p>
+<pre><code class="lang-sh">elm-repl
+</code></pre>
+<p>Now that you are in the REPL, you can write your first Elm code! Code you should try out in the REPL is written on lines starting with <code>&gt;</code>.</p>
+<p>You can enter values, and Elm will tell you the type of the values.  Try typing
+strings, numbers, and simple mathematical expressions:</p>
+<pre><code>&gt; &quot;Hello&quot;
+&quot;Hello&quot; : String
+&gt; 100
+100 : number
+&gt; 100.5
+100.5 : Float
+&gt; 50 / 7
+7.142857142857143 : Float
+&gt; 4 + 3 * (6 - 2)
+16 : number
+</code></pre><h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<p>You can define and refer to variables:</p>
+<pre><code>&gt; x = 5
+5 : number
+&gt; y = 3
+3 : number
+&gt; x + y
+8 : number
+</code></pre><h3 id="step-3"><input type="checkbox"> Step 3</h3>
+<p>You can concatenate strings using the <code>++</code> operator:</p>
+<pre><code>&gt; &quot;Hello&quot; ++ &quot;, World&quot;
+&quot;Hello, World&quot; : String
+&gt; name = &quot;Anna&quot;
+&quot;Anna&quot; : String
+&gt; &quot;Hello, &quot; ++ name ++ &quot;!&quot;
+&quot;Hello, Anna!&quot; : String
+</code></pre><h3 id="step-4"><input type="checkbox"> Step 4</h3>
+<p>If you try to perform operations that don&apos;t make sense, Elm will try to tell you
+what&apos;s wrong:</p>
+<pre><code>&gt; 10 + &quot;Betsy&quot;
+-- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+
+The right argument of (+) is causing a type mismatch.
+
+3|   10 + &quot;Betsy&quot;
+          ^^^^^^^
+(+) is expecting the right argument to be a:
+
+    number
+
+But the right argument is:
+
+    String
+
+Hint: To append strings in Elm, you need to use the (++) operator, not (+).
+&lt;http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#++&gt;
+
+Hint: I always figure out the type of the left argument first and if it is
+acceptable on its own, I assume it is &quot;correct&quot; in subsequent checks. So the
+problem may actually be in how the left and right arguments interact.
+</code></pre><h3 id="step-5"><input type="checkbox"> Step 5</h3>
+<p>To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.</p>
+<p>Here are some of the functions that are available by default in Elm: <code>toString</code>, <code>max</code>, <code>min</code>, <code>sqrt</code>, <code>round</code>, <code>floor</code>.  These are defined in the <code>Basics</code> module, which is always imported for you. You can read more about these and other functions in <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/Basics" target="_blank">its documentation</a>.</p>
+<pre><code>&gt; toString 10 ++ &quot;!&quot;
+&quot;10!&quot; : String
+&gt; min 9 1
+1 : number
+</code></pre><p>To disambiguate order of operations, use parentheses.</p>
+<pre><code>&gt; round (96 / 7)
+14 : Int
+</code></pre><h3 id="step-6"><input type="checkbox"> Step 6</h3>
+<p>Let&apos;s use some functions from the <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/String" target="_blank"><code>String</code> module</a>.</p>
+<p>First, we need to import the module.</p>
+<pre><code>&gt; import String
+</code></pre><p>Then any function we want to use is namespaced under <code>String</code>:</p>
+<pre><code>&gt; String.toUpper &quot;Carey&quot;
+&quot;CAREY&quot; : String
+&gt; String.split &quot;,&quot; &quot;Apple,Apricot,Avocado,Banana,Blackberry&quot;
+[&quot;Apple&quot;,&quot;Apricot&quot;,&quot;Avocado&quot;,&quot;Banana&quot;,&quot;Blackberry&quot;] : List String
+&gt; String.join &quot; -- &quot; (String.split &quot;,&quot; &quot;Apple,Apricot,Avocado&quot;)
+&quot;Apple -- Apricot -- Avocado&quot; : String
+</code></pre><h3 id="step-7"><input type="checkbox"> Step 7</h3>
+<p>Now let&apos;s define and use our own functions.</p>
+<p>We saw types before when we entered numbers and Strings into the console; functions have types too!</p>
+<p>When Elm shows the type of a function, it uses arrows <code>-&gt;</code> and colons <code>:</code>. We&apos;ve seen the colons already, when Elm told us the types of values (e.g., <code>14 : Int</code>).</p>
+<p>The arrows point to the return value.  Generally, the rightmost type is the return value, and the other types are the parameters to the function.  For example, <code>Int -&gt; String -&gt; Float</code> is the type of a function that takes two parameters: the first is an Int, the second is a String, and the function returns a Float.</p>
+<pre><code>&gt; multiplyByThree x = x * 3
+&lt;function&gt; : number -&gt; number
+&gt; multiplyByThree 10
+30 : number
+&gt; add a b = a + b
+&lt;function&gt; : number -&gt; number -&gt; number
+&gt; add 10 4
+14 : number
+&gt; sayHello name = &quot;Hello, &quot; ++ name
+&lt;function&gt; : String -&gt; String
+&gt; sayHello &quot;Janice&quot;
+&quot;Hello, Janice&quot; : String
+</code></pre><h3 id="step-8"><input type="checkbox"> Step 8</h3>
+<p>Exit the Elm REPL by typing <code>:exit</code>, or <code>CTRL-D</code>.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Why Elm.html" class="navigation navigation-prev " aria-label="Previous page: Intermission: Why Elm?">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="The Basic Building Blocks of Elm.html" class="navigation navigation-next " aria-label="Next page: The Basic Building Blocks of Elm">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2016-10-17T17:48:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T06:41:59.673Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
