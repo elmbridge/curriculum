@@ -52,11 +52,21 @@ Html.p
 Let's try to compile this, and...uh oh! You should be getting the following error:
 
 ```
-==== error in View.elm:40:19: ====
+Detected errors in 1 module.
+
+
+-- TYPE MISMATCH -------------------------------------------------- ././View.elm
+
 The argument to function `text` is causing a mismatch.
+
+42|                       Html.text (EmojiConverter.textToEmoji model.currentText)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Function `text` is expecting the argument to be:
+
     String
+
 But it is:
+
     String -> String
 ```
 
