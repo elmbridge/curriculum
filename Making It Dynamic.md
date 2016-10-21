@@ -17,7 +17,7 @@ We need to walk before we run, though! First, we'll make an application that sim
 
 ### <input type="checkbox"> Step 1
 
-Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Start `elm-reactor`:
+Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Start `elm-reactor` in your terminal:
 
 ```sh
 elm-reactor
