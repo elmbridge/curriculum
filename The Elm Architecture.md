@@ -16,18 +16,18 @@ In this lesson, we'll run a simple Elm application and learn how it all fits tog
 Download the skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world](https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world), navigate to the downloaded folder in your terminal, and run the following command:
 
 ```sh
-elm-make Main.elm --output dist/main.js
+elm-make Main.elm
 ```
 
-`elm-make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application. It compiles that file, along with any files it references, and dumps the output into the specified output file, `dist/main.js`. This file is loaded in `index.html`, which then kicks off your Elm application using JavaScript.
+`elm-make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application. It compiles that file, along with any files it references, and creates `index.html`, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It's also possible to compile into a JavaScript file if you want to use your own HTML file.)
 
-Whenever you make a change to your code, you will have to recompile before those changes are reflected in your browser. If your code is broken in some way, `elm-make` will fail, and give you helpful error messages on what you need to fix.
-
-Now run the following command to open the application in your browser:
+Elm comes with another tool that makes it easy to quickly develop your application: `elm-reactor` starts a local development server that will automatically compile your Elm code (and, if there are any errors, give you helpful error messages on what you need to fix).  Let's start it up:
 
 ```sh
-open index.html
+elm-reactor
 ```
+
+Now that `elm-reactor` is running, you can go to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm) in your web browser to see your compiled application.  Whenever you refresh the page, `elm-reactor` will recompile your code and show you the result.
 
 You should now have a fully functional Elm application, that looks like this:
 
@@ -87,7 +87,12 @@ Now, let's take a look at our `view` function in `View.elm`, which is responsibl
 view model =
     Html.div
         [ Html.Attributes.class "skeleton-elm-project" ]
-        [ Html.div
+        [ Html.node "link"
+            [ Html.Attributes.rel "stylesheet"
+            , Html.Attributes.href "stylesheets/main.css"
+            ]
+            []
+        , Html.div
             [ Html.Attributes.class "waves-effect waves-light btn-large"
             , Html.Events.onClick Update.ChangeText
             ]
@@ -100,15 +105,18 @@ If you have worked with Angular, React, Ember, or another front-end framework, t
 
 ```html
 <div class="skeleton-elm-project">
+  <link rel="stylesheet" href="stylesheets/main.css"></link>
   <div class="waves-effect waves-light btn-large">
     hello world!
   </div>
 </div>
 ```
 
-The `view` function uses the `Html` module to render HTML nodes. `Html.div` is a function that consumes two lists — a list of attributes, and a list of children. Our first div has one attribute (a `class` attribute that provides a class for styling) and it has another div as its child.
+The `view` function uses the `Html` module to render HTML nodes. `Html.div` is a function that consumes two lists — a list of attributes, and a list of children. Our first div has one attribute (a `class` attribute that provides a class for styling) and it has two children: a link tag and another div.
 
-The child div has two attributes (another `class` attribute and an `onClick` handler). This div has one child: a plain-text HTML node, rendered using the `Html.text` function.
+The link tag has two attributes (`rel`, and `href`) and no children.
+
+The child div has two attributes (another `class` attribute and an `onClick` handler). It also has one child: a plain-text HTML node, rendered using the `Html.text` function.
 
 What does `model.text` mean in the context of our `view` function? This function is responsible for rendering the application's current state as HTML — and that state is stored in the `model` variable. Every time the application's state changes, this function will be called with a new `model` value — if `model.text` is different than the last time this function was called, the UI will update with new text!
 

@@ -17,14 +17,13 @@ We need to walk before we run, though! First, we'll make an application that sim
 
 ### <input type="checkbox"> Step 1
 
-Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Run the following commands to open the app in your browser:
+Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Start `elm-reactor` in your terminal:
 
 ```sh
-elm-make Main.elm --output dist/main.js
-open index.html
+elm-reactor
 ```
 
-You should now have a fully functional Elm application running in your browser! It should look like this:
+And then go to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm) in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:
 
 ![Release 0](images/release-0.png)
 
@@ -91,13 +90,9 @@ update msg model =
           { model | currentText = newText }
 ```
 
-Once you've made the change, recompile your code by running the following:
+Once you've made the change, go back to your web browser (to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm)), refresh the page, and `elm-reactor` will recompile your application.
 
-```sh
-elm-make Main.elm --output dist/main.js
-```
-
-The compiler will tell you about any errors you made, or let you know that everything is working!
+If there are any errors from the compiler, `elm-reactor` will show them to you.  If there aren't any errors, you will see the updated application!
 
 ### <input type="checkbox"> Step 3
 
@@ -134,4 +129,4 @@ Html.p
     [ Html.text model.currentText ]
 ```
 
-Recompile your code, refresh your browser, and you should have a fully functional, dynamic application!
+Recompile your code, and you should have a fully functional, dynamic application!
