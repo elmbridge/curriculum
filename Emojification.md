@@ -18,9 +18,13 @@ Your code should currently [look like this](https://github.com/elmbridge/elmoji-
 
 ### <input type="checkbox"> Step 1
 
-Spoiler alert: Emojis are complicated! And creating a [decoder-ring-style][decoder-ring] translator between plain text and emojis is no small feat. Thankfully, one of your teammates has already written an emoji converter library for you to use, so you don't have to deal with that complexity! The code is already in your skeleton, in `EmojiConverter.elm`.
+Spoiler alert: Emojis are complicated! And creating a [decoder-ring-style][secret decoder rings] translator between plain text and emojis is no small feat. Thankfully, one of your teammates has already written an emoji converter library for you to use, so you don't have to deal with that complexity! The code is already in your skeleton, in `EmojiConverter.elm`.
 
-  [decoder-ring]: https://www.google.com/search?tbm=isch&as_q=decoder%20ring
+  [secret decoder rings]: https://en.wikipedia.org/wiki/Secret_decoder_ring
+
+(In the style of [secret decoder rings], `EmojiConverter` implements a simple [substitution cipher] that works by replacing all the letters in a message with the corresponding letter in a shifted alphabet.  A shared, secret value (called the "key") determines how much shifting occurs, and the original message can later be recovered if the key is known.)
+
+  [substitution cipher]: https://en.wikipedia.org/wiki/Substitution_cipher
 
 We'll need to use that code to convert the display text from plain text to emojis. But how do we pull that code in to our `View.elm` file?
 
