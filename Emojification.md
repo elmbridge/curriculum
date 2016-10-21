@@ -34,7 +34,7 @@ Like all Elm files, `EmojiConverter.elm` starts off by telling us what module it
 
 This line also tells us the public API for the `EmojiConverter` module — regardless of what else is defined in this file, other files can, at most, access the three functions defined above. Of the three publicly accessible functions, the `textToEmoji` function seems like exactly what we are looking for.
 
-Let's import just the module into our `View.elm` file, by adding this to the list of imports:
+Let's import the module into our `View.elm` file, by adding this to the list of imports:
 
 ```elm
 import EmojiConverter
@@ -62,7 +62,7 @@ But it is:
 
 This error might seem like gibberish at first, but stay strong — Elm error messages are very good at telling you exactly what you need to know. In this case, it seems that, instead of passing `Html.text` a string to render, we are passing it a function that takes a string and returns a string. In Elm-land, that often means that you passed too few arguments into a function — if a function takes two arguments, and you only provided it one, it will return a **partially-applied function** that still needs one more argument!
 
-As you may have guessed, it seems like we've gotten the signature for `EmojiConverter.textToEmoji` wrong. Let's take a look at its definition in `EmojiConverter.elm`:
+As you may have guessed, it seems like we're using `EmojiConverter.textToEmoji` incorrectly. Let's take a look at its definition in `EmojiConverter.elm` to figure out how to use it:
 
 ```elm
 type alias Key =
@@ -118,4 +118,4 @@ Let's create a `defaultKey` function in `Model.elm` that simply returns the "�
 
 Finally, let's use our `defaultKey` function. In `View.elm`, switch out the reference to the "😅" emoji key with references to the new `defaultKey` function.
 
-Once you think you've got it, recompile to make sure it worked. If you get stuck, check out [the completed step](https://github.com/elmbridge/elmoji-translator/tree/release-2) on GitHub to see how we've implemented it.
+Once you think you've got it, recompile to make sure it worked. If you get stuck, check out [the completed step](https://github.com/elmbridge/elmoji-translator/tree/release-2) on GitHub to see how we've implemented it, or flag down a TA or instructor.
