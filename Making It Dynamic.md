@@ -46,7 +46,7 @@ type alias Model =
     { currentText : String }
 ```
 
-For this application, the model is a record that contains a `currentText` attribute that must be a string. That's perfect for our feature — as a user inputs text into the application, we'll update the `currentText` attribute, and reflect its new value to the UI.
+For this application, the model is a record that contains a `currentText` field that must be a string. That's perfect for our feature — as a user inputs text into the application, we'll update the `currentText` field, and reflect its new value to the UI.
 
 Let's verify that user text input is mapped to a `message`. First, let's look in `View.elm`, which is much bigger than it was in the last lesson! Specifically, let's take a look at the code for input field.
 

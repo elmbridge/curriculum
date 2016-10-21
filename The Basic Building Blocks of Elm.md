@@ -99,25 +99,25 @@ Good luck!
 
 ### <input type="checkbox"> Step 5
 
-Just like Ruby has hashes and JavaScript has objects, Elm has **records** to store key-value pairs. Unlike those other languages, though, Elm treats the keys of records as immutable. Once a record has been defined, you cannot add, edit, or remove its keys.
+Just like JavaScript has objects to store name-value pairs, Elm has **records**. Unlike JavaScript's objects, though, Elm treats the structure of a record as immutable. Once a record has been defined, you cannot add or remove a field, or change the type of a field.
 
-Unlike strings and lists, records are a special data type that have a special syntax for getting and setting values. You can create a record like this:
+Unlike strings and lists, records are a special data type that has a special syntax for getting and setting values. You can create a record like this:
 
 ```elm
 aNewRecordAppears =
-  { key = "value", anotherKey = 1111 }
+  { fieldOne = "value", anotherField = 1111 }
 ```
 
 To get the value out of a record, you can use `.` syntax:
 
 ```elm
-aNewRecordAppears.key
+aNewRecordAppears.fieldOne
 ```
 
-And to update a specific attribute, you use `|` syntax:
+And to update a specific field, you use `|` syntax:
 
 ```elm
-{ aNewRecordAppears | key = "a new value for the specified key" }
+{ aNewRecordAppears | fieldOne = "a new value for the specified field" }
 ```
 
 There is no `Record` module — all record functions are implemented through special syntax. You can learn more about the type in [the official Elm guide on records](http://elm-lang.org/docs/records).

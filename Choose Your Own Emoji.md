@@ -119,7 +119,7 @@ type DrinkOrder
 
 Apparently, there's a lot of complexity bundled up in our drink orders! In some cases, we need to know what kind of milk the customer wants. In other cases, we need to know information specific to only one kind of drink. The above data model accounts for that complexity by using tagged values — a `HotChocolate` is only a valid `DrinkOrder` if it is accompanied by a `Milk` selection, and a `BlackCoffee` relies on another union type to determine the customer's preferred brewing strategy.
 
-We could have also modeled this problem with a record, but the data would have likely been harder to follow. What would the `.milk` key on that record mean, if the customer wanted black coffee? Why would we need a `.numberOfEspressoShots` in order to make a hot chocolate?
+We could have also modeled this problem with a record, but the data would have likely been harder to follow. What would the `.milk` field on that record mean, if the customer wanted black coffee? Why would we need a `.numberOfEspressoShots` in order to make a hot chocolate?
 
 Tagged values are also helpful in preventing bad data from propagating through our system. For instance, a drink order of "single shot latte" isn't enough in the real world — if we tried to make it, we wouldn't know what kind of milk our customer wanted. Tagged values protect us here — if we tried to use `Latte 1` in a function that was expecting something of the type `DrinkOrder`, our code would fail to compile.
 
@@ -127,7 +127,7 @@ So let's wire up our new tagged value to `Update.update`! In order:
 
 - Add the aforementioned `onClick` attribute to the `.key-selector` element.
 - Add the new `SetSelectedKey String` value to `Update.Msg`, and ensure that `Update.update` handles the new case.
-- Find a way to store the key information on the model, perhaps in a new attribute called `selectedKey`.
+- Find a way to store the key information on the model, perhaps in a new field called `selectedKey`.
 - Ensure that you the model initialization logic still works. We should start off the application with a `model.selectedKey` value of `Model.defaultKey`.
 - Implement the `SetSelectedKey String` case of `Update.update`, so that it updates the model with the correct `selectedKey`.
 
@@ -135,7 +135,7 @@ That's a lot! Work slowly, and lean on your compiler for help. If you get stuck,
 
 ### <input type="checkbox"> Step 4
 
-Now that `Update.update` consumes our new message, we need to reflect changes to the model onto the UI. First off, we need to use our new `model.selectedKey` attribute to display to the user which key is currently selected. As of now, our `renderKeys` function does not consume `model`, so it has no idea about the current state of the application. Let's change that! `renderKeys` should look like this:
+Now that `Update.update` consumes our new message, we need to reflect changes to the model onto the UI. First off, we need to use our new `model.selectedKey` field to display to the user which key is currently selected. As of now, our `renderKeys` function does not consume `model`, so it has no idea about the current state of the application. Let's change that! `renderKeys` should look like this:
 
 
 ```elm
