@@ -44,3 +44,5 @@ If you see the following message, you are ready to go!
 --------------------------------------------------------------------------------
 >
 ```
+
+When you're done exploring, you can type `:exit` to get out.
