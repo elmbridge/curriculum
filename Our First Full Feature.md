@@ -99,10 +99,18 @@ We'll make sure our lever triggers the new `ToggleDirection` `Msg` whenever the 
 If you try to compile now, you'll notice that the compiler realizes something is wrong:
 
 ```
-==== error in Update.elm:13:5: ====
+-- MISSING PATTERNS --------------------------------------------- ././Update.elm
+
 This `case` does not have branches for all possibilities.
+
+13|>    case msg of
+14|>        SetCurrentText newText ->
+15|>            { model | currentText = newText }
+
 You need to account for the following values:
+
     Update.ToggleDirection
+
 Add a branch to cover this pattern!
 ```
 

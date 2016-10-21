@@ -52,9 +52,6 @@ Html.p
 Let's try to compile this, and...uh oh! You should be getting the following error:
 
 ```
-Detected errors in 1 module.
-
-
 -- TYPE MISMATCH -------------------------------------------------- ././View.elm
 
 The argument to function `text` is causing a mismatch.
