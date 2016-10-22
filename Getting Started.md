@@ -161,3 +161,31 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 ### <input type="checkbox"> Step 8
 
 Exit the Elm REPL by typing `:exit`, or `CTRL-D`.
+
+
+### <input type="checkbox"> **Bonus!**
+
+You may have noticed that all the types began with a capital letter (`String`, `Float`, `Int`) except for one (`number`). In general, you can remember that all types are capital but variables are lowercase. `number` in these cases is a special variable type saying the value can act as an `Int` or a `Float`. An example:
+
+```
+> 1 + 1
+1 : number
+> 1 + 1.0
+2 : Float
+> floor 1.3
+1 : Int
+> (floor 1.3) + 1.0
+-- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+
+The right argument of (+) is causing a type mismatch.
+
+3|    floor 1.3) + 1.0
+                   ^^^
+(+) is expecting the right argument to be a:
+
+    Int
+
+But the right argument is:
+
+    Float
+```
