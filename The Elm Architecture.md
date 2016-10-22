@@ -173,25 +173,25 @@ type Msg
     = ChangeText
 ```
 
-and later on:
+and later on in the `update` function's type annotation:
 
 ```elm
 update : Msg -> Model.Model -> Model.Model
 ```
 
-This is an example of a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares two things (reading from that function definition first):
+This is an example of a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares two things (reading from that type annotation first):
 
 * the `update` function takes two arguments, the first is a `Msg`, and the second is a `Model`.
 * any value that is of `Msg` type will be exactly one of the values specified in the `type` definition (in this case, there is only one acceptable value which is `ChangeText`.) If we wanted to add another possible value for `message`, we would have to change this declaration of the union type `Msg` to include the new possibility.
 
 Elm doesn't force us to use a union type called `Msg` for `messages` — we could just as easily model `messages` as strings, numbers, or records. It is convention, however, to model data using union types whenever appropriate. Don't worry if you are somewhat lost — union types are one of the more difficult concepts to learn as a beginner to Elm, and it's fine for now if they are simply magic words you know you can recite.
 
-To review one more time, a Html.App.beginnerProgram needs:
+To review one more time, a `Html.App.beginnerProgram` needs:
   * An initial version of our model (`model : Model`)
   * A description of how the model is turned into html (`view : Model -> Html`)
   * A function that given a Message and an old model tells us what the new model should look like (`update : Msg -> Model -> Model`)
   
-Indeed, if we look at the type declaration of `Html.App.beginnerProgram`, we see that it takes this type of record and returns a program!
+Indeed, if we look at the type annotation of `Html.App.beginnerProgram`, we see that it takes this type of record and returns a program!
 
 ```elm
 beginnerProgram :
