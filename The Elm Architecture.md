@@ -105,7 +105,7 @@ If you have worked with Angular, React, Ember, or another front-end framework, t
 
 ```html
 <div class="skeleton-elm-project">
-  <link rel="stylesheet" href="stylesheets/main.css"></link>
+  <link rel="stylesheet" href="stylesheets/main.css">
   <div class="waves-effect waves-light btn-large">
     hello world!
   </div>
