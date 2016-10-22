@@ -111,7 +111,7 @@ translateText model =
     EmojiConverter.textToEmoji "😅" model.currentText
 ```
 
-Note: Type signatures are always optional in Elm, but they are highly encouraged — type signatures can be a good form of documentation, and they help the compiler make educated guessed about what went wrong when your code fails to recompile. Feel free to add your own to `translateText`!
+Note: Type signatures are always optional in Elm, but they are highly encouraged — type signatures can be a good form of documentation, and they help the compiler make educated guesses about what went wrong when your code fails to recompile. Feel free to add your own to `translateText`!
 
 We can now use this function in our `View.view` function. Since it's defined in the same file as it's being used, we don't even have to use the `View` namespace. We can simply invoke it as such:
 
