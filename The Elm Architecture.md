@@ -193,9 +193,9 @@ To review one more time, a Html.App.beginnerProgram needs:
   
 Indeed, if we look at the type declaration of `Html.App.beginnerProgram`, we see that it takes this type of record and returns a program!
 
-```
+```elm
 beginnerProgram :
-  { model : (model, Cmd msg)
+  { model : model
   , view : model -> Html msg
   , update : msg -> model -> model
   } -> Program Never
