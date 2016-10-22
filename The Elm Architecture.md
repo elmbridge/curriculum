@@ -173,13 +173,13 @@ type Msg
     = ChangeText
 ```
 
-and later on in the `update` function's type annotation:
+and later on in the `update` function's type signature:
 
 ```elm
 update : Msg -> Model.Model -> Model.Model
 ```
 
-This is an example of a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares two things (reading from that type annotation first):
+This is an example of a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares two things (reading from that type signature first):
 
 * the `update` function takes two arguments, the first is a `Msg`, and the second is a `Model`.
 * any value that is of `Msg` type will be exactly one of the values specified in the `type` definition (in this case, there is only one acceptable value which is `ChangeText`.) If we wanted to add another possible value for `message`, we would have to change this declaration of the union type `Msg` to include the new possibility.
@@ -191,7 +191,7 @@ To review one more time, a `Html.App.beginnerProgram` needs:
   * A description of how the model is turned into html (`view : Model -> Html`)
   * A function that given a Message and an old model tells us what the new model should look like (`update : Msg -> Model -> Model`)
   
-Indeed, if we look at the type annotation of `Html.App.beginnerProgram`, we see that it takes this type of record and returns a program!
+Indeed, if we look at the type signature of `Html.App.beginnerProgram`, we see that it takes this type of record and returns a program!
 
 ```elm
 beginnerProgram :
