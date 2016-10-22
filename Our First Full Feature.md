@@ -199,7 +199,7 @@ Now that `Model` can describe the current translation direction, we need to chan
 
 Inside `Update.update`, we know two things – the current `Msg` we received, as well as the current state of the `model`, which includes its current `direction`. That's all the information we need – if the current `model.direction` is `EmojiToText`, `Update.update` should return a `model` with a `direction` value of `TextToEmoji`, and vice versa.
 
-Once again, we can use our friend `case ___ of` to handle the different conditions. In our case, the code would look something like this:
+We can use `case ___ of` syntax to **Pattern Match** on the different values of the type `Direction`. This allows us to branch our code to handle the different conditions.
 
 ```elm
 ToggleDirection ->
