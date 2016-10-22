@@ -300,14 +300,15 @@
 </ul>
 <h2 id="steps">Steps</h2>
 <h3 id="step-1"><input type="checkbox"> Step 1</h3>
-<p>Spoiler alert: Emojis are complicated! And creating a <a href="https://www.google.com/search?tbm=isch&amp;as_q=decoder%20ring" target="_blank">decoder-ring-style</a> translator between plain text and emojis is no small feat. Thankfully, one of your teammates has already written an emoji converter library for you to use, so you don&apos;t have to deal with that complexity! The code is already in your skeleton, in <code>EmojiConverter.elm</code>.</p>
+<p>Spoiler alert: Emojis are complicated! And creating a <a href="https://en.wikipedia.org/wiki/Secret_decoder_ring" target="_blank">decoder-ring-style</a> translator between plain text and emojis is no small feat. Thankfully, one of your teammates has already written an emoji converter library for you to use, so you don&apos;t have to deal with that complexity! The code is already in your skeleton, in <code>EmojiConverter.elm</code>.</p>
+<p>(In the style of <a href="https://en.wikipedia.org/wiki/Secret_decoder_ring" target="_blank">secret decoder rings</a>, <code>EmojiConverter</code> implements a simple <a href="https://en.wikipedia.org/wiki/Substitution_cipher" target="_blank">substitution cipher</a> that works by replacing all the letters in a message with the corresponding letter in a shifted alphabet.  A shared, secret value (called the &quot;key&quot;) determines how much shifting occurs, and the original message can later be recovered if the key is known.)</p>
 <p>We&apos;ll need to use that code to convert the display text from plain text to emojis. But how do we pull that code in to our <code>View.elm</code> file?</p>
 <p>That&apos;s where the Elm <strong>module</strong> system comes into play. Modules are simply collections of related functions. They are helpful for encapsulating behavior, and for providing clear boundaries between libraries. Let&apos;s take a look at the first few lines of <code>EmojiConverter.elm</code>:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">module</span> EmojiConverter exposing (textToEmoji, emojiToText, supportedEmojis)
 </code></pre>
 <p>Like all Elm files, <code>EmojiConverter.elm</code> starts off by telling us what module it defines. In other files, we&apos;ll be able to call its functions by using the <code>EmojiConverter</code> namespace, in the same way we use the <code>Html</code> or <code>List</code> namespaces.</p>
 <p>This line also tells us the public API for the <code>EmojiConverter</code> module &#x2014; regardless of what else is defined in this file, other files can, at most, access the three functions defined above. Of the three publicly accessible functions, the <code>textToEmoji</code> function seems like exactly what we are looking for.</p>
-<p>Let&apos;s import just the module into our <code>View.elm</code> file, by adding this to the list of imports:</p>
+<p>Let&apos;s import the module into our <code>View.elm</code> file, by adding this to the list of imports:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">import</span> EmojiConverter
 </code></pre>
 <p>Now let&apos;s try using the <code>textToEmoji</code> function in our output text section.</p>
@@ -316,14 +317,21 @@
     [ <span class="hljs-type">Html</span>.text (<span class="hljs-type">EmojiConverter</span>.textToEmoji model.currentText) ]
 </code></pre>
 <p>Let&apos;s try to compile this, and...uh oh! You should be getting the following error:</p>
-<pre><code>==== error in View.elm:40:19: ====
+<pre><code>-- TYPE MISMATCH -------------------------------------------------- ././View.elm
+
 The argument to function `text` is causing a mismatch.
+
+42|                       Html.text (EmojiConverter.textToEmoji model.currentText)
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Function `text` is expecting the argument to be:
+
     String
+
 But it is:
+
     String -&gt; String
 </code></pre><p>This error might seem like gibberish at first, but stay strong &#x2014; Elm error messages are very good at telling you exactly what you need to know. In this case, it seems that, instead of passing <code>Html.text</code> a string to render, we are passing it a function that takes a string and returns a string. In Elm-land, that often means that you passed too few arguments into a function &#x2014; if a function takes two arguments, and you only provided it one, it will return a <strong>partially-applied function</strong> that still needs one more argument!</p>
-<p>As you may have guessed, it seems like we&apos;ve gotten the signature for <code>EmojiConverter.textToEmoji</code> wrong. Let&apos;s take a look at its definition in <code>EmojiConverter.elm</code>:</p>
+<p>As you may have guessed, it seems like we&apos;re using <code>EmojiConverter.textToEmoji</code> incorrectly. Let&apos;s take a look at its definition in <code>EmojiConverter.elm</code> to figure out how to use it:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Key</span> =
     <span class="hljs-type">String</span>
 
@@ -355,7 +363,7 @@ But it is:
 <p>Finally, let&apos;s pull out the hard-coded emoji key into something more readable. Since the key denotes domain-specific information about your app, the best place to put that information would be in <code>Model.elm</code>. Remember, modules in Elm are simply collections of functions that are similar to each other. Just because we put a function in <code>Model.elm</code> doesn&apos;t mean it has anything to do with our model record, or with application state in general.</p>
 <p>Let&apos;s create a <code>defaultKey</code> function in <code>Model.elm</code> that simply returns the &quot;&#x1F605;&quot; emoji. Since Model.elm includes <code>exposing (..)</code> in its definition, we don&apos;t need to explicitly white-list our new <code>defaultKey</code> function for export &#x2014; all other files can access all functions in this file if requested.</p>
 <p>Finally, let&apos;s use our <code>defaultKey</code> function. In <code>View.elm</code>, switch out the reference to the &quot;&#x1F605;&quot; emoji key with references to the new <code>defaultKey</code> function.</p>
-<p>Once you think you&apos;ve got it, recompile to make sure it worked. If you get stuck, check out <a href="https://github.com/elmbridge/elmoji-translator/tree/release-2" target="_blank">the completed step</a> on GitHub to see how we&apos;ve implemented it.</p>
+<p>Once you think you&apos;ve got it, recompile to make sure it worked. If you get stuck, check out <a href="https://github.com/elmbridge/elmoji-translator/tree/release-2" target="_blank">the completed step</a> on GitHub to see how we&apos;ve implemented it, or flag down a TA or instructor.</p>
 
                                 
                                 </section>
@@ -399,7 +407,7 @@ But it is:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Emojification!!!","level":"2.3","depth":1,"next":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"previous":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Emojification.md","mtime":"2016-10-21T06:41:33.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T06:41:59.673Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Emojification!!!","level":"2.3","depth":1,"next":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"previous":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Emojification.md","mtime":"2016-10-22T00:58:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-22T00:59:22.636Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

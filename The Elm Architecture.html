@@ -299,13 +299,13 @@
 <h2 id="steps">Steps</h2>
 <h3 id="step-1"><input type="checkbox"> Step 1</h3>
 <p>Download the skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world</a>, navigate to the downloaded folder in your terminal, and run the following command:</p>
-<pre><code class="lang-sh">elm-make Main.elm --output dist/main.js
+<pre><code class="lang-sh">elm-make Main.elm
 </code></pre>
-<p><code>elm-make</code> <strong>compiles</strong> your application &#x2014; it turns your Elm code into JavaScript code that your browser can understand. The above command uses <code>Main.elm</code> as the <strong>entry point</strong> to your application. It compiles that file, along with any files it references, and dumps the output into the specified output file, <code>dist/main.js</code>. This file is loaded in <code>index.html</code>, which then kicks off your Elm application using JavaScript.</p>
-<p>Whenever you make a change to your code, you will have to recompile before those changes are reflected in your browser. If your code is broken in some way, <code>elm-make</code> will fail, and give you helpful error messages on what you need to fix.</p>
-<p>Now run the following command to open the application in your browser:</p>
-<pre><code class="lang-sh">open index.html
+<p><code>elm-make</code> <strong>compiles</strong> your application &#x2014; it turns your Elm code into JavaScript code that your browser can understand. The above command uses <code>Main.elm</code> as the <strong>entry point</strong> to your application. It compiles that file, along with any files it references, and creates <code>index.html</code>, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It&apos;s also possible to compile into a JavaScript file if you want to use your own HTML file.)</p>
+<p>Elm comes with another tool that makes it easy to quickly develop your application: <code>elm-reactor</code> starts a local development server that will automatically compile your Elm code (and, if there are any errors, give you helpful error messages on what you need to fix).  Let&apos;s start it up:</p>
+<pre><code class="lang-sh">elm-reactor
 </code></pre>
+<p>Now that <code>elm-reactor</code> is running, you can go to <a href="http://localhost:8000/Main.elm" target="_blank">http://localhost:8000/Main.elm</a> in your web browser to see your compiled application.  Whenever you refresh the page, <code>elm-reactor</code> will recompile your code and show you the result.</p>
 <p>You should now have a fully functional Elm application, that looks like this:</p>
 <p><img src="images/hello-world.gif" alt="Hello World"></p>
 <h3 id="step-2"><input type="checkbox"> Step 2</h3>
@@ -342,7 +342,12 @@
 <pre><code class="lang-elm"><span class="hljs-title">view</span> model =
     <span class="hljs-type">Html</span>.div
         [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;skeleton-elm-project&quot;</span> ]
-        [ <span class="hljs-type">Html</span>.div
+        [ <span class="hljs-type">Html</span>.node <span class="hljs-string">&quot;link&quot;</span>
+            [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.rel <span class="hljs-string">&quot;stylesheet&quot;</span>
+            , <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.href <span class="hljs-string">&quot;stylesheets/main.css&quot;</span>
+            ]
+            []
+        , <span class="hljs-type">Html</span>.div
             [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;waves-effect waves-light btn-large&quot;</span>
             , <span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">Update</span>.<span class="hljs-type">ChangeText</span>
             ]
@@ -351,13 +356,15 @@
 </code></pre>
 <p>If you have worked with Angular, React, Ember, or another front-end framework, this part may be somewhat familiar to you. Every front-end framework has its own syntax for describing HTML, and Elm is no different. The resulting HTML looks like this:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;skeleton-elm-project&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;stylesheets/main.css&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">link</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;waves-effect waves-light btn-large&quot;</span>&gt;</span>
     hello world!
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
-<p>The <code>view</code> function uses the <code>Html</code> module to render HTML nodes. <code>Html.div</code> is a function that consumes two lists &#x2014; a list of attributes, and a list of children. Our first div has one attribute (a <code>class</code> attribute that provides a class for styling) and it has another div as its child.</p>
-<p>The child div has two attributes (another <code>class</code> attribute and an <code>onClick</code> handler). This div has one child: a plain-text HTML node, rendered using the <code>Html.text</code> function.</p>
+<p>The <code>view</code> function uses the <code>Html</code> module to render HTML nodes. <code>Html.div</code> is a function that consumes two lists &#x2014; a list of attributes, and a list of children. Our first div has one attribute (a <code>class</code> attribute that provides a class for styling) and it has two children: a link tag and another div.</p>
+<p>The link tag has two attributes (<code>rel</code>, and <code>href</code>) and no children.</p>
+<p>The child div has two attributes (another <code>class</code> attribute and an <code>onClick</code> handler). It also has one child: a plain-text HTML node, rendered using the <code>Html.text</code> function.</p>
 <p>What does <code>model.text</code> mean in the context of our <code>view</code> function? This function is responsible for rendering the application&apos;s current state as HTML &#x2014; and that state is stored in the <code>model</code> variable. Every time the application&apos;s state changes, this function will be called with a new <code>model</code> value &#x2014; if <code>model.text</code> is different than the last time this function was called, the UI will update with new text!</p>
 <p>You may wonder how this function can be performant &#x2014; every time the <code>model</code> changes, even slightly, our <code>view</code> function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, how does Elm not collapse under the load?</p>
 <p>Good news: Elm is optimized to be performant under pressure. It uses a library called <a href="https://github.com/elm-lang/virtual-dom" target="_blank">virtual-dom</a> to ensure that the entire page doesn&apos;t have to re-render every time the application&apos;s state changes. React and Ember use similar strategies, although Elm has more tricks up its sleeve because of its functional nature. The exact details are out of scope for this tutorial, however &#x2014; just know that you generally don&apos;t have to worry about HTML rendering performance when writing Elm.</p>
@@ -444,7 +451,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The Elm Architecture","level":"2.1","depth":1,"next":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"previous":{"title":"Intermission: Building User Interfaces","level":"1.5","depth":1,"path":"Building User Interfaces.md","ref":"Building User Interfaces.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Elm Architecture.md","mtime":"2016-10-21T06:41:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T06:41:59.673Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The Elm Architecture","level":"2.1","depth":1,"next":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"previous":{"title":"Intermission: Building User Interfaces","level":"1.5","depth":1,"path":"Building User Interfaces.md","ref":"Building User Interfaces.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Elm Architecture.md","mtime":"2016-10-22T00:58:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-22T00:59:22.636Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -299,11 +299,10 @@
 </ul>
 <h2 id="steps">Steps</h2>
 <h3 id="step-1"><input type="checkbox"> Step 1</h3>
-<p>Download the Skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-0" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-0</a> and navigate to the downloaded folder. Run the following commands to open the app in your browser:</p>
-<pre><code class="lang-sh">elm-make Main.elm --output dist/main.js
-open index.html
+<p>Download the Skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-0" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-0</a> and navigate to the downloaded folder. Start <code>elm-reactor</code> in your terminal:</p>
+<pre><code class="lang-sh">elm-reactor
 </code></pre>
-<p>You should now have a fully functional Elm application running in your browser! It should look like this:</p>
+<p>And then go to <a href="http://localhost:8000/Main.elm" target="_blank">http://localhost:8000/Main.elm</a> in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:</p>
 <p><img src="images/release-0.png" alt="Release 0"></p>
 <h3 id="step-2"><input type="checkbox"> Step 2</h3>
 <p>As you may have already noticed, however, this Elm application doesn&apos;t <em>do</em> anything. While you can enter text on the page, the application seems to ignore it.</p>
@@ -343,10 +342,8 @@ open index.html
         <span class="hljs-type">SetCurrentText</span> newText -&gt;
           { model | currentText = newText }
 </code></pre>
-<p>Once you&apos;ve made the change, recompile your code by running the following:</p>
-<pre><code class="lang-sh">elm-make Main.elm --output dist/main.js
-</code></pre>
-<p>The compiler will tell you about any errors you made, or let you know that everything is working!</p>
+<p>Once you&apos;ve made the change, go back to your web browser (to <a href="http://localhost:8000/Main.elm" target="_blank">http://localhost:8000/Main.elm</a>), refresh the page, and <code>elm-reactor</code> will recompile your application.</p>
+<p>If there are any errors from the compiler, <code>elm-reactor</code> will show them to you.  If there aren&apos;t any errors, you will see the updated application!</p>
 <h3 id="step-3"><input type="checkbox"> Step 3</h3>
 <p>Great, so we&apos;re now updating the model every time the user inputs text into our application. However, that&apos;s only half the battle &#x2014; we still need to display the application&apos;s <code>currentText</code> back to the user!</p>
 <p>Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our <code>View.view</code> function to display a paragraph tag right after our input tag, with the model&apos;s <code>currentText</code> as its value. The resulting HTML should look like this:</p>
@@ -366,7 +363,7 @@ open index.html
     [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center output-text emoji-size&quot;</span> ]
     [ <span class="hljs-type">Html</span>.text model.currentText ]
 </code></pre>
-<p>Recompile your code, refresh your browser, and you should have a fully functional, dynamic application!</p>
+<p>Recompile your code, and you should have a fully functional, dynamic application!</p>
 
                                 
                                 </section>
@@ -410,7 +407,7 @@ open index.html
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2016-10-21T06:41:37.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-21T06:41:59.673Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2016-10-22T00:58:55.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-22T00:59:22.636Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
