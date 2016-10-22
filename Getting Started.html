@@ -394,7 +394,29 @@ problem may actually be in how the left and right arguments interact.
 &quot;Hello, Janice&quot; : String
 </code></pre><h3 id="step-8"><input type="checkbox"> Step 8</h3>
 <p>Exit the Elm REPL by typing <code>:exit</code>, or <code>CTRL-D</code>.</p>
+<h3 id="bonus"><input type="checkbox"> <strong>Bonus!</strong></h3>
+<p>You may have noticed that all the types began with a capital letter (<code>String</code>, <code>Float</code>, <code>Int</code>) except for one (<code>number</code>). In general, you can remember that all types are capital but variables are lowercase. <code>number</code> in these cases is a special variable type saying the value can act as an <code>Int</code> or a <code>Float</code>. An example:</p>
+<pre><code>&gt; 1 + 1
+1 : number
+&gt; 1 + 1.0
+2 : Float
+&gt; floor 1.3
+1 : Int
+&gt; (floor 1.3) + 1.0
+-- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
 
+The right argument of (+) is causing a type mismatch.
+
+3|    floor 1.3) + 1.0
+                   ^^^
+(+) is expecting the right argument to be a:
+
+    Int
+
+But the right argument is:
+
+    Float
+</code></pre>
                                 
                                 </section>
                             
@@ -437,7 +459,7 @@ problem may actually be in how the left and right arguments interact.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2016-10-21T16:10:49.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-22T00:59:22.636Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2016-10-22T01:07:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-22T01:08:21.002Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
