@@ -65,16 +65,16 @@ Let's investigate each of these pieces one by one. First, let's check out the `i
 
 ```elm
 init =
-    { text = "hello world!" }
+    { buttonLabel = "hello world!" }
 ```
 
-As you can see, `Model.init` takes no arguments and returns a **record**, which is a name-value map with predefined structure. This particular record has a single field called `text`, with a value of `"hello world!"`. This record represents the state of our application — it is the only thing in our entire application that can change over time. As the `model` changes, the UI should change to reflect its new value.
+As you can see, `Model.init` takes no arguments and returns a **record**, which is a name-value map with predefined structure. This particular record has a single field called `buttonLabel`, with a value of `"hello world!"`. This record represents the state of our application — it is the only thing in our entire application that can change over time. As the `model` changes, the UI should change to reflect its new value.
 
 It is convention to write a **type alias** to describe your application's state, and call it `Model`, like this:
 
 ```elm
 type alias Model =
-    { text : String }
+    { buttonLabel : String }
 ```
 
 We'll learn more about type aliases later in this tutorial, but for now, it's worth noting that it is simply used for convenience. It's an easy way for other Elm developers to tell exactly what information is stored in your `model`.
@@ -96,7 +96,7 @@ view model =
             [ Html.Attributes.class "waves-effect waves-light btn-large"
             , Html.Events.onClick Update.ChangeText
             ]
-            [ Html.text model.text ]
+            [ Html.text model.buttonLabel ]
         ]
 ```
 
@@ -118,7 +118,7 @@ The link tag has two attributes (`rel`, and `href`) and no children.
 
 The child div has two attributes (another `class` attribute and an `onClick` handler). It also has one child: a plain-text HTML node, rendered using the `Html.text` function.
 
-What does `model.text` mean in the context of our `view` function? This function is responsible for rendering the application's current state as HTML — and that state is stored in the `model` variable. Every time the application's state changes, this function will be called with a new `model` value — if `model.text` is different than the last time this function was called, the UI will update with new text!
+What does `model.buttonLabel` mean in the context of our `view` function? This function is responsible for rendering the application's current state as HTML — and that state is stored in the `model` variable. Every time the application's state changes, this function will be called with a new `model` value — if `model.buttonLabel` is different than the last time this function was called, the UI will update with new text!
 
 You may wonder how this function can be performant — every time the `model` changes, even slightly, our `view` function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, how does Elm not collapse under the load?
 
@@ -151,16 +151,16 @@ The `update` function in `Update.elm` is responsible for this transformation. Wh
 update msg model =
     case msg of
         ChangeText ->
-            if model.text == "hello world!" then
-                { model | text = "goodbye world!" }
+            if model.buttonLabel == "hello world!" then
+                { model | buttonLabel = "goodbye world!" }
             else
-                { model | text = "hello world!" }
+                { model | buttonLabel = "hello world!" }
 ```
 
 We just saw that the `ChangeText` message can be triggered when the user clicks our button. When a message is sent, this function applies some conditional logic:
 
-- If the current application's state (stored in the `model` variable) has a `.text` value of `"hello world!"`, the function returns a new `model` with a value of `"goodbye world!"`.
-- If not, then `model.text` must be *already* equal to `"goodbye world!"`, so the function returns a `model` with a `text` value  of `"hello world!"`.
+- If the current application's state (stored in the `model` variable) has a `.buttonLabel` value of `"hello world!"`, the function returns a new `model` with a value of `"goodbye world!"`.
+- If not, then `model.buttonLabel` must be *already* equal to `"goodbye world!"`, so the function returns a `model` with a `buttonLabel` value  of `"hello world!"`.
 
 Either way, the new `model` will be converted to HTML, and any changes will be rendered to the UI by our `view` function.
 
