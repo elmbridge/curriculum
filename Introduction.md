@@ -28,7 +28,7 @@ At various points today, you'll also be asked to download code from GitHub, so i
 
 ### Installing Elm
 
-If you haven't done so already, follow [the official Elm guide](https://guide.elm-lang.org/get_started.html) for installing the language platform.
+If you haven't done so already, follow [the official Elm guide](https://guide.elm-lang.org/get_started.html) for installing the language platform. **Note for Windows users:** You might want to check our [handy Windows installation checklist](Special Installation Notes.md) to guide you through installation.
 
 You can verify everything is working by launching the Elm REPL ([What is a REPL?](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) by running the following command in your terminal:
 
