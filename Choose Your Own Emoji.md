@@ -6,7 +6,7 @@ For this lesson, we'll allow our users to choose which emoji to use when encodin
 
 There's a lot to do! Let's do this!
 
-Note: Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-2). You can either carry your code over from the last lesson, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2)
+Note: Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-4-part-2). You can either carry your code over from the last lesson, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-4-part-2)
 
 
 ## Goals
