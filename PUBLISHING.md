@@ -3,7 +3,7 @@
 Make sure you have the gitbook CLI installed:
 
 ```sh
-npm install -g gitbook
+npm install -g gitbook-cli
 ```
 
 Rebuild the gitbook, commit, and push:
