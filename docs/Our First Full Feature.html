@@ -1,0 +1,528 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Our First Full Feature · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Choose Your Own Emoji.html" />
+    
+    
+    <link rel="prev" href="Emojification.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">Learning the Basics</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="Why Elm.html">
+            
+                <a href="Why Elm.html">
+            
+                    
+                    Intermission: Why Elm?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="Getting Started.html">
+            
+                <a href="Getting Started.html">
+            
+                    
+                    Getting Started
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="The Basic Building Blocks of Elm.html">
+            
+                <a href="The Basic Building Blocks of Elm.html">
+            
+                    
+                    The Basic Building Blocks of Elm
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="Building User Interfaces.html">
+            
+                <a href="Building User Interfaces.html">
+            
+                    
+                    Intermission: Building User Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Making an Emoji Translator</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="The Elm Architecture.html">
+            
+                <a href="The Elm Architecture.html">
+            
+                    
+                    The Elm Architecture
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="Making It Dynamic.html">
+            
+                <a href="Making It Dynamic.html">
+            
+                    
+                    Making It Dynamic
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="Emojification.html">
+            
+                <a href="Emojification.html">
+            
+                    
+                    Emojification!!!
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="Our First Full Feature.html">
+            
+                <a href="Our First Full Feature.html">
+            
+                    
+                    Our First Full Feature
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="Choose Your Own Emoji.html">
+            
+                <a href="Choose Your Own Emoji.html">
+            
+                    
+                    Choose Your Own Emoji
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="Deployment and Next Steps.html">
+            
+                <a href="Deployment and Next Steps.html">
+            
+                    
+                    Deployment and Next Steps
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >Our First Full Feature</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="our-first-full-feature">Our First Full Feature</h1>
+<p>While emojis are great, a one-way translator from text to emojis is not particularly useful. We need to be able translate in both directions, like this:</p>
+<p><img src="images/release-3-part-2.gif" alt="Release 3 part 2"></p>
+<p>This is complex feature &#x2014; to implement it, we&apos;ll have to change every part of our application. Let&apos;s get started!</p>
+<p>Note: Your code should currently <a href="https://github.com/elmbridge/elmoji-translator/tree/release-2" target="_blank">look like this</a>. You can either carry your code over from the last lesson, or download and recompile <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-2" target="_blank">the code from GitHub.</a></p>
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Write Elm view code using HTML as a template.</li>
+<li>Add a new message for your application to consume.</li>
+<li>Extend a type alias and fix subsequent compiler errors.</li>
+<li>Use union types to store information in more literate ways.</li>
+</ul>
+<h2 id="steps">Steps</h2>
+<h3 id="step-1"><input type="checkbox"> Step 1</h3>
+<p> First, let&apos;s start in <code>View.elm</code>, where we&apos;ll map user actions in the UI to messages for our application to consume.</p>
+<p><img src="images/elm-architecture-2.jpeg" alt="Elm Architecture"></p>
+<p>In our case, we want to build a switch that will allow users to toggle between &quot;Translate Text&quot; and &quot;Translate Emoji.&quot; We can use the <a href="http://materializecss.com/" target="_blank">materialize.css</a> lever component to do the job. Between the text input and paragraph tag that our <code>View.view</code> function produces, we want the following markup to appear:</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;switch center&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+    Translate Text
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">input</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;lever&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    Translate Emoji
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code></pre>
+<p>Take a shot at translating the above HTML to Elm and update the <code>View.view</code> function! Some tips if you get stuck:</p>
+<ul>
+<li>Most <code>Html</code> functions take two arguments: a list of attributes (produced by the <code>Html.Attributes</code> and the <code>Html.Events</code> modules), followed by a list of child elements. In this case, our <code>div</code> has one child (the <code>label</code> element), and the <code>label</code> element has four children!</li>
+<li>To render plain text elements, use <code>Html.text</code>. It simply takes a string as its argument.</li>
+<li>Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.</li>
+</ul>
+<p>If you get stuck, flag down a TA or instructor to help you through it! Alternatively, you can see <a href="https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1" target="_blank">a working solution here</a>.</p>
+<h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<p>Now that we have a working lever, we need to wire it up to our <code>Update.update</code> function! Let&apos;s look at our <code>Update.elm</code> file, and see what messages our <code>Update.update</code> function can currently consume.</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
+    = <span class="hljs-type">SetCurrentText</span> <span class="hljs-type">String</span>
+</code></pre>
+<p>This is a <strong>union type declaration</strong>. It defines a new type that we can use in our program, along with all its possible <strong>values</strong>. Specifically, the above code defines the <code>Msg</code> type, and declares that it has exactly one possible value &#x2013; <code>SetCurrentText String</code>, which is triggered whenever the user inputs text into the translation box.</p>
+<p>Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like <code>String</code> or <code>List</code>, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:</p>
+<p>We can use the <code>case pet of</code> syntax to <strong>Pattern Match</strong> to branch our code based on which <strong>value</strong> of the <strong>type</strong> we receive.</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Pet</span> = <span class="hljs-type">Cat</span> | <span class="hljs-type">Dog</span> | <span class="hljs-type">Rabbit</span> | <span class="hljs-type">Turtle</span>
+<span class="hljs-comment">-- this defines the union type `Pet` with four possible values</span>
+
+<span class="hljs-title">makeSound</span> : <span class="hljs-type">Pet</span> -&gt; <span class="hljs-type">String</span>
+<span class="hljs-comment">-- union types, like `Pet`, can only be used in type signatures.</span>
+<span class="hljs-title">makeSound</span> pet =
+    <span class="hljs-comment">-- values like `Cat` and `Dog` can&apos;t be used in type signatures,</span>
+    <span class="hljs-comment">-- but they can be used inside functions.</span>
+    <span class="hljs-keyword">if</span> pet == <span class="hljs-type">Cat</span>
+        <span class="hljs-string">&quot;meow&quot;</span>
+    <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> pet == <span class="hljs-type">Dog</span>
+        <span class="hljs-string">&quot;woof&quot;</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-string">&quot;..silence..&quot;</span>
+</code></pre>
+<p>You may be wondering what the <code>String</code> means after <code>SetCurrentText</code>. This is the syntax for declaring a <strong>tagged value</strong>, which we will learn more about in a future lesson. For now, know that a use of <code>SetCurrentText</code> must also include a string to be considered a valid message:</p>
+<pre><code class="lang-elm"><span class="hljs-comment">-- valid value for `Msg`</span>
+<span class="hljs-type">SetCurrentText</span> <span class="hljs-string">&quot;some awesome text&quot;</span>
+
+<span class="hljs-comment">-- invalid values for `Msg`</span>
+<span class="hljs-type">SetCurrentText</span> <span class="hljs-number">12345</span>
+<span class="hljs-type">SetCurrentText</span> <span class="hljs-string">&quot;string one&quot;</span> <span class="hljs-string">&quot;string two&quot;</span>
+</code></pre>
+<p>Back to the task at hand: in order for the user to toggle between translation modes, we need a new message to our system. Let&apos;s add another possible value to our <code>Msg</code> union type declaration:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
+    = <span class="hljs-type">SetCurrentText</span> <span class="hljs-type">String</span>
+    | <span class="hljs-type">ToggleDirection</span>
+</code></pre>
+<p>We&apos;ll make sure our lever triggers the new <code>ToggleDirection</code> <code>Msg</code> whenever the user clicks it!</p>
+<p>If you try to compile now, you&apos;ll notice that the compiler realizes something is wrong:</p>
+<pre><code>-- MISSING PATTERNS --------------------------------------------- ././Update.elm
+
+This `case` does not have branches for all possibilities.
+
+13|&gt;    case msg of
+14|&gt;        SetCurrentText newText -&gt;
+15|&gt;            { model | currentText = newText }
+
+You need to account for the following values:
+
+    Update.ToggleDirection
+
+Add a branch to cover this pattern!
+</code></pre><p>Helpfully, the Elm compiler enforces <strong>case exhaustiveness</strong> &#x2013; since our <code>Update.update</code> function doesn&apos;t handle our new <code>ToggleDirection</code> value, the compiler realizes that triggering that <code>Msg</code> will break our program. Let&apos;s fix it by adding another clause to our case expression, this time matching on the pattern <code>ToggleDirection</code>.</p>
+<pre><code class="lang-elm"><span class="hljs-type">ToggleDirection</span> -&gt;
+    <span class="hljs-comment">-- currently, this does nothing!</span>
+    model
+</code></pre>
+<p>Finally, let&apos;s make our view actually trigger our new <code>Msg</code> value. Add the following attribute to the lever&apos;s HTML in <code>View.view</code>:</p>
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">Update</span>.<span class="hljs-type">ToggleDirection</span>
+</code></pre>
+<p>Compile, and make sure nothing is broken! If you want, you can see <a href="https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1" target="_blank">a working solution here</a>.</p>
+<h3 id="step-3"><input type="checkbox"> Step 3</h3>
+<p>When our <code>Update.update</code> function receives a <code>ToggleDirection</code> message and the current <code>model</code>, it should return a new, changed <code>model</code>:</p>
+<p><img src="images/elm-architecture-3.jpeg" alt="Elm Architecture"></p>
+<p>Eventually, our <code>View.view</code> function will reflect those changes to the user.</p>
+<p>First things first &#x2014; we need to find a way to describe the current direction in our <code>Model</code>. Let&apos;s take a look at <code>Model.elm</code>:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
+    { currentText : <span class="hljs-type">String</span> }
+</code></pre>
+<p>The code above declares that <code>Model</code> is a <strong>type alias</strong> for a specific record structure. A type alias works a lot like a union type declaration &#x2014; it also produces a new type that we can use in our program. In this case, the <code>Model</code> type is just another name for &quot;a record with a single field called <code>currentText</code>.&quot;</p>
+<p>Type aliases are helpful for making type signatures simple and readable. For example, you can see that <code>Model</code> is used in the type signature for <code>init</code>:</p>
+<pre><code class="lang-elm"><span class="hljs-title">init</span> : <span class="hljs-type">Model</span>
+<span class="hljs-title">init</span> =
+    { currentText = <span class="hljs-string">&quot;&quot;</span> }
+</code></pre>
+<p>Without this type alias, we would&apos;ve had to write:</p>
+<pre><code class="lang-elm"><span class="hljs-title">init</span> : { currentText : <span class="hljs-type">String</span> }
+<span class="hljs-title">init</span> =
+    { currentText = <span class="hljs-string">&quot;&quot;</span> }
+</code></pre>
+<p>Now back to business: we&apos;ll need to extend this type alias declaration, by adding another field to the record:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
+    { currentText : <span class="hljs-type">String</span>
+    , direction: <span class="hljs-comment">-- ????</span>
+    }
+</code></pre>
+<p>But wait, what <em>is</em> direction? In other languages, we might describe the current direction as a string, with possible values &quot;emoji-to-text&quot; and &quot;text-to-emoji&quot;. We could also model it as a boolean value, perhaps renaming it <code>translatingTextToEmoji</code>.</p>
+<p>In Elm, we have a more powerful tool at our disposal: union types! We can simply create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant. In <code>Model.elm</code>, let&apos;s create a custom <code>Direction</code> type with two possible values:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Direction</span>
+    = <span class="hljs-type">TextToEmoji</span>
+    | <span class="hljs-type">EmojiToText</span>
+</code></pre>
+<p>Now, we can use that new type in our <code>Model</code> type alias:</p>
+<pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
+    { currentText : <span class="hljs-type">String</span>
+    , direction : <span class="hljs-type">Direction</span>
+    }
+</code></pre>
+<p>If you try to compile right now, you should get some errors: Our code wasn&apos;t written to handle a <code>Model</code> with a <code>direction</code> field! See if you can figure out what&apos;s wrong and fix it.</p>
+<p>Now that <code>Model</code> can describe the current translation direction, we need to change <code>Update.update</code> to correctly set the <code>direction</code> field when it consumes the <code>ToggleDirection</code> message.</p>
+<p>Inside <code>Update.update</code>, we know two things &#x2013; the current <code>Msg</code> we received, as well as the current state of the <code>model</code>, which includes its current <code>direction</code>. That&apos;s all the information we need &#x2013; if the current <code>model.direction</code> is <code>EmojiToText</code>, <code>Update.update</code> should return a <code>model</code> with a <code>direction</code> value of <code>TextToEmoji</code>, and vice versa.</p>
+<p>We can use <code>case ___ of</code> syntax to <strong>Pattern Match</strong> on the different values of the type <code>Direction</code>. This allows us to branch our code to handle the different conditions.</p>
+<pre><code class="lang-elm"><span class="hljs-type">ToggleDirection</span> -&gt;
+    <span class="hljs-keyword">case</span> model.direction <span class="hljs-keyword">of</span>
+        <span class="hljs-type">Model</span>.<span class="hljs-type">TextToEmoji</span> -&gt;
+            <span class="hljs-comment">-- return a model with a direction value of `Model.EmojiToText`</span>
+
+        <span class="hljs-type">Model</span>.<span class="hljs-type">EmojiToText</span> -&gt;
+            <span class="hljs-comment">-- return a model with a direction value of `Model.TextToEmoji`</span>
+</code></pre>
+<p>Implement the above code in <code>Update.update</code>, and make sure it compiles!</p>
+<h3 id="step-4"><input type="checkbox"> Step 4</h3>
+<p>Now to the final part of the feature: We need to reflect changes to the model in the UI!</p>
+<p><img src="images/elm-architecture-4.jpeg" alt="Elm Architecture"></p>
+<p>In our case, we need to change our translation logic depending on the current <code>model.direction</code>.  Let&apos;s take a look at our <code>View.translateText</code> function:</p>
+<pre><code class="lang-elm"><span class="hljs-title">translateText</span> model =
+    <span class="hljs-type">EmojiConverter</span>.textToEmoji <span class="hljs-type">Model</span>.defaultKey model.currentText
+</code></pre>
+<p>Here&apos;s what we know:</p>
+<ul>
+<li>The <code>EmojiConverter</code> exposes a <code>emojiToText</code> function that we can use if the current direction is <code>Model.EmojiToText</code>.</li>
+<li>The <code>translateText</code> function also has access to the current <code>model</code>, which stores the current <code>Direction</code>.</li>
+<li>In a similar manner to <code>Update.update</code> function, we can use a case expression to choose which <code>EmojiConverter</code> function to use.</li>
+</ul>
+<p>That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2" target="_blank">a completed version of this feature here</a>, or flag down a TA or instructor.</p>
+<p>Congratulations, you&apos;ve completed your first full feature in Elm!</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Emojification.html" class="navigation navigation-prev " aria-label="Previous page: Emojification!!!">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Choose Your Own Emoji.html" class="navigation navigation-next " aria-label="Next page: Choose Your Own Emoji">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Our First Full Feature","level":"2.4","depth":1,"next":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"path":"Choose Your Own Emoji.md","ref":"Choose Your Own Emoji.md","articles":[]},"previous":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Our First Full Feature.md","mtime":"2016-10-22T01:07:52.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-22T01:08:21.002Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
