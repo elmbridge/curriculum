@@ -158,6 +158,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6" data-path="Special Installation Notes.html">
+            
+                <a href="Special Installation Notes.html">
+            
+                    
+                    Special Installation Notes
+            
+                </a>
+            
+
+            
+        </li>
+    
 
     
         
@@ -354,7 +367,7 @@ But it is:
 <pre><code class="lang-elm"><span class="hljs-title">translateText</span> model =
     <span class="hljs-type">EmojiConverter</span>.textToEmoji <span class="hljs-string">&quot;&#x1F605;&quot;</span> model.currentText
 </code></pre>
-<p>Note: Type signatures are always optional in Elm, but they are highly encouraged &#x2014; type signatures can be a good form of documentation, and they help the compiler make educated guessed about what went wrong when your code fails to recompile. Feel free to add your own to <code>translateText</code>!</p>
+<p>Note: Type signatures are always optional in Elm, but they are highly encouraged &#x2014; type signatures can be a good form of documentation, and they help the compiler make educated guesses about what went wrong when your code fails to recompile. Feel free to add your own to <code>translateText</code>!</p>
 <p>We can now use this function in our <code>View.view</code> function. Since it&apos;s defined in the same file as it&apos;s being used, we don&apos;t even have to use the <code>View</code> namespace. We can simply invoke it as such:</p>
 <pre><code class="lang-elm"><span class="hljs-type">Html</span>.text (translateText model)
 </code></pre>
@@ -407,7 +420,7 @@ But it is:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Emojification!!!","level":"2.3","depth":1,"next":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"previous":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Emojification.md","mtime":"2016-10-22T01:03:06.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-10-22T01:08:21.002Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Emojification!!!","level":"2.3","depth":1,"next":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"previous":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Emojification.md","mtime":"2016-11-03T06:57:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-03T07:00:40.090Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

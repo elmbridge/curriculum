@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Intermission: Why Elm? · GitBook</title>
+        <title>Special Installation Notes · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.2">
@@ -59,10 +59,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Getting Started.html" />
+    <link rel="next" href="The Elm Architecture.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="Building User Interfaces.html" />
     
 
     </head>
@@ -106,7 +106,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="Why Elm.html">
+        <li class="chapter " data-level="1.2" data-path="Why Elm.html">
             
                 <a href="Why Elm.html">
             
@@ -158,7 +158,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6" data-path="Special Installation Notes.html">
+        <li class="chapter active" data-level="1.6" data-path="Special Installation Notes.html">
             
                 <a href="Special Installation Notes.html">
             
@@ -286,7 +286,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >Intermission: Why Elm?</a>
+        <a href="." >Special Installation Notes</a>
     </h1>
 </div>
 
@@ -301,33 +301,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="why-elm">Why Elm?</h1>
-<p>In this section, we&apos;ll talk about the advantages &#x2014; and disadvantages! &#x2014; of using Elm to make front-end applications.</p>
-<p>First, the basics: <strong>Elm is a language for building complex web interfaces.</strong> Much like CoffeeScript or JSX, Elm compiles to JavaScript; the Elm Platform takes your Elm code and turns it into JavaScript that any web browser can understand. In many ways, it operates similarly to front-end JavaScript frameworks like React, Angular, and Ember.</p>
-<p>So why do developers go to the trouble of using a whole new language instead of using a JavaScript framework? Indeed, Elm shares many of its opinions about architecture and code quality with those tools. However, <strong>Elm is different in one important way &#x2014; because it is a distinct programming language and not simply a framework, Elm can strictly enforce its opinions.</strong></p>
-<p>And the language has lots of rules! They are meant to push developers toward writing code that is easier to maintain and harder to break. For instance:</p>
+                                <h1 id="installation-notes-for-windows-users">Installation Notes for Windows Users</h1>
+<p>If you are running Windows on your machine, you might find this checklist of activities helpful:</p>
 <ul>
-<li><p><strong>In Elm, a function always returns the same value for a given input.</strong> There is no notion of instance variables or <code>this</code> in Elm &#x2014; the only thing a function can do is read the values of its arguments and call out to other functions. This quality of the language is called <strong>purity</strong> &#x2014; no matter what context, a function will do the same thing every time.</p>
-</li>
-<li><p><strong>Once a value is declared in an Elm application, it can never change.</strong> It&apos;s not possible, for instance, for a function to accidentally change its inputs, or for something to become <code>undefined</code>. If you need to add an element to a list, there is no way to do so destructively &#x2014; instead, you have to create a new list with all the elements you specify. Values like these are called <strong>immutable</strong>.</p>
-</li>
-<li><p><strong>Everything in Elm has a <em>type</em>. Nothing can ever break that contract.</strong> For instance, it is not possible for a function to return a string in some cases and a number in other cases &#x2014; the type contract of a function can never be violated. Those same constraints operate on everything in the language, including variables and complex data structures. That is why Elm is called a <strong>statically typed</strong> language.</p>
-</li>
+<li>Before running the Windows installer, shut down your command prompt (<code>cmd.exe</code>) and/or Cygwin applications.</li>
+<li>After running the installer, you will also need to install <code>nodejs</code>, from the <a href="https://nodejs.org/" target="_blank">Node JS</a> website. You can choose the option that says &quot;Recommended For Most Users.&quot;</li>
+<li>After completing the NodeJS installation, open a new command prompt (or Cygwin) window and type in <code>elm-repl</code> at the command line. If you <em>don&apos;t</em> see this message, you are good to go! If not, consult an instructor or TA:</li>
 </ul>
-<p>Because of these rules, <strong>entire categories of bugs are impossible in Elm</strong>, like:</p>
-<ul>
-<li>&quot;I expected this function to return a number, but it returned nil instead.&quot;</li>
-<li>&quot;Sometimes when I call this function it fails, even though I gave it the exact same input.&quot;</li>
-<li>&quot;Something is changing the value of my variable, and I&apos;m not sure where it&apos;s happening.&quot;</li>
-</ul>
-<p>These errors cannot happen in Elm because of the language&apos;s strictness. Indeed, the rules mean that <strong>Elm applications can never accidentally crash.</strong> There are no runtime exceptions &#x2014; no <code>undefined is not a function</code> or <code>undefined method for nil:NilClass</code>. Consequently, Elm developers spend much less time in the Developer Tools console than JavaScript developers, and less time in the browser in general.</p>
-<p>That strictness can come with real downsides, though. If you are coming from an object-oriented, dynamically typed language like Ruby or JavaScript, Elm can feel like a straightjacket at first. There are no <code>each</code> or <code>for</code> loops in Elm &#x2014; instead, you have to use higher-order functions like <code>map</code>, <code>filter</code>, and <code>fold</code>. The <code>+=</code> operator has no place in the language either, since it would mutate the variable on its left-hand side. If you need to change a value deep inside a nested data structure, you can&apos;t simply read the value and mutate it, as you could in other languages.</p>
-<p>You may wonder how Elm developers can survive with all these restrictions. The strictness of the language opens up other doors, however. Because Elm requires all programs to follow its rules, <strong>the Elm compiler will tell you exactly what&apos;s wrong with your program if you make a mistake</strong>. It will tell you if you made an <code>if/else</code> expression return two different kinds of values, if you are calling a function with too many arguments, or if you are referencing a variable that does not exist.</p>
-<p>Developing with Elm often feels like an ongoing conversation with the compiler, gently pushing you toward writing better code. Often, you don&apos;t even need to look at your application in the browser while implementing a feature &#x2014; you can trust the compiler to tell you if you are going in the right direction.</p>
-<p>You may be asking yourself why you should choose to learn a language that&apos;s so different from other tools in the ecosystem. <strong>We&apos;d argue that the experience of working in an alien environment, even if it&apos;s just for a little while, can be fruitful.</strong> You are probably not used to dealing with the constraints of purity, immutability, and static typing, which together make up the basic tenets of <strong>functional programming</strong>. These constraints will push you to solve problems in creative ways, and hopefully you will learn strategies that you can employ in other languages.</p>
-<p>We make no claim that functional programming is <em>better</em> than other types of programming, but it definitely is <em>different</em>. We strongly believe that learning a new way to think about programming will make you a better developer, in the same way that learning a foreign language makes you appreciate the architecture and beauty of the languages you already know.</p>
-<p>So let&apos;s get started!</p>
+<pre><code>$ elm repl
+The REPL relies on node.js to execute JavaScript code outside the browser.
+I could not find executable &apos;node&apos; or &apos;nodejs&apos; on your computer though!
 
+You can install node.js from &lt;http://nodejs.org/&gt;. If it is already installed
+but has a different name, use the --interpreter flag.
+---- elm-repl 0.17.1 -----------------------------------------------------------
+ :help for help, :exit to exit, more at &lt;https://github.com/elm-lang/elm-repl&gt;
+ --------------------------------------------------------------------------------
+</code></pre>
                                 
                                 </section>
                             
@@ -354,12 +344,12 @@
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                <a href="Building User Interfaces.html" class="navigation navigation-prev " aria-label="Previous page: Intermission: Building User Interfaces">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Getting Started.html" class="navigation navigation-next " aria-label="Next page: Getting Started">
+                <a href="The Elm Architecture.html" class="navigation navigation-next " aria-label="Next page: The Elm Architecture">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -370,7 +360,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"next":{"title":"Getting Started","level":"1.3","depth":1,"path":"Getting Started.md","ref":"Getting Started.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"Introduction.md","ref":"Introduction.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Why Elm.md","mtime":"2016-11-03T06:57:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-03T07:00:40.090Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Special Installation Notes","level":"1.6","depth":1,"next":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"previous":{"title":"Intermission: Building User Interfaces","level":"1.5","depth":1,"path":"Building User Interfaces.md","ref":"Building User Interfaces.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Special Installation Notes.md","mtime":"2016-11-03T06:57:41.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2016-11-03T07:00:40.090Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
