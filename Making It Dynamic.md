@@ -51,7 +51,7 @@ Let's verify that user text input is mapped to a `message`. First, let's look in
 
 ```elm
 Html.input
-  [ Html.Attributes.type' "text"
+  [ Html.Attributes.type_ "text"
   , Html.Attributes.class "center"
   , Html.Attributes.placeholder "Let's Translate!"
   , Html.Events.onInput Update.SetCurrentText
