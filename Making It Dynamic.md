@@ -15,7 +15,7 @@ We need to walk before we run, though! First, we'll make an application that sim
 
 ## Steps
 
-### Step 1
+### Skeleton Setup
 
 Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Start `elm-reactor` in your terminal:
 
@@ -27,7 +27,7 @@ And then go to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm) 
 
 ![Release 0](images/release-0.png)
 
-### Step 2
+### Updating the Model
 
 As you may have already noticed, however, this Elm application doesn't *do* anything. While you can enter text on the page, the application seems to ignore it.
 
@@ -94,7 +94,7 @@ Once you've made the change, go back to your web browser (to [http://localhost:8
 
 If there are any errors from the compiler, `elm-reactor` will show them to you.  If there aren't any errors, you will see the updated application!
 
-### Step 3
+### Adding to the View
 
 Great, so we're now updating the model every time the user inputs text into our application. However, that's only half the battle — we still need to display the application's `currentText` back to the user!
 
@@ -117,7 +117,7 @@ Note: `Html.text` is a special kind of `Html` function, that produces a plain-te
 
 Insert the above code into the `View.view` function, as a list element after the div with a class of `.input-field`. Once you think you have it, recompile your code to see if it worked.
 
-### Step 4
+### Displaying Model Values
 
 We don't want the text to always be `It's happening!`, though. Instead, the text of the paragraph node should reflect the `currentText` of the current model. As the model changes, this paragraph node should change as well.
 
