@@ -16,7 +16,7 @@ Your code should currently [look like this](https://github.com/elmbridge/elmoji-
 
 ## Steps
 
-### Step 1
+### Emoji Converter
 
 Spoiler alert: Emojis are complicated! And creating a [decoder-ring-style][secret decoder rings] translator between plain text and emojis is no small feat. Thankfully, one of your teammates has already written an emoji converter library for you to use, so you don't have to deal with that complexity! The code is already in your skeleton, in `EmojiConverter.elm`.
 
@@ -100,7 +100,7 @@ Html.p
 
 Recompile the code, refresh your browser, and you should be in business!
 
-### Step 2
+### Our First Refactor
 
 While this solution works, I'd argue that the code has become harder to follow. Let's refactor!
 
@@ -121,7 +121,7 @@ Html.text (translateText model)
 
 Recompile your code and make sure everything still works!
 
-### Step 3
+### Emoji Key
 
 Finally, let's pull out the hard-coded emoji key into something more readable. Since the key denotes domain-specific information about your app, the best place to put that information would be in `Model.elm`. Remember, modules in Elm are simply collections of functions that are similar to each other. Just because we put a function in `Model.elm` doesn't mean it has anything to do with our model record, or with application state in general.
 
