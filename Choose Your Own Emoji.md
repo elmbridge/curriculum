@@ -18,7 +18,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
 ## Steps
 
-### Step 1
+### Adding New UI Elements
 
 As we did with our last lesson, let's start first by updating `View.elm` with our new UI elements. The eventual markup should look like this:
 
@@ -69,7 +69,7 @@ If you want to learn more, the `List` module is thoroughly documented on [packag
 
 Now, it's your turn! Add the new markup to `View.view`, with the `renderKeys` and `renderKey` helper functions. If you get stuck, you can see [a completed version of this step here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-4-part-1).
 
-### Step 2
+### Displaying the Currenlty Selected Key
 
 There's one more part of the UI that we have to render — we have to display the currently selected key as selected. If we give the specified emoji `.key-selector` a class of `.is-selected`, it will display with a blue background. For now, we'll
 hard code the selected key to `Model.defaultKey`.
@@ -88,7 +88,7 @@ Html.div
 
 Once you've added that code to your `renderKey` function, you should have a working, if static, UI!
 
-### Step 3
+### Adding User Actions
 
 Now that we've updated the UI, we have to map our new user action to a message for our application to consume. Add the following line of code to your `renderKey` function, as an attribute to the element with a class of `.key-selector`:
 
@@ -133,7 +133,7 @@ So let's wire up our new tagged value to `Update.update`! In order:
 
 That's a lot! Work slowly, and lean on your compiler for help. If you get stuck, you can see [a completed version of this step here](https://github.com/elmbridge/elmoji-translator/tree/release-4-part-2).
 
-### Step 4
+### Displaying Model Values
 
 Now that `Update.update` consumes our new message, we need to reflect changes to the model onto the UI. First off, we need to use our new `model.selectedKey` field to display to the user which key is currently selected. As of now, our `renderKeys` function does not consume `model`, so it has no idea about the current state of the application. Let's change that! `renderKeys` should look like this:
 
@@ -147,7 +147,7 @@ renderKeys model =
 
 You will have to change the call site of `renderKeys` in `View.view` to match the new signature of the function, and you will have to change `renderKey` to consume a model. Once that's done, you can use `model.selectedKey` in place of `Model.defaultKey` when checking whether a key is selected. The UI should now show you which key is selected, as you click on them!
 
-### Step 5
+### Changing our Cipher
 
 And now, for the final step — we need to change our translation key based on the value of `model.selectedKey`! When you're done, your application should work like this:
 
