@@ -9,7 +9,7 @@
 
 ## Steps
 
-### Step 1
+### REPL
 
 Launch the Elm REPL again by running the following command:
 
@@ -35,7 +35,7 @@ strings, numbers, and simple mathematical expressions:
 16 : number
 ```
 
-### Step 2
+### Variables
 
 You can define and refer to variables:
 
@@ -48,7 +48,7 @@ You can define and refer to variables:
 8 : number
 ```
 
-### Step 3
+### Strings
 
 You can concatenate strings using the `++` operator:
 
@@ -62,7 +62,7 @@ You can concatenate strings using the `++` operator:
 "Hello, Anna!" : String
 ```
 
-### Step 4
+### Error Messages
 
 If you try to perform operations that don't make sense, Elm will try to tell you
 what's wrong:
@@ -91,7 +91,7 @@ acceptable on its own, I assume it is "correct" in subsequent checks. So the
 problem may actually be in how the left and right arguments interact.
 ```
 
-### Step 5
+### Functions
 
 To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.
 
@@ -111,7 +111,7 @@ To disambiguate order of operations, use parentheses.
 14 : Int
 ```
 
-### Step 6
+### The String Module
 
 Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String).
 
@@ -133,7 +133,7 @@ Then any function we want to use is namespaced under `String`:
 "Apple -- Apricot -- Avocado" : String
 ```
 
-### Step 7
+### Defining our own Functions
 
 Now let's define and use our own functions.
 
@@ -158,7 +158,7 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 "Hello, Janice" : String
 ```
 
-### Step 8
+### All done!
 
 Exit the Elm REPL by typing `:exit`, or `CTRL-D`.
 
