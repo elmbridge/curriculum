@@ -18,7 +18,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
 ## Steps
 
-### <input type="checkbox"> Step 1
+### Step 1
 
  First, let's start in `View.elm`, where we'll map user actions in the UI to messages for our application to consume.
 
@@ -44,7 +44,7 @@ Take a shot at translating the above HTML to Elm and update the `View.view` func
 
 If you get stuck, flag down a TA or instructor to help you through it! Alternatively, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
 
-### <input type="checkbox"> Step 2
+### Step 2
 
 Now that we have a working lever, we need to wire it up to our `Update.update` function! Let's look at our `Update.elm` file, and see what messages our `Update.update` function can currently consume.
 
@@ -132,7 +132,7 @@ Html.Events.onClick Update.ToggleDirection
 
 Compile, and make sure nothing is broken! If you want, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
 
-### <input type="checkbox"> Step 3
+### Step 3
 
 When our `Update.update` function receives a `ToggleDirection` message and the current `model`, it should return a new, changed `model`:
 
@@ -213,7 +213,7 @@ ToggleDirection ->
 
 Implement the above code in `Update.update`, and make sure it compiles!
 
-### <input type="checkbox"> Step 4
+### Step 4
 
 Now to the final part of the feature: We need to reflect changes to the model in the UI!
 

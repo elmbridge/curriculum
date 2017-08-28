@@ -9,7 +9,7 @@
 
 ## Steps
 
-### <input type="checkbox"> Step 1
+### Step 1
 
 Launch the Elm REPL again by running the following command:
 
@@ -35,7 +35,7 @@ strings, numbers, and simple mathematical expressions:
 16 : number
 ```
 
-### <input type="checkbox"> Step 2
+### Step 2
 
 You can define and refer to variables:
 
@@ -48,7 +48,7 @@ You can define and refer to variables:
 8 : number
 ```
 
-### <input type="checkbox"> Step 3
+### Step 3
 
 You can concatenate strings using the `++` operator:
 
@@ -62,7 +62,7 @@ You can concatenate strings using the `++` operator:
 "Hello, Anna!" : String
 ```
 
-### <input type="checkbox"> Step 4
+### Step 4
 
 If you try to perform operations that don't make sense, Elm will try to tell you
 what's wrong:
@@ -91,7 +91,7 @@ acceptable on its own, I assume it is "correct" in subsequent checks. So the
 problem may actually be in how the left and right arguments interact.
 ```
 
-### <input type="checkbox"> Step 5
+### Step 5
 
 To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.
 
@@ -111,7 +111,7 @@ To disambiguate order of operations, use parentheses.
 14 : Int
 ```
 
-### <input type="checkbox"> Step 6
+### Step 6
 
 Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String).
 
@@ -133,7 +133,7 @@ Then any function we want to use is namespaced under `String`:
 "Apple -- Apricot -- Avocado" : String
 ```
 
-### <input type="checkbox"> Step 7
+### Step 7
 
 Now let's define and use our own functions.
 
@@ -158,12 +158,12 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 "Hello, Janice" : String
 ```
 
-### <input type="checkbox"> Step 8
+### Step 8
 
 Exit the Elm REPL by typing `:exit`, or `CTRL-D`.
 
 
-### <input type="checkbox"> **Bonus!**
+### **Bonus!**
 
 You may have noticed that all the types began with a capital letter (`String`, `Float`, `Int`) except for one (`number`). In general, you can remember that all types are capital but variables are lowercase. `number` in these cases is a special variable type saying the value can act as an `Int` or a `Float`. An example:
 

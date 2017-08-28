@@ -11,7 +11,7 @@ In this lesson, we'll run a simple Elm application and learn how it all fits tog
 
 ## Steps
 
-### <input type="checkbox"> Step 1
+### Step 1
 
 Download the skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world](https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world), navigate to the downloaded folder in your terminal, and run the following command:
 
@@ -33,7 +33,7 @@ You should now have a fully functional Elm application, that looks like this:
 
 ![Hello World](images/hello-world.gif)
 
-### <input type="checkbox"> Step 2
+### Step 2
 
 So how does any of this work? Let's start with `Main.elm`, which (by convention) is the entry point to an Elm application.
 
@@ -59,7 +59,7 @@ But wait, didn't we say that a value can never change in Elm? What's exactly cha
 
 The initial `model`, `view` function, and `update` function together form a **triad** that is required in every Elm application. For more complicated programs, a few other pieces are required — however, for this session, we'll focus on the core triad.
 
-### <input type="checkbox"> Step 3
+### Step 3
 
 Let's investigate each of these pieces one by one. First, let's check out the `init` function in `Model.elm` to see what the initial state of our application is.
 
@@ -79,7 +79,7 @@ type alias Model =
 
 We'll learn more about type aliases later in this tutorial, but for now, it's worth noting that it is simply used for convenience. It's an easy way for other Elm developers to tell exactly what information is stored in your `model`.
 
-### <input type="checkbox"> Step 4
+### Step 4
 
 Now, let's take a look at our `view` function in `View.elm`, which is responsible for converting our `model` into HTML. Any changes between the produced HTML and the last rendered HTML will be rendered to the UI by Elm.
 
@@ -135,7 +135,7 @@ This line of code is key to our application — it maps a potential user action 
 There are lots of potential user actions defined in the [`Html.Events`](http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events) module — as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don't map these user actions to a `message`, however, they will be ignored by your application.
 
 
-### <input type="checkbox"> Step 5
+### Step 5
 
 Let's return to the question of change we saved for later when we were looking at `init`: What does it mean when we say `model` changes? Let's take another look at our diagram:
 
