@@ -9,7 +9,7 @@ In this lesson, you'll learn how to work with the basic data structures of Elm. 
 
 ## Steps
 
-### <input type="checkbox"> Step 1
+### Elm Basics Exercises
 
 Get a copy of the [elm-basics](https://github.com/elmbridge/elm-basics) code:
 
@@ -32,7 +32,7 @@ You should see something like this:
 
 This application contains a series of unimplemented functions designed to teach you about the basic data structures of Elm. All the functions that you need to implement live in `Main.elm`. By default, you'll see some work-in-progress emojis, and when you successfully implement a function, you'll see a heart.  But if you'd like to customize the emojis or the colors, you can do so in `Style.elm`.  When you're done poking around, go back to `Main.elm` to start the exercises.
 
-### <input type="checkbox"> Step 2
+### Working with Strings
 
 Like many languages, Elm has a **String** data type to store text. In this step, you should complete all the unimplemented functions for the string section of the application. Once you're ready to get started, navigate to the `sayHello` function.
 
@@ -54,7 +54,7 @@ String.right 1 someStringVariable
 
 If you get stuck, flag down an instructor! They are here to help.
 
-### <input type="checkbox"> Step 3
+### Conditional Logic
 
 Elm has all the traditional structures for conditional logic, including `if`, `else`, `case`, and the `==`, `<`, `>`, `&&`, and `||` operators. (Note: the "not equal" operator is a non-standard `/=`.) Here's what that looks like in practice:
 
@@ -79,7 +79,7 @@ Elm enforces that all branches of an `if` or `case` expression must return the s
 
 Take a shot at completing the assertions for `if` expressions!
 
-### <input type="checkbox"> Step 4
+### Lists
 
 In Elm, you can use a **List** to store a collection of elements. Unlike dynamic languages, though, Elm lists are **typed** — every element in a list must be the same kind of thing. You can't have a list that stores both strings and numbers, for example.
 
@@ -97,7 +97,7 @@ Note: the value after the `\` is the input to the function, while whatever is af
 
 Good luck!
 
-### <input type="checkbox"> Step 5
+### Records
 
 Just like JavaScript has objects to store name-value pairs, Elm has **records**. Unlike JavaScript's objects, though, Elm treats the structure of a record as immutable. Once a record has been defined, you cannot add or remove a field, or change the type of a field.
 
