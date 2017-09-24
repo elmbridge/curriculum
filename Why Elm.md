@@ -9,7 +9,7 @@ In this section, we'll talk about the advantages — and disadvantages! — of 
 
 Elm is more powerful than a frontend framework though: **it is a distinct programming language that can strictly enforce its opinions.**
 
-You may have heard words like **functional** and **statically typed** used to describe Elm. **Functional** means that a function always returns the same value for a given input. **Statically typed** means that the compiler checks that the code makes sense before you can use it in production: it won't let you ask for the length of an integer or try to multiply a string and a float. If your code compiles, that means that you're doing operations that make sense. If you give a function the wrong *type* of value (a `String` rather than an `Int`) the Elm compiler will figure it out immediately and give you a hint. (This also means that a function must always return the same *type* of value. Try to think through why this is the case.)
+You may have heard words like **functional** and **statically typed** used to describe Elm. **Functional** means that a function always returns the same value for a given input. **Statically typed** means that the compiler checks that the code makes sense before you can use it in production: it won't let you ask for the length of an integer or try to multiply a string and a float. If your code compiles, that means that you're doing operations that make sense. If you give a function the wrong *type* of value (a `String` rather than an `Int`) the Elm compiler will figure it out immediately and give you a hint.
 
 
 ## So why Elm?
@@ -28,11 +28,9 @@ Developing with Elm often feels like an ongoing conversation with the compiler, 
 
 ## Why not Elm?
 
-If you are coming from an object-oriented, dynamically typed language like Ruby or JavaScript, Elm can feel like a straightjacket. There are no `each` or `for` loops in Elm — instead, you use functions like `map`, `filter`, and `fold`. If you need to change a value deep inside a nested data structure, you can't simply read the value and mutate it, as you could in other languages (proponents of the [Law of Demeter](https://en.wikipedia.org/wiki/Law_of_Demeter) might argue that this too is a feature).
+If you are coming from an object-oriented, dynamically typed language like Ruby or JavaScript, Elm can feel like a straightjacket. There are no `each` or `for` loops in Elm — instead, you use functions like `map`, `filter`, and `fold`. If you need to change a value deep inside a nested data structure, you can't simply read the value and mutate it, as you could in other languages.
 
-Working with widget libraries or mutation-heavy JavaScript tools can be hard due to conflicting paradigms. If you need to use [D3.js](https://d3js.org/) or [Three.js](https://threejs.org/), you won't be happy trying to use Elm at the same time.
-
-While Elm's compiler is one of its main attrations, compiling lots of code takes non-zero time. For applications with hundres of thousands of lines of code, this compilation time (which might reach minutes) might be mildly inconvenient.
+Working with widget libraries can be hard due to conflicting paradigms. If you need to use [D3.js](https://d3js.org/) or [Three.js](https://threejs.org/), you may have difficulties using Elm.
 
 ## Learning Elm
 
