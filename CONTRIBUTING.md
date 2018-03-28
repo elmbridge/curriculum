@@ -98,3 +98,5 @@ Also, [Pro Git](http://git-scm.com/book) is a great (and free!) book about Git.
 We apologize for how long this document is! Hopefully it addressed
 most of your concerns about git, contributing, and GitHub. And we're open to any suggestions about improvements,
 including to this document.
+
+_This contributor's guide has been adapted from [RailsBridge](https://github.com/railsbridge/docs)._
