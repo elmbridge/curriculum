@@ -12,18 +12,6 @@ are totally foreign to you,
 
 If you see a bug or something that can be improved, please let us know!
 
-You can use our issue template to create a GitHub issue:
-```
-Context:
-(Describe the situation that led you to discover the issue.)
-
-Problem:
-(What is the pain point and who does it affect?)
-
-Possible solution or next step:
-(If you have an idea for how to resolve the problem, please let us know! If not, no worries!)
-```
-
 You can make an issue on the ElmBridge Curriculum [here](https://github.com/elmbridge/curriculum/issues/new).
 
 # Submitting a Pull Request
