@@ -6,7 +6,7 @@ While emojis are great, a one-way translator from text to emojis is not particul
 
 This is a complex feature — to implement it, we'll have to change every part of our application. Let's get started!
 
-Note: Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-2). You can either carry your code over from the last lesson, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-2)
+Note: Your code should currently look like the code in `Part3.elm`.
 
 
 ## Goals
@@ -20,7 +20,7 @@ Note: Your code should currently [look like this](https://github.com/elmbridge/e
 
 ### Adding User Interfaces
 
- First, let's start in `View.elm`, where we'll map user actions in the UI to messages for our application to consume.
+ First, let's start in our `view` function, where we'll map user actions in the UI to messages for our application to consume.
 
 ![Elm Architecture](images/elm-architecture-2.jpeg)
 
@@ -37,12 +37,12 @@ In our case, we want to build a switch that will allow users to toggle between "
 </div>
 ```
 
-Take a shot at translating the above HTML to Elm and update the `View.view` function! Some tips if you get stuck:
+Take a shot at translating the above HTML to Elm and update the `view` function! Some tips if you get stuck:
   - Most `Html` functions take two arguments: a list of attributes (produced by the `Html.Attributes` and the `Html.Events` modules), followed by a list of child elements. In this case, our `div` has one child (the `label` element), and the `label` element has four children!
   - To render plain text elements, use `Html.text`. It simply takes a string as its argument.
   - Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.
 
-If you get stuck, flag down a TA or instructor to help you through it! Alternatively, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
+If you get stuck, flag down a TA or instructor to help you through it!
 
 ### Wiring in User Actions
 
@@ -101,7 +101,7 @@ We'll make sure our lever triggers the new `ToggleDirection` `Msg` whenever the 
 If you try to compile now, you'll notice that the compiler realizes something is wrong:
 
 ```
--- MISSING PATTERNS --------------------------------------------- ././Update.elm
+-- MISSING PATTERNS --------------------------------------------- ././Part3.elm
 
 This `case` does not have branches for all possibilities.
 
@@ -111,12 +111,12 @@ This `case` does not have branches for all possibilities.
 
 You need to account for the following values:
 
-    Update.ToggleDirection
+    ToggleDirection
 
 Add a branch to cover this pattern!
 ```
 
-Helpfully, the Elm compiler enforces **case exhaustiveness** – since our `Update.update` function doesn't handle our new `ToggleDirection` value, the compiler realizes that triggering that `Msg` will break our program. Let's fix it by adding another clause to our case expression, this time matching on the pattern `ToggleDirection`.
+Helpfully, the Elm compiler enforces **case exhaustiveness** – since our `update` function doesn't handle our new `ToggleDirection` value, the compiler realizes that triggering that `Msg` will break our program. Let's fix it by adding another clause to our case expression, this time matching on the pattern `ToggleDirection`.
 
 ```elm
 ToggleDirection ->
@@ -124,23 +124,23 @@ ToggleDirection ->
     model
 ```
 
-Finally, let's make our view actually trigger our new `Msg` value. Add the following attribute to the lever's HTML in `View.view`:
+Finally, let's make our view actually trigger our new `Msg` value. Add the following attribute to the lever's HTML in our `view`:
 
 ```elm
-Html.Events.onClick Update.ToggleDirection
+Html.Events.onClick ToggleDirection
 ```
 
-Compile, and make sure nothing is broken! If you want, you can see [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1).
+Compile, and make sure nothing is broken.
 
 ### Expanding the Model
 
-When our `Update.update` function receives a `ToggleDirection` message and the current `model`, it should return a new, changed `model`:
+When our `update` function receives a `ToggleDirection` message and the current `model`, it should return a new, changed `model`:
 
 ![Elm Architecture](images/elm-architecture-3.jpeg)
 
-Eventually, our `View.view` function will reflect those changes to the user.
+Eventually, our `view` function will reflect those changes to the user.
 
-First things first — we need to find a way to describe the current direction in our `Model`. Let's take a look at `Model.elm`:
+First things first — we need to find a way to describe the current direction in our `Model`. Let's take a look at our description of a `model`:
 
 ```elm
 type alias Model =
@@ -176,7 +176,9 @@ type alias Model =
 
 But wait, what *is* direction? In other languages, we might describe the current direction as a string, with possible values "emoji-to-text" and "text-to-emoji". We could also model it as a boolean value, perhaps renaming it `translatingTextToEmoji`.
 
-In Elm, we have a more powerful tool at our disposal: union types! We can simply create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant. In `Model.elm`, let's create a custom `Direction` type with two possible values:
+In Elm, we have a more powerful tool at our disposal: union types! We can create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant.
+
+Let's create a custom `Direction` type with two possible values:
 
 ```elm
 type Direction
@@ -195,23 +197,23 @@ type alias Model =
 
 If you try to compile right now, you should get some errors: Our code wasn't written to handle a `Model` with a `direction` field! See if you can figure out what's wrong and fix it.
 
-Now that `Model` can describe the current translation direction, we need to change `Update.update` to correctly set the `direction` field when it consumes the `ToggleDirection` message.
+Now that `Model` can describe the current translation direction, we need to change the `update` function to correctly set the `direction` field when it consumes the `ToggleDirection` message.
 
-Inside `Update.update`, we know two things – the current `Msg` we received, as well as the current state of the `model`, which includes its current `direction`. That's all the information we need – if the current `model.direction` is `EmojiToText`, `Update.update` should return a `model` with a `direction` value of `TextToEmoji`, and vice versa.
+Inside `update`, we know two things – (1) the current `Msg` we received and (2) the current state of the `model`, which includes its current `direction`. That's all the information we need – if the current `model.direction` is `EmojiToText`, then `update` should return a `model` with a `direction` value of `TextToEmoji`, and vice versa.
 
 We can use `case ___ of` syntax to **Pattern Match** on the different values of the type `Direction`. This allows us to branch our code to handle the different conditions.
 
 ```elm
 ToggleDirection ->
     case model.direction of
-        Model.TextToEmoji ->
-            -- return a model with a direction value of `Model.EmojiToText`
+        TextToEmoji ->
+            -- return a model with a direction value of `EmojiToText`
 
-        Model.EmojiToText ->
-            -- return a model with a direction value of `Model.TextToEmoji`
+        EmojiToText ->
+            -- return a model with a direction value of `TextToEmoji`
 ```
 
-Implement the above code in `Update.update`, and make sure it compiles!
+Implement the toggle direction functionality in your `update`. Make sure your code compiles!
 
 ### Displaying Model Values
 
@@ -219,19 +221,19 @@ Now to the final part of the feature: We need to reflect changes to the model in
 
 ![Elm Architecture](images/elm-architecture-4.jpeg)
 
-In our case, we need to change our translation logic depending on the current `model.direction`.  Let's take a look at our `View.translateText` function:
+In our case, we need to change our translation logic depending on the current `model.direction`.  Let's take a look at our `translateText` function:
 
 ```elm
 translateText model =
-    EmojiConverter.textToEmoji Model.defaultKey model.currentText
+    EmojiConverter.textToEmoji defaultKey model.currentText
 ```
 
 Here's what we know:
 
-- The `EmojiConverter` exposes a `emojiToText` function that we can use if the current direction is `Model.EmojiToText`.
+- The `EmojiConverter` exposes a `emojiToText` function that we can use if the current direction is `EmojiToText`.
 - The `translateText` function also has access to the current `model`, which stores the current `Direction`.
-- In a similar manner to `Update.update` function, we can use a case expression to choose which `EmojiConverter` function to use.
+- In a similar manner to `update` function, we can use a case expression to choose which `EmojiConverter` function to use.
 
-That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see [a completed version of this feature here](https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2), or flag down a TA or instructor.
+That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see the completed version of this feature in `Part4.elm`, or flag down a TA or instructor.
 
 Congratulations, you've completed your first full feature in Elm!

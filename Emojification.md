@@ -5,7 +5,7 @@ Up until now, this project has had a severe lack of emojis. In this lesson, we'l
 ![Release 2](images/release-2.png)
 
 
-Your code should currently [look like this](https://github.com/elmbridge/elmoji-translator/tree/release-1). You can either carry your code over from the last lesson, or download and recompile [the code from GitHub.](https://github.com/elmbridge/elmoji-translator/releases/tag/release-1)
+Your code should currently look like the code in `Part2.elm`. You can either carry your code over from the last lesson, or start with the `Part2.elm` code.
 
 
 ## Goals
@@ -26,7 +26,7 @@ Spoiler alert: Emojis are complicated! And creating a [decoder-ring-style][secre
 
   [substitution cipher]: https://en.wikipedia.org/wiki/Substitution_cipher
 
-We'll need to use that code to convert the display text from plain text to emojis. But how do we pull that code in to our `View.elm` file?
+We'll need to use that code to convert the display text from plain text to emojis. But how do we pull that code in to our application code?
 
 That's where the Elm **module** system comes into play. Modules are simply collections of related functions. They are helpful for encapsulating behavior, and for providing clear boundaries between libraries. Let's take a look at the first few lines of `EmojiConverter.elm`:
 
@@ -38,7 +38,7 @@ Like all Elm files, `EmojiConverter.elm` starts off by telling us what module it
 
 This line also tells us the public API for the `EmojiConverter` module — regardless of what else is defined in this file, other files can, at most, access the three functions defined above. Of the three publicly accessible functions, the `textToEmoji` function seems like exactly what we are looking for.
 
-Let's import the module into our `View.elm` file, by adding this to the list of imports:
+Let's import the module into our file, by adding this to the list of imports:
 
 ```elm
 import EmojiConverter
@@ -56,7 +56,7 @@ Html.p
 Let's try to compile this, and...uh oh! You should be getting the following error:
 
 ```
--- TYPE MISMATCH -------------------------------------------------- ././View.elm
+-- TYPE MISMATCH -------------------------------------------------- ././Part2.elm
 
 The argument to function `text` is causing a mismatch.
 
@@ -89,7 +89,7 @@ Apparently, `textToEmoji` takes two arguments — a `Key` and a `String`, and re
 
 Of course! Like any good decoder ring, the `EmojiConverter` library uses a key to determine how to encode and decode messages. In this case, the key can be one of the emojis supported by the library. In order to turn text into emojis, we need to give it a key, as well as the text we hope to translate.
 
-Let's go back to `View.elm`, and hard-code an emoji as the translation key.
+Let's go back to our code, and hard-code an emoji as the translation key.
 
 
 ```elm
@@ -104,7 +104,7 @@ Recompile the code, refresh your browser, and you should be in business!
 
 While this solution works, I'd argue that the code has become harder to follow. Let's refactor!
 
-First off, let's extract a helper function for translating text. in `View.elm`, we can add a function that consumes a model and returns emojis:
+First off, let's extract a helper function for translating text. We can add a function that consumes a model and returns emojis:
 
 ```elm
 translateText model =
@@ -113,7 +113,7 @@ translateText model =
 
 Note: Type signatures are always optional in Elm, but they are highly encouraged — type signatures can be a good form of documentation, and they help the compiler make educated guesses about what went wrong when your code fails to recompile. Feel free to add your own to `translateText`!
 
-We can now use this function in our `View.view` function. Since it's defined in the same file as it's being used, we don't even have to use the `View` namespace. We can simply invoke it as such:
+We can now use this function in our `view` function.
 
 ```elm
 Html.text (translateText model)
@@ -123,10 +123,6 @@ Recompile your code and make sure everything still works!
 
 ### Emoji Key
 
-Finally, let's pull out the hard-coded emoji key into something more readable. Since the key denotes domain-specific information about your app, the best place to put that information would be in `Model.elm`. Remember, modules in Elm are simply collections of functions that are similar to each other. Just because we put a function in `Model.elm` doesn't mean it has anything to do with our model record, or with application state in general.
+Finally, let's pull out the hard-coded emoji key into something more readable. Let's create a `defaultKey` that returns the "😅" emoji. Switch out the reference to the "😅" emoji key with references to the new `defaultKey` function.
 
-Let's create a `defaultKey` function in `Model.elm` that simply returns the "😅" emoji. Since Model.elm includes `exposing (..)` in its definition, we don't need to explicitly white-list our new `defaultKey` function for export — all other files can access all functions in this file if requested.
-
-Finally, let's use our `defaultKey` function. In `View.elm`, switch out the reference to the "😅" emoji key with references to the new `defaultKey` function.
-
-Once you think you've got it, recompile to make sure it worked. If you get stuck, check out [the completed step](https://github.com/elmbridge/elmoji-translator/tree/release-2) on GitHub to see how we've implemented it, or flag down a TA or instructor.
+Once you think you've got it, recompile to make sure it worked. If you get stuck, check out `Part3.elm` to see how we've implemented it, or flag down a TA or instructor.
