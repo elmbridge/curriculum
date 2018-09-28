@@ -305,7 +305,7 @@
 <p>While emojis are great, a one-way translator from text to emojis is not particularly useful. We need to be able translate in both directions, like this:</p>
 <p><img src="images/release-3-part-2.gif" alt="Release 3 part 2"></p>
 <p>This is a complex feature &#x2014; to implement it, we&apos;ll have to change every part of our application. Let&apos;s get started!</p>
-<p>Note: Your code should currently <a href="https://github.com/elmbridge/elmoji-translator/tree/release-2" target="_blank">look like this</a>. You can either carry your code over from the last lesson, or download and recompile <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-2" target="_blank">the code from GitHub.</a></p>
+<p>Note: Your code should currently look like the code in <code>Part3.elm</code>.</p>
 <h2 id="goals">Goals</h2>
 <ul>
 <li>Write Elm view code using HTML as a template.</li>
@@ -314,8 +314,8 @@
 <li>Use union types to store information in more literate ways.</li>
 </ul>
 <h2 id="steps">Steps</h2>
-<h3 id="step-1"><input type="checkbox"> Step 1</h3>
-<p> First, let&apos;s start in <code>View.elm</code>, where we&apos;ll map user actions in the UI to messages for our application to consume.</p>
+<h3 id="adding-user-interfaces">Adding User Interfaces</h3>
+<p> First, let&apos;s start in our <code>view</code> function, where we&apos;ll map user actions in the UI to messages for our application to consume.</p>
 <p><img src="images/elm-architecture-2.jpeg" alt="Elm Architecture"></p>
 <p>In our case, we want to build a switch that will allow users to toggle between &quot;Translate Text&quot; and &quot;Translate Emoji.&quot; We can use the <a href="http://materializecss.com/" target="_blank">materialize.css</a> lever component to do the job. Between the text input and paragraph tag that our <code>View.view</code> function produces, we want the following markup to appear:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;switch center&quot;</span>&gt;</span>
@@ -327,14 +327,14 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 </code></pre>
-<p>Take a shot at translating the above HTML to Elm and update the <code>View.view</code> function! Some tips if you get stuck:</p>
+<p>Take a shot at translating the above HTML to Elm and update the <code>view</code> function! Some tips if you get stuck:</p>
 <ul>
 <li>Most <code>Html</code> functions take two arguments: a list of attributes (produced by the <code>Html.Attributes</code> and the <code>Html.Events</code> modules), followed by a list of child elements. In this case, our <code>div</code> has one child (the <code>label</code> element), and the <code>label</code> element has four children!</li>
 <li>To render plain text elements, use <code>Html.text</code>. It simply takes a string as its argument.</li>
 <li>Compile early and often! The Elm compiler will nudge you in the right direction if your syntax is off.</li>
 </ul>
-<p>If you get stuck, flag down a TA or instructor to help you through it! Alternatively, you can see <a href="https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1" target="_blank">a working solution here</a>.</p>
-<h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<p>If you get stuck, flag down a TA or instructor to help you through it!</p>
+<h3 id="wiring-in-user-actions">Wiring in User Actions</h3>
 <p>Now that we have a working lever, we need to wire it up to our <code>Update.update</code> function! Let&apos;s look at our <code>Update.elm</code> file, and see what messages our <code>Update.update</code> function can currently consume.</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
     = <span class="hljs-type">SetCurrentText</span> <span class="hljs-type">String</span>
@@ -372,7 +372,7 @@
 </code></pre>
 <p>We&apos;ll make sure our lever triggers the new <code>ToggleDirection</code> <code>Msg</code> whenever the user clicks it!</p>
 <p>If you try to compile now, you&apos;ll notice that the compiler realizes something is wrong:</p>
-<pre><code>-- MISSING PATTERNS --------------------------------------------- ././Update.elm
+<pre><code>-- MISSING PATTERNS --------------------------------------------- ././Part3.elm
 
 This `case` does not have branches for all possibilities.
 
@@ -382,23 +382,23 @@ This `case` does not have branches for all possibilities.
 
 You need to account for the following values:
 
-    Update.ToggleDirection
+    ToggleDirection
 
 Add a branch to cover this pattern!
-</code></pre><p>Helpfully, the Elm compiler enforces <strong>case exhaustiveness</strong> &#x2013; since our <code>Update.update</code> function doesn&apos;t handle our new <code>ToggleDirection</code> value, the compiler realizes that triggering that <code>Msg</code> will break our program. Let&apos;s fix it by adding another clause to our case expression, this time matching on the pattern <code>ToggleDirection</code>.</p>
+</code></pre><p>Helpfully, the Elm compiler enforces <strong>case exhaustiveness</strong> &#x2013; since our <code>update</code> function doesn&apos;t handle our new <code>ToggleDirection</code> value, the compiler realizes that triggering that <code>Msg</code> will break our program. Let&apos;s fix it by adding another clause to our case expression, this time matching on the pattern <code>ToggleDirection</code>.</p>
 <pre><code class="lang-elm"><span class="hljs-type">ToggleDirection</span> -&gt;
     <span class="hljs-comment">-- currently, this does nothing!</span>
     model
 </code></pre>
-<p>Finally, let&apos;s make our view actually trigger our new <code>Msg</code> value. Add the following attribute to the lever&apos;s HTML in <code>View.view</code>:</p>
-<pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">Update</span>.<span class="hljs-type">ToggleDirection</span>
+<p>Finally, let&apos;s make our view actually trigger our new <code>Msg</code> value. Add the following attribute to the lever&apos;s HTML in our <code>view</code>:</p>
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">ToggleDirection</span>
 </code></pre>
-<p>Compile, and make sure nothing is broken! If you want, you can see <a href="https://github.com/elmbridge/elmoji-translator/tree/release-3-part-1" target="_blank">a working solution here</a>.</p>
-<h3 id="step-3"><input type="checkbox"> Step 3</h3>
-<p>When our <code>Update.update</code> function receives a <code>ToggleDirection</code> message and the current <code>model</code>, it should return a new, changed <code>model</code>:</p>
+<p>Compile, and make sure nothing is broken.</p>
+<h3 id="expanding-the-model">Expanding the Model</h3>
+<p>When our <code>update</code> function receives a <code>ToggleDirection</code> message and the current <code>model</code>, it should return a new, changed <code>model</code>:</p>
 <p><img src="images/elm-architecture-3.jpeg" alt="Elm Architecture"></p>
-<p>Eventually, our <code>View.view</code> function will reflect those changes to the user.</p>
-<p>First things first &#x2014; we need to find a way to describe the current direction in our <code>Model</code>. Let&apos;s take a look at <code>Model.elm</code>:</p>
+<p>Eventually, our <code>view</code> function will reflect those changes to the user.</p>
+<p>First things first &#x2014; we need to find a way to describe the current direction in our <code>Model</code>. Let&apos;s take a look at our description of a <code>model</code>:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
     { currentText : <span class="hljs-type">String</span> }
 </code></pre>
@@ -420,7 +420,8 @@ Add a branch to cover this pattern!
     }
 </code></pre>
 <p>But wait, what <em>is</em> direction? In other languages, we might describe the current direction as a string, with possible values &quot;emoji-to-text&quot; and &quot;text-to-emoji&quot;. We could also model it as a boolean value, perhaps renaming it <code>translatingTextToEmoji</code>.</p>
-<p>In Elm, we have a more powerful tool at our disposal: union types! We can simply create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant. In <code>Model.elm</code>, let&apos;s create a custom <code>Direction</code> type with two possible values:</p>
+<p>In Elm, we have a more powerful tool at our disposal: union types! We can create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant.</p>
+<p>Let&apos;s create a custom <code>Direction</code> type with two possible values:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Direction</span>
     = <span class="hljs-type">TextToEmoji</span>
     | <span class="hljs-type">EmojiToText</span>
@@ -432,32 +433,32 @@ Add a branch to cover this pattern!
     }
 </code></pre>
 <p>If you try to compile right now, you should get some errors: Our code wasn&apos;t written to handle a <code>Model</code> with a <code>direction</code> field! See if you can figure out what&apos;s wrong and fix it.</p>
-<p>Now that <code>Model</code> can describe the current translation direction, we need to change <code>Update.update</code> to correctly set the <code>direction</code> field when it consumes the <code>ToggleDirection</code> message.</p>
-<p>Inside <code>Update.update</code>, we know two things &#x2013; the current <code>Msg</code> we received, as well as the current state of the <code>model</code>, which includes its current <code>direction</code>. That&apos;s all the information we need &#x2013; if the current <code>model.direction</code> is <code>EmojiToText</code>, <code>Update.update</code> should return a <code>model</code> with a <code>direction</code> value of <code>TextToEmoji</code>, and vice versa.</p>
+<p>Now that <code>Model</code> can describe the current translation direction, we need to change the <code>update</code> function to correctly set the <code>direction</code> field when it consumes the <code>ToggleDirection</code> message.</p>
+<p>Inside <code>update</code>, we know two things &#x2013; (1) the current <code>Msg</code> we received and (2) the current state of the <code>model</code>, which includes its current <code>direction</code>. That&apos;s all the information we need &#x2013; if the current <code>model.direction</code> is <code>EmojiToText</code>, then <code>update</code> should return a <code>model</code> with a <code>direction</code> value of <code>TextToEmoji</code>, and vice versa.</p>
 <p>We can use <code>case ___ of</code> syntax to <strong>Pattern Match</strong> on the different values of the type <code>Direction</code>. This allows us to branch our code to handle the different conditions.</p>
 <pre><code class="lang-elm"><span class="hljs-type">ToggleDirection</span> -&gt;
     <span class="hljs-keyword">case</span> model.direction <span class="hljs-keyword">of</span>
-        <span class="hljs-type">Model</span>.<span class="hljs-type">TextToEmoji</span> -&gt;
-            <span class="hljs-comment">-- return a model with a direction value of `Model.EmojiToText`</span>
+        <span class="hljs-type">TextToEmoji</span> -&gt;
+            <span class="hljs-comment">-- return a model with a direction value of `EmojiToText`</span>
 
-        <span class="hljs-type">Model</span>.<span class="hljs-type">EmojiToText</span> -&gt;
-            <span class="hljs-comment">-- return a model with a direction value of `Model.TextToEmoji`</span>
+        <span class="hljs-type">EmojiToText</span> -&gt;
+            <span class="hljs-comment">-- return a model with a direction value of `TextToEmoji`</span>
 </code></pre>
-<p>Implement the above code in <code>Update.update</code>, and make sure it compiles!</p>
-<h3 id="step-4"><input type="checkbox"> Step 4</h3>
+<p>Implement the toggle direction functionality in your <code>update</code>. Make sure your code compiles!</p>
+<h3 id="displaying-model-values">Displaying Model Values</h3>
 <p>Now to the final part of the feature: We need to reflect changes to the model in the UI!</p>
 <p><img src="images/elm-architecture-4.jpeg" alt="Elm Architecture"></p>
-<p>In our case, we need to change our translation logic depending on the current <code>model.direction</code>.  Let&apos;s take a look at our <code>View.translateText</code> function:</p>
+<p>In our case, we need to change our translation logic depending on the current <code>model.direction</code>.  Let&apos;s take a look at our <code>translateText</code> function:</p>
 <pre><code class="lang-elm"><span class="hljs-title">translateText</span> model =
-    <span class="hljs-type">EmojiConverter</span>.textToEmoji <span class="hljs-type">Model</span>.defaultKey model.currentText
+    <span class="hljs-type">EmojiConverter</span>.textToEmoji defaultKey model.currentText
 </code></pre>
 <p>Here&apos;s what we know:</p>
 <ul>
-<li>The <code>EmojiConverter</code> exposes a <code>emojiToText</code> function that we can use if the current direction is <code>Model.EmojiToText</code>.</li>
+<li>The <code>EmojiConverter</code> exposes a <code>emojiToText</code> function that we can use if the current direction is <code>EmojiToText</code>.</li>
 <li>The <code>translateText</code> function also has access to the current <code>model</code>, which stores the current <code>Direction</code>.</li>
-<li>In a similar manner to <code>Update.update</code> function, we can use a case expression to choose which <code>EmojiConverter</code> function to use.</li>
+<li>In a similar manner to <code>update</code> function, we can use a case expression to choose which <code>EmojiConverter</code> function to use.</li>
 </ul>
-<p>That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2" target="_blank">a completed version of this feature here</a>, or flag down a TA or instructor.</p>
+<p>That should be enough to get you started! If you are unsure, try to compile, and follow compiler errors until everything is fixed. If you get stuck, you can see the completed version of this feature in <code>Part4.elm</code>, or flag down a TA or instructor.</p>
 <p>Congratulations, you&apos;ve completed your first full feature in Elm!</p>
 
                                 
@@ -502,7 +503,7 @@ Add a branch to cover this pattern!
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Our First Full Feature","level":"2.4","depth":1,"next":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"path":"Choose Your Own Emoji.md","ref":"Choose Your Own Emoji.md","articles":[]},"previous":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Our First Full Feature.md","mtime":"2017-02-18T19:54:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-18T20:11:43.123Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Our First Full Feature","level":"2.4","depth":1,"next":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"path":"Choose Your Own Emoji.md","ref":"Choose Your Own Emoji.md","articles":[]},"previous":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Our First Full Feature.md","mtime":"2018-09-28T23:30:18.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T23:54:27.489Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

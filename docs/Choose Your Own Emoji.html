@@ -305,7 +305,7 @@
 <p>For this lesson, we&apos;ll allow our users to choose which emoji to use when encoding their messages. That way, they can send secret messages to each other that can only be decoded if they have the right key! It will eventually look like this:</p>
 <p><img src="images/final-release.png" alt="Final Release"></p>
 <p>There&apos;s a lot to do! Let&apos;s do this!</p>
-<p>Note: Your code should currently <a href="https://github.com/elmbridge/elmoji-translator/tree/release-3-part-2" target="_blank">look like this</a>. You can either carry your code over from the last lesson, or download and recompile <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-3-part-2" target="_blank">the code from GitHub.</a></p>
+<p>Note: Your code should currently look like the code in <code>Part4.elm</code>. You can either carry your code over from the last lesson, or start fresh with <code>Part4.elm</code>.</p>
 <h2 id="goals">Goals</h2>
 <ul>
 <li>Use transformation functions to render dynamic HTML.</li>
@@ -314,8 +314,8 @@
 <li>Implement a full feature from start to finish.</li>
 </ul>
 <h2 id="steps">Steps</h2>
-<h3 id="step-1"><input type="checkbox"> Step 1</h3>
-<p>As we did with our last lesson, let&apos;s start first by updating <code>View.elm</code> with our new UI elements. The eventual markup should look like this:</p>
+<h3 id="adding-new-ui-elements">Adding New UI Elements</h3>
+<p>As we did with our last lesson, let&apos;s start first by updating our <code>view</code> with our new UI elements. The eventual markup should look like this:</p>
 <pre><code class="lang-html"><span class="hljs-comment">&lt;!-- code for text input and lever --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;divider&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;container&quot;</span>&gt;</span>
@@ -332,8 +332,8 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
 </code></pre>
 <p>Take a crack at converting this to Elm. Some of this is straightforward &#x2014; we already know how to render static elements with attributes and children using the <code>Html</code> module. We also already have a list of all supported emojis in <code>EmojiConverter.supportedEmojis</code>. But how will we render all those emojis without a lot of copying and pasting?</p>
-<p>Elm shines in situations like this. Since <code>View.view</code> is simply Elm code, and <code>Html.Html</code> is just another type in Elm, we can use normal transformations to produce HTML. We can use <code>EmojiConverter.supportedEmojis</code> in combination with the <code>List</code> module to convert that list of emojis into a list of HTML elements!</p>
-<p>The code in <code>View.view</code> can use a helper function to render all emoji keys, like this:</p>
+<p>Elm shines in situations like this. Since <code>view</code> is simply Elm code, and <code>Html.Html</code> is just another type in Elm, we can use normal transformations to produce HTML. We can use <code>EmojiConverter.supportedEmojis</code> in combination with the <code>List</code> module to convert that list of emojis into a list of HTML elements!</p>
+<p>The code in <code>view</code> can use a helper function to render all emoji keys, like this:</p>
 <pre><code class="lang-elm">  <span class="hljs-comment">-- ...</span>
   [ <span class="hljs-type">Html</span>.h4
     [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center&quot;</span> ]
@@ -349,25 +349,25 @@
 </code></pre>
 <p>It&apos;s worth taking a moment to explain what <code>List.map</code> is doing. Much like <code>Array.prototype.map</code> in JavaScript, <code>List.map</code> takes a function and a list, calling the function on each element on the list and returning a list of the produced values. The <code>(\... -&gt; ...)</code> syntax is how you define an <strong>anonymous function</strong> in Elm.</p>
 <p>If you want to learn more, the <code>List</code> module is thoroughly documented on <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/List" target="_blank">package.elm-lang.org</a>. The site is a great resource if you want to learn more about the public API for available Elm packages and core modules.</p>
-<p>Now, it&apos;s your turn! Add the new markup to <code>View.view</code>, with the <code>renderKeys</code> and <code>renderKey</code> helper functions. If you get stuck, you can see <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-4-part-1" target="_blank">a completed version of this step here</a>.</p>
-<h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<p>Now, it&apos;s your turn! Add the new markup to <code>view</code>, with the <code>renderKeys</code> and <code>renderKey</code> helper functions.</p>
+<h3 id="displaying-the-currently-selected-key">Displaying the Currently Selected Key</h3>
 <p>There&apos;s one more part of the UI that we have to render &#x2014; we have to display the currently selected key as selected. If we give the specified emoji <code>.key-selector</code> a class of <code>.is-selected</code>, it will display with a blue background. For now, we&apos;ll
-hard code the selected key to <code>Model.defaultKey</code>.</p>
+hard code the selected key to <code>defaultKey</code>.</p>
 <p>When you have to conditionally attach classes to an HTML element in Elm, the <code>Html.Attributes.classList</code> function is helpful in simplifying the code. The function consumes a list of tuples, with each tuple containing a string (representing a class) and a boolean (describing whether the class should be attached to the element). The code for rendering the <code>.key-selector</code> element might look something like this:</p>
 <pre><code class="lang-elm"><span class="hljs-type">Html</span>.div
     [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.classList
         [ ( <span class="hljs-string">&quot;key-selector&quot;</span>, <span class="hljs-type">True</span> )
-        , ( <span class="hljs-string">&quot;is-selected&quot;</span>, emoji == <span class="hljs-type">Model</span>.defaultKey )
+        , ( <span class="hljs-string">&quot;is-selected&quot;</span>, emoji == defaultKey )
         ]
     ]
     [ <span class="hljs-type">Html</span>.text emoji ]
 </code></pre>
 <p>Once you&apos;ve added that code to your <code>renderKey</code> function, you should have a working, if static, UI!</p>
-<h3 id="step-3"><input type="checkbox"> Step 3</h3>
+<h3 id="adding-user-actions">Adding User Actions</h3>
 <p>Now that we&apos;ve updated the UI, we have to map our new user action to a message for our application to consume. Add the following line of code to your <code>renderKey</code> function, as an attribute to the element with a class of <code>.key-selector</code>:</p>
-<pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick (<span class="hljs-type">Update</span>.<span class="hljs-type">SetSelectedKey</span> emoji)
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick (<span class="hljs-type">SetSelectedKey</span> emoji)
 </code></pre>
-<p>When this element is clicked, a <code>Msg</code> of <code>Update.SetSelectedKey String</code> will be triggered, which will eventually be consumed by our application.</p>
+<p>When this element is clicked, a <code>Msg</code> of <code>SetSelectedKey String</code> will be triggered, which will eventually be consumed by our application.</p>
 <p>Like <code>SetCurrentText String</code>, <code>SetSelectedKey String</code> is a <strong>tagged value</strong>. In effect, we are saying that <code>SetCurrentText</code> and <code>SetSelectedKey</code> are only valid values of the <code>Msg</code> union type if they are accompanied by a string.</p>
 <p>Tagged values are helpful for modeling systems with uneven information requirements. For instance, if we were modeling a coffee shop, we might structure our data like this:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">BrewingStrategy</span> = <span class="hljs-type">PourOver</span> | <span class="hljs-type">FrenchPress</span>
@@ -385,27 +385,27 @@ hard code the selected key to <code>Model.defaultKey</code>.</p>
 <p>Apparently, there&apos;s a lot of complexity bundled up in our drink orders! In some cases, we need to know what kind of milk the customer wants. In other cases, we need to know information specific to only one kind of drink. The above data model accounts for that complexity by using tagged values &#x2014; a <code>HotChocolate</code> is only a valid <code>DrinkOrder</code> if it is accompanied by a <code>Milk</code> selection, and a <code>BlackCoffee</code> relies on another union type to determine the customer&apos;s preferred brewing strategy.</p>
 <p>We could have also modeled this problem with a record, but the data would have likely been harder to follow. What would the <code>.milk</code> field on that record mean, if the customer wanted black coffee? Why would we need a <code>.numberOfEspressoShots</code> in order to make a hot chocolate?</p>
 <p>Tagged values are also helpful in preventing bad data from propagating through our system. For instance, a drink order of &quot;single shot latte&quot; isn&apos;t enough in the real world &#x2014; if we tried to make it, we wouldn&apos;t know what kind of milk our customer wanted. Tagged values protect us here &#x2014; if we tried to use <code>Latte 1</code> in a function that was expecting something of the type <code>DrinkOrder</code>, our code would fail to compile.</p>
-<p>So let&apos;s wire up our new tagged value to <code>Update.update</code>! In order:</p>
+<p>So let&apos;s wire up our new tagged value to <code>update</code>! In order:</p>
 <ul>
 <li>Add the aforementioned <code>onClick</code> attribute to the <code>.key-selector</code> element.</li>
-<li>Add the new <code>SetSelectedKey String</code> value to <code>Update.Msg</code>, and ensure that <code>Update.update</code> handles the new case.</li>
+<li>Add the new <code>SetSelectedKey String</code> value to <code>Msg</code>, and ensure that <code>update</code> handles the new case.</li>
 <li>Find a way to store the key information on the model, perhaps in a new field called <code>selectedKey</code>.</li>
-<li>Ensure that you the model initialization logic still works. We should start off the application with a <code>model.selectedKey</code> value of <code>Model.defaultKey</code>.</li>
-<li>Implement the <code>SetSelectedKey String</code> case of <code>Update.update</code>, so that it updates the model with the correct <code>selectedKey</code>.</li>
+<li>Ensure that you the model initialization logic still works. We should start off the application with a <code>model.selectedKey</code> value of <code>defaultKey</code>.</li>
+<li>Implement the <code>SetSelectedKey String</code> case of <code>update</code>, so that it updates the model with the correct <code>selectedKey</code>.</li>
 </ul>
-<p>That&apos;s a lot! Work slowly, and lean on your compiler for help. If you get stuck, you can see <a href="https://github.com/elmbridge/elmoji-translator/tree/release-4-part-2" target="_blank">a completed version of this step here</a>.</p>
-<h3 id="step-4"><input type="checkbox"> Step 4</h3>
-<p>Now that <code>Update.update</code> consumes our new message, we need to reflect changes to the model onto the UI. First off, we need to use our new <code>model.selectedKey</code> field to display to the user which key is currently selected. As of now, our <code>renderKeys</code> function does not consume <code>model</code>, so it has no idea about the current state of the application. Let&apos;s change that! <code>renderKeys</code> should look like this:</p>
+<p>That&apos;s a lot! Work slowly, and lean on your compiler for help. If you get stuck, you can see a completed version of this step in <code>Part7.elm</code>.</p>
+<h3 id="displaying-model-values">Displaying Model Values</h3>
+<p>Now that <code>update</code> consumes our new message, we need to reflect changes to the model onto the UI. First off, we need to use our new <code>model.selectedKey</code> field to display to the user which key is currently selected. As of now, our <code>renderKeys</code> function does not consume <code>model</code>, so it has no idea about the current state of the application. Let&apos;s change that! <code>renderKeys</code> should look like this:</p>
 <pre><code class="lang-elm"><span class="hljs-title">renderKeys</span> model =
     <span class="hljs-type">Html</span>.div
         [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;row&quot;</span> ]
         (<span class="hljs-type">List</span>.map (\emoji -&gt; renderKey model emoji) <span class="hljs-type">EmojiConverter</span>.supportedEmojis)
 </code></pre>
-<p>You will have to change the call site of <code>renderKeys</code> in <code>View.view</code> to match the new signature of the function, and you will have to change <code>renderKey</code> to consume a model. Once that&apos;s done, you can use <code>model.selectedKey</code> in place of <code>Model.defaultKey</code> when checking whether a key is selected. The UI should now show you which key is selected, as you click on them!</p>
-<h3 id="step-5"><input type="checkbox"> Step 5</h3>
+<p>You will have to change the call site of <code>renderKeys</code> in <code>view</code> to match the new signature of the function, and you will have to change <code>renderKey</code> to consume a model. Once that&apos;s done, you can use <code>model.selectedKey</code> in place of <code>defaultKey</code> when checking whether a key is selected. The UI should now show you which key is selected, as you click on them!</p>
+<h3 id="changing-our-cipher">Changing our Cipher</h3>
 <p>And now, for the final step &#x2014; we need to change our translation key based on the value of <code>model.selectedKey</code>! When you&apos;re done, your application should work like this:</p>
 <p><img src="images/release-4-part-3.gif" alt="Release 4 part 3"></p>
-<p>You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out <a href="https://github.com/elmbridge/elmoji-translator/tree/release-4-part-3" target="_blank">a working solution here</a>.</p>
+<p>You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out the working solution in <code>Part6.elm</code>.</p>
 <p>And with that, you&apos;ve completed your first Elm application!</p>
 
                                 
@@ -450,7 +450,7 @@ hard code the selected key to <code>Model.defaultKey</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"next":{"title":"Deployment and Next Steps","level":"2.6","depth":1,"path":"Deployment and Next Steps.md","ref":"Deployment and Next Steps.md","articles":[]},"previous":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Choose Your Own Emoji.md","mtime":"2017-02-18T19:54:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-18T20:11:43.123Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"next":{"title":"Deployment and Next Steps","level":"2.6","depth":1,"path":"Deployment and Next Steps.md","ref":"Deployment and Next Steps.md","articles":[]},"previous":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Choose Your Own Emoji.md","mtime":"2018-09-28T23:34:31.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T23:54:27.489Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
