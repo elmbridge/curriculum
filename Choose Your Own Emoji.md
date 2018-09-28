@@ -131,7 +131,7 @@ So let's wire up our new tagged value to `update`! In order:
 - Ensure that you the model initialization logic still works. We should start off the application with a `model.selectedKey` value of `defaultKey`.
 - Implement the `SetSelectedKey String` case of `update`, so that it updates the model with the correct `selectedKey`.
 
-That's a lot! Work slowly, and lean on your compiler for help. If you get stuck, you can see [a completed version of this step here](https://github.com/elmbridge/elmoji-translator/tree/release-4-part-2).
+That's a lot! Work slowly, and lean on your compiler for help. If you get stuck, you can see a completed version of this step in `Part7.elm`.
 
 ### Displaying Model Values
 
@@ -153,6 +153,6 @@ And now, for the final step — we need to change our translation key based on t
 
 ![Release 4 part 3](images/release-4-part-3.gif)
 
-You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out [a working solution here](https://github.com/elmbridge/elmoji-translator/tree/release-4-part-3).
+You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out the working solution in `Part6.elm`.
 
 And with that, you've completed your first Elm application!
