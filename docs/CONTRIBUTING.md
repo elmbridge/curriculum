@@ -4,11 +4,17 @@ Thanks for taking the time to contribute to ElmBridge. We sincerely appreciate i
 
 Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by its terms.
 
-We ask that contributions be made as pull requests via GitHub. If those words
+We ask that contributions be made as issues or pull requests via GitHub. If those words
 are totally foreign to you,
 [see here](#its-my-first-time-on-github-ever-what-do-i-do).
 
-# When Submitting a Pull Request
+# Creating an Issue
+
+If you see a bug or something that can be improved, please let us know!
+
+You can make an issue on the ElmBridge Curriculum [here](https://github.com/elmbridge/curriculum/issues/new).
+
+# Submitting a Pull Request
 
 *Here's a couple of tricks to grease the wheels and make it easy for the
 maintainers to love you. :heart:*
@@ -98,3 +104,5 @@ Also, [Pro Git](http://git-scm.com/book) is a great (and free!) book about Git.
 We apologize for how long this document is! Hopefully it addressed
 most of your concerns about git, contributing, and GitHub. And we're open to any suggestions about improvements,
 including to this document.
+
+_This contributor's guide has been adapted from [RailsBridge](https://github.com/railsbridge/docs)._

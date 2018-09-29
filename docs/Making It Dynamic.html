@@ -311,13 +311,13 @@
 <li>Understand how to use Elm to make things change on the page.</li>
 </ul>
 <h2 id="steps">Steps</h2>
-<h3 id="step-1"><input type="checkbox"> Step 1</h3>
-<p>Download the Skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-0" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-0</a> and navigate to the downloaded folder. Start <code>elm-reactor</code> in your terminal:</p>
+<h3 id="skeleton-setup">Skeleton Setup</h3>
+<p>Download the Skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-5" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-5</a> and navigate to the downloaded folder. Start <code>elm-reactor</code> in your terminal:</p>
 <pre><code class="lang-sh">elm-reactor
 </code></pre>
-<p>And then go to <a href="http://localhost:8000/Main.elm" target="_blank">http://localhost:8000/Main.elm</a> in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:</p>
+<p>And then go to <a href="http://localhost:8000/Part1.elm" target="_blank">http://localhost:8000/Part1.elm</a> in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:</p>
 <p><img src="images/release-0.png" alt="Release 0"></p>
-<h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<h3 id="updating-the-model">Updating the Model</h3>
 <p>As you may have already noticed, however, this Elm application doesn&apos;t <em>do</em> anything. While you can enter text on the page, the application seems to ignore it.</p>
 <p>Our goal is to make the text that the user enters display back to them, like this:</p>
 <p><img src="images/release-1.gif" alt="Release 1 in GIF form"></p>
@@ -327,7 +327,7 @@
     { currentText : <span class="hljs-type">String</span> }
 </code></pre>
 <p>For this application, the model is a record that contains a <code>currentText</code> field that must be a string. That&apos;s perfect for our feature &#x2014; as a user inputs text into the application, we&apos;ll update the <code>currentText</code> field, and reflect its new value to the UI.</p>
-<p>Let&apos;s verify that user text input is mapped to a <code>message</code>. First, let&apos;s look in <code>View.elm</code>, which is much bigger than it was in the last lesson! Specifically, let&apos;s take a look at the code for input field.</p>
+<p>Let&apos;s verify that user text input is mapped to a <code>message</code>. First, let&apos;s look at our <code>view</code>. Let&apos;s zoom in on the code for input field.</p>
 <pre><code class="lang-elm"><span class="hljs-type">Html</span>.input
   [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.type_ &quot;text&quot;
   , <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center&quot;</span>
@@ -340,7 +340,7 @@
 <p>While the API is somewhat verbose, much of its contents are probably familiar to you. In this case, the code is generating an <code>input</code> element with a type of <code>text</code> and a class of <code>center</code> and some placeholder text. The resulting HTML looks like this:</p>
 <pre><code class="lang-HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Let&apos;s Translate!&quot;</span>&gt;</span>
 </code></pre>
-<p>The final attribute comes from the <code>Html.Events</code> module, which describes which <code>Update</code> message is sent when the element hears an <code>input</code> event. In this case, a <code>message</code> called <code>SetCurrentText</code> is sent, along with the element&apos;s current text. (<code>SetCurrentText String</code> is actually a tagged value &#x2014; don&apos;t worry, we&apos;ll cover that in a future lesson!)</p>
+<p>The final attribute comes from the <code>Html.Events</code> module, which describes which <code>update</code> message is sent when the element hears an <code>input</code> event. In this case, a <code>message</code> called <code>SetCurrentText</code> is sent, along with the element&apos;s current text. (<code>SetCurrentText String</code> is actually a tagged value &#x2014; don&apos;t worry, we&apos;ll cover that in a future lesson!)</p>
 <p>This is great! When this <code>message</code> is sent, we can update our model with the new value. To do that, let&apos;s check out <code>Update.elm</code>:</p>
 <pre><code class="lang-elm"><span class="hljs-title">update</span> msg model =
     <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
@@ -348,18 +348,18 @@
             <span class="hljs-comment">-- currently, this does nothing!</span>
             model
 </code></pre>
-<p>Whenever an update message is sent, the <code>Update.update</code> function consumes the sent message, the current model, and returns a new model to render. Currently, the <code>SetCurrentText</code> message is handled by this function, but the function simply returns the old model.</p>
+<p>Whenever an update message is sent, the <code>update</code> function consumes the sent message, the current model, and returns a new model to render. Currently, the <code>SetCurrentText</code> message is handled by this function, but the function simply returns the old model.</p>
 <p>Let&apos;s change that. Instead, we should have the update function update the model&apos;s <code>currentText</code> value whenever the message <code>SetCurrentText</code> is sent. Let&apos;s use record update syntax to do so:</p>
 <pre><code class="lang-elm"><span class="hljs-title">update</span> msg model =
     <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
         <span class="hljs-type">SetCurrentText</span> newText -&gt;
           { model | currentText = newText }
 </code></pre>
-<p>Once you&apos;ve made the change, go back to your web browser (to <a href="http://localhost:8000/Main.elm" target="_blank">http://localhost:8000/Main.elm</a>), refresh the page, and <code>elm-reactor</code> will recompile your application.</p>
+<p>Once you&apos;ve made the change, go back to your web browser (to <a href="http://localhost:8000/Part1.elm" target="_blank">http://localhost:8000/Part1.elm</a>), refresh the page, and <code>elm-reactor</code> will recompile your application.</p>
 <p>If there are any errors from the compiler, <code>elm-reactor</code> will show them to you.  If there aren&apos;t any errors, you will see the updated application!</p>
-<h3 id="step-3"><input type="checkbox"> Step 3</h3>
+<h3 id="adding-to-the-view">Adding to the View</h3>
 <p>Great, so we&apos;re now updating the model every time the user inputs text into our application. However, that&apos;s only half the battle &#x2014; we still need to display the application&apos;s <code>currentText</code> back to the user!</p>
-<p>Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our <code>View.view</code> function to display a paragraph tag right after our input tag, with the model&apos;s <code>currentText</code> as its value. The resulting HTML should look like this:</p>
+<p>Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our <code>view</code> function to display a paragraph tag right after our input tag, with the model&apos;s <code>currentText</code> as its value. The resulting HTML should look like this:</p>
 <pre><code class="lang-HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center output-text emoji-size&quot;</span>&gt;</span>It&apos;s happening!!!<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 </code></pre>
 <p>In Elm, the code to generate that HTML would look like this:</p>
@@ -369,9 +369,9 @@
 </code></pre>
 <p>Note: <code>Html.text</code> is a special kind of <code>Html</code> function, that produces a plain-text node. In this case, we&apos;ve built a paragraph element with a nested child element that is simply plain text.</p>
 <p>Insert the above code into the <code>View.view</code> function, as a list element after the div with a class of <code>.input-field</code>. Once you think you have it, recompile your code to see if it worked.</p>
-<h3 id="step-4"><input type="checkbox"> Step 4</h3>
+<h3 id="displaying-model-values">Displaying Model Values</h3>
 <p>We don&apos;t want the text to always be <code>It&apos;s happening!</code>, though. Instead, the text of the paragraph node should reflect the <code>currentText</code> of the current model. As the model changes, this paragraph node should change as well.</p>
-<p>You&apos;ll notice that the <code>View.view</code> function consumes a model. This model represents the current state of the application! So if we use record getter syntax, we can pull the <code>currentText</code> value out of the model and use it, like this:</p>
+<p>You&apos;ll notice that the <code>view</code> function consumes a model. This model represents the current state of the application. So if we use record getter syntax, we can pull the <code>currentText</code> value out of the model and use it, like this:</p>
 <pre><code class="lang-elm"><span class="hljs-type">Html</span>.p
     [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center output-text emoji-size&quot;</span> ]
     [ <span class="hljs-type">Html</span>.text model.currentText ]
@@ -420,7 +420,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2017-02-18T20:11:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-18T20:11:43.123Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2018-09-28T23:35:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T23:54:27.489Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

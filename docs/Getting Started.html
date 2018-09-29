@@ -310,7 +310,7 @@
 <li>Learn where to find documentation about the Elm core library</li>
 </ul>
 <h2 id="steps">Steps</h2>
-<h3 id="step-1"><input type="checkbox"> Step 1</h3>
+<h3 id="repl">REPL</h3>
 <p>Launch the Elm REPL again by running the following command:</p>
 <pre><code class="lang-sh">elm-repl
 </code></pre>
@@ -327,7 +327,7 @@ strings, numbers, and simple mathematical expressions:</p>
 7.142857142857143 : Float
 &gt; 4 + 3 * (6 - 2)
 16 : number
-</code></pre><h3 id="step-2"><input type="checkbox"> Step 2</h3>
+</code></pre><h3 id="variables">Variables</h3>
 <p>You can define and refer to variables:</p>
 <pre><code>&gt; x = 5
 5 : number
@@ -335,7 +335,7 @@ strings, numbers, and simple mathematical expressions:</p>
 3 : number
 &gt; x + y
 8 : number
-</code></pre><h3 id="step-3"><input type="checkbox"> Step 3</h3>
+</code></pre><h3 id="strings">Strings</h3>
 <p>You can concatenate strings using the <code>++</code> operator:</p>
 <pre><code>&gt; &quot;Hello&quot; ++ &quot;, World&quot;
 &quot;Hello, World&quot; : String
@@ -343,7 +343,7 @@ strings, numbers, and simple mathematical expressions:</p>
 &quot;Anna&quot; : String
 &gt; &quot;Hello, &quot; ++ name ++ &quot;!&quot;
 &quot;Hello, Anna!&quot; : String
-</code></pre><h3 id="step-4"><input type="checkbox"> Step 4</h3>
+</code></pre><h3 id="error-messages">Error Messages</h3>
 <p>If you try to perform operations that don&apos;t make sense, Elm will try to tell you
 what&apos;s wrong:</p>
 <pre><code>&gt; 10 + &quot;Betsy&quot;
@@ -367,7 +367,7 @@ Hint: To append strings in Elm, you need to use the (++) operator, not (+).
 Hint: I always figure out the type of the left argument first and if it is
 acceptable on its own, I assume it is &quot;correct&quot; in subsequent checks. So the
 problem may actually be in how the left and right arguments interact.
-</code></pre><h3 id="step-5"><input type="checkbox"> Step 5</h3>
+</code></pre><h3 id="functions">Functions</h3>
 <p>To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.</p>
 <p>Here are some of the functions that are available by default in Elm: <code>toString</code>, <code>max</code>, <code>min</code>, <code>sqrt</code>, <code>round</code>, <code>floor</code>.  These are defined in the <code>Basics</code> module, which is always imported for you. You can read more about these and other functions in <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/Basics" target="_blank">its documentation</a>.</p>
 <pre><code>&gt; toString 10 ++ &quot;!&quot;
@@ -377,7 +377,7 @@ problem may actually be in how the left and right arguments interact.
 </code></pre><p>To disambiguate order of operations, use parentheses.</p>
 <pre><code>&gt; round (96 / 7)
 14 : Int
-</code></pre><h3 id="step-6"><input type="checkbox"> Step 6</h3>
+</code></pre><h3 id="the-string-module">The String Module</h3>
 <p>Let&apos;s use some functions from the <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/String" target="_blank"><code>String</code> module</a>.</p>
 <p>First, we need to import the module.</p>
 <pre><code>&gt; import String
@@ -388,7 +388,7 @@ problem may actually be in how the left and right arguments interact.
 [&quot;Apple&quot;,&quot;Apricot&quot;,&quot;Avocado&quot;,&quot;Banana&quot;,&quot;Blackberry&quot;] : List String
 &gt; String.join &quot; -- &quot; (String.split &quot;,&quot; &quot;Apple,Apricot,Avocado&quot;)
 &quot;Apple -- Apricot -- Avocado&quot; : String
-</code></pre><h3 id="step-7"><input type="checkbox"> Step 7</h3>
+</code></pre><h3 id="defining-our-own-functions">Defining our own Functions</h3>
 <p>Now let&apos;s define and use our own functions.</p>
 <p>We saw types before when we entered numbers and Strings into the console; functions have types too!</p>
 <p>When Elm shows the type of a function, it uses arrows <code>-&gt;</code> and colons <code>:</code>. We&apos;ve seen the colons already, when Elm told us the types of values (e.g., <code>14 : Int</code>).</p>
@@ -405,9 +405,9 @@ problem may actually be in how the left and right arguments interact.
 &lt;function&gt; : String -&gt; String
 &gt; sayHello &quot;Janice&quot;
 &quot;Hello, Janice&quot; : String
-</code></pre><h3 id="step-8"><input type="checkbox"> Step 8</h3>
+</code></pre><h3 id="all-done">All done!</h3>
 <p>Exit the Elm REPL by typing <code>:exit</code>, or <code>CTRL-D</code>.</p>
-<h3 id="bonus"><input type="checkbox"> <strong>Bonus!</strong></h3>
+<h3 id="bonus"><strong>Bonus!</strong></h3>
 <p>You may have noticed that all the types began with a capital letter (<code>String</code>, <code>Float</code>, <code>Int</code>) except for one (<code>number</code>). In general, you can remember that all types are capital but variables are lowercase. <code>number</code> in these cases is a special variable type saying the value can act as an <code>Int</code> or a <code>Float</code>. An example:</p>
 <pre><code>&gt; 1 + 1
 1 : number
@@ -472,7 +472,7 @@ But the right argument is:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2017-02-18T19:54:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-18T20:11:43.123Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2018-09-28T23:29:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T23:54:27.489Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

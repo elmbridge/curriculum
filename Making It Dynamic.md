@@ -17,13 +17,13 @@ We need to walk before we run, though! First, we'll make an application that sim
 
 ### Skeleton Setup
 
-Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-0](https://github.com/elmbridge/elmoji-translator/releases/tag/release-0) and navigate to the downloaded folder. Start `elm-reactor` in your terminal:
+Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-5](https://github.com/elmbridge/elmoji-translator/releases/tag/release-5) and navigate to the downloaded folder. Start `elm-reactor` in your terminal:
 
 ```sh
 elm-reactor
 ```
 
-And then go to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm) in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:
+And then go to [http://localhost:8000/Part1.elm](http://localhost:8000/Part1.elm) in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:
 
 ![Release 0](images/release-0.png)
 
@@ -47,7 +47,7 @@ type alias Model =
 
 For this application, the model is a record that contains a `currentText` field that must be a string. That's perfect for our feature — as a user inputs text into the application, we'll update the `currentText` field, and reflect its new value to the UI.
 
-Let's verify that user text input is mapped to a `message`. First, let's look in `View.elm`, which is much bigger than it was in the last lesson! Specifically, let's take a look at the code for input field.
+Let's verify that user text input is mapped to a `message`. First, let's look at our `view`. Let's zoom in on the code for input field.
 
 ```elm
 Html.input
@@ -67,7 +67,7 @@ While the API is somewhat verbose, much of its contents are probably familiar to
   <input type="text" class="center" placeholder="Let's Translate!">
 ```
 
-The final attribute comes from the `Html.Events` module, which describes which `Update` message is sent when the element hears an `input` event. In this case, a `message` called `SetCurrentText` is sent, along with the element's current text. (`SetCurrentText String` is actually a tagged value — don't worry, we'll cover that in a future lesson!)
+The final attribute comes from the `Html.Events` module, which describes which `update` message is sent when the element hears an `input` event. In this case, a `message` called `SetCurrentText` is sent, along with the element's current text. (`SetCurrentText String` is actually a tagged value — don't worry, we'll cover that in a future lesson!)
 
 This is great! When this `message` is sent, we can update our model with the new value. To do that, let's check out `Update.elm`:
 
@@ -79,7 +79,7 @@ update msg model =
             model
 ```
 
-Whenever an update message is sent, the `Update.update` function consumes the sent message, the current model, and returns a new model to render. Currently, the `SetCurrentText` message is handled by this function, but the function simply returns the old model.
+Whenever an update message is sent, the `update` function consumes the sent message, the current model, and returns a new model to render. Currently, the `SetCurrentText` message is handled by this function, but the function simply returns the old model.
 
 Let's change that. Instead, we should have the update function update the model's `currentText` value whenever the message `SetCurrentText` is sent. Let's use record update syntax to do so:
 
@@ -90,7 +90,7 @@ update msg model =
           { model | currentText = newText }
 ```
 
-Once you've made the change, go back to your web browser (to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm)), refresh the page, and `elm-reactor` will recompile your application.
+Once you've made the change, go back to your web browser (to [http://localhost:8000/Part1.elm](http://localhost:8000/Part1.elm)), refresh the page, and `elm-reactor` will recompile your application.
 
 If there are any errors from the compiler, `elm-reactor` will show them to you.  If there aren't any errors, you will see the updated application!
 
@@ -98,7 +98,7 @@ If there are any errors from the compiler, `elm-reactor` will show them to you. 
 
 Great, so we're now updating the model every time the user inputs text into our application. However, that's only half the battle — we still need to display the application's `currentText` back to the user!
 
-Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our `View.view` function to display a paragraph tag right after our input tag, with the model's `currentText` as its value. The resulting HTML should look like this:
+Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our `view` function to display a paragraph tag right after our input tag, with the model's `currentText` as its value. The resulting HTML should look like this:
 
 
 ```HTML
@@ -121,7 +121,7 @@ Insert the above code into the `View.view` function, as a list element after the
 
 We don't want the text to always be `It's happening!`, though. Instead, the text of the paragraph node should reflect the `currentText` of the current model. As the model changes, this paragraph node should change as well.
 
-You'll notice that the `View.view` function consumes a model. This model represents the current state of the application! So if we use record getter syntax, we can pull the `currentText` value out of the model and use it, like this:
+You'll notice that the `view` function consumes a model. This model represents the current state of the application. So if we use record getter syntax, we can pull the `currentText` value out of the model and use it, like this:
 
 ```elm
 Html.p

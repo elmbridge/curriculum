@@ -13,10 +13,10 @@ In this lesson, we'll run a simple Elm application and learn how it all fits tog
 
 ### The Development Environment
 
-Download the skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world](https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world), navigate to the downloaded folder in your terminal, and run the following command:
+Download the skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-5](https://github.com/elmbridge/elmoji-translator/releases/tag/release-5), navigate to the downloaded folder in your terminal, and run the following command:
 
 ```sh
-elm-make Main.elm
+elm-make HelloWorld.elm
 ```
 
 `elm-make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application. It compiles that file, along with any files it references, and creates `index.html`, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It's also possible to compile into a JavaScript file if you want to use your own HTML file.)
@@ -27,7 +27,7 @@ Elm comes with another tool that makes it easy to quickly develop your applicati
 elm-reactor
 ```
 
-Now that `elm-reactor` is running, you can go to [http://localhost:8000/Main.elm](http://localhost:8000/Main.elm) in your web browser to see your compiled application.  Whenever you refresh the page, `elm-reactor` will recompile your code and show you the result.
+Now that `elm-reactor` is running, you can go to [http://localhost:8000/HelloWorld.elm](http://localhost:8000/HelloWorld.elm) in your web browser to see your compiled application.  Whenever you refresh the page, `elm-reactor` will recompile your code and show you the result.
 
 You should now have a fully functional Elm application, that looks like this:
 
@@ -35,7 +35,7 @@ You should now have a fully functional Elm application, that looks like this:
 
 ### Elm Wiring
 
-So how does any of this work? Let's start with `Main.elm`, which (by convention) is the entry point to an Elm application.
+So how does any of this work? Let's take a look at `HelloWorld.elm`.
 
 
 ```elm
@@ -61,14 +61,14 @@ The initial `model`, `view` function, and `update` function together form a **tr
 
 ### On Initializing the Application
 
-Let's investigate each of these pieces one by one. First, let's check out the `init` function in `Model.elm` to see what the initial state of our application is.
+Let's investigate each of these pieces one by one. First, let's check out the `init` function to see what the initial state of our application is.
 
 ```elm
 init =
     { buttonLabel = "hello world!" }
 ```
 
-As you can see, `Model.init` takes no arguments and returns a **record**, which is a name-value map with predefined structure. This particular record has a single field called `buttonLabel`, with a value of `"hello world!"`. This record represents the state of our application — it is the only thing in our entire application that can change over time. As the `model` changes, the UI should change to reflect its new value.
+As you can see, `init` takes no arguments and returns a **record**, which is a name-value map with predefined structure. This particular record has a single field called `buttonLabel`, with a value of `"hello world!"`. This record represents the state of our application — it is the only thing in our entire application that can change over time. As the `model` changes, the UI should change to reflect its new value.
 
 It is convention to write a **type alias** to describe your application's state, and call it `Model`, like this:
 
@@ -81,7 +81,7 @@ We'll learn more about type aliases later in this tutorial, but for now, it's wo
 
 ### On the Application View
 
-Now, let's take a look at our `view` function in `View.elm`, which is responsible for converting our `model` into HTML. Any changes between the produced HTML and the last rendered HTML will be rendered to the UI by Elm.
+Now, let's take a look at our `view`, which is responsible for converting our `model` into HTML. Any changes between the produced HTML and the last rendered HTML will be rendered to the UI by Elm.
 
 ```elm
 view model =
@@ -122,7 +122,7 @@ What does `model.buttonLabel` mean in the context of our `view` function? This f
 
 You may wonder how this function can be performant — every time the `model` changes, even slightly, our `view` function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, how does Elm not collapse under the load?
 
-Good news: Elm is optimized to be performant under pressure. It uses a library called [virtual-dom](https://github.com/elm-lang/virtual-dom) to ensure that the entire page doesn't have to re-render every time the application's state changes. React and Ember use similar strategies, although Elm has more tricks up its sleeve because of its functional nature. The exact details are out of scope for this tutorial, however — just know that you generally don't have to worry about HTML rendering performance when writing Elm.
+Good news: Elm is optimized to be performant under pressure. Using a virtual DOM, Elm ensures that the entire page doesn't have to re-render every time the application's state changes. React and Ember use similar strategies, although Elm has more tricks up its sleeve because of its functional nature. The exact details are out of scope for this tutorial, however — just know that you generally don't have to worry about HTML rendering performance when writing Elm.
 
 Before we move on, let's take another look at that `onClick` handler:
 

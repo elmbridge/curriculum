@@ -310,19 +310,19 @@
 <li>Learn how every part of an Elm application works.</li>
 </ul>
 <h2 id="steps">Steps</h2>
-<h3 id="step-1"><input type="checkbox"> Step 1</h3>
-<p>Download the skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/hello-world</a>, navigate to the downloaded folder in your terminal, and run the following command:</p>
-<pre><code class="lang-sh">elm-make Main.elm
+<h3 id="the-development-environment">The Development Environment</h3>
+<p>Download the skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-5" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-5</a>, navigate to the downloaded folder in your terminal, and run the following command:</p>
+<pre><code class="lang-sh">elm-make HelloWorld.elm
 </code></pre>
 <p><code>elm-make</code> <strong>compiles</strong> your application &#x2014; it turns your Elm code into JavaScript code that your browser can understand. The above command uses <code>Main.elm</code> as the <strong>entry point</strong> to your application. It compiles that file, along with any files it references, and creates <code>index.html</code>, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It&apos;s also possible to compile into a JavaScript file if you want to use your own HTML file.)</p>
 <p>Elm comes with another tool that makes it easy to quickly develop your application: <code>elm-reactor</code> starts a local development server that will automatically compile your Elm code (and, if there are any errors, give you helpful error messages on what you need to fix).  Let&apos;s start it up:</p>
 <pre><code class="lang-sh">elm-reactor
 </code></pre>
-<p>Now that <code>elm-reactor</code> is running, you can go to <a href="http://localhost:8000/Main.elm" target="_blank">http://localhost:8000/Main.elm</a> in your web browser to see your compiled application.  Whenever you refresh the page, <code>elm-reactor</code> will recompile your code and show you the result.</p>
+<p>Now that <code>elm-reactor</code> is running, you can go to <a href="http://localhost:8000/HelloWorld.elm" target="_blank">http://localhost:8000/HelloWorld.elm</a> in your web browser to see your compiled application.  Whenever you refresh the page, <code>elm-reactor</code> will recompile your code and show you the result.</p>
 <p>You should now have a fully functional Elm application, that looks like this:</p>
 <p><img src="images/hello-world.gif" alt="Hello World"></p>
-<h3 id="step-2"><input type="checkbox"> Step 2</h3>
-<p>So how does any of this work? Let&apos;s start with <code>Main.elm</code>, which (by convention) is the entry point to an Elm application.</p>
+<h3 id="elm-wiring">Elm Wiring</h3>
+<p>So how does any of this work? Let&apos;s take a look at <code>HelloWorld.elm</code>.</p>
 <pre><code class="lang-elm"><span class="hljs-title">main</span> =
     <span class="hljs-type">Html</span>.beginnerProgram
         { model = <span class="hljs-type">Model</span>.init
@@ -339,19 +339,19 @@
 <p>But wait, didn&apos;t we say that a value can never change in Elm? What&apos;s exactly changing here? Good question &#x2014; let&apos;s come back to it when we finish looking at the rest of the pieces.</p>
 <p><img src="images/elm-architecture-4.jpeg" alt="The Elm Architecture"></p>
 <p>The initial <code>model</code>, <code>view</code> function, and <code>update</code> function together form a <strong>triad</strong> that is required in every Elm application. For more complicated programs, a few other pieces are required &#x2014; however, for this session, we&apos;ll focus on the core triad.</p>
-<h3 id="step-3"><input type="checkbox"> Step 3</h3>
-<p>Let&apos;s investigate each of these pieces one by one. First, let&apos;s check out the <code>init</code> function in <code>Model.elm</code> to see what the initial state of our application is.</p>
+<h3 id="on-initializing-the-application">On Initializing the Application</h3>
+<p>Let&apos;s investigate each of these pieces one by one. First, let&apos;s check out the <code>init</code> function to see what the initial state of our application is.</p>
 <pre><code class="lang-elm"><span class="hljs-title">init</span> =
     { buttonLabel = <span class="hljs-string">&quot;hello world!&quot;</span> }
 </code></pre>
-<p>As you can see, <code>Model.init</code> takes no arguments and returns a <strong>record</strong>, which is a name-value map with predefined structure. This particular record has a single field called <code>buttonLabel</code>, with a value of <code>&quot;hello world!&quot;</code>. This record represents the state of our application &#x2014; it is the only thing in our entire application that can change over time. As the <code>model</code> changes, the UI should change to reflect its new value.</p>
+<p>As you can see, <code>init</code> takes no arguments and returns a <strong>record</strong>, which is a name-value map with predefined structure. This particular record has a single field called <code>buttonLabel</code>, with a value of <code>&quot;hello world!&quot;</code>. This record represents the state of our application &#x2014; it is the only thing in our entire application that can change over time. As the <code>model</code> changes, the UI should change to reflect its new value.</p>
 <p>It is convention to write a <strong>type alias</strong> to describe your application&apos;s state, and call it <code>Model</code>, like this:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
     { buttonLabel : <span class="hljs-type">String</span> }
 </code></pre>
 <p>We&apos;ll learn more about type aliases later in this tutorial, but for now, it&apos;s worth noting that it is simply used for convenience. It&apos;s an easy way for other Elm developers to tell exactly what information is stored in your <code>model</code>.</p>
-<h3 id="step-4"><input type="checkbox"> Step 4</h3>
-<p>Now, let&apos;s take a look at our <code>view</code> function in <code>View.elm</code>, which is responsible for converting our <code>model</code> into HTML. Any changes between the produced HTML and the last rendered HTML will be rendered to the UI by Elm.</p>
+<h3 id="on-the-application-view">On the Application View</h3>
+<p>Now, let&apos;s take a look at our <code>view</code>, which is responsible for converting our <code>model</code> into HTML. Any changes between the produced HTML and the last rendered HTML will be rendered to the UI by Elm.</p>
 <pre><code class="lang-elm"><span class="hljs-title">view</span> model =
     <span class="hljs-type">Html</span>.div
         [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;skeleton-elm-project&quot;</span> ]
@@ -380,13 +380,13 @@
 <p>The child div has two attributes (another <code>class</code> attribute and an <code>onClick</code> handler). It also has one child: a plain-text HTML node, rendered using the <code>Html.text</code> function.</p>
 <p>What does <code>model.buttonLabel</code> mean in the context of our <code>view</code> function? This function is responsible for rendering the application&apos;s current state as HTML &#x2014; and that state is stored in the <code>model</code> variable. Every time the application&apos;s state changes, this function will be called with a new <code>model</code> value &#x2014; if <code>model.buttonLabel</code> is different than the last time this function was called, the UI will update with new text!</p>
 <p>You may wonder how this function can be performant &#x2014; every time the <code>model</code> changes, even slightly, our <code>view</code> function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, how does Elm not collapse under the load?</p>
-<p>Good news: Elm is optimized to be performant under pressure. It uses a library called <a href="https://github.com/elm-lang/virtual-dom" target="_blank">virtual-dom</a> to ensure that the entire page doesn&apos;t have to re-render every time the application&apos;s state changes. React and Ember use similar strategies, although Elm has more tricks up its sleeve because of its functional nature. The exact details are out of scope for this tutorial, however &#x2014; just know that you generally don&apos;t have to worry about HTML rendering performance when writing Elm.</p>
+<p>Good news: Elm is optimized to be performant under pressure. Using a virtual DOM, Elm ensures that the entire page doesn&apos;t have to re-render every time the application&apos;s state changes. React and Ember use similar strategies, although Elm has more tricks up its sleeve because of its functional nature. The exact details are out of scope for this tutorial, however &#x2014; just know that you generally don&apos;t have to worry about HTML rendering performance when writing Elm.</p>
 <p>Before we move on, let&apos;s take another look at that <code>onClick</code> handler:</p>
 <pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">Update</span>.<span class="hljs-type">ChangeText</span>
 </code></pre>
 <p>This line of code is key to our application &#x2014; it maps a potential user action to a <code>message</code> that can cause our application to change. In this case, clicking on our div causes the <code>Update.ChangeText</code> message to be sent.</p>
 <p>There are lots of potential user actions defined in the <a href="http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events" target="_blank"><code>Html.Events</code></a> module &#x2014; as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don&apos;t map these user actions to a <code>message</code>, however, they will be ignored by your application.</p>
-<h3 id="step-5"><input type="checkbox"> Step 5</h3>
+<h3 id="on-the-application-model">On the Application Model</h3>
 <p>Let&apos;s return to the question of change we saved for later when we were looking at <code>init</code>: What does it mean when we say <code>model</code> changes? Let&apos;s take another look at our diagram:</p>
 <p><img src="images/elm-architecture-4.jpeg" alt="The Elm Architecture"></p>
 <p>Even though we said <code>model</code>, <code>view</code>, and <code>update</code> together form a triad, you can see that <code>model</code> is not a first-class circle in this diagram. In fact, <code>model</code> is just passed around as an argument to <code>view</code> and <code>update</code> functions.</p>
@@ -477,7 +477,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The Elm Architecture","level":"2.1","depth":1,"next":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"previous":{"title":"Special Installation Notes","level":"1.6","depth":1,"path":"Special Installation Notes.md","ref":"Special Installation Notes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Elm Architecture.md","mtime":"2017-02-18T20:11:38.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-18T20:11:43.123Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The Elm Architecture","level":"2.1","depth":1,"next":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"previous":{"title":"Special Installation Notes","level":"1.6","depth":1,"path":"Special Installation Notes.md","ref":"Special Installation Notes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Elm Architecture.md","mtime":"2018-09-28T23:36:29.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T23:54:27.489Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

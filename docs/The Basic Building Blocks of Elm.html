@@ -309,7 +309,7 @@
 <li>Learn how to use strings, lists, and records.</li>
 </ul>
 <h2 id="steps">Steps</h2>
-<h3 id="step-1"><input type="checkbox"> Step 1</h3>
+<h3 id="elm-basics-exercises">Elm Basics Exercises</h3>
 <p>Get a copy of the <a href="https://github.com/elmbridge/elm-basics" target="_blank">elm-basics</a> code:</p>
 <pre><code class="lang-bash">git <span class="hljs-built_in">clone</span> https://github.com/elmbridge/elm-basics.git
 <span class="hljs-built_in">cd</span> elm-basics
@@ -321,7 +321,7 @@
 <p>You should see something like this:</p>
 <p><img src="images/intro-to-elm-initial.png" alt="Intro to Elm initial"></p>
 <p>This application contains a series of unimplemented functions designed to teach you about the basic data structures of Elm. All the functions that you need to implement live in <code>Main.elm</code>. By default, you&apos;ll see some work-in-progress emojis, and when you successfully implement a function, you&apos;ll see a heart.  But if you&apos;d like to customize the emojis or the colors, you can do so in <code>Style.elm</code>.  When you&apos;re done poking around, go back to <code>Main.elm</code> to start the exercises.</p>
-<h3 id="step-2"><input type="checkbox"> Step 2</h3>
+<h3 id="working-with-strings">Working with Strings</h3>
 <p>Like many languages, Elm has a <strong>String</strong> data type to store text. In this step, you should complete all the unimplemented functions for the string section of the application. Once you&apos;re ready to get started, navigate to the <code>sayHello</code> function.</p>
 <pre><code class="lang-elm"><span class="hljs-title">sayHello</span> friendsName =
     <span class="hljs-string">&quot;&quot;</span>
@@ -335,7 +335,7 @@
 <pre><code class="lang-elm"><span class="hljs-type">String</span>.right <span class="hljs-number">1</span> someStringVariable
 </code></pre>
 <p>If you get stuck, flag down an instructor! They are here to help.</p>
-<h3 id="step-3"><input type="checkbox"> Step 3</h3>
+<h3 id="conditional-logic">Conditional Logic</h3>
 <p>Elm has all the traditional structures for conditional logic, including <code>if</code>, <code>else</code>, <code>case</code>, and the <code>==</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&amp;&amp;</code>, and <code>||</code> operators. (Note: the &quot;not equal&quot; operator is a non-standard <code>/=</code>.) Here&apos;s what that looks like in practice:</p>
 <pre><code class="lang-elm"><span class="hljs-title">numberToWords</span> num =
   <span class="hljs-keyword">if</span> num == <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
@@ -354,7 +354,7 @@
 </code></pre>
 <p>Elm enforces that all branches of an <code>if</code> or <code>case</code> expression must return the same type of value &#x2014; so all <code>if</code> expressions must include a corresponding <code>else</code> clause, and all possible values must be accounted for in a <code>case</code> expression.</p>
 <p>Take a shot at completing the assertions for <code>if</code> expressions!</p>
-<h3 id="step-4"><input type="checkbox"> Step 4</h3>
+<h3 id="lists">Lists</h3>
 <p>In Elm, you can use a <strong>List</strong> to store a collection of elements. Unlike dynamic languages, though, Elm lists are <strong>typed</strong> &#x2014; every element in a list must be the same kind of thing. You can&apos;t have a list that stores both strings and numbers, for example.</p>
 <p>For this step, you should complete all the <code>List</code> assertions. Some tips:</p>
 <ul>
@@ -366,7 +366,7 @@
 </code></pre>
 <p>Note: the value after the <code>\</code> is the input to the function, while whatever is after the <code>-&gt;</code> sign is the output.</p>
 <p>Good luck!</p>
-<h3 id="step-5"><input type="checkbox"> Step 5</h3>
+<h3 id="records">Records</h3>
 <p>Just like JavaScript has objects to store name-value pairs, Elm has <strong>records</strong>. Unlike JavaScript&apos;s objects, though, Elm treats the structure of a record as immutable. Once a record has been defined, you cannot add or remove a field, or change the type of a field.</p>
 <p>Unlike strings and lists, records are a special data type that has a special syntax for getting and setting values. You can create a record like this:</p>
 <pre><code class="lang-elm"><span class="hljs-title">aNewRecordAppears</span> =
@@ -423,7 +423,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"next":{"title":"Intermission: Building User Interfaces","level":"1.5","depth":1,"path":"Building User Interfaces.md","ref":"Building User Interfaces.md","articles":[]},"previous":{"title":"Getting Started","level":"1.3","depth":1,"path":"Getting Started.md","ref":"Getting Started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Basic Building Blocks of Elm.md","mtime":"2017-02-18T19:54:36.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-02-18T20:11:43.123Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"next":{"title":"Intermission: Building User Interfaces","level":"1.5","depth":1,"path":"Building User Interfaces.md","ref":"Building User Interfaces.md","articles":[]},"previous":{"title":"Getting Started","level":"1.3","depth":1,"path":"Getting Started.md","ref":"Getting Started.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Basic Building Blocks of Elm.md","mtime":"2018-09-28T23:29:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T23:54:27.489Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
