@@ -69,37 +69,26 @@ what's wrong:
 
 ```
 > 10 + "Betsy"
--- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+-- TYPE MISMATCH ----------------------------------------------------------- elm
 
-The right argument of (+) is causing a type mismatch.
+I cannot do addition with String values like this one:
 
-3|   10 + "Betsy"
+7|   10 + "Betsy"
           ^^^^^^^
-(+) is expecting the right argument to be a:
+The (+) operator only works with Int and Float values.
 
-    number
-
-But the right argument is:
-
-    String
-
-Hint: To append strings in Elm, you need to use the (++) operator, not (+).
-<http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#++>
-
-Hint: I always figure out the type of the left argument first and if it is
-acceptable on its own, I assume it is "correct" in subsequent checks. So the
-problem may actually be in how the left and right arguments interact.
+Hint: Switch to the (++) operator to append strings!
 ```
 
 ### Functions
 
 To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.
 
-Here are some of the functions that are available by default in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
+Here are some of the functions that are available by default in Elm: `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
 ```
-> toString 10 ++ "!"
-"10!" : String
+> max 9 1
+9 : number
 > min 9 1
 1 : number
 ```
@@ -115,16 +104,11 @@ To disambiguate order of operations, use parentheses.
 
 Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String).
 
-First, we need to import the module.
-
-
-```
-> import String
-```
-
-Then any function we want to use is namespaced under `String`:
+Any function we want to use is namespaced under `String`:
 
 ```
+> String.fromInt 10 ++ "!"
+"10!" : String
 > String.toUpper "Carey"
 "CAREY" : String
 > String.split "," "Apple,Apricot,Avocado,Banana,Blackberry"
@@ -175,17 +159,16 @@ You may have noticed that all the types began with a capital letter (`String`, `
 > floor 1.3
 1 : Int
 > (floor 1.3) + 1.0
--- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+-- TYPE MISMATCH ----------------------------------------------------------- elm
 
-The right argument of (+) is causing a type mismatch.
+I need both sides of (+) to be the exact same type. Both Int or both Float.
 
-3|    floor 1.3) + 1.0
-                   ^^^
-(+) is expecting the right argument to be a:
+4|   (floor 1.3) + 1.0
+     ^^^^^^^^^^^^^^^^^
+But I see an Int on the left and a Float on the right.
 
-    Int
+Use toFloat on the left (or round on the right) to make both sides match!
 
-But the right argument is:
-
-    Float
+Note: Read <https://elm-lang.org/0.19.0/implicit-casts> to learn why Elm does
+not implicitly convert Ints to Floats.
 ```
