@@ -7,7 +7,7 @@
         <title>Getting Started · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="GitBook 3.2.3">
         
         
         
@@ -312,7 +312,7 @@
 <h2 id="steps">Steps</h2>
 <h3 id="repl">REPL</h3>
 <p>Launch the Elm REPL again by running the following command:</p>
-<pre><code class="lang-sh">elm-repl
+<pre><code class="lang-sh">elm repl
 </code></pre>
 <p>Now that you are in the REPL, you can write your first Elm code! Code you should try out in the REPL is written on lines starting with <code>&gt;</code>.</p>
 <p>You can enter values, and Elm will tell you the type of the values.  Try typing
@@ -347,47 +347,51 @@ strings, numbers, and simple mathematical expressions:</p>
 <p>If you try to perform operations that don&apos;t make sense, Elm will try to tell you
 what&apos;s wrong:</p>
 <pre><code>&gt; 10 + &quot;Betsy&quot;
--- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+-- TYPE MISMATCH ----------------------------------------------------------- elm
 
-The right argument of (+) is causing a type mismatch.
+I cannot do addition with String values like this one:
 
-3|   10 + &quot;Betsy&quot;
+7|   10 + &quot;Betsy&quot;
           ^^^^^^^
-(+) is expecting the right argument to be a:
+The (+) operator only works with Int and Float values.
 
-    number
-
-But the right argument is:
-
-    String
-
-Hint: To append strings in Elm, you need to use the (++) operator, not (+).
-&lt;http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#++&gt;
-
-Hint: I always figure out the type of the left argument first and if it is
-acceptable on its own, I assume it is &quot;correct&quot; in subsequent checks. So the
-problem may actually be in how the left and right arguments interact.
+Hint: Switch to the (++) operator to append strings!
 </code></pre><h3 id="functions">Functions</h3>
 <p>To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.</p>
-<p>Here are some of the functions that are available by default in Elm: <code>toString</code>, <code>max</code>, <code>min</code>, <code>sqrt</code>, <code>round</code>, <code>floor</code>.  These are defined in the <code>Basics</code> module, which is always imported for you. You can read more about these and other functions in <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/Basics" target="_blank">its documentation</a>.</p>
-<pre><code>&gt; toString 10 ++ &quot;!&quot;
-&quot;10!&quot; : String
+<p>Here are some of the functions that are available by default in Elm: <code>max</code>, <code>min</code>, <code>sqrt</code>, <code>round</code>, <code>floor</code>.  These are defined in the <code>Basics</code> module, which is always imported for you. You can read more about these and other functions in <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/Basics" target="_blank">its documentation</a>.</p>
+<pre><code>&gt; max 9 1
+9 : number
 &gt; min 9 1
 1 : number
 </code></pre><p>To disambiguate order of operations, use parentheses.</p>
 <pre><code>&gt; round (96 / 7)
 14 : Int
 </code></pre><h3 id="the-string-module">The String Module</h3>
-<p>Let&apos;s use some functions from the <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/String" target="_blank"><code>String</code> module</a>.</p>
-<p>First, we need to import the module.</p>
-<pre><code>&gt; import String
-</code></pre><p>Then any function we want to use is namespaced under <code>String</code>:</p>
-<pre><code>&gt; String.toUpper &quot;Carey&quot;
+<p>Let&apos;s use some functions from the <a href="http://package.elm-lang.org/packages/elm-lang/core/latest/String" target="_blank"><code>String</code> module</a>, which is one of the modules imported by default.</p>
+<p>Any function we want to use is namespaced under <code>String</code>:</p>
+<pre><code>&gt; String.fromInt 10 ++ &quot;!&quot;
+&quot;10!&quot; : String
+&gt; String.toUpper &quot;Carey&quot;
 &quot;CAREY&quot; : String
 &gt; String.split &quot;,&quot; &quot;Apple,Apricot,Avocado,Banana,Blackberry&quot;
 [&quot;Apple&quot;,&quot;Apricot&quot;,&quot;Avocado&quot;,&quot;Banana&quot;,&quot;Blackberry&quot;] : List String
 &gt; String.join &quot; -- &quot; (String.split &quot;,&quot; &quot;Apple,Apricot,Avocado&quot;)
 &quot;Apple -- Apricot -- Avocado&quot; : String
+</code></pre><h3 id="importing-modules">Importing Modules</h3>
+<p>If we want to use functions in a module that isn&apos;t available by default, we need to first import the module.</p>
+<pre><code>&gt; import Dict
+</code></pre><p>Functions in the <code>Dict</code> module are namespaced under <code>Dict</code>:</p>
+<pre><code>&gt; Dict.empty
+Dict.fromList [] : Dict.Dict k v
+&gt; d = Dict.fromList [(&quot;one&quot;, 1), (&quot;two&quot;, 2), (&quot;three&quot;, 3)]
+Dict.fromList [(&quot;one&quot;,1),(&quot;three&quot;,3),(&quot;two&quot;,2)]
+    : Dict.Dict String number
+&gt; Dict.keys d
+[&quot;one&quot;,&quot;three&quot;,&quot;two&quot;] : List String
+&gt; Dict.values d
+[1,3,2] : List number
+&gt; Dict.get &quot;three&quot; d
+Just 3 : Maybe number
 </code></pre><h3 id="defining-our-own-functions">Defining our own Functions</h3>
 <p>Now let&apos;s define and use our own functions.</p>
 <p>We saw types before when we entered numbers and Strings into the console; functions have types too!</p>
@@ -405,7 +409,10 @@ problem may actually be in how the left and right arguments interact.
 &lt;function&gt; : String -&gt; String
 &gt; sayHello &quot;Janice&quot;
 &quot;Hello, Janice&quot; : String
-</code></pre><h3 id="all-done">All done!</h3>
+</code></pre><blockquote>
+<p><strong>Note:</strong> If you get a <code>SHADOWING</code> error in the Elm REPL from previously defining <code>x</code>, you can type <code>:reset</code> to clear all previous imports and definitions.</p>
+</blockquote>
+<h3 id="all-done">All done!</h3>
 <p>Exit the Elm REPL by typing <code>:exit</code>, or <code>CTRL-D</code>.</p>
 <h3 id="bonus"><strong>Bonus!</strong></h3>
 <p>You may have noticed that all the types began with a capital letter (<code>String</code>, <code>Float</code>, <code>Int</code>) except for one (<code>number</code>). In general, you can remember that all types are capital but variables are lowercase. <code>number</code> in these cases is a special variable type saying the value can act as an <code>Int</code> or a <code>Float</code>. An example:</p>
@@ -416,19 +423,18 @@ problem may actually be in how the left and right arguments interact.
 &gt; floor 1.3
 1 : Int
 &gt; (floor 1.3) + 1.0
--- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+-- TYPE MISMATCH ----------------------------------------------------------- elm
 
-The right argument of (+) is causing a type mismatch.
+I need both sides of (+) to be the exact same type. Both Int or both Float.
 
-3|    floor 1.3) + 1.0
-                   ^^^
-(+) is expecting the right argument to be a:
+4|   (floor 1.3) + 1.0
+     ^^^^^^^^^^^^^^^^^
+But I see an Int on the left and a Float on the right.
 
-    Int
+Use toFloat on the left (or round on the right) to make both sides match!
 
-But the right argument is:
-
-    Float
+Note: Read &lt;https://elm-lang.org/0.19.0/implicit-casts&gt; to learn why Elm does
+not implicitly convert Ints to Floats.
 </code></pre>
                                 
                                 </section>
@@ -472,7 +478,7 @@ But the right argument is:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2018-09-28T23:29:51.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T23:54:27.489Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2018-10-03T20:17:03.072Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T20:18:30.475Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

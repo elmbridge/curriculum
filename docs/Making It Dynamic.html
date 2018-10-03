@@ -7,7 +7,7 @@
         <title>Making It Dynamic · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.2.2">
+        <meta name="generator" content="GitBook 3.2.3">
         
         
         
@@ -312,8 +312,8 @@
 </ul>
 <h2 id="steps">Steps</h2>
 <h3 id="skeleton-setup">Skeleton Setup</h3>
-<p>Download the Skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-5" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-5</a> and navigate to the downloaded folder. Start <code>elm-reactor</code> in your terminal:</p>
-<pre><code class="lang-sh">elm-reactor
+<p>Download the Skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-5" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-5</a> and navigate to the downloaded folder. Start <code>elm reactor</code> in your terminal:</p>
+<pre><code class="lang-sh">elm reactor
 </code></pre>
 <p>And then go to <a href="http://localhost:8000/Part1.elm" target="_blank">http://localhost:8000/Part1.elm</a> in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:</p>
 <p><img src="images/release-0.png" alt="Release 0"></p>
@@ -355,8 +355,8 @@
         <span class="hljs-type">SetCurrentText</span> newText -&gt;
           { model | currentText = newText }
 </code></pre>
-<p>Once you&apos;ve made the change, go back to your web browser (to <a href="http://localhost:8000/Part1.elm" target="_blank">http://localhost:8000/Part1.elm</a>), refresh the page, and <code>elm-reactor</code> will recompile your application.</p>
-<p>If there are any errors from the compiler, <code>elm-reactor</code> will show them to you.  If there aren&apos;t any errors, you will see the updated application!</p>
+<p>Once you&apos;ve made the change, go back to your web browser (to <a href="http://localhost:8000/Part1.elm" target="_blank">http://localhost:8000/Part1.elm</a>), refresh the page, and <code>elm reactor</code> will recompile your application.</p>
+<p>If there are any errors from the compiler, <code>elm reactor</code> will show them to you.  If there aren&apos;t any errors, you will see the updated application!</p>
 <h3 id="adding-to-the-view">Adding to the View</h3>
 <p>Great, so we&apos;re now updating the model every time the user inputs text into our application. However, that&apos;s only half the battle &#x2014; we still need to display the application&apos;s <code>currentText</code> back to the user!</p>
 <p>Thankfully, the skeleton already includes some styling for us. All we need to do is add code to our <code>view</code> function to display a paragraph tag right after our input tag, with the model&apos;s <code>currentText</code> as its value. The resulting HTML should look like this:</p>
@@ -420,7 +420,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2018-09-28T23:35:22.000Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T23:54:27.489Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2018-10-03T03:57:01.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T20:18:30.475Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
