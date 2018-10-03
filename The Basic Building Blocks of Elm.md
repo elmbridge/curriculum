@@ -21,7 +21,7 @@ cd elm-basics
 Start Elm Reactor to build the project:
 
 ```bash
-elm-reactor
+elm reactor
 ```
 
 Now open [http://localhost:8000/](http://localhost:8000/) in your web browser, and go to `Main.elm`.

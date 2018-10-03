@@ -21,13 +21,13 @@ elm-make HelloWorld.elm
 
 `elm-make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application. It compiles that file, along with any files it references, and creates `index.html`, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It's also possible to compile into a JavaScript file if you want to use your own HTML file.)
 
-Elm comes with another tool that makes it easy to quickly develop your application: `elm-reactor` starts a local development server that will automatically compile your Elm code (and, if there are any errors, give you helpful error messages on what you need to fix).  Let's start it up:
+Elm comes with another tool that makes it easy to quickly develop your application: `elm reactor` starts a local development server that will automatically compile your Elm code (and, if there are any errors, give you helpful error messages on what you need to fix).  Let's start it up:
 
 ```sh
-elm-reactor
+elm reactor
 ```
 
-Now that `elm-reactor` is running, you can go to [http://localhost:8000/HelloWorld.elm](http://localhost:8000/HelloWorld.elm) in your web browser to see your compiled application.  Whenever you refresh the page, `elm-reactor` will recompile your code and show you the result.
+Now that `elm reactor` is running, you can go to [http://localhost:8000/HelloWorld.elm](http://localhost:8000/HelloWorld.elm) in your web browser to see your compiled application.  Whenever you refresh the page, `elm reactor` will recompile your code and show you the result.
 
 You should now have a fully functional Elm application, that looks like this:
 
