@@ -142,6 +142,8 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 "Hello, Janice" : String
 ```
 
+> **Note:** If you get a `SHADOWING` error in the Elm REPL from previously defining `x`, you can type `:reset` to clear all previous imports and definitions.
+
 ### All done!
 
 Exit the Elm REPL by typing `:exit`, or `CTRL-D`.
