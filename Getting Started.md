@@ -102,7 +102,7 @@ To disambiguate order of operations, use parentheses.
 
 ### The String Module
 
-Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String).
+Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String), which is one of the modules imported by default.
 
 Any function we want to use is namespaced under `String`:
 
@@ -115,6 +115,30 @@ Any function we want to use is namespaced under `String`:
 ["Apple","Apricot","Avocado","Banana","Blackberry"] : List String
 > String.join " -- " (String.split "," "Apple,Apricot,Avocado")
 "Apple -- Apricot -- Avocado" : String
+```
+
+### Importing Modules
+
+If we want to use functions in a module that isn't available by default, we need to first import the module.
+
+```
+> import Dict
+```
+
+Functions in the `Dict` module are namespaced under `Dict`:
+
+```
+> Dict.empty
+Dict.fromList [] : Dict.Dict k v
+> d = Dict.fromList [("one", 1), ("two", 2), ("three", 3)]
+Dict.fromList [("one",1),("three",3),("two",2)]
+    : Dict.Dict String number
+> Dict.keys d
+["one","three","two"] : List String
+> Dict.values d
+[1,3,2] : List number
+> Dict.get "three" d
+Just 3 : Maybe number
 ```
 
 ### Defining our own Functions
