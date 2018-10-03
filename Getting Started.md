@@ -14,7 +14,7 @@
 Launch the Elm REPL again by running the following command:
 
 ```sh
-elm-repl
+elm repl
 ```
 
 Now that you are in the REPL, you can write your first Elm code! Code you should try out in the REPL is written on lines starting with `>`.
