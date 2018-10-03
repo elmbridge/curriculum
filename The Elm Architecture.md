@@ -16,10 +16,10 @@ In this lesson, we'll run a simple Elm application and learn how it all fits tog
 Download the skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-5](https://github.com/elmbridge/elmoji-translator/releases/tag/release-5), navigate to the downloaded folder in your terminal, and run the following command:
 
 ```sh
-elm-make HelloWorld.elm
+elm make HelloWorld.elm
 ```
 
-`elm-make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application. It compiles that file, along with any files it references, and creates `index.html`, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It's also possible to compile into a JavaScript file if you want to use your own HTML file.)
+`elm make` **compiles** your application — it turns your Elm code into JavaScript code that your browser can understand. The above command uses `Main.elm` as the **entry point** to your application. It compiles that file, along with any files it references, and creates `index.html`, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It's also possible to compile into a JavaScript file if you want to use your own HTML file.)
 
 Elm comes with another tool that makes it easy to quickly develop your application: `elm reactor` starts a local development server that will automatically compile your Elm code (and, if there are any errors, give you helpful error messages on what you need to fix).  Let's start it up:
 
