@@ -33,14 +33,14 @@ If you haven't done so already, follow [the official Elm guide](https://guide.el
 You can verify everything is working by launching the Elm REPL ([What is a REPL?](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)) by running the following command in your terminal:
 
 ```sh
-elm-repl
+elm repl
 ```
 
 If you see the following message, you are ready to go!
 
 ```
----- elm-repl 0.17.1 -----------------------------------------------------------
- :help for help, :exit to exit, more at <https://github.com/elm-lang/elm-repl>
+---- Elm 0.19.0 ----------------------------------------------------------------
+Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
 --------------------------------------------------------------------------------
 >
 ```

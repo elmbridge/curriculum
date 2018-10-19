@@ -17,10 +17,10 @@ We need to walk before we run, though! First, we'll make an application that sim
 
 ### Skeleton Setup
 
-Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-5](https://github.com/elmbridge/elmoji-translator/releases/tag/release-5) and navigate to the downloaded folder. Start `elm-reactor` in your terminal:
+Download the Skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-5](https://github.com/elmbridge/elmoji-translator/releases/tag/release-5) and navigate to the downloaded folder. Start `elm reactor` in your terminal:
 
 ```sh
-elm-reactor
+elm reactor
 ```
 
 And then go to [http://localhost:8000/Part1.elm](http://localhost:8000/Part1.elm) in your web browser. You should now have a fully functional Elm application running in your browser! It should look like this:
@@ -90,9 +90,9 @@ update msg model =
           { model | currentText = newText }
 ```
 
-Once you've made the change, go back to your web browser (to [http://localhost:8000/Part1.elm](http://localhost:8000/Part1.elm)), refresh the page, and `elm-reactor` will recompile your application.
+Once you've made the change, go back to your web browser (to [http://localhost:8000/Part1.elm](http://localhost:8000/Part1.elm)), refresh the page, and `elm reactor` will recompile your application.
 
-If there are any errors from the compiler, `elm-reactor` will show them to you.  If there aren't any errors, you will see the updated application!
+If there are any errors from the compiler, `elm reactor` will show them to you.  If there aren't any errors, you will see the updated application!
 
 ### Adding to the View
 

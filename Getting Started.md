@@ -14,7 +14,7 @@
 Launch the Elm REPL again by running the following command:
 
 ```sh
-elm-repl
+elm repl
 ```
 
 Now that you are in the REPL, you can write your first Elm code! Code you should try out in the REPL is written on lines starting with `>`.
@@ -69,37 +69,26 @@ what's wrong:
 
 ```
 > 10 + "Betsy"
--- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+-- TYPE MISMATCH ----------------------------------------------------------- elm
 
-The right argument of (+) is causing a type mismatch.
+I cannot do addition with String values like this one:
 
-3|   10 + "Betsy"
+7|   10 + "Betsy"
           ^^^^^^^
-(+) is expecting the right argument to be a:
+The (+) operator only works with Int and Float values.
 
-    number
-
-But the right argument is:
-
-    String
-
-Hint: To append strings in Elm, you need to use the (++) operator, not (+).
-<http://package.elm-lang.org/packages/elm-lang/core/latest/Basics#++>
-
-Hint: I always figure out the type of the left argument first and if it is
-acceptable on its own, I assume it is "correct" in subsequent checks. So the
-problem may actually be in how the left and right arguments interact.
+Hint: Switch to the (++) operator to append strings!
 ```
 
 ### Functions
 
 To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.
 
-Here are some of the functions that are available by default in Elm: `toString`, `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
+Here are some of the functions that are available by default in Elm: `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
 
 ```
-> toString 10 ++ "!"
-"10!" : String
+> max 9 1
+9 : number
 > min 9 1
 1 : number
 ```
@@ -113,24 +102,43 @@ To disambiguate order of operations, use parentheses.
 
 ### The String Module
 
-Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String).
+Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String), which is one of the modules imported by default.
 
-First, we need to import the module.
-
-
-```
-> import String
-```
-
-Then any function we want to use is namespaced under `String`:
+Any function we want to use is namespaced under `String`:
 
 ```
+> String.fromInt 10 ++ "!"
+"10!" : String
 > String.toUpper "Carey"
 "CAREY" : String
 > String.split "," "Apple,Apricot,Avocado,Banana,Blackberry"
 ["Apple","Apricot","Avocado","Banana","Blackberry"] : List String
 > String.join " -- " (String.split "," "Apple,Apricot,Avocado")
 "Apple -- Apricot -- Avocado" : String
+```
+
+### Importing Modules
+
+If we want to use functions in a module that isn't available by default, we need to first import the module.
+
+```
+> import Dict
+```
+
+Functions in the `Dict` module are namespaced under `Dict`:
+
+```
+> Dict.empty
+Dict.fromList [] : Dict.Dict k v
+> d = Dict.fromList [("one", 1), ("two", 2), ("three", 3)]
+Dict.fromList [("one",1),("three",3),("two",2)]
+    : Dict.Dict String number
+> Dict.keys d
+["one","three","two"] : List String
+> Dict.values d
+[1,3,2] : List number
+> Dict.get "three" d
+Just 3 : Maybe number
 ```
 
 ### Defining our own Functions
@@ -158,6 +166,8 @@ The arrows point to the return value.  Generally, the rightmost type is the retu
 "Hello, Janice" : String
 ```
 
+> **Note:** If you get a `SHADOWING` error in the Elm REPL from previously defining `x`, you can type `:reset` to clear all previous imports and definitions.
+
 ### All done!
 
 Exit the Elm REPL by typing `:exit`, or `CTRL-D`.
@@ -175,17 +185,16 @@ You may have noticed that all the types began with a capital letter (`String`, `
 > floor 1.3
 1 : Int
 > (floor 1.3) + 1.0
--- TYPE MISMATCH --------------------------------------------- repl-temp-000.elm
+-- TYPE MISMATCH ----------------------------------------------------------- elm
 
-The right argument of (+) is causing a type mismatch.
+I need both sides of (+) to be the exact same type. Both Int or both Float.
 
-3|    floor 1.3) + 1.0
-                   ^^^
-(+) is expecting the right argument to be a:
+4|   (floor 1.3) + 1.0
+     ^^^^^^^^^^^^^^^^^
+But I see an Int on the left and a Float on the right.
 
-    Int
+Use toFloat on the left (or round on the right) to make both sides match!
 
-But the right argument is:
-
-    Float
+Note: Read <https://elm-lang.org/0.19.0/implicit-casts> to learn why Elm does
+not implicitly convert Ints to Floats.
 ```

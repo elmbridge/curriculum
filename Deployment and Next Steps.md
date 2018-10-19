@@ -15,12 +15,12 @@ Deploying a static site on Forge is relatively simple. Just follow these steps:
 
 1. **Create an account at https://getforge.com/.** This should be absolutely free! Once you have an account, follow instructions to create a new, blank site.
 
-2. **Compile your Elm application.** This is important! Since Forge only understands compiled JavaScript, any changes you've made to your app after your last compilation will not be reflected.  We have been using `elm-reactor` for local development, but to create the final compiled application, we will need to use `elm-make`.
+2. **Compile your Elm application.** This is important! Since Forge only understands compiled JavaScript, any changes you've made to your app after your last compilation will not be reflected.  We have been using `elm reactor` for local development, but to create the final compiled application, we will need to use `elm make`.
 
    Run the following in your terminal:
 
    ```sh
-   elm-make Main.elm
+   elm make Main.elm
    ```
 
    If you see `Successfully generated index.html`, then everything is ready to publish!
