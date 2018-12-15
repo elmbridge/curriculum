@@ -41,9 +41,9 @@ So how does any of this work? Let's take a look at `HelloWorld.elm`.
 ```elm
 main =
     Browser.sandbox
-        { init = Model.init
-        , view = View.view
-        , update = Update.update
+        { init = init
+        , view = view
+        , update = update
         }
 ```
 
@@ -94,7 +94,7 @@ view model =
             []
         , Html.div
             [ Html.Attributes.class "waves-effect waves-light btn-large"
-            , Html.Events.onClick Update.ChangeText
+            , Html.Events.onClick ChangeText
             ]
             [ Html.text model.buttonLabel ]
         ]
@@ -127,10 +127,10 @@ Good news: Elm is optimized to be performant under pressure. Using a virtual DOM
 Before we move on, let's take another look at that `onClick` handler:
 
 ```elm
-Html.Events.onClick Update.ChangeText
+Html.Events.onClick ChangeText
 ```
 
-This line of code is key to our application — it maps a potential user action to a `message` that can cause our application to change. In this case, clicking on our div causes the `Update.ChangeText` message to be sent.
+This line of code is key to our application — it maps a potential user action to a `message` that can cause our application to change. In this case, clicking on our div causes the `ChangeText` message to be sent.
 
 There are lots of potential user actions defined in the [`Html.Events`](http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events) module — as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don't map these user actions to a `message`, however, they will be ignored by your application.
 
@@ -145,7 +145,7 @@ Even though we said `model`, `view`, and `update` together form a triad, you can
 
 This `model` argument may be different each time those functions are called. So you see, changing the `model` doesn't mean modifying its value, but pointing the `model` argument at a different value.
 
-The `update` function in `Update.elm` is responsible for this transformation. When a `message` is triggered by the UI, `update` consumes the specified `message` and the current `model`, and returns a new `model` for the `view` function to render.
+The `update` function is responsible for this transformation. When a `message` is triggered by the UI, `update` consumes the specified `message` and the current `model`, and returns a new `model` for the `view` function to render.
 
 ```elm
 update msg model =
@@ -166,7 +166,7 @@ Either way, the new `model` will be converted to HTML, and any changes will be r
 
 Wait, there's only one possible action tracked in our UI — why have a case expression at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of `messages` to which your `update` function will have to react. Consequently, this case expression will get longer and longer to accommodate the new messages.
 
-It's worth taking a look at the `Msg` type in `Update.elm`:
+It's worth taking a look at the `Msg` type:
 
 ```elm
 type Msg
@@ -176,7 +176,7 @@ type Msg
 and later on in the `update` function's type signature:
 
 ```elm
-update : Msg -> Model.Model -> Model.Model
+update : Msg -> Model -> Model
 ```
 
 This is an example of a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares two things (reading from that type signature first):
