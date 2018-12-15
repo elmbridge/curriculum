@@ -24,7 +24,7 @@ Note: Your code should currently look like the code in `Part3.elm`.
 
 ![Elm Architecture](images/elm-architecture-2.jpeg)
 
-In our case, we want to build a switch that will allow users to toggle between "Translate Text" and "Translate Emoji." We can use the [materialize.css](http://materializecss.com/) lever component to do the job. Between the text input and paragraph tag that our `View.view` function produces, we want the following markup to appear:
+In our case, we want to build a switch that will allow users to toggle between "Translate Text" and "Translate Emoji." We can use the [materialize.css](http://materializecss.com/) lever component to do the job. Between the text input and paragraph tag that our `view` function produces, we want the following markup to appear:
 
 ```html
 <div class="switch center">
@@ -46,7 +46,7 @@ If you get stuck, flag down a TA or instructor to help you through it!
 
 ### Wiring in User Actions
 
-Now that we have a working lever, we need to wire it up to our `Update.update` function! Let's look at our `Update.elm` file, and see what messages our `Update.update` function can currently consume.
+Now that we have a working lever, we need to wire it up to our `update` function! Let's see what messages our `update` function can currently consume.
 
 ```elm
 type Msg

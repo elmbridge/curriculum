@@ -37,7 +37,7 @@ Our goal is to make the text that the user enters display back to them, like thi
 
 As we learned in [the last lesson](The Elm Architecture.html), every Elm application is built upon the `model`, `view`, and `update` triad. This app is no different – in order to implement this feature, we may need to change all three.
 
-First, let's take a look at the model in `Model.elm`:
+First, let's take a look at the model:
 
 
 ```elm
@@ -54,7 +54,7 @@ Html.input
   [ Html.Attributes.type_ "text"
   , Html.Attributes.class "center"
   , Html.Attributes.placeholder "Let's Translate!"
-  , Html.Events.onInput Update.SetCurrentText
+  , Html.Events.onInput SetCurrentText
   ]
   []
 ```
@@ -69,7 +69,7 @@ While the API is somewhat verbose, much of its contents are probably familiar to
 
 The final attribute comes from the `Html.Events` module, which describes which `update` message is sent when the element hears an `input` event. In this case, a `message` called `SetCurrentText` is sent, along with the element's current text. (`SetCurrentText String` is actually a tagged value — don't worry, we'll cover that in a future lesson!)
 
-This is great! When this `message` is sent, we can update our model with the new value. To do that, let's check out `Update.elm`:
+This is great! When this `message` is sent, we can update our model with the new value. To do that, let's check out the `update` function:
 
 ```elm
 update msg model =
@@ -115,7 +115,7 @@ Html.p
 
 Note: `Html.text` is a special kind of `Html` function, that produces a plain-text node. In this case, we've built a paragraph element with a nested child element that is simply plain text.
 
-Insert the above code into the `View.view` function, as a list element after the div with a class of `.input-field`. Once you think you have it, recompile your code to see if it worked.
+Insert the above code into the `view` function, as a list element after the div with a class of `.input-field`. Once you think you have it, recompile your code to see if it worked.
 
 ### Displaying Model Values
 
