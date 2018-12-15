@@ -38,7 +38,7 @@ Like many languages, Elm has a **String** data type to store text. In this step,
 
 ```elm
 sayHello friendsName =
-    ""
+    "TODO: implement me"
 ```
 
 You'll notice that this assertion is currently failing in your browser. Your job is to make it pass! Once you have a guess, change and save the code in `Main.elm` — refresh your browser and you'll learn if you implemented it correctly. If you've made a syntax error, the page will display an error message that will tell you what to fix.
