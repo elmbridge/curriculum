@@ -57,7 +57,7 @@ But wait, didn't we say that a value can never change in Elm? What's exactly cha
 
 ![The Elm Architecture](images/elm-architecture-4.jpeg)
 
-The initial `init`, `view` function, and `update` function together form a **triad** that is required in every Elm application. For more complicated programs, a few other pieces are required — however, for this session, we'll focus on the core triad.
+The initial `model` (passed to sandbox via the `init` argument), with the `view`, and `update` functions, together form a **triad** that is required in every Elm application. For more complicated programs, a few other pieces are required — however, for this session, we'll focus on the core triad.
 
 ### On Initializing the Application
 
