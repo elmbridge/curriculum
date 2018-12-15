@@ -41,7 +41,7 @@ So how does any of this work? Let's take a look at `HelloWorld.elm`.
 ```elm
 main =
     Browser.sandbox
-        { model = Model.init
+        { init = Model.init
         , view = View.view
         , update = Update.update
         }
@@ -57,7 +57,7 @@ But wait, didn't we say that a value can never change in Elm? What's exactly cha
 
 ![The Elm Architecture](images/elm-architecture-4.jpeg)
 
-The initial `model`, `view` function, and `update` function together form a **triad** that is required in every Elm application. For more complicated programs, a few other pieces are required — however, for this session, we'll focus on the core triad.
+The initial `init`, `view` function, and `update` function together form a **triad** that is required in every Elm application. For more complicated programs, a few other pieces are required — however, for this session, we'll focus on the core triad.
 
 ### On Initializing the Application
 
@@ -187,7 +187,7 @@ This is an example of a **union type** declaration in Elm. We'll go further into
 Elm doesn't force us to use a union type called `Msg` for `messages` — we could just as easily model `messages` as strings, numbers, or records. It is convention, however, to model data using union types whenever appropriate. Don't worry if you are somewhat lost — union types are one of the more difficult concepts to learn as a beginner to Elm, and it's fine for now if they are simply magic words you know you can recite.
 
 To review one more time, a `Browser.sandbox` needs:
-  * An initial version of our model (`model : Model`)
+  * An initial version of our model (`init : Model`)
   * A description of how the model is turned into html (`view : Model -> Html`)
   * A function that given a Message and an old model tells us what the new model should look like (`update : Msg -> Model -> Model`)
 
@@ -195,7 +195,7 @@ Indeed, if we look at the type signature of `Browser.sandbox`, we see that it ta
 
 ```elm
 sandbox :
-  { model : model
+  { init: model
   , view : model -> Html msg
   , update : msg -> model -> model
   } -> Program Never
