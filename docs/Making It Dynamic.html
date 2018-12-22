@@ -322,7 +322,7 @@
 <p>Our goal is to make the text that the user enters display back to them, like this:</p>
 <p><img src="images/release-1.gif" alt="Release 1 in GIF form"></p>
 <p>As we learned in <a href="The%20Elm%20Architecture.html">the last lesson</a>, every Elm application is built upon the <code>model</code>, <code>view</code>, and <code>update</code> triad. This app is no different &#x2013; in order to implement this feature, we may need to change all three.</p>
-<p>First, let&apos;s take a look at the model in <code>Model.elm</code>:</p>
+<p>First, let&apos;s take a look at the model:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
     { currentText : <span class="hljs-type">String</span> }
 </code></pre>
@@ -332,7 +332,7 @@
   [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.type_ &quot;text&quot;
   , <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;center&quot;</span>
   , <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.placeholder <span class="hljs-string">&quot;Let&apos;s Translate!&quot;</span>
-  , <span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onInput <span class="hljs-type">Update</span>.<span class="hljs-type">SetCurrentText</span>
+  , <span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onInput <span class="hljs-type">SetCurrentText</span>
   ]
   []
 </code></pre>
@@ -341,7 +341,7 @@
 <pre><code class="lang-HTML">  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;center&quot;</span> <span class="hljs-attr">placeholder</span>=<span class="hljs-string">&quot;Let&apos;s Translate!&quot;</span>&gt;</span>
 </code></pre>
 <p>The final attribute comes from the <code>Html.Events</code> module, which describes which <code>update</code> message is sent when the element hears an <code>input</code> event. In this case, a <code>message</code> called <code>SetCurrentText</code> is sent, along with the element&apos;s current text. (<code>SetCurrentText String</code> is actually a tagged value &#x2014; don&apos;t worry, we&apos;ll cover that in a future lesson!)</p>
-<p>This is great! When this <code>message</code> is sent, we can update our model with the new value. To do that, let&apos;s check out <code>Update.elm</code>:</p>
+<p>This is great! When this <code>message</code> is sent, we can update our model with the new value. To do that, let&apos;s check out the <code>update</code> function:</p>
 <pre><code class="lang-elm"><span class="hljs-title">update</span> msg model =
     <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
         <span class="hljs-type">SetCurrentText</span> newText -&gt;
@@ -368,7 +368,7 @@
     [ <span class="hljs-type">Html</span>.text <span class="hljs-string">&quot;It&apos;s happening!&quot;</span> ]
 </code></pre>
 <p>Note: <code>Html.text</code> is a special kind of <code>Html</code> function, that produces a plain-text node. In this case, we&apos;ve built a paragraph element with a nested child element that is simply plain text.</p>
-<p>Insert the above code into the <code>View.view</code> function, as a list element after the div with a class of <code>.input-field</code>. Once you think you have it, recompile your code to see if it worked.</p>
+<p>Insert the above code into the <code>view</code> function, as a list element after the div with a class of <code>.input-field</code>. Once you think you have it, recompile your code to see if it worked.</p>
 <h3 id="displaying-model-values">Displaying Model Values</h3>
 <p>We don&apos;t want the text to always be <code>It&apos;s happening!</code>, though. Instead, the text of the paragraph node should reflect the <code>currentText</code> of the current model. As the model changes, this paragraph node should change as well.</p>
 <p>You&apos;ll notice that the <code>view</code> function consumes a model. This model represents the current state of the application. So if we use record getter syntax, we can pull the <code>currentText</code> value out of the model and use it, like this:</p>
@@ -420,7 +420,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2018-10-03T03:57:01.402Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T20:18:30.475Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Making It Dynamic","level":"2.2","depth":1,"next":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"previous":{"title":"The Elm Architecture","level":"2.1","depth":1,"path":"The Elm Architecture.md","ref":"The Elm Architecture.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Making It Dynamic.md","mtime":"2018-12-15T06:38:20.664Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-15T06:49:15.531Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

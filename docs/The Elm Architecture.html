@@ -314,7 +314,7 @@
 <p>Download the skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-5" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-5</a>, navigate to the downloaded folder in your terminal, and run the following command:</p>
 <pre><code class="lang-sh">elm make HelloWorld.elm
 </code></pre>
-<p><code>elm make</code> <strong>compiles</strong> your application &#x2014; it turns your Elm code into JavaScript code that your browser can understand. The above command uses <code>Main.elm</code> as the <strong>entry point</strong> to your application. It compiles that file, along with any files it references, and creates <code>index.html</code>, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It&apos;s also possible to compile into a JavaScript file if you want to use your own HTML file.)</p>
+<p><code>elm make</code> <strong>compiles</strong> your application &#x2014; it turns your Elm code into JavaScript code that your browser can understand. The above command uses the <code>main</code> function in <code>HelloWorld.elm</code> as the <strong>entry point</strong> to your application. It compiles that file, along with any files it references, and creates <code>index.html</code>, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It&apos;s also possible to compile into a JavaScript file if you want to use your own HTML file.)</p>
 <p>Elm comes with another tool that makes it easy to quickly develop your application: <code>elm reactor</code> starts a local development server that will automatically compile your Elm code (and, if there are any errors, give you helpful error messages on what you need to fix).  Let&apos;s start it up:</p>
 <pre><code class="lang-sh">elm reactor
 </code></pre>
@@ -324,10 +324,10 @@
 <h3 id="elm-wiring">Elm Wiring</h3>
 <p>So how does any of this work? Let&apos;s take a look at <code>HelloWorld.elm</code>.</p>
 <pre><code class="lang-elm"><span class="hljs-title">main</span> =
-    <span class="hljs-type">Html</span>.beginnerProgram
-        { model = <span class="hljs-type">Model</span>.init
-        , view = <span class="hljs-type">View</span>.view
-        , update = <span class="hljs-type">Update</span>.update
+    <span class="hljs-type">Browser</span>.sandbox
+        { init = init
+        , view = view
+        , update = update
         }
 </code></pre>
 <p>The <code>main</code> function describes the initialization logic for your Elm application. Every entry point file requires a <code>main</code> function. It requires a record with three basic pieces of every Elm application:</p>
@@ -338,7 +338,7 @@
 </ul>
 <p>But wait, didn&apos;t we say that a value can never change in Elm? What&apos;s exactly changing here? Good question &#x2014; let&apos;s come back to it when we finish looking at the rest of the pieces.</p>
 <p><img src="images/elm-architecture-4.jpeg" alt="The Elm Architecture"></p>
-<p>The initial <code>model</code>, <code>view</code> function, and <code>update</code> function together form a <strong>triad</strong> that is required in every Elm application. For more complicated programs, a few other pieces are required &#x2014; however, for this session, we&apos;ll focus on the core triad.</p>
+<p>The initial <code>model</code> (passed to sandbox via the <code>init</code> argument), with the <code>view</code>, and <code>update</code> functions, together form a <strong>triad</strong> that is required in every Elm application. For more complicated programs, a few other pieces are required &#x2014; however, for this session, we&apos;ll focus on the core triad.</p>
 <h3 id="on-initializing-the-application">On Initializing the Application</h3>
 <p>Let&apos;s investigate each of these pieces one by one. First, let&apos;s check out the <code>init</code> function to see what the initial state of our application is.</p>
 <pre><code class="lang-elm"><span class="hljs-title">init</span> =
@@ -362,7 +362,7 @@
             []
         , <span class="hljs-type">Html</span>.div
             [ <span class="hljs-type">Html</span>.<span class="hljs-type">Attributes</span>.class <span class="hljs-string">&quot;waves-effect waves-light btn-large&quot;</span>
-            , <span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">Update</span>.<span class="hljs-type">ChangeText</span>
+            , <span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">ChangeText</span>
             ]
             [ <span class="hljs-type">Html</span>.text model.buttonLabel ]
         ]
@@ -382,16 +382,16 @@
 <p>You may wonder how this function can be performant &#x2014; every time the <code>model</code> changes, even slightly, our <code>view</code> function has to recalculate every HTML element in your application. If you have hundreds of elements, and dozens of potential changes, how does Elm not collapse under the load?</p>
 <p>Good news: Elm is optimized to be performant under pressure. Using a virtual DOM, Elm ensures that the entire page doesn&apos;t have to re-render every time the application&apos;s state changes. React and Ember use similar strategies, although Elm has more tricks up its sleeve because of its functional nature. The exact details are out of scope for this tutorial, however &#x2014; just know that you generally don&apos;t have to worry about HTML rendering performance when writing Elm.</p>
 <p>Before we move on, let&apos;s take another look at that <code>onClick</code> handler:</p>
-<pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">Update</span>.<span class="hljs-type">ChangeText</span>
+<pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">ChangeText</span>
 </code></pre>
-<p>This line of code is key to our application &#x2014; it maps a potential user action to a <code>message</code> that can cause our application to change. In this case, clicking on our div causes the <code>Update.ChangeText</code> message to be sent.</p>
+<p>This line of code is key to our application &#x2014; it maps a potential user action to a <code>message</code> that can cause our application to change. In this case, clicking on our div causes the <code>ChangeText</code> message to be sent.</p>
 <p>There are lots of potential user actions defined in the <a href="http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events" target="_blank"><code>Html.Events</code></a> module &#x2014; as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don&apos;t map these user actions to a <code>message</code>, however, they will be ignored by your application.</p>
 <h3 id="on-the-application-model">On the Application Model</h3>
 <p>Let&apos;s return to the question of change we saved for later when we were looking at <code>init</code>: What does it mean when we say <code>model</code> changes? Let&apos;s take another look at our diagram:</p>
 <p><img src="images/elm-architecture-4.jpeg" alt="The Elm Architecture"></p>
 <p>Even though we said <code>model</code>, <code>view</code>, and <code>update</code> together form a triad, you can see that <code>model</code> is not a first-class circle in this diagram. In fact, <code>model</code> is just passed around as an argument to <code>view</code> and <code>update</code> functions.</p>
 <p>This <code>model</code> argument may be different each time those functions are called. So you see, changing the <code>model</code> doesn&apos;t mean modifying its value, but pointing the <code>model</code> argument at a different value.</p>
-<p>The <code>update</code> function in <code>Update.elm</code> is responsible for this transformation. When a <code>message</code> is triggered by the UI, <code>update</code> consumes the specified <code>message</code> and the current <code>model</code>, and returns a new <code>model</code> for the <code>view</code> function to render.</p>
+<p>The <code>update</code> function is responsible for this transformation. When a <code>message</code> is triggered by the UI, <code>update</code> consumes the specified <code>message</code> and the current <code>model</code>, and returns a new <code>model</code> for the <code>view</code> function to render.</p>
 <pre><code class="lang-elm"><span class="hljs-title">update</span> msg model =
     <span class="hljs-keyword">case</span> msg <span class="hljs-keyword">of</span>
         <span class="hljs-type">ChangeText</span> -&gt;
@@ -407,12 +407,12 @@
 </ul>
 <p>Either way, the new <code>model</code> will be converted to HTML, and any changes will be rendered to the UI by our <code>view</code> function.</p>
 <p>Wait, there&apos;s only one possible action tracked in our UI &#x2014; why have a case expression at all?  This is convention in Elm-land. As you build an application, there will be more and more kinds of <code>messages</code> to which your <code>update</code> function will have to react. Consequently, this case expression will get longer and longer to accommodate the new messages.</p>
-<p>It&apos;s worth taking a look at the <code>Msg</code> type in <code>Update.elm</code>:</p>
+<p>It&apos;s worth taking a look at the <code>Msg</code> type:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
     = <span class="hljs-type">ChangeText</span>
 </code></pre>
 <p>and later on in the <code>update</code> function&apos;s type signature:</p>
-<pre><code class="lang-elm"><span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span>.<span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Model</span>.<span class="hljs-type">Model</span>
+<pre><code class="lang-elm"><span class="hljs-title">update</span> : <span class="hljs-type">Msg</span> -&gt; <span class="hljs-type">Model</span> -&gt; <span class="hljs-type">Model</span>
 </code></pre>
 <p>This is an example of a <strong>union type</strong> declaration in Elm. We&apos;ll go further into the details in a future lesson, but for right now, you can think of this as a way to model <code>messages</code> in our application. The above code declares two things (reading from that type signature first):</p>
 <ul>
@@ -420,15 +420,15 @@
 <li>any value that is of <code>Msg</code> type will be exactly one of the values specified in the <code>type</code> definition (in this case, there is only one acceptable value which is <code>ChangeText</code>.) If we wanted to add another possible value for <code>message</code>, we would have to change this declaration of the union type <code>Msg</code> to include the new possibility.</li>
 </ul>
 <p>Elm doesn&apos;t force us to use a union type called <code>Msg</code> for <code>messages</code> &#x2014; we could just as easily model <code>messages</code> as strings, numbers, or records. It is convention, however, to model data using union types whenever appropriate. Don&apos;t worry if you are somewhat lost &#x2014; union types are one of the more difficult concepts to learn as a beginner to Elm, and it&apos;s fine for now if they are simply magic words you know you can recite.</p>
-<p>To review one more time, a <code>Html.beginnerProgram</code> needs:</p>
+<p>To review one more time, a <code>Browser.sandbox</code> needs:</p>
 <ul>
-<li>An initial version of our model (<code>model : Model</code>)</li>
+<li>An initial version of our model (<code>init : Model</code>)</li>
 <li>A description of how the model is turned into html (<code>view : Model -&gt; Html</code>)</li>
 <li>A function that given a Message and an old model tells us what the new model should look like (<code>update : Msg -&gt; Model -&gt; Model</code>)</li>
 </ul>
-<p>Indeed, if we look at the type signature of <code>Html.beginnerProgram</code>, we see that it takes this type of record and returns a program!</p>
-<pre><code class="lang-elm"><span class="hljs-title">beginnerProgram</span> :
-  { model : model
+<p>Indeed, if we look at the type signature of <code>Browser.sandbox</code>, we see that it takes this type of record and returns a program!</p>
+<pre><code class="lang-elm"><span class="hljs-title">sandbox</span> :
+  { init: model
   , view : model -&gt; <span class="hljs-type">Html</span> msg
   , update : msg -&gt; model -&gt; model
   } -&gt; <span class="hljs-type">Program</span> <span class="hljs-type">Never</span>
@@ -477,7 +477,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The Elm Architecture","level":"2.1","depth":1,"next":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"previous":{"title":"Special Installation Notes","level":"1.6","depth":1,"path":"Special Installation Notes.md","ref":"Special Installation Notes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Elm Architecture.md","mtime":"2018-10-03T03:59:34.622Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-10-03T20:18:30.475Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The Elm Architecture","level":"2.1","depth":1,"next":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"previous":{"title":"Special Installation Notes","level":"1.6","depth":1,"path":"Special Installation Notes.md","ref":"Special Installation Notes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Elm Architecture.md","mtime":"2018-12-15T06:32:44.791Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-15T06:49:15.531Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
