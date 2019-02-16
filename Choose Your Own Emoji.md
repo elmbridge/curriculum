@@ -6,7 +6,7 @@ For this lesson, we'll allow our users to choose which emoji to use when encodin
 
 There's a lot to do! Let's do this!
 
-Note: Your code should currently look like the code in `Part4.elm`. You can either carry your code over from the last lesson, or start fresh with `Part4.elm`.
+Note: Your code should currently look like the code in `Part5.elm`. You can either carry your code over from the last lesson, or start fresh with `Part5.elm`.
 
 
 ## Goals
@@ -90,6 +90,8 @@ Once you've added that code to your `renderKey` function, you should have a work
 
 ### Adding User Actions
 
+Note: Your code should currently look like the code in `Part6.elm`.
+
 Now that we've updated the UI, we have to map our new user action to a message for our application to consume. Add the following line of code to your `renderKey` function, as an attribute to the element with a class of `.key-selector`:
 
 ```elm
@@ -153,6 +155,6 @@ And now, for the final step — we need to change our translation key based on t
 
 ![Release 4 part 3](images/release-4-part-3.gif)
 
-You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out the working solution in `Part6.elm`.
+You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out the working solution in `Part8.elm`.
 
 And with that, you've completed your first Elm application!
