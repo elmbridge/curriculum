@@ -122,23 +122,14 @@ Any function we want to use is namespaced under `String`:
 If we want to use functions in a module that isn't available by default, we need to first import the module.
 
 ```
-> import Dict
+> import Bitwise
 ```
 
-Functions in the `Dict` module are namespaced under `Dict`:
+Functions in the `Bitwise` module are namespaced under `Bitwise`:
 
 ```
-> Dict.empty
-Dict.fromList [] : Dict.Dict k v
-> d = Dict.fromList [("one", 1), ("two", 2), ("three", 3)]
-Dict.fromList [("one",1),("three",3),("two",2)]
-    : Dict.Dict String number
-> Dict.keys d
-["one","three","two"] : List String
-> Dict.values d
-[1,3,2] : List number
-> Dict.get "three" d
-Just 3 : Maybe number
+> Bitwise.and 7 2
+2 : Int
 ```
 
 ### Defining our own Functions
