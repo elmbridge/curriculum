@@ -1,0 +1,24 @@
+{
+  "name": "curriculum",
+  "version": "1.0.0",
+  "description": "Curriculum for the ElmBridge workshop. Hosted here: https://elmbridge.github.io/curriculum/",
+  "dependencies": {},
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  },
+  "scripts": {
+    "build": "gitbook build --gitbook=3.2.3 . docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmbridge/curriculum.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elmbridge/curriculum/issues"
+  },
+  "homepage": "https://github.com/elmbridge/curriculum#readme"
+}
