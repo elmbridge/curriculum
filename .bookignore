@@ -3,3 +3,5 @@
 /.bookignore
 /.gitignore
 /PUBLISHING.md
+/package.json
+/package-lock.json
