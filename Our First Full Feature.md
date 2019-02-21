@@ -46,6 +46,7 @@ If you get stuck, flag down a TA or instructor to help you through it!
 
 ### Wiring in User Actions
 
+
 Now that we have a working lever, we need to wire it up to our `update` function! Let's see what messages our `update` function can currently consume.
 
 ```elm
@@ -133,6 +134,8 @@ Html.Events.onClick ToggleDirection
 Compile, and make sure nothing is broken.
 
 ### Expanding the Model
+
+Note: Your code should currently look like the code in `Part4.elm`.
 
 When our `update` function receives a `ToggleDirection` message and the current `model`, it should return a new, changed `model`:
 

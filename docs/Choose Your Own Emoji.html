@@ -305,7 +305,7 @@
 <p>For this lesson, we&apos;ll allow our users to choose which emoji to use when encoding their messages. That way, they can send secret messages to each other that can only be decoded if they have the right key! It will eventually look like this:</p>
 <p><img src="images/final-release.png" alt="Final Release"></p>
 <p>There&apos;s a lot to do! Let&apos;s do this!</p>
-<p>Note: Your code should currently look like the code in <code>Part4.elm</code>. You can either carry your code over from the last lesson, or start fresh with <code>Part4.elm</code>.</p>
+<p>Note: Your code should currently look like the code in <code>Part5.elm</code>. You can either carry your code over from the last lesson, or start fresh with <code>Part5.elm</code>.</p>
 <h2 id="goals">Goals</h2>
 <ul>
 <li>Use transformation functions to render dynamic HTML.</li>
@@ -364,6 +364,7 @@ hard code the selected key to <code>defaultKey</code>.</p>
 </code></pre>
 <p>Once you&apos;ve added that code to your <code>renderKey</code> function, you should have a working, if static, UI!</p>
 <h3 id="adding-user-actions">Adding User Actions</h3>
+<p>Note: Your code should currently look like the code in <code>Part6.elm</code>.</p>
 <p>Now that we&apos;ve updated the UI, we have to map our new user action to a message for our application to consume. Add the following line of code to your <code>renderKey</code> function, as an attribute to the element with a class of <code>.key-selector</code>:</p>
 <pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick (<span class="hljs-type">SetSelectedKey</span> emoji)
 </code></pre>
@@ -405,7 +406,7 @@ hard code the selected key to <code>defaultKey</code>.</p>
 <h3 id="changing-our-cipher">Changing our Cipher</h3>
 <p>And now, for the final step &#x2014; we need to change our translation key based on the value of <code>model.selectedKey</code>! When you&apos;re done, your application should work like this:</p>
 <p><img src="images/release-4-part-3.gif" alt="Release 4 part 3"></p>
-<p>You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out the working solution in <code>Part6.elm</code>.</p>
+<p>You definitely know enough Elm to figure this out for yourself. However, if you get stuck, check out the working solution in <code>Part8.elm</code>.</p>
 <p>And with that, you&apos;ve completed your first Elm application!</p>
 
                                 
@@ -450,7 +451,7 @@ hard code the selected key to <code>defaultKey</code>.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"next":{"title":"Deployment and Next Steps","level":"2.6","depth":1,"path":"Deployment and Next Steps.md","ref":"Deployment and Next Steps.md","articles":[]},"previous":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Choose Your Own Emoji.md","mtime":"2019-02-16T04:17:53.650Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T04:41:11.859Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"next":{"title":"Deployment and Next Steps","level":"2.6","depth":1,"path":"Deployment and Next Steps.md","ref":"Deployment and Next Steps.md","articles":[]},"previous":{"title":"Our First Full Feature","level":"2.4","depth":1,"path":"Our First Full Feature.md","ref":"Our First Full Feature.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Choose Your Own Emoji.md","mtime":"2019-02-16T10:17:08.177Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T10:18:02.536Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
