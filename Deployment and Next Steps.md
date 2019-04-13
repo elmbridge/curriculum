@@ -20,18 +20,19 @@ Deploying a static site on Forge is relatively simple. Just follow these steps:
    Run the following in your terminal:
 
    ```sh
-   elm make Main.elm
+   elm make Part1.elm
    ```
 
    If you got stuck along the way and want to deploy the finished product, feel free to use the code from `Part8.elm`
 
    ```sh
-   cp Part8.elm Main.elm
+   elm make Part8.elm
    ```
 
-   If you see `Successfully generated index.html`, then everything is ready to publish!
+   If you see a `Success` message, then everything is ready to publish! 
+   Elm has generated an `index.html` file from your elm file that contains the HTML and Javascript needed to render your app in a browser.
 
-3. **Compress your project's folder into a .zip file.** The exact directions depend on your operating system, but it should be relatively straightforward on all platforms.
+3. **Compress your project's folder into a .zip file.** The exact directions depend on your operating system, but it should be relatively straightforward on all platforms. You can skip all the elm files if you want. What you need is the `index.html` file and the stylesheets folder containing all the CSS.
 
 4. **Upload your new .zip file to Forge**. In a few seconds, your website should be ready.
 
