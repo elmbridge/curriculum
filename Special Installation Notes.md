@@ -13,7 +13,7 @@ I could not find executable 'node' or 'nodejs' on your computer though!
 
 You can install node.js from <http://nodejs.org/>. If it is already installed
 but has a different name, use the --interpreter flag.
----- Elm 0.19.0 ----------------------------------------------------------------
-Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
+---- Elm 0.19.1 ----------------------------------------------------------------
+Say :help for help and :exit to exit! More at <https://elm-lang.org/0.19.1/repl>
 --------------------------------------------------------------------------------
 ```

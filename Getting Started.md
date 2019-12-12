@@ -176,7 +176,7 @@ You may have noticed that all the types began with a capital letter (`String`, `
 > floor 1.3
 1 : Int
 > (floor 1.3) + 1.0
--- TYPE MISMATCH ----------------------------------------------------------- elm
+-- TYPE MISMATCH ---------------------------------------------------------- REPL
 
 I need both sides of (+) to be the exact same type. Both Int or both Float.
 
@@ -186,6 +186,6 @@ But I see an Int on the left and a Float on the right.
 
 Use toFloat on the left (or round on the right) to make both sides match!
 
-Note: Read <https://elm-lang.org/0.19.0/implicit-casts> to learn why Elm does
+Note: Read <https://elm-lang.org/0.19.1/implicit-casts> to learn why Elm does
 not implicitly convert Ints to Floats.
 ```
