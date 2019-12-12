@@ -39,8 +39,8 @@ elm repl
 If you see the following message, you are ready to go!
 
 ```
----- Elm 0.19.0 ----------------------------------------------------------------
-Read <https://elm-lang.org/0.19.0/repl> to learn more: exit, help, imports, etc.
+---- Elm 0.19.1 ----------------------------------------------------------------
+Say :help for help and :exit to exit! More at <https://elm-lang.org/0.19.1/repl>
 --------------------------------------------------------------------------------
 >
 ```
