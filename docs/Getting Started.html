@@ -379,19 +379,10 @@ Hint: Switch to the (++) operator to append strings!
 &quot;Apple -- Apricot -- Avocado&quot; : String
 </code></pre><h3 id="importing-modules">Importing Modules</h3>
 <p>If we want to use functions in a module that isn&apos;t available by default, we need to first import the module.</p>
-<pre><code>&gt; import Dict
-</code></pre><p>Functions in the <code>Dict</code> module are namespaced under <code>Dict</code>:</p>
-<pre><code>&gt; Dict.empty
-Dict.fromList [] : Dict.Dict k v
-&gt; d = Dict.fromList [(&quot;one&quot;, 1), (&quot;two&quot;, 2), (&quot;three&quot;, 3)]
-Dict.fromList [(&quot;one&quot;,1),(&quot;three&quot;,3),(&quot;two&quot;,2)]
-    : Dict.Dict String number
-&gt; Dict.keys d
-[&quot;one&quot;,&quot;three&quot;,&quot;two&quot;] : List String
-&gt; Dict.values d
-[1,3,2] : List number
-&gt; Dict.get &quot;three&quot; d
-Just 3 : Maybe number
+<pre><code>&gt; import Bitwise
+</code></pre><p>Functions in the <code>Bitwise</code> module are namespaced under <code>Bitwise</code>:</p>
+<pre><code>&gt; Bitwise.and 7 2
+2 : Int
 </code></pre><h3 id="defining-our-own-functions">Defining our own Functions</h3>
 <p>Now let&apos;s define and use our own functions.</p>
 <p>We saw types before when we entered numbers and Strings into the console; functions have types too!</p>
@@ -423,7 +414,7 @@ Just 3 : Maybe number
 &gt; floor 1.3
 1 : Int
 &gt; (floor 1.3) + 1.0
--- TYPE MISMATCH ----------------------------------------------------------- elm
+-- TYPE MISMATCH ---------------------------------------------------------- REPL
 
 I need both sides of (+) to be the exact same type. Both Int or both Float.
 
@@ -433,7 +424,7 @@ But I see an Int on the left and a Float on the right.
 
 Use toFloat on the left (or round on the right) to make both sides match!
 
-Note: Read &lt;https://elm-lang.org/0.19.0/implicit-casts&gt; to learn why Elm does
+Note: Read &lt;https://elm-lang.org/0.19.1/implicit-casts&gt; to learn why Elm does
 not implicitly convert Ints to Floats.
 </code></pre>
                                 
@@ -478,7 +469,7 @@ not implicitly convert Ints to Floats.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2018-12-15T05:30:05.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-02-16T10:18:02.536Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Getting Started","level":"1.3","depth":1,"next":{"title":"The Basic Building Blocks of Elm","level":"1.4","depth":1,"path":"The Basic Building Blocks of Elm.md","ref":"The Basic Building Blocks of Elm.md","articles":[]},"previous":{"title":"Intermission: Why Elm?","level":"1.2","depth":1,"path":"Why Elm.md","ref":"Why Elm.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Getting Started.md","mtime":"2019-12-14T17:51:35.629Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-12-14T17:52:35.695Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
