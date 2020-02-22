@@ -311,7 +311,7 @@
 <li>Write Elm view code using HTML as a template.</li>
 <li>Add a new message for your application to consume.</li>
 <li>Extend a type alias and fix subsequent compiler errors.</li>
-<li>Use union types to store information in more literate ways.</li>
+<li>Use custom types to store information in more literate ways.</li>
 </ul>
 <h2 id="steps">Steps</h2>
 <h3 id="adding-user-interfaces">Adding User Interfaces</h3>
@@ -339,14 +339,14 @@
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
     = <span class="hljs-type">SetCurrentText</span> <span class="hljs-type">String</span>
 </code></pre>
-<p>This is a <strong>union type declaration</strong>. It defines a new type that we can use in our program, along with all its possible <strong>values</strong>. Specifically, the above code defines the <code>Msg</code> type, and declares that it has exactly one possible value &#x2013; <code>SetCurrentText String</code>, which is triggered whenever the user inputs text into the translation box.</p>
-<p>Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like <code>String</code> or <code>List</code>, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:</p>
+<p>This is a <strong>custom type declaration</strong>. It defines a new type that we can use in our program, along with all its possible <strong>values</strong>. Specifically, the above code defines the <code>Msg</code> type, and declares that it has exactly one possible value &#x2013; <code>SetCurrentText String</code>, which is triggered whenever the user inputs text into the translation box.</p>
+<p>Even though custom types and values look similar, they operate in different parts of our program. A custom type is just another type, like <code>String</code> or <code>List</code>, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:</p>
 <p>We can use the <code>case pet of</code> syntax to <strong>Pattern Match</strong> to branch our code based on which <strong>value</strong> of the <strong>type</strong> we receive.</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Pet</span> = <span class="hljs-type">Cat</span> | <span class="hljs-type">Dog</span> | <span class="hljs-type">Rabbit</span> | <span class="hljs-type">Turtle</span>
-<span class="hljs-comment">-- this defines the union type `Pet` with four possible values</span>
+<span class="hljs-comment">-- this defines the custom type `Pet` with four possible values</span>
 
 <span class="hljs-title">makeSound</span> : <span class="hljs-type">Pet</span> -&gt; <span class="hljs-type">String</span>
-<span class="hljs-comment">-- union types, like `Pet`, can only be used in type signatures.</span>
+<span class="hljs-comment">-- custom types, like `Pet`, can only be used in type signatures.</span>
 <span class="hljs-title">makeSound</span> pet =
     <span class="hljs-comment">-- values like `Cat` and `Dog` can&apos;t be used in type signatures,</span>
     <span class="hljs-comment">-- but they can be used inside functions.</span>
@@ -365,7 +365,7 @@
 <span class="hljs-type">SetCurrentText</span> <span class="hljs-number">12345</span>
 <span class="hljs-type">SetCurrentText</span> <span class="hljs-string">&quot;string one&quot;</span> <span class="hljs-string">&quot;string two&quot;</span>
 </code></pre>
-<p>Back to the task at hand: in order for the user to toggle between translation modes, we need a new message to our system. Let&apos;s add another possible value to our <code>Msg</code> union type declaration:</p>
+<p>Back to the task at hand: in order for the user to toggle between translation modes, we need a new message to our system. Let&apos;s add another possible value to our <code>Msg</code> custom type declaration:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Msg</span>
     = <span class="hljs-type">SetCurrentText</span> <span class="hljs-type">String</span>
     | <span class="hljs-type">ToggleDirection</span>
@@ -403,7 +403,7 @@ Add a branch to cover this pattern!
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-keyword">alias</span> <span class="hljs-type">Model</span> =
     { currentText : <span class="hljs-type">String</span> }
 </code></pre>
-<p>The code above declares that <code>Model</code> is a <strong>type alias</strong> for a specific record structure. A type alias works a lot like a union type declaration &#x2014; it also produces a new type that we can use in our program. In this case, the <code>Model</code> type is just another name for &quot;a record with a single field called <code>currentText</code>.&quot;</p>
+<p>The code above declares that <code>Model</code> is a <strong>type alias</strong> for a specific record structure. A type alias works a lot like a custom type declaration &#x2014; it also produces a new type that we can use in our program. In this case, the <code>Model</code> type is just another name for &quot;a record with a single field called <code>currentText</code>.&quot;</p>
 <p>Type aliases are helpful for making type signatures simple and readable. For example, you can see that <code>Model</code> is used in the type signature for <code>init</code>:</p>
 <pre><code class="lang-elm"><span class="hljs-title">init</span> : <span class="hljs-type">Model</span>
 <span class="hljs-title">init</span> =
@@ -421,7 +421,7 @@ Add a branch to cover this pattern!
     }
 </code></pre>
 <p>But wait, what <em>is</em> direction? In other languages, we might describe the current direction as a string, with possible values &quot;emoji-to-text&quot; and &quot;text-to-emoji&quot;. We could also model it as a boolean value, perhaps renaming it <code>translatingTextToEmoji</code>.</p>
-<p>In Elm, we have a more powerful tool at our disposal: union types! We can create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant.</p>
+<p>In Elm, we have a more powerful tool at our disposal: custom types! We can create a custom type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant.</p>
 <p>Let&apos;s create a custom <code>Direction</code> type with two possible values:</p>
 <pre><code class="lang-elm"><span class="hljs-keyword">type</span> <span class="hljs-type">Direction</span>
     = <span class="hljs-type">TextToEmoji</span>
@@ -504,7 +504,7 @@ Add a branch to cover this pattern!
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Our First Full Feature","level":"2.4","depth":1,"next":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"path":"Choose Your Own Emoji.md","ref":"Choose Your Own Emoji.md","articles":[]},"previous":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Our First Full Feature.md","mtime":"2020-02-22T13:51:04.046Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T13:55:18.608Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Our First Full Feature","level":"2.4","depth":1,"next":{"title":"Choose Your Own Emoji","level":"2.5","depth":1,"path":"Choose Your Own Emoji.md","ref":"Choose Your Own Emoji.md","articles":[]},"previous":{"title":"Emojification!!!","level":"2.3","depth":1,"path":"Emojification.md","ref":"Emojification.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Our First Full Feature.md","mtime":"2020-02-22T14:09:09.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T14:11:26.971Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

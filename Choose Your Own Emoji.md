@@ -100,7 +100,7 @@ Html.Events.onClick (SetSelectedKey emoji)
 
 When this element is clicked, a `Msg` of `SetSelectedKey String` will be triggered, which will eventually be consumed by our application.
 
-Like `SetCurrentText String`, `SetSelectedKey String` is a **tagged value**. In effect, we are saying that `SetCurrentText` and `SetSelectedKey` are only valid values of the `Msg` union type if they are accompanied by a string.
+Like `SetCurrentText String`, `SetSelectedKey String` is a **tagged value**. In effect, we are saying that `SetCurrentText` and `SetSelectedKey` are only valid values of the `Msg` custom type if they are accompanied by a string.
 
 Tagged values are helpful for modeling systems with uneven information requirements. For instance, if we were modeling a coffee shop, we might structure our data like this:
 
@@ -119,7 +119,7 @@ type DrinkOrder
   | ColdBrew
 ```
 
-Apparently, there's a lot of complexity bundled up in our drink orders! In some cases, we need to know what kind of milk the customer wants. In other cases, we need to know information specific to only one kind of drink. The above data model accounts for that complexity by using tagged values — a `HotChocolate` is only a valid `DrinkOrder` if it is accompanied by a `Milk` selection, and a `BlackCoffee` relies on another union type to determine the customer's preferred brewing strategy.
+Apparently, there's a lot of complexity bundled up in our drink orders! In some cases, we need to know what kind of milk the customer wants. In other cases, we need to know information specific to only one kind of drink. The above data model accounts for that complexity by using tagged values — a `HotChocolate` is only a valid `DrinkOrder` if it is accompanied by a `Milk` selection, and a `BlackCoffee` relies on another custom type to determine the customer's preferred brewing strategy.
 
 We could have also modeled this problem with a record, but the data would have likely been harder to follow. What would the `.milk` field on that record mean, if the customer wanted black coffee? Why would we need a `.numberOfEspressoShots` in order to make a hot chocolate?
 

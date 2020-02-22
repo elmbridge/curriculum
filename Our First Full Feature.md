@@ -14,7 +14,7 @@ Note: Your code should currently look like the code in `Part3.elm`.
   - Write Elm view code using HTML as a template.
   - Add a new message for your application to consume.
   - Extend a type alias and fix subsequent compiler errors.
-  - Use union types to store information in more literate ways.
+  - Use custom types to store information in more literate ways.
 
 ## Steps
 
@@ -54,19 +54,19 @@ type Msg
     = SetCurrentText String
 ```
 
-This is a **union type declaration**. It defines a new type that we can use in our program, along with all its possible **values**. Specifically, the above code defines the `Msg` type, and declares that it has exactly one possible value – `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
+This is a **custom type declaration**. It defines a new type that we can use in our program, along with all its possible **values**. Specifically, the above code defines the `Msg` type, and declares that it has exactly one possible value – `SetCurrentText String`, which is triggered whenever the user inputs text into the translation box.
 
-Even though union types and values look similar, they operate in different parts of our program. A union type is just another type, like `String` or `List`, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:
+Even though custom types and values look similar, they operate in different parts of our program. A custom type is just another type, like `String` or `List`, which we can use in our type signatures. Values, on the other hand, can only be used in our implementation code. For instance:
 
 We can use the `case pet of` syntax to **Pattern Match** to branch our code based on which **value** of the **type** we receive.
 
 
 ```elm
 type Pet = Cat | Dog | Rabbit | Turtle
--- this defines the union type `Pet` with four possible values
+-- this defines the custom type `Pet` with four possible values
 
 makeSound : Pet -> String
--- union types, like `Pet`, can only be used in type signatures.
+-- custom types, like `Pet`, can only be used in type signatures.
 makeSound pet =
     -- values like `Cat` and `Dog` can't be used in type signatures,
     -- but they can be used inside functions.
@@ -89,7 +89,7 @@ SetCurrentText 12345
 SetCurrentText "string one" "string two"
 ```
 
-Back to the task at hand: in order for the user to toggle between translation modes, we need a new message to our system. Let's add another possible value to our `Msg` union type declaration:
+Back to the task at hand: in order for the user to toggle between translation modes, we need a new message to our system. Let's add another possible value to our `Msg` custom type declaration:
 
 ```elm
 type Msg
@@ -150,7 +150,7 @@ type alias Model =
     { currentText : String }
 ```
 
-The code above declares that `Model` is a **type alias** for a specific record structure. A type alias works a lot like a union type declaration — it also produces a new type that we can use in our program. In this case, the `Model` type is just another name for "a record with a single field called `currentText`."
+The code above declares that `Model` is a **type alias** for a specific record structure. A type alias works a lot like a custom type declaration — it also produces a new type that we can use in our program. In this case, the `Model` type is just another name for "a record with a single field called `currentText`."
 
 Type aliases are helpful for making type signatures simple and readable. For example, you can see that `Model` is used in the type signature for `init`:
 
@@ -179,7 +179,7 @@ type alias Model =
 
 But wait, what *is* direction? In other languages, we might describe the current direction as a string, with possible values "emoji-to-text" and "text-to-emoji". We could also model it as a boolean value, perhaps renaming it `translatingTextToEmoji`.
 
-In Elm, we have a more powerful tool at our disposal: union types! We can create a union type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant.
+In Elm, we have a more powerful tool at our disposal: custom types! We can create a custom type that enumerates all possible values for a direction, which keeps the code readable and fault tolerant.
 
 Let's create a custom `Direction` type with two possible values:
 

@@ -179,12 +179,12 @@ and later on in the `update` function's type signature:
 update : Msg -> Model -> Model
 ```
 
-This is an example of a **union type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares two things (reading from that type signature first):
+This is an example of a **custom type** declaration in Elm. We'll go further into the details in a future lesson, but for right now, you can think of this as a way to model `messages` in our application. The above code declares two things (reading from that type signature first):
 
 * the `update` function takes two arguments, the first is a `Msg`, and the second is a `Model`.
-* any value that is of `Msg` type will be exactly one of the values specified in the `type` definition (in this case, there is only one acceptable value which is `ChangeText`.) If we wanted to add another possible value for `message`, we would have to change this declaration of the union type `Msg` to include the new possibility.
+* any value that is of `Msg` type will be exactly one of the values specified in the `type` definition (in this case, there is only one acceptable value which is `ChangeText`.) If we wanted to add another possible value for `message`, we would have to change this declaration of the custom type `Msg` to include the new possibility.
 
-Elm doesn't force us to use a union type called `Msg` for `messages` — we could just as easily model `messages` as strings, numbers, or records. It is convention, however, to model data using union types whenever appropriate. Don't worry if you are somewhat lost — union types are one of the more difficult concepts to learn as a beginner to Elm, and it's fine for now if they are simply magic words you know you can recite.
+Elm doesn't force us to use a custom type called `Msg` for `messages` — we could just as easily model `messages` as strings, numbers, or records. It is convention, however, to model data using custom types whenever appropriate. Don't worry if you are somewhat lost — custom types are one of the more difficult concepts to learn as a beginner to Elm, and it's fine for now if they are simply magic words you know you can recite.
 
 To review one more time, a `Browser.sandbox` needs:
   * An initial version of our model (`init : Model`)
