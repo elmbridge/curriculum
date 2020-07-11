@@ -65,7 +65,7 @@ renderKeys =
 
 It's worth taking a moment to explain what `List.map` is doing. Much like `Array.prototype.map` in JavaScript, `List.map` takes a function and a list, calling the function on each element on the list and returning a list of the produced values. The `(\... -> ...)` syntax is how you define an **anonymous function** in Elm.
 
-If you want to learn more, the `List` module is thoroughly documented on [package.elm-lang.org](http://package.elm-lang.org/packages/elm-lang/core/latest/List). The site is a great resource if you want to learn more about the public API for available Elm packages and core modules.
+If you want to learn more, the `List` module is thoroughly documented on [package.elm-lang.org](https://package.elm-lang.org/packages/elm/core/latest/List). The site is a great resource if you want to learn more about the public API for available Elm packages and core modules.
 
 Now, it's your turn! Add the new markup to `view`, with the `renderKeys` and `renderKey` helper functions.
 

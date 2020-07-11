@@ -84,7 +84,7 @@ Hint: Switch to the (++) operator to append strings!
 
 To call a function in Elm, you simply type the name of the function and any parameters you want to pass, separated by spaces.  No parentheses or commas are necessary.
 
-Here are some of the functions that are available by default in Elm: `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](http://package.elm-lang.org/packages/elm-lang/core/latest/Basics).
+Here are some of the functions that are available by default in Elm: `max`, `min`, `sqrt`, `round`, `floor`.  These are defined in the `Basics` module, which is always imported for you. You can read more about these and other functions in [its documentation](https://package.elm-lang.org/packages/elm/core/latest/Basics).
 
 ```
 > max 9 1
@@ -102,7 +102,7 @@ To disambiguate order of operations, use parentheses.
 
 ### The String Module
 
-Let's use some functions from the [`String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String), which is one of the modules imported by default.
+Let's use some functions from the [`String` module](https://package.elm-lang.org/packages/elm/core/latest/String), which is one of the modules imported by default.
 
 Any function we want to use is namespaced under `String`:
 
