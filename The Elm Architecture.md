@@ -198,7 +198,7 @@ sandbox :
   { init: model
   , view : model -> Html msg
   , update : msg -> model -> model
-  } -> Program Never
+  } -> Program () model msg
 ```
 
 Now that we're done touring the basics of the Elm triad, let's get building!
