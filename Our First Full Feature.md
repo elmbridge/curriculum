@@ -70,9 +70,9 @@ makeSound : Pet -> String
 makeSound pet =
     -- values like `Cat` and `Dog` can't be used in type signatures,
     -- but they can be used inside functions.
-    if pet == Cat
+    if pet == Cat then
         "meow"
-    else if pet == Dog
+    else if pet == Dog then
         "woof"
     else
         "..silence.."

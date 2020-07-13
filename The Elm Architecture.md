@@ -132,7 +132,7 @@ Html.Events.onClick ChangeText
 
 This line of code is key to our application — it maps a potential user action to a `message` that can cause our application to change. In this case, clicking on our div causes the `ChangeText` message to be sent.
 
-There are lots of potential user actions defined in the [`Html.Events`](http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events) module — as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don't map these user actions to a `message`, however, they will be ignored by your application.
+There are lots of potential user actions defined in the [`Html.Events`](https://package.elm-lang.org/packages/elm/html/latest/Html-Events) module — as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don't map these user actions to a `message`, however, they will be ignored by your application.
 
 
 ### On the Application Model
@@ -198,7 +198,7 @@ sandbox :
   { init: model
   , view : model -> Html msg
   , update : msg -> model -> model
-  } -> Program Never
+  } -> Program () model msg
 ```
 
 Now that we're done touring the basics of the Elm triad, let's get building!

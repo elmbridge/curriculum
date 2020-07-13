@@ -46,7 +46,7 @@ You'll notice that this assertion is currently failing in your browser. Your job
 You should have enough to get started! A few tips:
 
 - Remember, the `++` operator is used to add strings together.
-- If you want to transform a string in some way, you should use [the `String` module](http://package.elm-lang.org/packages/elm-lang/core/latest/String) to do so. For instance, if you wanted to get the last letter of a string, you might use the `String.right` function like this:
+- If you want to transform a string in some way, you should use [the `String` module](https://package.elm-lang.org/packages/elm/core/latest/String) to do so. For instance, if you wanted to get the last letter of a string, you might use the `String.right` function like this:
 
 ```elm
 String.right 1 someStringVariable
@@ -86,7 +86,7 @@ In Elm, you can use a **List** to store a collection of elements. Unlike dynamic
 For this step, you should complete all the `List` assertions. Some tips:
 
 - In another language, you might solve these assertions by creating an empty list, and incrementally adding things to it as you iterate over the passed-in list. That's not possible in Elm — once you've declared a variable in Elm, you can never change it. You will have to use more complicated `List` functions, like `List.map`.
-- Most common functions that operate on lists live in [the `List` module](http://package.elm-lang.org/packages/elm-lang/core/latest/List). The order of arguments to these functions may be disorienting — in functional programming languages, the convention is to have the data you are operating on be the *last* argument to a function, not the first.
+- Most common functions that operate on lists live in [the `List` module](https://package.elm-lang.org/packages/elm/core/latest/List). The order of arguments to these functions may be disorienting — in functional programming languages, the convention is to have the data you are operating on be the *last* argument to a function, not the first.
 - Many of these functions consume a function. To use them, you can use an anonymous function, like this:
 
 ```elm
