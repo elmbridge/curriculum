@@ -311,7 +311,7 @@
 </ul>
 <h2 id="steps">Steps</h2>
 <h3 id="the-development-environment">The Development Environment</h3>
-<p>Download the skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-7" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-7</a>, navigate to the downloaded folder in your terminal, and run the following command:</p>
+<p>Download the skeleton app here: <a href="https://github.com/elmbridge/elmoji-translator/releases/tag/release-8" target="_blank">https://github.com/elmbridge/elmoji-translator/releases/tag/release-8</a>, navigate to the downloaded folder in your terminal, and run the following command:</p>
 <pre><code class="lang-sh">elm make HelloWorld.elm
 </code></pre>
 <p><code>elm make</code> <strong>compiles</strong> your application &#x2014; it turns your Elm code into JavaScript code that your browser can understand. The above command uses the <code>main</code> function in <code>HelloWorld.elm</code> as the <strong>entry point</strong> to your application. It compiles that file, along with any files it references, and creates <code>index.html</code>, which is a simple HTML page that includes all the compiled JavaScript for your application.  (It&apos;s also possible to compile into a JavaScript file if you want to use your own HTML file.)</p>
@@ -385,7 +385,7 @@
 <pre><code class="lang-elm"><span class="hljs-type">Html</span>.<span class="hljs-type">Events</span>.onClick <span class="hljs-type">ChangeText</span>
 </code></pre>
 <p>This line of code is key to our application &#x2014; it maps a potential user action to a <code>message</code> that can cause our application to change. In this case, clicking on our div causes the <code>ChangeText</code> message to be sent.</p>
-<p>There are lots of potential user actions defined in the <a href="http://package.elm-lang.org/packages/elm-lang/html/latest/Html-Events" target="_blank"><code>Html.Events</code></a> module &#x2014; as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don&apos;t map these user actions to a <code>message</code>, however, they will be ignored by your application.</p>
+<p>There are lots of potential user actions defined in the <a href="https://package.elm-lang.org/packages/elm/html/latest/Html-Events" target="_blank"><code>Html.Events</code></a> module &#x2014; as with JavaScript, you can track when a user clicks an element, presses a key, or submits a form. If you don&apos;t map these user actions to a <code>message</code>, however, they will be ignored by your application.</p>
 <h3 id="on-the-application-model">On the Application Model</h3>
 <p>Let&apos;s return to the question of change we saved for later when we were looking at <code>init</code>: What does it mean when we say <code>model</code> changes? Let&apos;s take another look at our diagram:</p>
 <p><img src="images/elm-architecture-4.jpeg" alt="The Elm Architecture"></p>
@@ -431,7 +431,7 @@
   { init: model
   , view : model -&gt; <span class="hljs-type">Html</span> msg
   , update : msg -&gt; model -&gt; model
-  } -&gt; <span class="hljs-type">Program</span> <span class="hljs-type">Never</span>
+  } -&gt; <span class="hljs-type">Program</span> () model msg
 </code></pre>
 <p>Now that we&apos;re done touring the basics of the Elm triad, let&apos;s get building!</p>
 
@@ -477,7 +477,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"The Elm Architecture","level":"2.1","depth":1,"next":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"previous":{"title":"Special Installation Notes","level":"1.6","depth":1,"path":"Special Installation Notes.md","ref":"Special Installation Notes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Elm Architecture.md","mtime":"2020-02-22T14:09:09.426Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-22T14:11:26.971Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"The Elm Architecture","level":"2.1","depth":1,"next":{"title":"Making It Dynamic","level":"2.2","depth":1,"path":"Making It Dynamic.md","ref":"Making It Dynamic.md","articles":[]},"previous":{"title":"Special Installation Notes","level":"1.6","depth":1,"path":"Special Installation Notes.md","ref":"Special Installation Notes.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"Introduction.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"The Elm Architecture.md","mtime":"2020-11-21T12:26:52.902Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-11-21T12:51:59.964Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
