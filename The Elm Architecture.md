@@ -13,7 +13,7 @@ In this lesson, we'll run a simple Elm application and learn how it all fits tog
 
 ### The Development Environment
 
-Download the skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-7](https://github.com/elmbridge/elmoji-translator/releases/tag/release-7), navigate to the downloaded folder in your terminal, and run the following command:
+Download the skeleton app here: [https://github.com/elmbridge/elmoji-translator/releases/tag/release-8](https://github.com/elmbridge/elmoji-translator/releases/tag/release-8), navigate to the downloaded folder in your terminal, and run the following command:
 
 ```sh
 elm make HelloWorld.elm
